@@ -1,8 +1,33 @@
-# 0.8.2 候选进度
+# 0.8.6 进度
+
+2026-11-06。以工作区的 0.8.5 候选为基础修复病床选取和八台设备。现有 22 件候选医疗摆件随本次正式版交付。验证情况见 [VALIDATION](VALIDATION.md)，客户端复验项见 [KNOWN_ISSUES](KNOWN_ISSUES.md)。
+
+`0.8.6-release.1` 已通过构建、270 项自动测试、1,873,342 项静态检查及归档校验。新增的正反面离线预览收录于 [ASSETS](ASSETS.md)。发行附件为组合包、两个独立包、源码 ZIP 和 SHA256SUMS。对应 [v0.8.6 发行页](https://github.com/Cimk3/A-Bite-of-Time/releases/tag/v0.8.6)。
+
+---
+
+## 0.8.5 候选进度（历史）
+
+核实日期：2026-11-06。公开版仍为0.8.2（提交 `fa0ed4b`）。当前0.8.5为未发布候选，基于已捕获的 `v0.8.4-nonvehicle` 兼容fixture；历史fixture不覆盖。未发布的0.8.3／0.8.4车辆内容已从源代码、脚本、测试、概念图和候选附件删除；用户未跟踪的 `imgSrc/` 保留。
+
+## 本轮实现
+
+- 新增22件创造模式静态医疗设备：影像设备6、检验分析仪7、ICU床／大型监护仪／六联注射泵3、AuraMed与NovaCare两品牌ECMO／呼吸机／CRRT共6。
+- 新品追加至医疗器械创造组、医疗发放命令、`tasting_new`和桌面展示索引；DecorRecord v1及旧内容标识保持。
+- CT、CTA、DSA按草图占2×3格，病床占1×2格；修正多格占地高度检查，模型按对应支撑格居中。
+- 七张批准草图及提示词归档于 `assets/concepts/085/`，建模源位于 `tools/patch-085-art.mjs`。
+- README保持为稳定使用入口，不包含版本更新介绍。
+
+## 验证与交付状态
+
+`npm run build` 已完成，之后直接运行 `node tools/package.mjs` 生成 `0.8.5-candidate.1` 配对BP／RP、组合 `.mcaddon`、源码ZIP和SHA256SUMS。文件位于 `dist/`。SHA256SUMS由打包器生成，未做独立摘要比对或归档校验。
+
+本轮按用户要求未运行自动测试、`tools/validate.mjs`、独立资源检查或 `tools/verify_archive.py`；也未进行Minecraft客户端、安卓、旧世界、官方灵动视效、联机或性能实测。候选由用户自行实机验证；离线预览不能替代游戏画面。详见[验证记录](VALIDATION.md)和[问题记录](KNOWN_ISSUES.md)。
+## 0.8.2 发行进度
 
 2026-11-05。17 件新品按批准草图实现并追加到现有分组及发放命令。0.8.1 兼容基线已捕获，包括 5717 个旧模型、贴图与内容定义哈希。候选批次为 0.8.2-rc.1。
 
-最终候选按用户要求仅构建和打包，验证状态见 [VALIDATION](VALIDATION.md)。Windows 实机由用户自行完成，步骤见 [ACCEPTANCE_0.8.2](ACCEPTANCE_0.8.2.md)。公开发布等待该批实机结果，0.8.1 继续作为当前正式版。
+最终候选按用户要求仅构建和打包。用户自行试用并确认可以发布，未补跑验证。已以提交 `fa0ed4b` 发布 [v0.8.2](https://github.com/Cimk3/A-Bite-of-Time/releases/tag/v0.8.2)，五项附件沿用已交付字节，服务端 SHA256 已核对。完整分项实机记录未提供。
 
 ---
 

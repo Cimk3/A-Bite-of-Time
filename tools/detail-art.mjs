@@ -355,20 +355,24 @@ export function renderDetail(source,textures,width=128,height=128,{worldScale,fr
   }
   const all=faces.flatMap(f=>f.points),minX=Math.min(...all.map(p=>p[0])),maxX=Math.max(...all.map(p=>p[0])),minY=Math.min(...all.map(p=>p[1])),maxY=Math.max(...all.map(p=>p[1]));
   const scale=worldScale??Math.min((width-8)/(maxX-minX||1),(height-8)/(maxY-minY||1));
-  const ox=width/2-(minX+maxX)*scale/2,oy=worldScale?height*.83:(height-(maxY-minY)*scale)/2-minY*scale;
+  const ox=width/2-(minX+maxX)*scale/2;
+  const oy=worldScale?height*.83:(height-(maxY-minY)*scale)/2-minY*scale;
   for(const face of faces){
     if(!face.texture)throw new Error('Missing preview material');
     const [u,v]=face.uv.uv,[du,dv]=face.uv.uv_size;
     let uvs=face.name==='north'||face.name==='south'?[[u+du,v+dv],[u+du,v],[u,v],[u,v+dv]]:[[u,v+dv],[u,v],[u+du,v],[u+du,v+dv]];
     if(projection==='entity-front'&&(face.name==='north'||face.name==='south'))uvs=uvs.map(([x,y])=>[2*u+du-x,y]);
-    const points=face.points.map(([x,y,z],i)=>[x*scale+ox,y*scale+oy,z,...uvs[i]]);
-    for(const tri of[[0,1,2],[0,2,3]]){
+    let points=face.points.map((p,i)=>[...p,...uvs[i]]);
+    points=points.map(([x,y,z,u,v])=>[x*scale+ox,y*scale+oy,z,u,v]);
+    for(let corner=1;corner+1<points.length;corner++){
+      const tri=[0,corner,corner+1];
       const[a,b,c]=tri.map(i=>points[i]),den=(b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1]);if(Math.abs(den)<.00001)continue;
       for(let yy=Math.max(0,Math.floor(Math.min(a[1],b[1],c[1])));yy<=Math.min(height-1,Math.ceil(Math.max(a[1],b[1],c[1])));yy++)for(let xx=Math.max(0,Math.floor(Math.min(a[0],b[0],c[0])));xx<=Math.min(width-1,Math.ceil(Math.max(a[0],b[0],c[0])));xx++){
         const px=xx+.5,py=yy+.5,wa=((b[1]-c[1])*(px-c[0])+(c[0]-b[0])*(py-c[1]))/den,wb=((c[1]-a[1])*(px-c[0])+(a[0]-c[0])*(py-c[1]))/den,wc=1-wa-wb;
         if(wa<-.0001||wb<-.0001||wc<-.0001)continue;
         const z=wa*a[2]+wb*b[2]+wc*c[2],index=yy*width+xx;if(z<depth[index])continue;
-        const tx=Math.max(0,Math.min(face.texture.width-1,Math.floor(wa*a[3]+wb*b[3]+wc*c[3]))),ty=Math.max(0,Math.min(face.texture.height-1,Math.floor(wa*a[4]+wb*b[4]+wc*c[4]))),at=(ty*face.texture.width+tx)*4;
+        const factor=1;
+        const tx=Math.max(0,Math.min(face.texture.width-1,Math.floor((wa*a[3]+wb*b[3]+wc*c[3])/factor))),ty=Math.max(0,Math.min(face.texture.height-1,Math.floor((wa*a[4]+wb*b[4]+wc*c[4])/factor))),at=(ty*face.texture.width+tx)*4;
         if(!face.texture.pixels[at+3])continue;depth[index]=z;
         target.data.set([0,1,2].map(i=>Math.round(face.texture.pixels[at+i]*face.shade)).concat(255),index*4);
       }

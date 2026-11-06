@@ -1,7 +1,7 @@
 {
   "advertisements": 23,
   "advertisementSizes": 69,
-  "surfaceDefinitions": 609,
+  "surfaceDefinitions": 631,
   "trayFoods": 70,
   "trayCubes": 65,
   "maxMiniCubes": 39,
@@ -3053,6 +3053,116 @@
       "resolution": 128
     },
     {
+      "key": "surface_icu_ct_scanner",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_cta_station",
+      "cubes": 32,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_dsa_angiography",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_b_mode_ultrasound",
+      "cubes": 32,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_color_doppler_ultrasound",
+      "cubes": 43,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_ecg_cart",
+      "cubes": 41,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_cbc_analyzer",
+      "cubes": 20,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_urinalysis_analyzer",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_liver_chemistry_analyzer",
+      "cubes": 18,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_renal_chemistry_analyzer",
+      "cubes": 15,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_lipid_panel_analyzer",
+      "cubes": 16,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_crp_analyzer",
+      "cubes": 19,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_cardiac_marker_analyzer",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_bed",
+      "cubes": 70,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_large_patient_monitor",
+      "cubes": 44,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_six_channel_syringe_pump",
+      "cubes": 165,
+      "resolution": 128
+    },
+    {
+      "key": "surface_auramed_ecmo",
+      "cubes": 86,
+      "resolution": 128
+    },
+    {
+      "key": "surface_auramed_ventilator",
+      "cubes": 71,
+      "resolution": 128
+    },
+    {
+      "key": "surface_auramed_crrt",
+      "cubes": 98,
+      "resolution": 128
+    },
+    {
+      "key": "surface_novacare_ecmo",
+      "cubes": 105,
+      "resolution": 128
+    },
+    {
+      "key": "surface_novacare_ventilator",
+      "cubes": 73,
+      "resolution": 128
+    },
+    {
+      "key": "surface_novacare_crrt",
+      "cubes": 116,
+      "resolution": 128
+    },
+    {
       "key": "mini_kung_pao_chicken",
       "cubes": 31,
       "resolution": 128
@@ -3894,5 +4004,5 @@
     }
   ],
   "entityTypes": 5,
-  "entityTextureSets": 436
+  "entityTextureSets": 458
 }

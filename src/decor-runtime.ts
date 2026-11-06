@@ -1,4 +1,5 @@
 import {patch082ById} from './patch-082-catalog.js';
+import {patch085ById,patch085MultiGrid} from './patch-085-catalog.js';
 import {patch080ById,ceilingDisplayKey} from './patch-080-catalog.js';
 import {patch074ById} from './patch-074-catalog.js';
 import {patch073ById} from './patch-073-catalog.js';
@@ -46,6 +47,7 @@ function rememberRecord(r:DecorRecord):void {
   for(const key of keys){let owners=occupancy.get(key);if(!owners)occupancy.set(key,owners=new Set());owners.add(r.uid);}
 }
 const yaw:Record<string,number>={north:0,east:-90,south:180,west:90};
+const directionByFacing:Record<number,string>={1:'north',2:'east',3:'south',4:'west'};
 const normals:Record<string,Vector3>={north:{x:0,y:0,z:-1},south:{x:0,y:0,z:1},east:{x:1,y:0,z:0},west:{x:-1,y:0,z:0}};
 const rights:Record<string,Vector3>={north:{x:-1,y:0,z:0},south:{x:1,y:0,z:0},east:{x:0,y:0,z:1},west:{x:0,y:0,z:-1}};
 const add=(a:Vector3,b:Vector3,n=1):Vector3=>({x:a.x+b.x*n,y:a.y+b.y*n,z:a.z+b.z*n});
@@ -57,6 +59,22 @@ const safeBlock=(r:DecorRecord,p=r.support):Block|undefined=>{try{return dim(r).
 const empty=(b:Block|undefined)=>b?.typeId==='minecraft:air';
 const isCreative=(p:Player)=>p.getGameMode()===GameMode.Creative;
 const recordForSupport=(dimension:string,p:Vector3)=>[...records.values()].find(r=>!isPanel(r)&&!r.mount&&r.dimension===dimension&&same(r.support,p));
+function multiSupports(r:DecorRecord):Vector3[]{
+  const spec=patch085MultiGrid.get(r.definition),right=rights[r.direction],normal=normals[r.direction];if(!spec||!right||!normal)return [];
+  const back={x:-normal.x,y:0,z:-normal.z},cells:Vector3[]=[];
+  for(let row=0;row<spec.footprint!.depth;row++)for(let col=0;col<spec.footprint!.width;col++)cells.push(add(add(r.support,right,col),back,row));
+  return cells;
+}
+function recordAtSurfaceSupport(dimension:string,p:Vector3):DecorRecord|undefined{
+  const cell=cellKey(dimension,add(p,{x:0,y:1,z:0}));
+  for(const uid of occupancy.get(cell)??[]){const r=records.get(uid);if(r&&patch085MultiGrid.has(r.definition)&&r.dimension===dimension&&multiSupports(r).some(s=>same(s,p)))return r;}
+  return recordForSupport(dimension,p);
+}
+function surfaceCenter(r:DecorRecord,height=surfaceHeight(safeBlock(r))):Vector3{
+  const spec=patch085MultiGrid.get(r.definition),right=rights[r.direction],normal=normals[r.direction];
+  if(spec&&right&&normal){const dx=right.x*(spec.footprint!.width-1)/2-normal.x*(spec.footprint!.depth-1)/2,dz=right.z*(spec.footprint!.width-1)/2-normal.z*(spec.footprint!.depth-1)/2;return{x:r.support.x+.5+dx,y:r.support.y+height,z:r.support.z+.5+dz};}
+  return{x:r.support.x+.5,y:r.support.y+height,z:r.support.z+.5};
+}
 const storageKey=(r:DecorRecord)=>PREFIX+r.uid;
 function save(r:DecorRecord):void {world.setDynamicProperty(storageKey(r),JSON.stringify(r));rememberRecord(r);}
 function unique():string {const n=Number(world.getDynamicProperty('mcpe_food:decor_serial')??0)+1;world.setDynamicProperty('mcpe_food:decor_serial',n);return `d${n}`;}
@@ -67,6 +85,13 @@ function near(p:Player,r:DecorRecord):boolean {
     const d={x:p.location.x-r.support.x-.5,y:p.location.y-r.support.y,z:p.location.z-r.support.z-.5};
     const horizontal=d.x*right.x+d.z*right.z,vertical=d.y,depth=d.x*normal.x+d.z*normal.z;
     return Math.hypot(Math.max(-.5-horizontal,0,horizontal-(w-.5)),Math.max(-vertical,0,vertical-h),depth)<7;
+  }
+  const spec=patch085MultiGrid.get(r.definition),right=rights[r.direction],normal=normals[r.direction];
+  if(spec&&right&&normal){
+    const back={x:-normal.x,z:-normal.z},d={x:p.location.x-r.support.x-.5,z:p.location.z-r.support.z-.5};
+    const across=d.x*right.x+d.z*right.z,along=d.x*back.x+d.z*back.z;
+    const dx=Math.max(-.5-across,0,across-(spec.footprint!.width-.5)),dz=Math.max(-.5-along,0,along-(spec.footprint!.depth-.5));
+    return Math.hypot(dx,p.location.y-r.support.y-1,dz)<7;
   }
   return Math.hypot(p.location.x-r.support.x-.5,p.location.y-r.support.y-1,p.location.z-r.support.z-.5)<7;
 }
@@ -83,6 +108,17 @@ function surfaceValid(r:DecorRecord):boolean|undefined {
     if(surfaceHeight(b)!==1)return false;
     for(const [i,p]of applianceCells(r).entries()){const part=safeBlock(r,p);if(!part)return undefined;if(part.typeId!==(i===0?r.definition:r.definition+'_upper')||part.permutation.getState('minecraft:cardinal_direction')!==r.direction)return false;}
     return true;
+  }
+  const footprint=patch085MultiGrid.get(r.definition);
+  if(footprint){
+    if(r.kind!=='surface'||r.native)return false;
+    const supports=multiSupports(r);if(supports.length!==footprint.footprint!.width*footprint.footprint!.depth)return false;
+    let unknown=false;const top=surfaceHeight(b);if(!top)return false;
+    for(const p of supports){const support=same(p,r.support)?b:safeBlock(r,p);if(!support){unknown=true;continue;}if(surfaceHeight(support)!==top)return false;}
+    const height=Math.max(1,Math.ceil(scenarioById.get(r.definition)?.height??1));
+    for(const support of supports)for(let level=1;level<=height;level++){const cell=safeBlock(r,add(support,{x:0,y:level,z:0}));if(!cell){unknown=true;continue;}if(!empty(cell))return false;}
+    if(unknown)return undefined;
+    return !overlaps(r);
   }
   if(!surfaceHeight(b))return false;
   const above=safeBlock(r,anchor(r));if(!above)return undefined;
@@ -121,6 +157,8 @@ function occupiedCells(r:DecorRecord):Vector3[]{
   if(r.mount==='ceiling')return ceilingSupports(r).flatMap(p=>[add(p,{x:0,y:-1,z:0}),add(p,{x:0,y:-2,z:0})]);
   if(isPanel(r)){const n=normals[r.wallFace??r.direction];return n?posterCells(r).map(p=>add(p,n)):[];}
   if(r.kind==='appliance')return applianceCells(r);
+  const footprint=patch085MultiGrid.get(r.definition);
+  if(footprint){const height=Math.max(1,Math.ceil(scenarioById.get(r.definition)?.height??1));return multiSupports(r).flatMap(s=>Array.from({length:height},(_,i)=>add(s,{x:0,y:i+1,z:0})));}
   // Catalog heights are integral; full/slab/stair tops occupy the same cells.
   // Never read every other record's support (possibly unloaded) for an overlap test.
   const count=Math.max(1,Math.ceil(scenarioById.get(r.definition)?.height??1));
@@ -146,11 +184,13 @@ function visual(r:DecorRecord,type:string,part:string,index:number,position:Vect
   if(type==='mcpe_food:surface_display'&&!r.wallFace){
     const device=electronicsById.get(r.definition)??scenarioById.get(r.definition)??[...restaurantAccessories,...lifestyleItems].find(d=>id(d.key)===r.definition);
     const shape=device?device.key:r.kind==='tray'||/chopsticks|table_knife|fork|spoon/.test(r.definition)?'flat':/wine_glass|hotpot|bottle/.test(r.definition)?'tall':'medium';
-    if(entity.getDynamicProperty('mcpe_food:shape')!==shape){entity.triggerEvent(`mcpe_food:shape_${shape}`);entity.setDynamicProperty('mcpe_food:shape',shape);}
+    // Refresh the selection box of displays that survived the 0.8.5 upgrade.
+    const shapeRevision=shape==='icu_bed'?'icu_bed:2':shape;
+    if(entity.getDynamicProperty('mcpe_food:shape')!==shapeRevision){entity.triggerEvent(`mcpe_food:shape_${shape}`);entity.setDynamicProperty('mcpe_food:shape',shapeRevision);}
   }
   if(r.kind==='ad'&&entity.getProperty('mcpe_food:size')!==(r.size??0))entity.setProperty('mcpe_food:size',r.size??0);
   // Explicit facing is display-only: saved direction, yaw and revision stay intact.
-  const explicit=!!r.wallFace||r.kind==='digital_ad'||r.definition===id('supermarket_checkout')||patch072ById.has(r.definition)||patch073ById.has(r.definition)||patch074ById.has(r.definition)||patch080ById.has(r.definition)||patch082ById.has(r.definition)||r.kind==='clothing_rack';
+  const explicit=!!r.wallFace||r.kind==='digital_ad'||r.definition===id('supermarket_checkout')||patch072ById.has(r.definition)||patch073ById.has(r.definition)||patch074ById.has(r.definition)||patch080ById.has(r.definition)||patch082ById.has(r.definition)||patch085ById.has(r.definition)||r.kind==='clothing_rack';
   if(type!=='mcpe_food:advert_display'&&type!=='mcpe_food:tray_food_display'){
     const code=explicit?(isPanel(r)?displayFacing(r.wallFace??r.direction):facingFromYaw(r.yaw??yaw[r.direction]??0)):0;
     if(entity.getProperty('mcpe_food:display_facing')!==code)entity.setProperty('mcpe_food:display_facing',code);
@@ -181,7 +221,7 @@ function synchronizeValidated(r:DecorRecord):void {
     const p=add(add({x:r.support.x+.5,y:r.support.y,z:r.support.z+.5},right,(w-1)/2),n,.521);
     visual(r,'mcpe_food:advert_display','poster',advertisements.indexOf(ad),p,entities);wanted.add('poster');
   }else{
-    const height=surfaceHeight(safeBlock(r)),p={x:r.support.x+.5,y:r.support.y+height,z:r.support.z+.5};
+    const height=surfaceHeight(safeBlock(r)),p=surfaceCenter(r,height);
     if(!r.native){const index=surfaceIndex.get(r.definition===id('table_number_sign')?id(numberKey(validTableNumber(r.tableNumber)?r.tableNumber:8)):r.definition);if(index===undefined)throw new Error('Unknown surface visual');visual(r,'mcpe_food:surface_display','base',index,p,entities);wanted.add('base');}
     if(r.kind==='clothing_rack'){
       const spec=rackById.get(r.definition)!;
@@ -346,15 +386,15 @@ async function posterMenu(p:Player,r:DecorRecord,placing=false):Promise<void> {
 }
 function direction(p:Player):string {const angle=((p.getRotation().y%360)+360)%360;return angle<45||angle>=315?'south':angle<135?'west':angle<225?'north':'east';}
 function createSurface(p:Player,support:Block,definition:string):void {
-  const height=surfaceHeight(support),c=io.inventory(p);if(definition===id(ceilingDisplayKey)||scenarioById.get(definition)?.wallOnly||!height||!c||recordForSupport(support.dimension.id,support.location))return;
-  const target=support.dimension.getBlock(add(support.location,{x:0,y:1,z:0}));if(!empty(target))return;
+  const height=surfaceHeight(support),c=io.inventory(p);if(definition===id(ceilingDisplayKey)||scenarioById.get(definition)?.wallOnly||!height||!c||recordAtSurfaceSupport(support.dimension.id,support.location))return;
   const r:DecorRecord={version:1,uid:unique(),revision:0,dimension:support.dimension.id,support:{...support.location},kind:rackById.has(definition)?'clothing_rack':definition===id(tray.key)?'tray':'surface',definition,direction:direction(p),native:definition===id(tray.key)&&height===1,slots:Array.from({length:rackById.get(definition)?.capacity??3},()=>null)};
   r.yaw=screenYaw(definition,{x:support.location.x+.5,z:support.location.z+.5},p.location,p.getRotation().y);
+  if(patch085ById.has(definition)&&r.yaw!==undefined)r.direction=directionByFacing[facingFromYaw(r.yaw)]??r.direction;
   if(!near(p,r)||surfaceValid({...r,native:false})!==true)return;const before=io.snapshot(c),plan=isCreative(p)?{ok:true as const,slots:before.slots}:planServe(before.slots,p.selectedSlotIndex,definition);if(!plan.ok)return;
   // Publish the owner first: an engine onPlace callback must reuse this same
   // instance rather than creating a second persistent tray at the same anchor.
-  try {save(r);if(r.native)target!.setPermutation(BlockPermutation.resolve(definition,{'minecraft:cardinal_direction':r.direction}));io.commit(c,before,plan.slots);synchronize(r);}
-  catch(error){restore(c,before);if(records.has(r.uid))removeDecor(r,false);if(r.native)target!.setPermutation(BlockPermutation.resolve('minecraft:air'));throw error;}
+  try {save(r);if(r.native)support.dimension.getBlock(add(support.location,{x:0,y:1,z:0}))!.setPermutation(BlockPermutation.resolve(definition,{'minecraft:cardinal_direction':r.direction}));io.commit(c,before,plan.slots);synchronize(r);}
+  catch(error){restore(c,before);if(records.has(r.uid))removeDecor(r,false);if(r.native)support.dimension.getBlock(add(support.location,{x:0,y:1,z:0}))?.setPermutation(BlockPermutation.resolve('minecraft:air'));throw error;}
 }
 export function nativeTray(block:Block):DecorRecord {
   const support=block.below()!,previous=recordForSupport(block.dimension.id,support.location);if(previous)return previous;
@@ -405,6 +445,10 @@ export function handleDecorBlock(event:PlayerInteractWithBlockBeforeEvent):boole
   if(ceiling){event.cancel=true;if(!hand&&event.isFirstEvent)run(p,()=>staticMenu(p,copy(ceiling)));return true;}
   if(hand&&clothingById.has(hand.typeId)){event.cancel=true;return true;}
   const poster=posterAt(block,face);
+  if(!hand&&face==='up'){
+    const multi=recordAtSurfaceSupport(block.dimension.id,block.location);
+    if(multi&&patch085MultiGrid.has(multi.definition)){event.cancel=true;if(event.isFirstEvent)run(p,()=>staticMenu(p,copy(multi)));return true;}
+  }
   if(hand&&(wallById.has(hand.typeId)||digitalById.has(hand.typeId))&&normals[face]){
     event.cancel=true;if(event.isFirstEvent){const definition=hand.typeId,selected=p.selectedSlotIndex;run(p,()=>{if(p.selectedSlotIndex===selected&&io.inventory(p)?.getItem(selected)?.typeId===definition)createWall(p,block,definition,face);});}return true;
   }
@@ -415,7 +459,7 @@ export function handleDecorBlock(event:PlayerInteractWithBlockBeforeEvent):boole
   if(ad&&normals[face]){event.cancel=true;if(event.isFirstEvent){const r:DecorRecord={version:1,uid:'',revision:0,dimension:block.dimension.id,support:{...block.location},kind:'ad',definition:id(ad.key),direction:face,native:false,slots:[],art:ad.key,size:0};run(p,()=>{r.uid=unique();return posterMenu(p,r,true);});}return true;}
   if(poster){event.cancel=true;if(event.isFirstEvent&&!hand)run(p,()=>poster.kind==='ad'?posterMenu(p,copy(poster)):staticMenu(p,copy(poster)));return true;}
   if(block.typeId===id(tray.key)){event.cancel=true;if(event.isFirstEvent)run(p,()=>trayMenu(p,copy(nativeTray(block))));return true;}
-  if(hand&&tableItemById.has(hand.typeId)&&face==='up'&&recordForSupport(block.dimension.id,block.location)){event.cancel=true;return true;}
+  if(hand&&tableItemById.has(hand.typeId)&&face==='up'&&recordAtSurfaceSupport(block.dimension.id,block.location)){event.cancel=true;return true;}
   if(p.isSneaking&&hand&&tableItemById.has(hand.typeId)&&!electronicsById.has(hand.typeId)&&hand.typeId!==id(tray.key)&&['prep_counter','stove','oven','drink_counter'].some(k=>block.typeId===id(k)))return false;
   if(hand&&tableItemById.has(hand.typeId)&&face==='up'&&surfaceHeight(block)>0){
     event.cancel=true;if(event.isFirstEvent){const definition=hand.typeId;run(p,()=>{if(io.inventory(p)?.getItem(p.selectedSlotIndex)?.typeId===definition)createSurface(p,block,definition);});}return true;
@@ -480,7 +524,7 @@ export function installDecor(adapter:IO):void {
   world.beforeEvents.playerBreakBlock.subscribe(event=>{
     if(loading){event.cancel=true;return;}
     const candidates=[...records.values()].filter(r=>r.dimension===event.block.dimension.id&&((r.kind==='appliance'&&applianceCells(r).some(p=>same(p,event.block.location)))||(r.native&&same(anchor(r),event.block.location))||(isPanel(r)&&posterCells(r).some(p=>same(p,event.block.location)))));
-    const supportLost=[...records.values()].filter(r=>!candidates.some(c=>c.uid===r.uid)&&r.dimension===event.block.dimension.id&&(r.mount==='ceiling'?ceilingSupports(r).some(p=>same(p,event.block.location)):same(r.support,event.block.location)));
+    const supportLost=[...records.values()].filter(r=>!candidates.some(c=>c.uid===r.uid)&&r.dimension===event.block.dimension.id&&(r.mount==='ceiling'?ceilingSupports(r).some(p=>same(p,event.block.location)):patch085MultiGrid.has(r.definition)?multiSupports(r).some(p=>same(p,event.block.location)):same(r.support,event.block.location)));
     if(!candidates.length&&!supportLost.length)return;if(candidates.some(r=>!isPanel(r)))event.cancel=true;
     run(event.player,()=>{for(const r of [...candidates,...supportLost])if(near(event.player,r))removeDecor(r,!isCreative(event.player));});
   });
@@ -489,7 +533,8 @@ export function installDecor(adapter:IO):void {
     if(!event.hitEntity.isValid||event.damagingEntity.typeId!=='minecraft:player')return;const owner=event.hitEntity.getDynamicProperty('mcpe_food:owner'),r=records.get(String(owner));if(r)removeDecor(r,!isCreative(event.damagingEntity as Player));
   });
   world.afterEvents.entityLoad.subscribe(({entity})=>{
-    if(!entity.typeId.startsWith('mcpe_food:'))return;loadedEntities.set(entity.id,entity);
+    if(!entity.typeId.startsWith('mcpe_food:')||!entity.typeId.endsWith('_display'))return;
+    loadedEntities.set(entity.id,entity);
   });
   system.runInterval(maintainDecor,1);
   system.runInterval(()=>{for(const[k,t]of cooldowns)if(system.currentTick-t>200)cooldowns.delete(k);},200);

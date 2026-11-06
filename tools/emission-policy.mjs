@@ -1,4 +1,5 @@
 import {patch082ById} from "../.build/patch-082-catalog.js";
+import {patch085ById,patch085ScreenIds} from '../.build/patch-085-catalog.js';
 import {patch080Screens} from '../.build/patch-080-catalog.js';
 import {patch074Screens} from '../.build/patch-074-catalog.js';
 import {patch073Screens} from '../.build/patch-073-catalog.js';
@@ -8,6 +9,14 @@ import {scenarioScreens} from '../.build/scenario-catalog.js';
 import {electronics} from '../.build/electronics-catalog.js';
 const devices=new Map(electronics.map(d=>[`device_${d.key}`,d]));
 export function emissionIsValid(image,colorKey){
+  if(colorKey.startsWith('patch085_')){
+    const prop=patch085ById.get('mcpe_food:'+colorKey.slice(9)),screen=patch085ScreenIds.has('mcpe_food:'+colorKey.slice(9));
+    return !!prop&&image.width===128&&image.height===128&&image.pixels.every((v,i)=>{
+      if(i%4!==1||v===0)return true;
+      const pixel=(i-1)/4,x=pixel%128,y=Math.floor(pixel/128);
+        return screen&&v<=24&&((x<96&&y<48)||(prop.key==='icu_six_channel_syringe_pump'&&x<40&&y>=50&&y<58));
+    });
+  }
   if(colorKey==='digital_content_haodu_hotel_7x5')return image.width===448&&image.height===320&&image.pixels.every((v,i)=>i%4!==1||v<=24);
   if(colorKey.startsWith('patch082_')){
     const prop=patch082ById.get('mcpe_food:'+colorKey.slice(9));

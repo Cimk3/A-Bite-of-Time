@@ -1,4 +1,5 @@
 import {patch082Props} from "../.build/patch-082-catalog.js";
+import {patch085Props} from '../.build/patch-085-catalog.js';
 import {patch080Props} from '../.build/patch-080-catalog.js';
 import {patch074Props,patch074Groups} from '../.build/patch-074-catalog.js';
 import {patch073Props} from '../.build/patch-073-catalog.js';
@@ -59,7 +60,8 @@ const entityDefinitions=new Map(jsons.filter(x=>x.data['minecraft:entity']).map(
 for(const{data}of jsons)for(const name of Object.keys(data.animations??{}))check(name.startsWith('animation.mcpe_food.'),`foreign animation override ${name}`);
 for(const{data}of jsons.filter(x=>x.data['minecraft:client_entity'])){
   const d=data['minecraft:client_entity'].description,server=entityDefinitions.get(d.identifier);check(!!server,`missing entity behavior ${d.identifier}`);
-  check(server.components['minecraft:physics'].has_gravity===false&&server.components['minecraft:physics'].has_collision===false,`display must not move or obstruct ${d.identifier}`);
+  const physics=server.components['minecraft:physics'];
+  check(physics.has_gravity===false&&physics.has_collision===false,`display must not move or obstruct ${d.identifier}`);
   check(server.components['minecraft:damage_sensor'].triggers.every(t=>t.deals_damage===false),`display native damage enabled ${d.identifier}`);
   for(const target of Object.values(d.geometry))check(models.has(target),`missing display geometry ${target}`);
   for(const target of Object.values(d.textures)){check(/^textures\/entity\/mcpe_food\//.test(target),`foreign entity texture ${target}`);check(existsSync(path.join(rp,`${target}.png`))&&existsSync(path.join(rp,`${target}.texture_set.json`)),`missing entity PBR ${target}`);}
@@ -140,8 +142,8 @@ for(const group of creative[0].groups){
     check(desc.menu_category.category==='items'&&desc.menu_category.group===group.group_identifier.name,`conflicting menu group ${key}`);
   }
 }
-for(const entry of [...dishes,...bottleProps,...paperCups,...vessels,...cutlery,tray,teaTray,...advertisements,...electronics,...refrigerators,...restaurantAccessories,...lifestyleItems,...scenarioProps,...digitalScreens,...patch071Props,...patch072Props,...clothingItems,...patch073Props,...patch074Props,...patch080Props,...patch082Props])check(grouped.has(id(entry.key)),`ungrouped new content ${entry.key}`);
-check(grouped.size===dishes.length+bottleProps.length+paperCups.length+vessels.length+cutlery.length+2+advertisements.length+electronics.length+refrigerators.length+restaurantAccessories.length+lifestyleItems.length+scenarioProps.length+digitalScreens.length+patch071Props.length+patch072Props.length+clothingItems.length+patch073Props.length+patch074Props.length+patch080Props.length+patch082Props.length,'creative catalog contains unexpected entries');
+for(const entry of [...dishes,...bottleProps,...paperCups,...vessels,...cutlery,tray,teaTray,...advertisements,...electronics,...refrigerators,...restaurantAccessories,...lifestyleItems,...scenarioProps,...digitalScreens,...patch071Props,...patch072Props,...clothingItems,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props])check(grouped.has(id(entry.key)),`ungrouped new content ${entry.key}`);
+check(grouped.size===dishes.length+bottleProps.length+paperCups.length+vessels.length+cutlery.length+2+advertisements.length+electronics.length+refrigerators.length+restaurantAccessories.length+lifestyleItems.length+scenarioProps.length+digitalScreens.length+patch071Props.length+patch072Props.length+clothingItems.length+patch073Props.length+patch074Props.length+patch080Props.length+patch082Props.length+patch085Props.length,'creative catalog contains unexpected entries');
 for(const prop of bottleProps){
   const c=items.get(id(prop.key)).data['minecraft:item'].components;
   check(!c['minecraft:food']&&!c['minecraft:use_animation'],`bottle display is consumable ${prop.key}`);
@@ -198,7 +200,7 @@ for(const file of files.filter(f=>f.endsWith('.png'))){
   const bytes=readFileSync(file);check(bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])),`invalid PNG ${file}`);
   let p=8;while(p<bytes.length){const length=bytes.readUInt32BE(p),end=p+8+length;check(crc32(bytes.subarray(p+4,end))===bytes.readUInt32BE(end),`PNG checksum ${file}`);p=end+4;}
 }
-check(foods.length===102&&bottleProps.length===3&&displays.length===8&&hotpots.length===2&&cutlery.length+vessels.length+2===15&&advertisements.length===23&&scenarioProps.length===31&&patch071Props.length===4&&patch072Props.length===12&&patch073Props.length===10&&patch074Props.length===21&&patch080Props.length===11&&patch074Groups.every(g=>g.items.length===7)&&clothingItems.length===9&&digitalScreens.length===12&&patch082Props.length===16&&paperCups.length===2&&stations.length===4&&crops.length===6&&electronics.length===35&&refrigerators.length===6,'approved content count mismatch');
+check(foods.length===102&&bottleProps.length===3&&displays.length===8&&hotpots.length===2&&cutlery.length+vessels.length+2===15&&advertisements.length===23&&scenarioProps.length===31&&patch071Props.length===4&&patch072Props.length===12&&patch073Props.length===10&&patch074Props.length===21&&patch080Props.length===11&&patch074Groups.every(g=>g.items.length===7)&&clothingItems.length===9&&digitalScreens.length===12&&patch082Props.length===16&&patch085Props.length===22&&paperCups.length===2&&stations.length===4&&crops.length===6&&electronics.length===35&&refrigerators.length===6,'approved content count mismatch');
 const report={status:'passed',checks,jsonFiles:jsons.length,pngFiles:files.filter(f=>f.endsWith('.png')).length,items:items.size,blocks:blocks.size,models:models.size,edible:foods.length,displayDishes:displays.length,servingVariants:servings.length,pbrTextureSets:textureSets.length,destructionParticles:`disabled on all ${blocks.size} custom blocks; isolated neutral fallback`,vibrantVisuals:'pbr manifest and texture-set data validated; engine rendering untested',resourceIsolation:'passed — private keys, paths and IDs; no vanilla overrides',officialVanillaDefinitions:'1.26.52',engineTested:false};
 writeFileSync(path.join(root,'validation-report.json'),JSON.stringify(report,null,2)+'\n');
 const buildReport=path.join(root,'build-report.json');writeFileSync(buildReport,JSON.stringify({...parse(buildReport),staticStatus:'passed',staticChecks:checks},null,2)+'\n');

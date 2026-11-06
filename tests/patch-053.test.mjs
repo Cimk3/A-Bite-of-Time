@@ -1,4 +1,5 @@
 import {patch082Props} from '../.build/patch-082-catalog.js';
+import {patch085Props} from '../.build/patch-085-catalog.js';
 import {patch080Props} from '../.build/patch-080-catalog.js';
 import {patch074Props,patch074WallVariants,patch074DigitalScreens,patch074Groups} from '../.build/patch-074-catalog.js';
 import {patch073Props,governmentLegacyKeys,governmentKeys} from '../.build/patch-073-catalog.js';
@@ -22,8 +23,8 @@ const screenCube=c=>c.uv?.south?.uv_size[0]===96&&c.uv.south.uv[0]===0&&c.uv.sou
 
 test('0.5.3 adds exactly seven office props and preserves every 0.5.2 display index and interface',()=>{
   const old=read('tests/fixtures/v0.5.2.json'),keys=officeElectronics.map(d=>'mcpe_food:'+d.key).sort();assert.equal(keys.length,7);
-  for(const kind of ['items','blocks']){const current=readdirSync(`${bp}/${kind}`).map(f=>read(`${bp}/${kind}/${f}`)[`minecraft:${kind.slice(0,-1)}`].description.identifier);assert.deepEqual(current.filter(k=>!old[kind].includes(k)&&![...newProps,...cityAdvertisements,...scenarioProps,...brandAdvertisements,...digitalScreens,...patch071Props,...patch072Props,...clothingItems,...patch073Props,...patch074Props,...patch080Props,...patch082Props].some(d=>'mcpe_food:'+d.key===k)&&!restaurantItems.some(d=>'mcpe_food:'+d.key===k)).sort(),keys);for(const k of old[kind])assert.ok(current.includes(k));}
-  assert.deepEqual(surfaceVisuals.slice(0,361).map(d=>d.key),read('tests/fixtures/v0.5.2-surfaces.json'));assert.equal(surfaceVisuals.length,609);
+  for(const kind of ['items','blocks']){const current=readdirSync(`${bp}/${kind}`).map(f=>read(`${bp}/${kind}/${f}`)[`minecraft:${kind.slice(0,-1)}`].description.identifier);assert.deepEqual(current.filter(k=>!old[kind].includes(k)&&![...newProps,...cityAdvertisements,...scenarioProps,...brandAdvertisements,...digitalScreens,...patch071Props,...patch072Props,...clothingItems,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props].some(d=>'mcpe_food:'+d.key===k)&&!restaurantItems.some(d=>'mcpe_food:'+d.key===k)).sort(),keys);for(const k of old[kind])assert.ok(current.includes(k));}
+  assert.deepEqual(surfaceVisuals.slice(0,361).map(d=>d.key),read('tests/fixtures/v0.5.2-surfaces.json'));assert.equal(surfaceVisuals.length,609+patch085Props.length);
   for(const[pack,uuids]of Object.entries(old.uuids)){const m=read(`packs/${pack}/manifest.json`);assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],uuids);}
   assert.deepEqual(recipes.map(({key,station,inputs,output,category})=>({key,station,inputs,output,category})),old.menuRecipes);
   for(const[folder,entries]of [['recipes',old.crafting],['loot_tables/blocks',old.loot]])for(const[f,sha]of Object.entries(entries))assert.equal(createHash('sha256').update(readFileSync(`${bp}/${folder}/${f}`)).digest('hex'),sha);

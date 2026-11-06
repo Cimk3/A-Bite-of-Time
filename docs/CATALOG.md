@@ -1,4 +1,4 @@
-# 0.8.2 菜品与器皿索引
+# 0.8.6 菜品与器皿索引
 
 102 种可食成品，8 种不可食展示配菜，2 款静态铜锅，15 种餐具，3 款酒瓶摆件。新增内容通过创造物品栏或分组试用命令获取。
 
@@ -531,3 +531,29 @@
 - 交通检查点套装 / mcpe_food:police_checkpoint_kit
 - 便携酒精检测套装 / mcpe_food:police_breathalyzer_kit
 - 电子广告屏 · 豪都大酒店 7×5 / mcpe_food:digital_haodu_hotel_7x5
+
+
+## 0.8.5 医疗器械新品（22件）
+
+- CT机 / mcpe_food:icu_ct_scanner
+- CTA检查站 / mcpe_food:icu_cta_station
+- DSA造影设备 / mcpe_food:icu_dsa_angiography
+- B超诊断仪 / mcpe_food:icu_b_mode_ultrasound
+- 彩超诊断仪 / mcpe_food:icu_color_doppler_ultrasound
+- 心电图推车 / mcpe_food:icu_ecg_cart
+- 血常规分析仪 / mcpe_food:lab_cbc_analyzer
+- 尿常规分析仪 / mcpe_food:lab_urinalysis_analyzer
+- 肝功能分析仪 / mcpe_food:lab_liver_chemistry_analyzer
+- 肾功能分析仪 / mcpe_food:lab_renal_chemistry_analyzer
+- 血脂分析仪 / mcpe_food:lab_lipid_panel_analyzer
+- CRP分析仪 / mcpe_food:lab_crp_analyzer
+- 心血管标志物分析仪 / mcpe_food:lab_cardiac_marker_analyzer
+- ICU病床 / mcpe_food:icu_bed
+- 大型床旁监护仪 / mcpe_food:icu_large_patient_monitor
+- 六联注射泵仪器 / mcpe_food:icu_six_channel_syringe_pump
+- AuraMed ECMO / mcpe_food:auramed_ecmo
+- AuraMed呼吸机 / mcpe_food:auramed_ventilator
+- AuraMed CRRT / mcpe_food:auramed_crrt
+- NovaCare ECMO / mcpe_food:novacare_ecmo
+- NovaCare呼吸机 / mcpe_food:novacare_ventilator
+- NovaCare CRRT / mcpe_food:novacare_crrt

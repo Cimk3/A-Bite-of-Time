@@ -1,4 +1,5 @@
 import { patch082ById } from './patch-082-catalog.js';
+import { patch085ById, patch085MultiGrid } from './patch-085-catalog.js';
 import { patch080ById, ceilingDisplayKey } from './patch-080-catalog.js';
 import { patch074ById } from './patch-074-catalog.js';
 import { patch073ById } from './patch-073-catalog.js';
@@ -46,6 +47,7 @@ function rememberRecord(r) {
     }
 }
 const yaw = { north: 0, east: -90, south: 180, west: 90 };
+const directionByFacing = { 1: 'north', 2: 'east', 3: 'south', 4: 'west' };
 const normals = { north: { x: 0, y: 0, z: -1 }, south: { x: 0, y: 0, z: 1 }, east: { x: 1, y: 0, z: 0 }, west: { x: -1, y: 0, z: 0 } };
 const rights = { north: { x: -1, y: 0, z: 0 }, south: { x: 1, y: 0, z: 0 }, east: { x: 0, y: 0, z: 1 }, west: { x: 0, y: 0, z: -1 } };
 const add = (a, b, n = 1) => ({ x: a.x + b.x * n, y: a.y + b.y * n, z: a.z + b.z * n });
@@ -62,6 +64,33 @@ catch {
 const empty = (b) => b?.typeId === 'minecraft:air';
 const isCreative = (p) => p.getGameMode() === GameMode.Creative;
 const recordForSupport = (dimension, p) => [...records.values()].find(r => !isPanel(r) && !r.mount && r.dimension === dimension && same(r.support, p));
+function multiSupports(r) {
+    const spec = patch085MultiGrid.get(r.definition), right = rights[r.direction], normal = normals[r.direction];
+    if (!spec || !right || !normal)
+        return [];
+    const back = { x: -normal.x, y: 0, z: -normal.z }, cells = [];
+    for (let row = 0; row < spec.footprint.depth; row++)
+        for (let col = 0; col < spec.footprint.width; col++)
+            cells.push(add(add(r.support, right, col), back, row));
+    return cells;
+}
+function recordAtSurfaceSupport(dimension, p) {
+    const cell = cellKey(dimension, add(p, { x: 0, y: 1, z: 0 }));
+    for (const uid of occupancy.get(cell) ?? []) {
+        const r = records.get(uid);
+        if (r && patch085MultiGrid.has(r.definition) && r.dimension === dimension && multiSupports(r).some(s => same(s, p)))
+            return r;
+    }
+    return recordForSupport(dimension, p);
+}
+function surfaceCenter(r, height = surfaceHeight(safeBlock(r))) {
+    const spec = patch085MultiGrid.get(r.definition), right = rights[r.direction], normal = normals[r.direction];
+    if (spec && right && normal) {
+        const dx = right.x * (spec.footprint.width - 1) / 2 - normal.x * (spec.footprint.depth - 1) / 2, dz = right.z * (spec.footprint.width - 1) / 2 - normal.z * (spec.footprint.depth - 1) / 2;
+        return { x: r.support.x + .5 + dx, y: r.support.y + height, z: r.support.z + .5 + dz };
+    }
+    return { x: r.support.x + .5, y: r.support.y + height, z: r.support.z + .5 };
+}
 const storageKey = (r) => PREFIX + r.uid;
 function save(r) { world.setDynamicProperty(storageKey(r), JSON.stringify(r)); rememberRecord(r); }
 function unique() { const n = Number(world.getDynamicProperty('mcpe_food:decor_serial') ?? 0) + 1; world.setDynamicProperty('mcpe_food:decor_serial', n); return `d${n}`; }
@@ -73,6 +102,13 @@ function near(p, r) {
         const d = { x: p.location.x - r.support.x - .5, y: p.location.y - r.support.y, z: p.location.z - r.support.z - .5 };
         const horizontal = d.x * right.x + d.z * right.z, vertical = d.y, depth = d.x * normal.x + d.z * normal.z;
         return Math.hypot(Math.max(-.5 - horizontal, 0, horizontal - (w - .5)), Math.max(-vertical, 0, vertical - h), depth) < 7;
+    }
+    const spec = patch085MultiGrid.get(r.definition), right = rights[r.direction], normal = normals[r.direction];
+    if (spec && right && normal) {
+        const back = { x: -normal.x, z: -normal.z }, d = { x: p.location.x - r.support.x - .5, z: p.location.z - r.support.z - .5 };
+        const across = d.x * right.x + d.z * right.z, along = d.x * back.x + d.z * back.z;
+        const dx = Math.max(-.5 - across, 0, across - (spec.footprint.width - .5)), dz = Math.max(-.5 - along, 0, along - (spec.footprint.depth - .5));
+        return Math.hypot(dx, p.location.y - r.support.y - 1, dz) < 7;
     }
     return Math.hypot(p.location.x - r.support.x - .5, p.location.y - r.support.y - 1, p.location.z - r.support.z - .5) < 7;
 }
@@ -102,6 +138,41 @@ function surfaceValid(r) {
                 return false;
         }
         return true;
+    }
+    const footprint = patch085MultiGrid.get(r.definition);
+    if (footprint) {
+        if (r.kind !== 'surface' || r.native)
+            return false;
+        const supports = multiSupports(r);
+        if (supports.length !== footprint.footprint.width * footprint.footprint.depth)
+            return false;
+        let unknown = false;
+        const top = surfaceHeight(b);
+        if (!top)
+            return false;
+        for (const p of supports) {
+            const support = same(p, r.support) ? b : safeBlock(r, p);
+            if (!support) {
+                unknown = true;
+                continue;
+            }
+            if (surfaceHeight(support) !== top)
+                return false;
+        }
+        const height = Math.max(1, Math.ceil(scenarioById.get(r.definition)?.height ?? 1));
+        for (const support of supports)
+            for (let level = 1; level <= height; level++) {
+                const cell = safeBlock(r, add(support, { x: 0, y: level, z: 0 }));
+                if (!cell) {
+                    unknown = true;
+                    continue;
+                }
+                if (!empty(cell))
+                    return false;
+            }
+        if (unknown)
+            return undefined;
+        return !overlaps(r);
     }
     if (!surfaceHeight(b))
         return false;
@@ -198,6 +269,11 @@ function occupiedCells(r) {
     }
     if (r.kind === 'appliance')
         return applianceCells(r);
+    const footprint = patch085MultiGrid.get(r.definition);
+    if (footprint) {
+        const height = Math.max(1, Math.ceil(scenarioById.get(r.definition)?.height ?? 1));
+        return multiSupports(r).flatMap(s => Array.from({ length: height }, (_, i) => add(s, { x: 0, y: i + 1, z: 0 })));
+    }
     // Catalog heights are integral; full/slab/stair tops occupy the same cells.
     // Never read every other record's support (possibly unloaded) for an overlap test.
     const count = Math.max(1, Math.ceil(scenarioById.get(r.definition)?.height ?? 1));
@@ -238,15 +314,17 @@ function visual(r, type, part, index, position, entities) {
     if (type === 'mcpe_food:surface_display' && !r.wallFace) {
         const device = electronicsById.get(r.definition) ?? scenarioById.get(r.definition) ?? [...restaurantAccessories, ...lifestyleItems].find(d => id(d.key) === r.definition);
         const shape = device ? device.key : r.kind === 'tray' || /chopsticks|table_knife|fork|spoon/.test(r.definition) ? 'flat' : /wine_glass|hotpot|bottle/.test(r.definition) ? 'tall' : 'medium';
-        if (entity.getDynamicProperty('mcpe_food:shape') !== shape) {
+        // Refresh the selection box of displays that survived the 0.8.5 upgrade.
+        const shapeRevision = shape === 'icu_bed' ? 'icu_bed:2' : shape;
+        if (entity.getDynamicProperty('mcpe_food:shape') !== shapeRevision) {
             entity.triggerEvent(`mcpe_food:shape_${shape}`);
-            entity.setDynamicProperty('mcpe_food:shape', shape);
+            entity.setDynamicProperty('mcpe_food:shape', shapeRevision);
         }
     }
     if (r.kind === 'ad' && entity.getProperty('mcpe_food:size') !== (r.size ?? 0))
         entity.setProperty('mcpe_food:size', r.size ?? 0);
     // Explicit facing is display-only: saved direction, yaw and revision stay intact.
-    const explicit = !!r.wallFace || r.kind === 'digital_ad' || r.definition === id('supermarket_checkout') || patch072ById.has(r.definition) || patch073ById.has(r.definition) || patch074ById.has(r.definition) || patch080ById.has(r.definition) || patch082ById.has(r.definition) || r.kind === 'clothing_rack';
+    const explicit = !!r.wallFace || r.kind === 'digital_ad' || r.definition === id('supermarket_checkout') || patch072ById.has(r.definition) || patch073ById.has(r.definition) || patch074ById.has(r.definition) || patch080ById.has(r.definition) || patch082ById.has(r.definition) || patch085ById.has(r.definition) || r.kind === 'clothing_rack';
     if (type !== 'mcpe_food:advert_display' && type !== 'mcpe_food:tray_food_display') {
         const code = explicit ? (isPanel(r) ? displayFacing(r.wallFace ?? r.direction) : facingFromYaw(r.yaw ?? yaw[r.direction] ?? 0)) : 0;
         if (entity.getProperty('mcpe_food:display_facing') !== code)
@@ -295,7 +373,7 @@ function synchronizeValidated(r) {
         wanted.add('poster');
     }
     else {
-        const height = surfaceHeight(safeBlock(r)), p = { x: r.support.x + .5, y: r.support.y + height, z: r.support.z + .5 };
+        const height = surfaceHeight(safeBlock(r)), p = surfaceCenter(r, height);
         if (!r.native) {
             const index = surfaceIndex.get(r.definition === id('table_number_sign') ? id(numberKey(validTableNumber(r.tableNumber) ? r.tableNumber : 8)) : r.definition);
             if (index === undefined)
@@ -745,13 +823,12 @@ async function posterMenu(p, r, placing = false) {
 function direction(p) { const angle = ((p.getRotation().y % 360) + 360) % 360; return angle < 45 || angle >= 315 ? 'south' : angle < 135 ? 'west' : angle < 225 ? 'north' : 'east'; }
 function createSurface(p, support, definition) {
     const height = surfaceHeight(support), c = io.inventory(p);
-    if (definition === id(ceilingDisplayKey) || scenarioById.get(definition)?.wallOnly || !height || !c || recordForSupport(support.dimension.id, support.location))
-        return;
-    const target = support.dimension.getBlock(add(support.location, { x: 0, y: 1, z: 0 }));
-    if (!empty(target))
+    if (definition === id(ceilingDisplayKey) || scenarioById.get(definition)?.wallOnly || !height || !c || recordAtSurfaceSupport(support.dimension.id, support.location))
         return;
     const r = { version: 1, uid: unique(), revision: 0, dimension: support.dimension.id, support: { ...support.location }, kind: rackById.has(definition) ? 'clothing_rack' : definition === id(tray.key) ? 'tray' : 'surface', definition, direction: direction(p), native: definition === id(tray.key) && height === 1, slots: Array.from({ length: rackById.get(definition)?.capacity ?? 3 }, () => null) };
     r.yaw = screenYaw(definition, { x: support.location.x + .5, z: support.location.z + .5 }, p.location, p.getRotation().y);
+    if (patch085ById.has(definition) && r.yaw !== undefined)
+        r.direction = directionByFacing[facingFromYaw(r.yaw)] ?? r.direction;
     if (!near(p, r) || surfaceValid({ ...r, native: false }) !== true)
         return;
     const before = io.snapshot(c), plan = isCreative(p) ? { ok: true, slots: before.slots } : planServe(before.slots, p.selectedSlotIndex, definition);
@@ -762,7 +839,7 @@ function createSurface(p, support, definition) {
     try {
         save(r);
         if (r.native)
-            target.setPermutation(BlockPermutation.resolve(definition, { 'minecraft:cardinal_direction': r.direction }));
+            support.dimension.getBlock(add(support.location, { x: 0, y: 1, z: 0 })).setPermutation(BlockPermutation.resolve(definition, { 'minecraft:cardinal_direction': r.direction }));
         io.commit(c, before, plan.slots);
         synchronize(r);
     }
@@ -771,7 +848,7 @@ function createSurface(p, support, definition) {
         if (records.has(r.uid))
             removeDecor(r, false);
         if (r.native)
-            target.setPermutation(BlockPermutation.resolve('minecraft:air'));
+            support.dimension.getBlock(add(support.location, { x: 0, y: 1, z: 0 }))?.setPermutation(BlockPermutation.resolve('minecraft:air'));
         throw error;
     }
 }
@@ -905,6 +982,15 @@ export function handleDecorBlock(event) {
         return true;
     }
     const poster = posterAt(block, face);
+    if (!hand && face === 'up') {
+        const multi = recordAtSurfaceSupport(block.dimension.id, block.location);
+        if (multi && patch085MultiGrid.has(multi.definition)) {
+            event.cancel = true;
+            if (event.isFirstEvent)
+                run(p, () => staticMenu(p, copy(multi)));
+            return true;
+        }
+    }
     if (hand && (wallById.has(hand.typeId) || digitalById.has(hand.typeId)) && normals[face]) {
         event.cancel = true;
         if (event.isFirstEvent) {
@@ -947,7 +1033,7 @@ export function handleDecorBlock(event) {
             run(p, () => trayMenu(p, copy(nativeTray(block))));
         return true;
     }
-    if (hand && tableItemById.has(hand.typeId) && face === 'up' && recordForSupport(block.dimension.id, block.location)) {
+    if (hand && tableItemById.has(hand.typeId) && face === 'up' && recordAtSurfaceSupport(block.dimension.id, block.location)) {
         event.cancel = true;
         return true;
     }
@@ -1099,7 +1185,7 @@ export function installDecor(adapter) {
             return;
         }
         const candidates = [...records.values()].filter(r => r.dimension === event.block.dimension.id && ((r.kind === 'appliance' && applianceCells(r).some(p => same(p, event.block.location))) || (r.native && same(anchor(r), event.block.location)) || (isPanel(r) && posterCells(r).some(p => same(p, event.block.location)))));
-        const supportLost = [...records.values()].filter(r => !candidates.some(c => c.uid === r.uid) && r.dimension === event.block.dimension.id && (r.mount === 'ceiling' ? ceilingSupports(r).some(p => same(p, event.block.location)) : same(r.support, event.block.location)));
+        const supportLost = [...records.values()].filter(r => !candidates.some(c => c.uid === r.uid) && r.dimension === event.block.dimension.id && (r.mount === 'ceiling' ? ceilingSupports(r).some(p => same(p, event.block.location)) : patch085MultiGrid.has(r.definition) ? multiSupports(r).some(p => same(p, event.block.location)) : same(r.support, event.block.location)));
         if (!candidates.length && !supportLost.length)
             return;
         if (candidates.some(r => !isPanel(r)))
@@ -1118,7 +1204,7 @@ export function installDecor(adapter) {
             removeDecor(r, !isCreative(event.damagingEntity));
     });
     world.afterEvents.entityLoad.subscribe(({ entity }) => {
-        if (!entity.typeId.startsWith('mcpe_food:'))
+        if (!entity.typeId.startsWith('mcpe_food:') || !entity.typeId.endsWith('_display'))
             return;
         loadedEntities.set(entity.id, entity);
     });

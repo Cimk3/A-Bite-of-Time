@@ -1,4 +1,5 @@
 import {patch082Props} from '../.build/patch-082-catalog.js';
+import {patch085Props} from '../.build/patch-085-catalog.js';
 import {patch080Props} from '../.build/patch-080-catalog.js';
 import {patch074Props,patch074WallVariants,patch074DigitalScreens,patch074Groups} from '../.build/patch-074-catalog.js';
 import {patch073Props,governmentLegacyKeys,governmentKeys} from '../.build/patch-073-catalog.js';
@@ -30,7 +31,7 @@ test('0.5.1 additions and all old interfaces remain present alongside the seven 
   const old=read('tests/fixtures/v0.5.0.json'),expectedItems=[...newElectronics,...refrigerators,teaTray,...teaFoods].map(d=>'mcpe_food:'+d.key);
   for(const [kind,extra]of [['items',expectedItems],['blocks',[...newElectronics,teaTray].map(d=>'mcpe_food:'+d.key).concat(refrigeratorPartIds,servings.filter(s=>s.food.key==='tieguanyin').map(s=>'mcpe_food:'+s.key))]]){
     const current=readdirSync(`${bp}/${kind}`).map(f=>read(`${bp}/${kind}/${f}`)[`minecraft:${kind.slice(0,-1)}`].description.identifier);
-    assert.deepEqual(current.filter(k=>!old[kind].includes(k)&&![...newProps,...cityAdvertisements,...scenarioProps,...brandAdvertisements,...digitalScreens,...patch071Props,...patch072Props,...clothingItems,...patch073Props,...patch074Props,...patch080Props,...patch082Props].some(d=>'mcpe_food:'+d.key===k)).sort(),extra.concat(officeElectronics.map(d=>'mcpe_food:'+d.key),restaurantItems.map(d=>'mcpe_food:'+d.key)).sort());for(const key of old[kind])assert.ok(current.includes(key));
+    assert.deepEqual(current.filter(k=>!old[kind].includes(k)&&![...newProps,...cityAdvertisements,...scenarioProps,...brandAdvertisements,...digitalScreens,...patch071Props,...patch072Props,...clothingItems,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props].some(d=>'mcpe_food:'+d.key===k)).sort(),extra.concat(officeElectronics.map(d=>'mcpe_food:'+d.key),restaurantItems.map(d=>'mcpe_food:'+d.key)).sort());for(const key of old[kind])assert.ok(current.includes(key));
   }
   assert.equal(expectedItems.length,12);assert.equal(foods.length,102);assert.equal(foods.filter(f=>f.category==='drink').length,11);assert.equal(electronics.length+refrigerators.length,41);
   for(const[pack,uuids]of Object.entries(old.uuids)){const m=read(`packs/${pack}/manifest.json`);assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],uuids);}
@@ -42,7 +43,7 @@ test('0.5.1 additions and all old interfaces remain present alongside the seven 
 
 test('old 354 surface indices remain unchanged and new tea/desktop appearances only append',()=>{
   const oldKeys=read('tests/fixtures/v0.5.0.json').blocks.map(k=>k.slice(10));
-  assert.equal(surfaceVisuals.length,609);assert.equal(surfaceVisuals.slice(339,354).map(d=>d.key).join(),originalElectronics.map(d=>d.key).join());
+  assert.equal(surfaceVisuals.length,609+patch085Props.length);assert.equal(surfaceVisuals.slice(339,354).map(d=>d.key).join(),originalElectronics.map(d=>d.key).join());
   for(const d of surfaceVisuals.slice(0,339))assert.ok(oldKeys.includes(d.key));
   assert.deepEqual(surfaceVisuals.slice(354,361).map(d=>d.key),[...newElectronics,teaTray,...servings.filter(s=>s.food.key==='tieguanyin')].map(d=>d.key));
 });

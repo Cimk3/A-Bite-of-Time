@@ -1,11 +1,11 @@
 {
   "name": "fangcun-food-and-table",
-  "version": "0.8.2",
+  "version": "0.8.6",
   "private": true,
   "type": "module",
   "description": "方寸食光 · Food & Table — Minecraft Bedrock Add-On",
   "scripts": {
-    "compile": "node tools/generate-surfaces.mjs && tsc -p tsconfig.json",
+    "compile": "node tools/clean-build.mjs && node tools/generate-surfaces.mjs && tsc -p tsconfig.json",
     "build": "npm run compile && node tools/build.mjs",
     "test": "npm run compile && node --test tests/*.test.mjs",
     "check": "npm run build && node tools/validate.mjs",

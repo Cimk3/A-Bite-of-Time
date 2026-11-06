@@ -6,6 +6,7 @@ import {surfaceVisuals} from '../.build/decor-catalog.js';
 import {clothingVisuals} from '../.build/patch-072-catalog.js';
 import {digitalScreens,wallScreens} from '../.build/scenario-catalog.js';
 import {haoduScreen,patch082Items,patch082Props} from '../.build/patch-082-catalog.js';
+import {patch085Props} from '../.build/patch-085-catalog.js';
 import {modelBounds} from '../tools/detail-art.mjs';
 import {decodeRGBA} from '../tools/png-inspect.mjs';
 import {emissionIsValid} from '../tools/emission-policy.mjs';
@@ -21,22 +22,20 @@ const body=key=>readFileSync(bp+'/functions/mcpe_food/'+key,'utf8');
 test('0.8.2 adds precisely 17 creative items, 16 blocks and append-only display indices',()=>{
   for(const [folder,expected,total] of [['items',patch082Items,371],['blocks',patch082Props,522]]) {
     const current=readdirSync(bp+'/'+folder).map(f=>read(bp+'/'+folder+'/'+f)['minecraft:'+folder.slice(0,-1)].description.identifier);
-    assert.equal(current.length,total);
-    assert.deepEqual(current.filter(k=>!old[folder].includes(k)).sort(),expected.map(d=>id(d.key)).sort());
+    const prior=current.filter(key=>!patch085Props.some(item=>id(item.key)===key));
+    assert.equal(prior.length,total);
+    assert.deepEqual(prior.filter(k=>!old[folder].includes(k)).sort(),expected.map(d=>id(d.key)).sort());
     for(const k of old[folder])assert.ok(current.includes(k),k);
   }
   for(const [pack,uuids] of Object.entries(old.uuids)) {
     const manifest=read('packs/'+pack+'/manifest.json');
     assert.deepEqual([manifest.header.uuid,...manifest.modules.map(m=>m.uuid)],uuids);
-    assert.deepEqual(manifest.header.version,[0,8,2]);
-    assert.ok(manifest.header.name.includes('0.8.2-rc.1'));
   }
-  assert.deepEqual(surfaceVisuals.map(d=>d.key),[...order.surfaceKeys,...patch082Props.map(d=>d.key)]);
+  assert.deepEqual(surfaceVisuals.map(d=>d.key),[...order.surfaceKeys,...patch082Props.map(d=>d.key),...patch085Props.map(d=>d.key)]);
   assert.deepEqual(clothingVisuals,order.clothingVisuals);
   assert.deepEqual(digitalScreens,[...order.digitalScreens,haoduScreen]);
   assert.deepEqual(wallScreens,[...order.wallScreens,haoduScreen]);
   assert.deepEqual(read(bp+'/mcpe_food_build.json'),read(rp+'/mcpe_food_build.json'));
-  assert.equal(read(bp+'/mcpe_food_build.json').build,'0.8.2-rc.1');
 });
 
 test('old models, textures, definitions, recipes and loot are byte identical to 0.8.1',()=>{
@@ -51,7 +50,7 @@ test('old models, textures, definitions, recipes and loot are byte identical to 
 test('creative groups and give commands append the approved content to their old prefixes',()=>{
   const groups=read(bp+'/item_catalog/crafting_item_catalog.json')['minecraft:crafting_items_catalog'].categories[0].groups;
   const additions={
-    'medical_equipment.mcfunction':patch082Props.filter(d=>d.group==='medical_equipment'),
+    'medical_equipment.mcfunction':[...patch082Props,...patch085Props].filter(d=>d.group==='medical_equipment'),
     'military_police_equipment.mcfunction':patch082Props.filter(d=>d.group==='military_police_equipment'),
     'digital_ad_screens.mcfunction':[haoduScreen],
   };
@@ -60,7 +59,7 @@ test('creative groups and give commands append the approved content to their old
     const newItems=additions[key];
     assert.equal(body(key),newItems?prior+newItems.map(d=>give(d.key)).join('\n')+'\n':prior,key);
   }
-  assert.equal(body('tasting_new.mcfunction'),patch082Items.map(d=>give(d.key)).join('\n')+'\n');
+  assert.equal(body('tasting_new.mcfunction'),patch085Props.map(d=>give(d.key)).join('\n')+'\n');
   for(const prop of patch082Items) {
     const found=groups.filter(g=>g.items.includes(id(prop.key)));
     assert.equal(found.length,1);

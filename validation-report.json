@@ -1,7 +1,18 @@
 {
-  "version": "0.8.2",
-  "build": "0.8.2-rc.1",
-  "status": "not_run",
-  "engineTested": false,
-  "reason": "User requested build and packaging only for the candidate."
+  "status": "passed",
+  "checks": 1873342,
+  "jsonFiles": 4167,
+  "pngFiles": 2080,
+  "items": 393,
+  "blocks": 544,
+  "models": 1295,
+  "edible": 102,
+  "displayDishes": 8,
+  "servingVariants": 320,
+  "pbrTextureSets": 1338,
+  "destructionParticles": "disabled on all 544 custom blocks; isolated neutral fallback",
+  "vibrantVisuals": "pbr manifest and texture-set data validated; engine rendering untested",
+  "resourceIsolation": "passed — private keys, paths and IDs; no vanilla overrides",
+  "officialVanillaDefinitions": "1.26.52",
+  "engineTested": false
 }

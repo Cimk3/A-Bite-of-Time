@@ -1,5 +1,5 @@
 {
-  "version": "0.8.2",
+  "version": "0.8.6",
   "models": [
     {
       "key": "egg_fried_rice_serving",
@@ -4421,6 +4421,182 @@
       }
     },
     {
+      "key": "icu_ct_scanner",
+      "resolution": 128,
+      "cubes": 21,
+      "slots": {
+        "ware": "patch085_icu_ct_scanner"
+      }
+    },
+    {
+      "key": "icu_cta_station",
+      "resolution": 128,
+      "cubes": 32,
+      "slots": {
+        "ware": "patch085_icu_cta_station"
+      }
+    },
+    {
+      "key": "icu_dsa_angiography",
+      "resolution": 128,
+      "cubes": 21,
+      "slots": {
+        "ware": "patch085_icu_dsa_angiography"
+      }
+    },
+    {
+      "key": "icu_b_mode_ultrasound",
+      "resolution": 128,
+      "cubes": 32,
+      "slots": {
+        "ware": "patch085_icu_b_mode_ultrasound"
+      }
+    },
+    {
+      "key": "icu_color_doppler_ultrasound",
+      "resolution": 128,
+      "cubes": 43,
+      "slots": {
+        "ware": "patch085_icu_color_doppler_ultrasound"
+      }
+    },
+    {
+      "key": "icu_ecg_cart",
+      "resolution": 128,
+      "cubes": 41,
+      "slots": {
+        "ware": "patch085_icu_ecg_cart"
+      }
+    },
+    {
+      "key": "lab_cbc_analyzer",
+      "resolution": 128,
+      "cubes": 20,
+      "slots": {
+        "ware": "patch085_lab_cbc_analyzer"
+      }
+    },
+    {
+      "key": "lab_urinalysis_analyzer",
+      "resolution": 128,
+      "cubes": 21,
+      "slots": {
+        "ware": "patch085_lab_urinalysis_analyzer"
+      }
+    },
+    {
+      "key": "lab_liver_chemistry_analyzer",
+      "resolution": 128,
+      "cubes": 18,
+      "slots": {
+        "ware": "patch085_lab_liver_chemistry_analyzer"
+      }
+    },
+    {
+      "key": "lab_renal_chemistry_analyzer",
+      "resolution": 128,
+      "cubes": 15,
+      "slots": {
+        "ware": "patch085_lab_renal_chemistry_analyzer"
+      }
+    },
+    {
+      "key": "lab_lipid_panel_analyzer",
+      "resolution": 128,
+      "cubes": 16,
+      "slots": {
+        "ware": "patch085_lab_lipid_panel_analyzer"
+      }
+    },
+    {
+      "key": "lab_crp_analyzer",
+      "resolution": 128,
+      "cubes": 19,
+      "slots": {
+        "ware": "patch085_lab_crp_analyzer"
+      }
+    },
+    {
+      "key": "lab_cardiac_marker_analyzer",
+      "resolution": 128,
+      "cubes": 21,
+      "slots": {
+        "ware": "patch085_lab_cardiac_marker_analyzer"
+      }
+    },
+    {
+      "key": "icu_bed",
+      "resolution": 128,
+      "cubes": 70,
+      "slots": {
+        "ware": "patch085_icu_bed"
+      }
+    },
+    {
+      "key": "icu_large_patient_monitor",
+      "resolution": 128,
+      "cubes": 44,
+      "slots": {
+        "ware": "patch085_icu_large_patient_monitor"
+      }
+    },
+    {
+      "key": "icu_six_channel_syringe_pump",
+      "resolution": 128,
+      "cubes": 165,
+      "slots": {
+        "ware": "patch085_icu_six_channel_syringe_pump"
+      }
+    },
+    {
+      "key": "auramed_ecmo",
+      "resolution": 128,
+      "cubes": 86,
+      "slots": {
+        "ware": "patch085_auramed_ecmo"
+      }
+    },
+    {
+      "key": "auramed_ventilator",
+      "resolution": 128,
+      "cubes": 71,
+      "slots": {
+        "ware": "patch085_auramed_ventilator"
+      }
+    },
+    {
+      "key": "auramed_crrt",
+      "resolution": 128,
+      "cubes": 98,
+      "slots": {
+        "ware": "patch085_auramed_crrt"
+      }
+    },
+    {
+      "key": "novacare_ecmo",
+      "resolution": 128,
+      "cubes": 105,
+      "slots": {
+        "ware": "patch085_novacare_ecmo"
+      }
+    },
+    {
+      "key": "novacare_ventilator",
+      "resolution": 128,
+      "cubes": 73,
+      "slots": {
+        "ware": "patch085_novacare_ventilator"
+      }
+    },
+    {
+      "key": "novacare_crrt",
+      "resolution": 128,
+      "cubes": 116,
+      "slots": {
+        "ware": "patch085_novacare_crrt"
+      }
+    },
+    {
       "key": "aed_cabinet_wall",
       "resolution": 128,
       "cubes": 6,
@@ -7458,6 +7634,116 @@
       "resolution": 128
     },
     {
+      "key": "surface_icu_ct_scanner",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_cta_station",
+      "cubes": 32,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_dsa_angiography",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_b_mode_ultrasound",
+      "cubes": 32,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_color_doppler_ultrasound",
+      "cubes": 43,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_ecg_cart",
+      "cubes": 41,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_cbc_analyzer",
+      "cubes": 20,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_urinalysis_analyzer",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_liver_chemistry_analyzer",
+      "cubes": 18,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_renal_chemistry_analyzer",
+      "cubes": 15,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_lipid_panel_analyzer",
+      "cubes": 16,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_crp_analyzer",
+      "cubes": 19,
+      "resolution": 128
+    },
+    {
+      "key": "surface_lab_cardiac_marker_analyzer",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_bed",
+      "cubes": 70,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_large_patient_monitor",
+      "cubes": 44,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_six_channel_syringe_pump",
+      "cubes": 165,
+      "resolution": 128
+    },
+    {
+      "key": "surface_auramed_ecmo",
+      "cubes": 86,
+      "resolution": 128
+    },
+    {
+      "key": "surface_auramed_ventilator",
+      "cubes": 71,
+      "resolution": 128
+    },
+    {
+      "key": "surface_auramed_crrt",
+      "cubes": 98,
+      "resolution": 128
+    },
+    {
+      "key": "surface_novacare_ecmo",
+      "cubes": 105,
+      "resolution": 128
+    },
+    {
+      "key": "surface_novacare_ventilator",
+      "cubes": 73,
+      "resolution": 128
+    },
+    {
+      "key": "surface_novacare_crrt",
+      "cubes": 116,
+      "resolution": 128
+    },
+    {
       "key": "mini_kung_pao_chicken",
       "cubes": 31,
       "resolution": 128
@@ -8598,6 +8884,28 @@
     "mcpe_food_police_evidence_workbench": 128,
     "mcpe_food_police_checkpoint_kit": 128,
     "mcpe_food_police_breathalyzer_kit": 128,
+    "mcpe_food_icu_ct_scanner": 128,
+    "mcpe_food_icu_cta_station": 128,
+    "mcpe_food_icu_dsa_angiography": 128,
+    "mcpe_food_icu_b_mode_ultrasound": 128,
+    "mcpe_food_icu_color_doppler_ultrasound": 128,
+    "mcpe_food_icu_ecg_cart": 128,
+    "mcpe_food_lab_cbc_analyzer": 128,
+    "mcpe_food_lab_urinalysis_analyzer": 128,
+    "mcpe_food_lab_liver_chemistry_analyzer": 128,
+    "mcpe_food_lab_renal_chemistry_analyzer": 128,
+    "mcpe_food_lab_lipid_panel_analyzer": 128,
+    "mcpe_food_lab_crp_analyzer": 128,
+    "mcpe_food_lab_cardiac_marker_analyzer": 128,
+    "mcpe_food_icu_bed": 128,
+    "mcpe_food_icu_large_patient_monitor": 128,
+    "mcpe_food_icu_six_channel_syringe_pump": 128,
+    "mcpe_food_auramed_ecmo": 128,
+    "mcpe_food_auramed_ventilator": 128,
+    "mcpe_food_auramed_crrt": 128,
+    "mcpe_food_novacare_ecmo": 128,
+    "mcpe_food_novacare_ventilator": 128,
+    "mcpe_food_novacare_crrt": 128,
     "mcpe_food_display_tshirt": 128,
     "mcpe_food_display_shirt": 128,
     "mcpe_food_display_coat": 128,

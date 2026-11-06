@@ -1,4 +1,5 @@
 import { patch082ById } from './patch-082-catalog.js';
+import { patch085ById } from './patch-085-catalog.js';
 import { patch080ById } from './patch-080-catalog.js';
 import { patch074ById } from './patch-074-catalog.js';
 import { patch073ById } from './patch-073-catalog.js';
@@ -11,7 +12,7 @@ import { electronicsById } from './electronics-catalog.js';
 export function cardinalYaw(value) { return ((Math.round(value / 90) * 90 + 180) % 360 + 360) % 360 - 180; }
 /** Entity model +Z faces world -Z at yaw=0. Block and poster yaw are separate. */
 export function screenYaw(definition, center, player, lookYaw) {
-    const d = electronicsById.get(definition) ?? patch071ById.get(definition) ?? patch072ById.get(definition) ?? patch073ById.get(definition) ?? patch074ById.get(definition) ?? patch080ById.get(definition) ?? patch082ById.get(definition) ?? (scenarioById.has(definition) ? { placementFront: 180 } : undefined) ?? ([...restaurantAccessories, ...lifestyleItems.filter(d => d.front)].some(d => 'mcpe_food:' + d.key === definition) ? { placementFront: 180 } : undefined);
+    const d = electronicsById.get(definition) ?? patch071ById.get(definition) ?? patch072ById.get(definition) ?? patch073ById.get(definition) ?? patch074ById.get(definition) ?? patch080ById.get(definition) ?? patch082ById.get(definition) ?? patch085ById.get(definition) ?? (scenarioById.has(definition) ? { placementFront: 180 } : undefined) ?? ([...restaurantAccessories, ...lifestyleItems.filter(d => d.front)].some(d => 'mcpe_food:' + d.key === definition) ? { placementFront: 180 } : undefined);
     if (d?.placementFront === undefined)
         return undefined;
     const dx = player.x - center.x, dz = player.z - center.z;

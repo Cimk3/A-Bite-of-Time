@@ -1,5 +1,6 @@
 import { patch080Props } from './patch-080-catalog.js';
 import { haoduScreen, patch082Props } from './patch-082-catalog.js';
+import { patch085Props } from './patch-085-catalog.js';
 import { patch074Props, patch074WallVariants, patch074DigitalScreens } from './patch-074-catalog.js';
 import { patch073Props } from './patch-073-catalog.js';
 import { patch072Props, infoScreens } from './patch-072-catalog.js';
@@ -27,7 +28,7 @@ export const scenarioGroups = [
     ])
 ];
 export const scenarioProps = scenarioGroups.flatMap(g => g.items.map(d => ({ ...d, group: g.key })));
-export const scenarioById = new Map([...scenarioProps, ...patch071Props, ...patch072Props, ...patch073Props, ...patch074Props, ...patch080Props, ...patch082Props].map(d => ['mcpe_food:' + d.key, d]));
+export const scenarioById = new Map([...scenarioProps, ...patch071Props, ...patch072Props, ...patch073Props, ...patch074Props, ...patch080Props, ...patch082Props, ...patch085Props].map(d => ['mcpe_food:' + d.key, d]));
 export const wallKeys = [...scenarioProps.filter(d => d.wallOnly).map(d => d.key), 'flat_screen_tv', 'landscape_frame', 'table_clock'];
 export const wallVariants = wallKeys.map(key => ({ key: key + '_wall', base: key, zh: '壁挂 ' + key, en: 'Wall ' + key }));
 export const wallById = new Map([...wallKeys, ...patch074WallVariants.map(d => d.base)].map(key => ['mcpe_food:' + key, key + '_wall']));

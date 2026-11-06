@@ -1,7 +1,7 @@
 # 接续入口
 
-先读 AGENTS、PROJECT_CONTEXT、PROGRESS、KNOWN_ISSUES 和 VALIDATION，再检查 git 状态。当前公开版为 0.8.1，0.8.2-rc.1 是 Windows 验收候选。工作区 imgSrc 为用户原图。
+先读根目录 `AGENTS.md`、`docs/PROJECT_CONTEXT.md`、`docs/PROGRESS.md`、`docs/KNOWN_ISSUES.md`，再核对版本和工作区。0.8.6 以 0.8.5 医疗候选为基线。用户原图目录 `imgSrc/` 保留在工作区。
 
-0.8.2 包含 12 件医疗器械、4 件警务摆件和豪都大酒店 7×5 广告屏。批准草图及提示词在 assets/concepts/082，旧版兼容 fixture 来自 0.8.1。继续使用 v1 存档和 8／4／2 的每 tick 恢复限额。
+概念图、提示词与编号表见 `assets/concepts/085/`。模型生成源为 `tools/patch-085-art.mjs`，目录和占地定义为 `src/patch-085-catalog.ts`。ICU 病床用 1×2 地面支撑，中心实体选取宽度为一格。对应的兼容、几何和运行回归测试在 `tests/patch-086-*.test.mjs`。
 
-用户自行执行 [Windows 验收](ACCEPTANCE_0.8.2.md)。通过后保留候选包原字节，提交当前 main、创建 v0.8.2 与 Release 并上传五附件。保留旧发行；任何影响产物的修复须生成下一候选批次并重验。
+发布流程和实机限制分别见 [DEVELOPMENT](DEVELOPMENT.md) 与 [VALIDATION](VALIDATION.md)。
