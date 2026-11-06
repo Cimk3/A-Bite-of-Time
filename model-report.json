@@ -1,5 +1,5 @@
 {
-  "version": "0.8.1",
+  "version": "0.8.2",
   "models": [
     {
       "key": "egg_fried_rice_serving",
@@ -4293,6 +4293,134 @@
       }
     },
     {
+      "key": "icu_ecmo",
+      "resolution": 128,
+      "cubes": 43,
+      "slots": {
+        "ware": "patch082_icu_ecmo"
+      }
+    },
+    {
+      "key": "icu_ventilator",
+      "resolution": 128,
+      "cubes": 41,
+      "slots": {
+        "ware": "patch082_icu_ventilator"
+      }
+    },
+    {
+      "key": "icu_crrt",
+      "resolution": 128,
+      "cubes": 47,
+      "slots": {
+        "ware": "patch082_icu_crrt"
+      }
+    },
+    {
+      "key": "icu_iabp",
+      "resolution": 128,
+      "cubes": 34,
+      "slots": {
+        "ware": "patch082_icu_iabp"
+      }
+    },
+    {
+      "key": "icu_manual_defibrillator",
+      "resolution": 128,
+      "cubes": 20,
+      "slots": {
+        "ware": "patch082_icu_manual_defibrillator"
+      }
+    },
+    {
+      "key": "icu_high_flow_oxygen",
+      "resolution": 128,
+      "cubes": 30,
+      "slots": {
+        "ware": "patch082_icu_high_flow_oxygen"
+      }
+    },
+    {
+      "key": "icu_portable_suction",
+      "resolution": 128,
+      "cubes": 22,
+      "slots": {
+        "ware": "patch082_icu_portable_suction"
+      }
+    },
+    {
+      "key": "icu_oxygen_cart",
+      "resolution": 128,
+      "cubes": 29,
+      "slots": {
+        "ware": "patch082_icu_oxygen_cart"
+      }
+    },
+    {
+      "key": "icu_syringe_pump_bank",
+      "resolution": 128,
+      "cubes": 25,
+      "slots": {
+        "ware": "patch082_icu_syringe_pump_bank"
+      }
+    },
+    {
+      "key": "icu_pulse_oximeter",
+      "resolution": 128,
+      "cubes": 12,
+      "slots": {
+        "ware": "patch082_icu_pulse_oximeter"
+      }
+    },
+    {
+      "key": "icu_emergency_cart",
+      "resolution": 128,
+      "cubes": 33,
+      "slots": {
+        "ware": "patch082_icu_emergency_cart"
+      }
+    },
+    {
+      "key": "icu_exam_lamp",
+      "resolution": 128,
+      "cubes": 25,
+      "slots": {
+        "ware": "patch082_icu_exam_lamp"
+      }
+    },
+    {
+      "key": "police_body_camera_dock",
+      "resolution": 128,
+      "cubes": 15,
+      "slots": {
+        "ware": "patch082_police_body_camera_dock"
+      }
+    },
+    {
+      "key": "police_evidence_workbench",
+      "resolution": 128,
+      "cubes": 26,
+      "slots": {
+        "ware": "patch082_police_evidence_workbench"
+      }
+    },
+    {
+      "key": "police_checkpoint_kit",
+      "resolution": 128,
+      "cubes": 21,
+      "slots": {
+        "ware": "patch082_police_checkpoint_kit"
+      }
+    },
+    {
+      "key": "police_breathalyzer_kit",
+      "resolution": 128,
+      "cubes": 15,
+      "slots": {
+        "ware": "patch082_police_breathalyzer_kit"
+      }
+    },
+    {
       "key": "aed_cabinet_wall",
       "resolution": 128,
       "cubes": 6,
@@ -7250,6 +7378,86 @@
       "resolution": 128
     },
     {
+      "key": "surface_icu_ecmo",
+      "cubes": 43,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_ventilator",
+      "cubes": 41,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_crrt",
+      "cubes": 47,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_iabp",
+      "cubes": 34,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_manual_defibrillator",
+      "cubes": 20,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_high_flow_oxygen",
+      "cubes": 30,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_portable_suction",
+      "cubes": 22,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_oxygen_cart",
+      "cubes": 29,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_syringe_pump_bank",
+      "cubes": 25,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_pulse_oximeter",
+      "cubes": 12,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_emergency_cart",
+      "cubes": 33,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_exam_lamp",
+      "cubes": 25,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_body_camera_dock",
+      "cubes": 15,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_evidence_workbench",
+      "cubes": 26,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_checkpoint_kit",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_breathalyzer_kit",
+      "cubes": 15,
+      "resolution": 128
+    },
+    {
       "key": "mini_kung_pao_chicken",
       "cubes": 31,
       "resolution": 128
@@ -7778,6 +7986,11 @@
       "key": "digital_apple_6x5",
       "cubes": 6,
       "resolution": 384
+    },
+    {
+      "key": "digital_haodu_hotel_7x5",
+      "cubes": 6,
+      "resolution": 448
     },
     {
       "key": "garment_display_tshirt_hanging_0",
@@ -8369,6 +8582,22 @@
     "mcpe_food_laboratory_dual_monitor_set": 128,
     "mcpe_food_template_ai_triple_monitor_set": 128,
     "mcpe_food_portrait_paper_monitor": 128,
+    "mcpe_food_icu_ecmo": 128,
+    "mcpe_food_icu_ventilator": 128,
+    "mcpe_food_icu_crrt": 128,
+    "mcpe_food_icu_iabp": 128,
+    "mcpe_food_icu_manual_defibrillator": 128,
+    "mcpe_food_icu_high_flow_oxygen": 128,
+    "mcpe_food_icu_portable_suction": 128,
+    "mcpe_food_icu_oxygen_cart": 128,
+    "mcpe_food_icu_syringe_pump_bank": 128,
+    "mcpe_food_icu_pulse_oximeter": 128,
+    "mcpe_food_icu_emergency_cart": 128,
+    "mcpe_food_icu_exam_lamp": 128,
+    "mcpe_food_police_body_camera_dock": 128,
+    "mcpe_food_police_evidence_workbench": 128,
+    "mcpe_food_police_checkpoint_kit": 128,
+    "mcpe_food_police_breathalyzer_kit": 128,
     "mcpe_food_display_tshirt": 128,
     "mcpe_food_display_shirt": 128,
     "mcpe_food_display_coat": 128,
@@ -8447,7 +8676,8 @@
     "mcpe_food_digital_luna_studio_4x3": 128,
     "mcpe_food_digital_ft_computer_4x3": 128,
     "mcpe_food_digital_ft_computer_6x5": 128,
-    "mcpe_food_digital_apple_6x5": 128
+    "mcpe_food_digital_apple_6x5": 128,
+    "mcpe_food_digital_haodu_hotel_7x5": 128
   },
   "sharedTableGeometry": "geometry.mcpe_food.surface.table_number_sign"
 }

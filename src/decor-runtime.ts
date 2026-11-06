@@ -1,3 +1,4 @@
+import {patch082ById} from './patch-082-catalog.js';
 import {patch080ById,ceilingDisplayKey} from './patch-080-catalog.js';
 import {patch074ById} from './patch-074-catalog.js';
 import {patch073ById} from './patch-073-catalog.js';
@@ -149,7 +150,7 @@ function visual(r:DecorRecord,type:string,part:string,index:number,position:Vect
   }
   if(r.kind==='ad'&&entity.getProperty('mcpe_food:size')!==(r.size??0))entity.setProperty('mcpe_food:size',r.size??0);
   // Explicit facing is display-only: saved direction, yaw and revision stay intact.
-  const explicit=!!r.wallFace||r.kind==='digital_ad'||r.definition===id('supermarket_checkout')||patch072ById.has(r.definition)||patch073ById.has(r.definition)||patch074ById.has(r.definition)||patch080ById.has(r.definition)||r.kind==='clothing_rack';
+  const explicit=!!r.wallFace||r.kind==='digital_ad'||r.definition===id('supermarket_checkout')||patch072ById.has(r.definition)||patch073ById.has(r.definition)||patch074ById.has(r.definition)||patch080ById.has(r.definition)||patch082ById.has(r.definition)||r.kind==='clothing_rack';
   if(type!=='mcpe_food:advert_display'&&type!=='mcpe_food:tray_food_display'){
     const code=explicit?(isPanel(r)?displayFacing(r.wallFace??r.direction):facingFromYaw(r.yaw??yaw[r.direction]??0)):0;
     if(entity.getProperty('mcpe_food:display_facing')!==code)entity.setProperty('mcpe_food:display_facing',code);
@@ -161,7 +162,11 @@ function visual(r:DecorRecord,type:string,part:string,index:number,position:Vect
   if(!found||!same(entity.location,position)||entity.getDynamicProperty('mcpe_food:yaw')!==facing){entity.teleport(position,{rotation:{x:0,y:facing}});entity.setDynamicProperty('mcpe_food:yaw',facing);}return entity;
 }
 export function synchronize(r:DecorRecord):void {
-  if(surfaceValid(r)!==true)return;
+  if(surfaceValid(r)===true)synchronizeValidated(r);
+}
+
+/** Only call after successful support validation in the same synchronous operation. */
+function synchronizeValidated(r:DecorRecord):void {
   if(r.kind==='appliance')return;
   const wanted=new Set<string>(),entities=visuals(r);
   if(r.mount==='ceiling'){
@@ -421,7 +426,8 @@ export function reconcileDecor():void {
   if(loading)return;
   const start=Date.now();
   for(let n=0;n<Math.min(2,records.size);n++){
-    let uid=dirtyOwners.values().next().value as string|undefined;
+    if(n>0&&Date.now()-start>=4)break;
+    const uid=dirtyOwners.values().next().value as string|undefined;
     if(uid!==undefined)dirtyOwners.delete(uid);
     let r=uid===undefined?undefined:records.get(uid);
     if(!r){let next=recordCursor.next();if(next.done){recordCursor=records.values();next=recordCursor.next();}r=next.value;}
@@ -429,9 +435,8 @@ export function reconcileDecor():void {
     try{
       const valid=surfaceValid(r);if(valid===undefined)continue;
       if(r.native&&surfaceHeight(safeBlock(r))===.5&&safeBlock(r,anchor(r))?.typeId===id(tray.key)){migrateLowSurface(safeBlock(r,anchor(r))!);continue;}
-      if(!valid){removeDecor(r,true);continue;}synchronize(r);
+      if(!valid){removeDecor(r,true);continue;}synchronizeValidated(r);
     }catch(error){console.warn(`[Food & Table] display reconciliation: ${String(error)}`);}
-    if(Date.now()-start>=4)break;
   }
 }
 export function loadDecorRecords():void {

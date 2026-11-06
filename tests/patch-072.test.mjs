@@ -1,3 +1,4 @@
+import {patch082Items} from '../.build/patch-082-catalog.js';
 import {patch080Props} from '../.build/patch-080-catalog.js';
 import {patch074Props,patch074WallVariants,patch074DigitalScreens,patch074Groups} from '../.build/patch-074-catalog.js';
 import {patch073Props,governmentLegacyKeys,governmentKeys} from '../.build/patch-073-catalog.js';
@@ -24,12 +25,12 @@ const geometry=(key,entity=false)=>read(`${rp}/models/${entity?'entity':'blocks'
 const cubes=g=>g.bones.flatMap(b=>b.cubes??[]);
 test('0.7.2 adds exactly 21 items, preserves 538 indices, nine ads, IDs, UUIDs, recipes, drops and crops',()=>{
  const old=read('tests/fixtures/v0.7.1.json'),order=read('tests/fixtures/v0.7.1-surfaces.json');
- assert.deepEqual(surfaceVisuals.slice(0,538).map(d=>d.key),order.keys);assert.deepEqual(digitalScreens.slice(0,9),order.digitalScreens);assert.equal(surfaceVisuals.length,593);
- for(const kind of ['items','blocks']){const all=readdirSync(`${bp}/${kind}`).map(f=>read(`${bp}/${kind}/${f}`)[`minecraft:${kind.slice(0,-1)}`].description.identifier);assert.deepEqual(all.filter(k=>!old[kind].includes(k)&&![...patch073Props,...patch074Props,...patch074DigitalScreens,...patch080Props].some(d=>id(d.key)===k)).sort(),[...patch072Props,...(kind==='items'?clothingItems:[])].map(d=>id(d.key)).sort());for(const k of old[kind])assert.ok(all.includes(k));}
+ assert.deepEqual(surfaceVisuals.slice(0,538).map(d=>d.key),order.keys);assert.deepEqual(digitalScreens.slice(0,9),order.digitalScreens);assert.equal(surfaceVisuals.length,609);
+ for(const kind of ['items','blocks']){const all=readdirSync(`${bp}/${kind}`).map(f=>read(`${bp}/${kind}/${f}`)[`minecraft:${kind.slice(0,-1)}`].description.identifier);assert.deepEqual(all.filter(k=>!old[kind].includes(k)&&![...patch073Props,...patch074Props,...patch074DigitalScreens,...patch080Props,...patch082Items].some(d=>id(d.key)===k)).sort(),[...patch072Props,...(kind==='items'?clothingItems:[])].map(d=>id(d.key)).sort());for(const k of old[kind])assert.ok(all.includes(k));}
  for(const[pack,uuids]of Object.entries(old.uuids)){const m=read(`packs/${pack}/manifest.json`);assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],uuids);}
  for(const[folder,entries]of [['recipes',old.crafting],['loot_tables/blocks',old.loot]])for(const[f,h]of Object.entries(entries))assert.equal(createHash('sha256').update(readFileSync(`${bp}/${folder}/${f}`)).digest('hex'),h,f);
  for(const[f,states]of Object.entries(old.cropStates))assert.deepEqual(read(`${bp}/blocks/${f}`)['minecraft:block'].description.states,states);
- const lines=n=>readFileSync(`${bp}/functions/mcpe_food/${n}.mcfunction`,'utf8').trim().split('\n');assert.equal(lines('tasting_new').length,11);assert.equal(lines('clothing_store').length,13);assert.equal(lines('clothing_fixtures').length,4);assert.equal(lines('clothing_items').length,9);assert.equal(lines('transit_equipment').length,3);assert.equal(lines('electronics').length,52);assert.equal(lines('office_stationery').length,9);assert.deepEqual(lines('electronics').slice(0,42),old.functions['electronics.mcfunction'].trim().split('\n'));
+ const lines=n=>readFileSync(`${bp}/functions/mcpe_food/${n}.mcfunction`,'utf8').trim().split('\n');assert.equal(lines('tasting_new').length,17);assert.equal(lines('clothing_store').length,13);assert.equal(lines('clothing_fixtures').length,4);assert.equal(lines('clothing_items').length,9);assert.equal(lines('transit_equipment').length,3);assert.equal(lines('electronics').length,52);assert.equal(lines('office_stationery').length,9);assert.deepEqual(lines('electronics').slice(0,42),old.functions['electronics.mcfunction'].trim().split('\n'));
  const groups=read(`${bp}/item_catalog/crafting_item_catalog.json`)['minecraft:crafting_items_catalog'].categories[0].groups,names=groups.map(g=>g.group_identifier.name);assert.equal(names.indexOf('mcpe_food:group_clothing_items'),names.indexOf('mcpe_food:group_clothing_fixtures')+1);
  for(const d of clothingItems){const c=read(`${bp}/items/${d.key}.json`)['minecraft:item'].components;assert.equal(c['minecraft:wearable'],undefined);assert.equal(c['minecraft:block_placer'],undefined);assert.equal(c['minecraft:food'],undefined);}
 });
@@ -38,7 +39,7 @@ test('explicit orientation is synchronized, subtracts client body yaw, and leave
  for(const bone of ['food','ware'])assert.ok(animation.bones[bone].rotation[1].includes('- q.body_y_rotation'));
  for(const name of ['surface_display','digital_ad_display','clothing_display']){const b=read(`${bp}/entities/${name}.json`)['minecraft:entity'];assert.deepEqual(b.description.properties['mcpe_food:display_facing'],{type:'int',range:[0,4],default:0,client_sync:true});const c=read(`${rp}/entity/mcpe_food/${name}.entity.json`)['minecraft:client_entity'].description;assert.deepEqual(c.scripts.animate,[{display_facing:"q.property('mcpe_food:display_facing') > 0"}]);}
  for(const name of ['tray_food_display','advert_display'])assert.equal(read(`${bp}/entities/${name}.json`)['minecraft:entity'].description.properties['mcpe_food:display_facing'],undefined);
- const a=read(`${bp}/mcpe_food_build.json`),b=read(`${rp}/mcpe_food_build.json`);assert.deepEqual(a,b);assert.equal(a.build,`${read('package.json').version}-release.1`);for(const pack of[bp,rp])assert.ok(read(`${pack}/manifest.json`).header.name.includes(a.build));
+ const a=read(`${bp}/mcpe_food_build.json`),b=read(`${rp}/mcpe_food_build.json`);assert.deepEqual(a,b);assert.equal(a.version,read('package.json').version);for(const pack of[bp,rp])assert.ok(read(`${pack}/manifest.json`).header.name.includes(a.build));
 });
 test('all affected walls and two 2x1 information screens retain anchors and publish explicit four-way directions',async()=>{
  const normal={north:[0,-1],east:[1,0],south:[0,1],west:[-1,0]},right={north:[-1,0],east:[0,1],south:[1,0],west:[0,-1]};

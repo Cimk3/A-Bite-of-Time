@@ -5,3 +5,7 @@ give @s mcpe_food:helmet_display 4
 give @s mcpe_food:communications_radio 4
 give @s mcpe_food:radar_equipment 4
 give @s mcpe_food:tactical_equipment_case 4
+give @s mcpe_food:police_body_camera_dock 4
+give @s mcpe_food:police_evidence_workbench 4
+give @s mcpe_food:police_checkpoint_kit 4
+give @s mcpe_food:police_breathalyzer_kit 4

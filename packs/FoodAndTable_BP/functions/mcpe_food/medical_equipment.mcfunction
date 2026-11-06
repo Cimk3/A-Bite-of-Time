@@ -6,3 +6,15 @@ give @s mcpe_food:ecg_machine 4
 give @s mcpe_food:medical_trolley 4
 give @s mcpe_food:laboratory_microscope 4
 give @s mcpe_food:wall_diagnostic_station 4
+give @s mcpe_food:icu_ecmo 4
+give @s mcpe_food:icu_ventilator 4
+give @s mcpe_food:icu_crrt 4
+give @s mcpe_food:icu_iabp 4
+give @s mcpe_food:icu_manual_defibrillator 4
+give @s mcpe_food:icu_high_flow_oxygen 4
+give @s mcpe_food:icu_portable_suction 4
+give @s mcpe_food:icu_oxygen_cart 4
+give @s mcpe_food:icu_syringe_pump_bank 4
+give @s mcpe_food:icu_pulse_oximeter 4
+give @s mcpe_food:icu_emergency_cart 4
+give @s mcpe_food:icu_exam_lamp 4

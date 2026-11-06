@@ -1,3 +1,4 @@
+import { patch082ById } from './patch-082-catalog.js';
 import { patch080ById, ceilingDisplayKey } from './patch-080-catalog.js';
 import { patch074ById } from './patch-074-catalog.js';
 import { patch073ById } from './patch-073-catalog.js';
@@ -245,7 +246,7 @@ function visual(r, type, part, index, position, entities) {
     if (r.kind === 'ad' && entity.getProperty('mcpe_food:size') !== (r.size ?? 0))
         entity.setProperty('mcpe_food:size', r.size ?? 0);
     // Explicit facing is display-only: saved direction, yaw and revision stay intact.
-    const explicit = !!r.wallFace || r.kind === 'digital_ad' || r.definition === id('supermarket_checkout') || patch072ById.has(r.definition) || patch073ById.has(r.definition) || patch074ById.has(r.definition) || patch080ById.has(r.definition) || r.kind === 'clothing_rack';
+    const explicit = !!r.wallFace || r.kind === 'digital_ad' || r.definition === id('supermarket_checkout') || patch072ById.has(r.definition) || patch073ById.has(r.definition) || patch074ById.has(r.definition) || patch080ById.has(r.definition) || patch082ById.has(r.definition) || r.kind === 'clothing_rack';
     if (type !== 'mcpe_food:advert_display' && type !== 'mcpe_food:tray_food_display') {
         const code = explicit ? (isPanel(r) ? displayFacing(r.wallFace ?? r.direction) : facingFromYaw(r.yaw ?? yaw[r.direction] ?? 0)) : 0;
         if (entity.getProperty('mcpe_food:display_facing') !== code)
@@ -262,8 +263,11 @@ function visual(r, type, part, index, position, entities) {
     return entity;
 }
 export function synchronize(r) {
-    if (surfaceValid(r) !== true)
-        return;
+    if (surfaceValid(r) === true)
+        synchronizeValidated(r);
+}
+/** Only call after successful support validation in the same synchronous operation. */
+function synchronizeValidated(r) {
     if (r.kind === 'appliance')
         return;
     const wanted = new Set(), entities = visuals(r);
@@ -965,7 +969,9 @@ export function reconcileDecor() {
         return;
     const start = Date.now();
     for (let n = 0; n < Math.min(2, records.size); n++) {
-        let uid = dirtyOwners.values().next().value;
+        if (n > 0 && Date.now() - start >= 4)
+            break;
+        const uid = dirtyOwners.values().next().value;
         if (uid !== undefined)
             dirtyOwners.delete(uid);
         let r = uid === undefined ? undefined : records.get(uid);
@@ -991,13 +997,11 @@ export function reconcileDecor() {
                 removeDecor(r, true);
                 continue;
             }
-            synchronize(r);
+            synchronizeValidated(r);
         }
         catch (error) {
             console.warn(`[Food & Table] display reconciliation: ${String(error)}`);
         }
-        if (Date.now() - start >= 4)
-            break;
     }
 }
 export function loadDecorRecords() {

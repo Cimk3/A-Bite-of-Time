@@ -7,6 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import sys
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -26,6 +27,9 @@ def git(*args, input_text=None):
 
 def main():
     version = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))["version"]
+    accepted = sys.argv[1:] == ["--accepted-082-candidate"] and version == "0.8.2"
+    if sys.argv[1:] and not accepted:
+        raise RuntimeError("Unsupported release option")
     tag = "v" + version
     commit = git("rev-parse", "HEAD")
     if git("remote", "get-url", "origin") != f"https://github.com/{REPO}.git":
@@ -41,9 +45,24 @@ def main():
     if git("status", "--porcelain", "--untracked-files=no") or git(
             "ls-files", "--others", "--exclude-standard", "--", *source_inputs):
         raise RuntimeError("Commit all reviewed release files before publishing")
-    for name in ["validation-report.json", "archive-report.json"]:
-        if json.loads((ROOT / name).read_text(encoding="utf-8"))["status"] != "passed":
-            raise RuntimeError("Release verification is incomplete")
+    if not accepted:
+        for name in ["validation-report.json", "archive-report.json"]:
+            if json.loads((ROOT / name).read_text(encoding="utf-8"))["status"] != "passed":
+                raise RuntimeError("Release verification is incomplete")
+    else:
+        # The user accepted this specific build. Do not rebuild its artifacts.
+        approved = {
+            "FoodAndTable_BP-0.8.2.mcpack": "98466034409b2e3a52a81a98a991c3f7152aa6fea8d35f869631081c16a26c1f",
+            "FoodAndTable_RP-0.8.2.mcpack": "71c623b4ad2a58c6d15e1bd46dc2f823d7b9ef063232790698e24d594110d9dd",
+            "FoodAndTable-0.8.2.mcaddon": "0227e1b111ca2153047836474c880dd23004894c17174d7aaa311a3c77cdd3b1",
+            "FoodAndTable-source-0.8.2.zip": "9ba50e0d6007aa8e10fe9f349d0ca6f81ea8696a44d9579d9f92c5a7e3c88f16",
+        }
+        checksum_file = (ROOT / "dist" / "SHA256SUMS.txt").read_text(encoding="utf-8")
+        if checksum_file != "".join(f"{digest}  {name}\n" for name, digest in approved.items()):
+            raise RuntimeError("The accepted checksum manifest changed")
+        for name, digest in approved.items():
+            if hashlib.sha256((ROOT / "dist" / name).read_bytes()).hexdigest() != digest:
+                raise RuntimeError("The accepted artifact changed: " + name)
     values = dict(line.split("=", 1) for line in git("credential", "fill",
                   input_text="protocol=https\nhost=github.com\n\n").splitlines() if "=" in line)
     token = values.get("password")

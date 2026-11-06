@@ -1,4 +1,4 @@
-# 0.8.1 菜品与器皿索引
+# 0.8.2 菜品与器皿索引
 
 102 种可食成品，8 种不可食展示配菜，2 款静态铜锅，15 种餐具，3 款酒瓶摆件。新增内容通过创造物品栏或分组试用命令获取。
 
@@ -420,6 +420,7 @@
 - 电子广告屏 · FT电脑 4×3 / mcpe_food:digital_ft_computer_4x3
 - 电子广告屏 · FT电脑 6×5 / mcpe_food:digital_ft_computer_6x5
 - 电子广告屏 · Apple 6×5 / mcpe_food:digital_apple_6x5
+- 电子广告屏 · 豪都大酒店 7×5 / mcpe_food:digital_haodu_hotel_7x5
 
 
 ## 0.7.2试用新品（21件）
@@ -509,3 +510,24 @@
 - 双屏显示器套装 / mcpe_food:laboratory_dual_monitor_set
 - 三联屏工作台 / mcpe_food:template_ai_triple_monitor_set
 - 45°竖屏显示器 / mcpe_food:portrait_paper_monitor
+
+
+## 0.8.2 医疗、警务与广告屏
+
+- ECMO 体外膜肺氧合设备 / mcpe_food:icu_ecmo
+- ICU 呼吸机 / mcpe_food:icu_ventilator
+- CRRT 床旁血液净化机 / mcpe_food:icu_crrt
+- IABP 主动脉内球囊反搏泵 / mcpe_food:icu_iabp
+- 手动除颤监护仪 / mcpe_food:icu_manual_defibrillator
+- 高流量氧疗仪 / mcpe_food:icu_high_flow_oxygen
+- 便携吸引器 / mcpe_food:icu_portable_suction
+- 氧气瓶推车 / mcpe_food:icu_oxygen_cart
+- 三联注射泵 / mcpe_food:icu_syringe_pump_bank
+- 指夹血氧仪套装 / mcpe_food:icu_pulse_oximeter
+- 急救车 / mcpe_food:icu_emergency_cart
+- 移动检查灯 / mcpe_food:icu_exam_lamp
+- 执法记录仪充电座 / mcpe_food:police_body_camera_dock
+- 证物整理台 / mcpe_food:police_evidence_workbench
+- 交通检查点套装 / mcpe_food:police_checkpoint_kit
+- 便携酒精检测套装 / mcpe_food:police_breathalyzer_kit
+- 电子广告屏 · 豪都大酒店 7×5 / mcpe_food:digital_haodu_hotel_7x5

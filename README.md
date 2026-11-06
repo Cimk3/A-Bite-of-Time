@@ -26,6 +26,7 @@
 | `/function mcpe_food/laboratory_equipment` | 实验设备 |
 | `/function mcpe_food/electrical_equipment` | 电气设备 |
 | `/function mcpe_food/news_equipment` | 新闻设备 |
+| `/function mcpe_food/medical_equipment` | 医疗器械 |
 | `/function mcpe_food/military_police_equipment` | 军警物品 |
 | `/function mcpe_food/government_equipment` | 政务设备 |
 | `/function mcpe_food/clothing_store` | 服装展示设施和服装 |

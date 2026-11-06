@@ -9,3 +9,4 @@ give @s mcpe_food:digital_luna_studio_4x3 4
 give @s mcpe_food:digital_ft_computer_4x3 4
 give @s mcpe_food:digital_ft_computer_6x5 4
 give @s mcpe_food:digital_apple_6x5 4
+give @s mcpe_food:digital_haodu_hotel_7x5 4

@@ -1,0 +1,3183 @@
+{
+  "version": "0.8.1",
+  "items": [
+    "mcpe_food:ad_banquet",
+    "mcpe_food:ad_cantonese_roast",
+    "mcpe_food:ad_city_bookshop",
+    "mcpe_food:ad_city_camera",
+    "mcpe_food:ad_city_computer",
+    "mcpe_food:ad_city_florist",
+    "mcpe_food:ad_city_gaming",
+    "mcpe_food:ad_city_home",
+    "mcpe_food:ad_city_music",
+    "mcpe_food:ad_city_travel",
+    "mcpe_food:ad_dessert",
+    "mcpe_food:ad_dim_sum",
+    "mcpe_food:ad_ft_computer",
+    "mcpe_food:ad_grouper",
+    "mcpe_food:ad_home_cooking",
+    "mcpe_food:ad_hotpot",
+    "mcpe_food:ad_japanese_night",
+    "mcpe_food:ad_japanese_snacks",
+    "mcpe_food:ad_lamb",
+    "mcpe_food:ad_lobster",
+    "mcpe_food:ad_luna_studio",
+    "mcpe_food:ad_template_ai",
+    "mcpe_food:ad_wellington",
+    "mcpe_food:aed_cabinet",
+    "mcpe_food:ai_compute_rack",
+    "mcpe_food:ai_dual_screen_desk",
+    "mcpe_food:ai_inference_workstation",
+    "mcpe_food:air_purifier",
+    "mcpe_food:all_in_one_computer",
+    "mcpe_food:arcade_cabinet",
+    "mcpe_food:atm_terminal",
+    "mcpe_food:baijiu",
+    "mcpe_food:baijiu_bottle",
+    "mcpe_food:banknote_counter",
+    "mcpe_food:baozi",
+    "mcpe_food:beef_noodle_soup",
+    "mcpe_food:beef_slices",
+    "mcpe_food:beef_wellington",
+    "mcpe_food:black_bean_ribs",
+    "mcpe_food:black_coffee",
+    "mcpe_food:black_gold_bowl",
+    "mcpe_food:black_gold_plate",
+    "mcpe_food:black_truffle_foie_gras",
+    "mcpe_food:boeuf_bourguignon",
+    "mcpe_food:boiled_tofu_shreds",
+    "mcpe_food:bowl",
+    "mcpe_food:braised_pork",
+    "mcpe_food:braised_prawns",
+    "mcpe_food:broadcast_control_desk",
+    "mcpe_food:buddha_jumps_wall",
+    "mcpe_food:burger",
+    "mcpe_food:burgundy_bowl",
+    "mcpe_food:burgundy_platter",
+    "mcpe_food:cable_reel",
+    "mcpe_food:caviar_blini",
+    "mcpe_food:ceiling_arm_display_2x1",
+    "mcpe_food:ceramic_vase",
+    "mcpe_food:char_siu",
+    "mcpe_food:cheese",
+    "mcpe_food:cheesecake",
+    "mcpe_food:chicken_cordon_bleu",
+    "mcpe_food:chicken_nuggets",
+    "mcpe_food:chinese_five_sauce_set",
+    "mcpe_food:chocolate_cake",
+    "mcpe_food:chopsticks",
+    "mcpe_food:claypot_rice",
+    "mcpe_food:coca_cola_paper_cup",
+    "mcpe_food:coffee",
+    "mcpe_food:coffee_seeds",
+    "mcpe_food:cola",
+    "mcpe_food:communications_radio",
+    "mcpe_food:compact_shredder",
+    "mcpe_food:conference_phone",
+    "mcpe_food:cookies",
+    "mcpe_food:copper_hotpot_broth",
+    "mcpe_food:copper_hotpot_empty",
+    "mcpe_food:cream",
+    "mcpe_food:creme_brulee",
+    "mcpe_food:crt_monitor",
+    "mcpe_food:daifuku",
+    "mcpe_food:dell_laptop_closed",
+    "mcpe_food:dell_laptop_open",
+    "mcpe_food:desk_organizer",
+    "mcpe_food:desktop_computer",
+    "mcpe_food:desktop_projector",
+    "mcpe_food:digital_apple_6x5",
+    "mcpe_food:digital_ft_computer_2x2",
+    "mcpe_food:digital_ft_computer_4x3",
+    "mcpe_food:digital_ft_computer_4x4",
+    "mcpe_food:digital_ft_computer_6x5",
+    "mcpe_food:digital_luna_studio_2x2",
+    "mcpe_food:digital_luna_studio_4x3",
+    "mcpe_food:digital_luna_studio_4x4",
+    "mcpe_food:digital_oscilloscope",
+    "mcpe_food:digital_template_ai_2x2",
+    "mcpe_food:digital_template_ai_4x3",
+    "mcpe_food:digital_template_ai_4x4",
+    "mcpe_food:dishwasher",
+    "mcpe_food:display_coat",
+    "mcpe_food:display_dress",
+    "mcpe_food:display_hat",
+    "mcpe_food:display_shirt",
+    "mcpe_food:display_suit_black",
+    "mcpe_food:display_suit_light_gray",
+    "mcpe_food:display_suit_navy",
+    "mcpe_food:display_trousers",
+    "mcpe_food:display_tshirt",
+    "mcpe_food:document_camera",
+    "mcpe_food:document_stack",
+    "mcpe_food:dongpo_pork",
+    "mcpe_food:donut",
+    "mcpe_food:dorayaki",
+    "mcpe_food:double_clothing_shelf",
+    "mcpe_food:dough",
+    "mcpe_food:drink_counter",
+    "mcpe_food:dry_type_transformer",
+    "mcpe_food:dumplings",
+    "mcpe_food:ecg_machine",
+    "mcpe_food:eel",
+    "mcpe_food:egg_fried_rice",
+    "mcpe_food:egg_tart",
+    "mcpe_food:electric_kettle",
+    "mcpe_food:electrical_distribution_cabinet",
+    "mcpe_food:electrician_toolbox",
+    "mcpe_food:electronic_whiteboard",
+    "mcpe_food:field_news_camera",
+    "mcpe_food:flat_screen_tv",
+    "mcpe_food:floor_air_conditioner",
+    "mcpe_food:flower_vase",
+    "mcpe_food:fork",
+    "mcpe_food:four_bay_nas",
+    "mcpe_food:french_onion_soup",
+    "mcpe_food:fridge_double_black",
+    "mcpe_food:fridge_double_rose_gold",
+    "mcpe_food:fridge_double_white",
+    "mcpe_food:fridge_single_black",
+    "mcpe_food:fridge_single_rose_gold",
+    "mcpe_food:fridge_single_white",
+    "mcpe_food:fries",
+    "mcpe_food:front_load_washer",
+    "mcpe_food:frozen_tofu_platter",
+    "mcpe_food:fruit_platter",
+    "mcpe_food:ft_b1_open",
+    "mcpe_food:ft_government_all_in_one",
+    "mcpe_food:ft_government_desktop",
+    "mcpe_food:ft_government_ultrabook_open",
+    "mcpe_food:ft_ideabook_p1_open",
+    "mcpe_food:ft_master_open",
+    "mcpe_food:full_length_mirror",
+    "mcpe_food:game_console_set",
+    "mcpe_food:gaming_laptop_closed",
+    "mcpe_food:gaming_laptop_open",
+    "mcpe_food:garlic",
+    "mcpe_food:garlic_scallops",
+    "mcpe_food:glass",
+    "mcpe_food:gongfu_tea_tray",
+    "mcpe_food:government_document_scanner",
+    "mcpe_food:government_fingerprint_scanner",
+    "mcpe_food:government_id_reader",
+    "mcpe_food:government_queue_screen",
+    "mcpe_food:government_service_kiosk",
+    "mcpe_food:government_signature_pad",
+    "mcpe_food:government_stamp_set",
+    "mcpe_food:gpu_dual_fan",
+    "mcpe_food:gpu_single_fan",
+    "mcpe_food:gpu_triple_fan",
+    "mcpe_food:green_tea",
+    "mcpe_food:greens_platter",
+    "mcpe_food:grilled_squid",
+    "mcpe_food:gunkan_sushi",
+    "mcpe_food:guo_bao_rou",
+    "mcpe_food:helmet_display",
+    "mcpe_food:herb_roasted_lamb_rack",
+    "mcpe_food:hot_chocolate",
+    "mcpe_food:hotdog",
+    "mcpe_food:hotpot_beef",
+    "mcpe_food:hotpot_lamb",
+    "mcpe_food:huaiyang_eel",
+    "mcpe_food:huaiyang_sanding_bao",
+    "mcpe_food:ice_cream",
+    "mcpe_food:infusion_pump_stand",
+    "mcpe_food:insulator_display",
+    "mcpe_food:interview_audio_set",
+    "mcpe_food:ipad_air_magic_keyboard",
+    "mcpe_food:jujube_lotus_soup",
+    "mcpe_food:keyboard_mouse_set",
+    "mcpe_food:kung_pao_chicken",
+    "mcpe_food:laboratory_centrifuge",
+    "mcpe_food:laboratory_cloud_storage_array",
+    "mcpe_food:laboratory_dual_monitor_set",
+    "mcpe_food:laboratory_incubator",
+    "mcpe_food:laboratory_microscope",
+    "mcpe_food:laboratory_radio_station",
+    "mcpe_food:lamb_slices",
+    "mcpe_food:landscape_frame",
+    "mcpe_food:lions_head",
+    "mcpe_food:lobster_bisque",
+    "mcpe_food:lobster_thermidor",
+    "mcpe_food:mac_studio_set",
+    "mcpe_food:macbook_air_gray_open",
+    "mcpe_food:macbook_air_silver_open",
+    "mcpe_food:macbook_closed",
+    "mcpe_food:macbook_open",
+    "mcpe_food:macbook_pro_gpt_closed",
+    "mcpe_food:macbook_pro_gpt_open",
+    "mcpe_food:mannequin_display",
+    "mcpe_food:mapo_tofu",
+    "mcpe_food:medical_trolley",
+    "mcpe_food:menu_stand",
+    "mcpe_food:microwave_oven",
+    "mcpe_food:military_police_cabinet",
+    "mcpe_food:milk_tea",
+    "mcpe_food:mille_feuille",
+    "mcpe_food:mug",
+    "mcpe_food:mung_bean_soup",
+    "mcpe_food:mushroom_platter",
+    "mcpe_food:mushroom_soup",
+    "mcpe_food:network_switch",
+    "mcpe_food:news_backdrop",
+    "mcpe_food:news_microphone_stand",
+    "mcpe_food:news_teleprompter",
+    "mcpe_food:noodles",
+    "mcpe_food:notebook_closed",
+    "mcpe_food:notebook_open",
+    "mcpe_food:oden",
+    "mcpe_food:okonomiyaki",
+    "mcpe_food:open_reel_tape_recorder",
+    "mcpe_food:oven",
+    "mcpe_food:pan_seared_sole",
+    "mcpe_food:patient_monitor",
+    "mcpe_food:payment_scanner",
+    "mcpe_food:peacock_platter",
+    "mcpe_food:peking_duck",
+    "mcpe_food:pen_display_set",
+    "mcpe_food:pen_holder",
+    "mcpe_food:pepsi_paper_cup",
+    "mcpe_food:pickled_greens_pork",
+    "mcpe_food:pipette_rack_set",
+    "mcpe_food:pizza",
+    "mcpe_food:plate",
+    "mcpe_food:platform_information_screen",
+    "mcpe_food:poached_tiger_prawns",
+    "mcpe_food:portrait_paper_monitor",
+    "mcpe_food:premium_baijiu",
+    "mcpe_food:premium_baijiu_bottle",
+    "mcpe_food:premium_red_wine",
+    "mcpe_food:premium_red_wine_bottle",
+    "mcpe_food:prep_counter",
+    "mcpe_food:printer_scanner",
+    "mcpe_food:pudding",
+    "mcpe_food:queue_ticket_kiosk",
+    "mcpe_food:radar_equipment",
+    "mcpe_food:receipt_printer",
+    "mcpe_food:red_bean_cake",
+    "mcpe_food:reed_diffuser",
+    "mcpe_food:reserved_sign",
+    "mcpe_food:rice",
+    "mcpe_food:rice_cooker",
+    "mcpe_food:rice_seeds",
+    "mcpe_food:ring_sculpture",
+    "mcpe_food:riot_shield_display",
+    "mcpe_food:road_safety_barrier",
+    "mcpe_food:roast_chicken",
+    "mcpe_food:roast_goose",
+    "mcpe_food:robot_vacuum_dock",
+    "mcpe_food:router",
+    "mcpe_food:salad",
+    "mcpe_food:sandwich",
+    "mcpe_food:sashimi_platter",
+    "mcpe_food:scallop",
+    "mcpe_food:sea_bass",
+    "mcpe_food:seasoning",
+    "mcpe_food:server_cabinet",
+    "mcpe_food:service_bell",
+    "mcpe_food:sesame_dip",
+    "mcpe_food:shrimp",
+    "mcpe_food:shrimp_rice_rolls",
+    "mcpe_food:silver_laptop_closed",
+    "mcpe_food:silver_laptop_open",
+    "mcpe_food:single_clothing_rail",
+    "mcpe_food:skewers",
+    "mcpe_food:smashed_cucumber",
+    "mcpe_food:snow_pear_tremella",
+    "mcpe_food:soybean",
+    "mcpe_food:soybean_seeds",
+    "mcpe_food:spaghetti",
+    "mcpe_food:spoon",
+    "mcpe_food:spring_rolls",
+    "mcpe_food:standby_generator",
+    "mcpe_food:standing_binder",
+    "mcpe_food:standing_fan",
+    "mcpe_food:stapler",
+    "mcpe_food:steak",
+    "mcpe_food:steamed_grouper",
+    "mcpe_food:steamed_sea_bass",
+    "mcpe_food:stir_fried_yellow_beef",
+    "mcpe_food:storage_box",
+    "mcpe_food:stove",
+    "mcpe_food:strawberry",
+    "mcpe_food:strawberry_cake",
+    "mcpe_food:strawberry_seeds",
+    "mcpe_food:strawberry_shake",
+    "mcpe_food:studio_news_camera",
+    "mcpe_food:succulent_pot",
+    "mcpe_food:supermarket_checkout",
+    "mcpe_food:surface_pro_keyboard",
+    "mcpe_food:sushi_platter",
+    "mcpe_food:sweet_sour_pork",
+    "mcpe_food:table_clock",
+    "mcpe_food:table_knife",
+    "mcpe_food:table_number_sign",
+    "mcpe_food:tactical_equipment_case",
+    "mcpe_food:takoyaki",
+    "mcpe_food:tape_dispenser",
+    "mcpe_food:tea",
+    "mcpe_food:tea_seeds",
+    "mcpe_food:teaching_lectern",
+    "mcpe_food:template_ai_triple_monitor_set",
+    "mcpe_food:tempura",
+    "mcpe_food:thinkbook16_plus_closed",
+    "mcpe_food:thinkbook16_plus_open",
+    "mcpe_food:thinkpad_closed",
+    "mcpe_food:thinkpad_open",
+    "mcpe_food:ticket_vending_machine",
+    "mcpe_food:tieguanyin",
+    "mcpe_food:tiramisu",
+    "mcpe_food:tissue_box",
+    "mcpe_food:tofu",
+    "mcpe_food:tomato",
+    "mcpe_food:tomato_eggs",
+    "mcpe_food:tomato_juice",
+    "mcpe_food:tomato_seeds",
+    "mcpe_food:tonkotsu_ramen",
+    "mcpe_food:touchscreen_register",
+    "mcpe_food:tower_ups",
+    "mcpe_food:transit_ticket_gate",
+    "mcpe_food:tripe_platter",
+    "mcpe_food:triple_tray",
+    "mcpe_food:truffle_abalone",
+    "mcpe_food:ultrasound_cart",
+    "mcpe_food:unagi_don",
+    "mcpe_food:upright_archive_cabinet",
+    "mcpe_food:vegetables_in_superior_broth",
+    "mcpe_food:vermicelli",
+    "mcpe_food:vermicelli_platter",
+    "mcpe_food:wagyu_rice",
+    "mcpe_food:wall_air_conditioner",
+    "mcpe_food:wall_diagnostic_station",
+    "mcpe_food:wall_electric_meter",
+    "mcpe_food:wensi_tofu",
+    "mcpe_food:white_cut_chicken",
+    "mcpe_food:wild_mushroom_risotto",
+    "mcpe_food:wine_glass",
+    "mcpe_food:yakisoba"
+  ],
+  "blocks": [
+    "mcpe_food:aed_cabinet",
+    "mcpe_food:ai_compute_rack",
+    "mcpe_food:ai_dual_screen_desk",
+    "mcpe_food:ai_inference_workstation",
+    "mcpe_food:air_purifier",
+    "mcpe_food:all_in_one_computer",
+    "mcpe_food:arcade_cabinet",
+    "mcpe_food:atm_terminal",
+    "mcpe_food:baijiu_bottle",
+    "mcpe_food:baijiu_on_mug",
+    "mcpe_food:baijiu_serving",
+    "mcpe_food:banknote_counter",
+    "mcpe_food:baozi_on_black_gold_plate",
+    "mcpe_food:baozi_on_burgundy_platter",
+    "mcpe_food:baozi_serving",
+    "mcpe_food:beef_noodle_soup_on_black_gold_bowl",
+    "mcpe_food:beef_noodle_soup_on_burgundy_bowl",
+    "mcpe_food:beef_noodle_soup_serving",
+    "mcpe_food:beef_slices_on_black_gold_plate",
+    "mcpe_food:beef_slices_on_plate",
+    "mcpe_food:beef_slices_serving",
+    "mcpe_food:beef_wellington_on_black_gold_plate",
+    "mcpe_food:beef_wellington_on_plate",
+    "mcpe_food:beef_wellington_serving",
+    "mcpe_food:black_bean_ribs_on_black_gold_bowl",
+    "mcpe_food:black_bean_ribs_on_burgundy_bowl",
+    "mcpe_food:black_bean_ribs_serving",
+    "mcpe_food:black_coffee_on_glass",
+    "mcpe_food:black_coffee_serving",
+    "mcpe_food:black_gold_bowl",
+    "mcpe_food:black_gold_plate",
+    "mcpe_food:black_truffle_foie_gras_on_burgundy_platter",
+    "mcpe_food:black_truffle_foie_gras_on_plate",
+    "mcpe_food:black_truffle_foie_gras_serving",
+    "mcpe_food:boeuf_bourguignon_on_bowl",
+    "mcpe_food:boeuf_bourguignon_on_burgundy_bowl",
+    "mcpe_food:boeuf_bourguignon_serving",
+    "mcpe_food:boiled_tofu_shreds_on_black_gold_bowl",
+    "mcpe_food:boiled_tofu_shreds_on_burgundy_bowl",
+    "mcpe_food:boiled_tofu_shreds_serving",
+    "mcpe_food:bowl",
+    "mcpe_food:braised_pork_on_black_gold_bowl",
+    "mcpe_food:braised_pork_on_burgundy_bowl",
+    "mcpe_food:braised_pork_serving",
+    "mcpe_food:braised_prawns_on_black_gold_plate",
+    "mcpe_food:braised_prawns_on_burgundy_platter",
+    "mcpe_food:braised_prawns_serving",
+    "mcpe_food:broadcast_control_desk",
+    "mcpe_food:buddha_jumps_wall_on_bowl",
+    "mcpe_food:buddha_jumps_wall_on_burgundy_bowl",
+    "mcpe_food:buddha_jumps_wall_serving",
+    "mcpe_food:burger_on_black_gold_plate",
+    "mcpe_food:burger_on_burgundy_platter",
+    "mcpe_food:burger_serving",
+    "mcpe_food:burgundy_bowl",
+    "mcpe_food:burgundy_platter",
+    "mcpe_food:cable_reel",
+    "mcpe_food:caviar_blini_on_burgundy_platter",
+    "mcpe_food:caviar_blini_on_plate",
+    "mcpe_food:caviar_blini_serving",
+    "mcpe_food:ceiling_arm_display_2x1",
+    "mcpe_food:ceramic_vase",
+    "mcpe_food:char_siu_on_black_gold_plate",
+    "mcpe_food:char_siu_on_burgundy_platter",
+    "mcpe_food:char_siu_serving",
+    "mcpe_food:cheesecake_on_black_gold_plate",
+    "mcpe_food:cheesecake_on_burgundy_platter",
+    "mcpe_food:cheesecake_serving",
+    "mcpe_food:chicken_cordon_bleu_on_burgundy_platter",
+    "mcpe_food:chicken_cordon_bleu_on_plate",
+    "mcpe_food:chicken_cordon_bleu_serving",
+    "mcpe_food:chicken_nuggets_on_black_gold_plate",
+    "mcpe_food:chicken_nuggets_on_burgundy_platter",
+    "mcpe_food:chicken_nuggets_serving",
+    "mcpe_food:chinese_five_sauce_set",
+    "mcpe_food:chocolate_cake_on_black_gold_plate",
+    "mcpe_food:chocolate_cake_on_burgundy_platter",
+    "mcpe_food:chocolate_cake_serving",
+    "mcpe_food:chopsticks",
+    "mcpe_food:claypot_rice_on_black_gold_bowl",
+    "mcpe_food:claypot_rice_on_burgundy_bowl",
+    "mcpe_food:claypot_rice_serving",
+    "mcpe_food:coca_cola_paper_cup",
+    "mcpe_food:coffee_crop",
+    "mcpe_food:cola_on_mug",
+    "mcpe_food:cola_serving",
+    "mcpe_food:communications_radio",
+    "mcpe_food:compact_shredder",
+    "mcpe_food:conference_phone",
+    "mcpe_food:cookies_on_black_gold_plate",
+    "mcpe_food:cookies_on_burgundy_platter",
+    "mcpe_food:cookies_serving",
+    "mcpe_food:copper_hotpot_broth",
+    "mcpe_food:copper_hotpot_empty",
+    "mcpe_food:creme_brulee_on_black_gold_bowl",
+    "mcpe_food:creme_brulee_on_bowl",
+    "mcpe_food:creme_brulee_serving",
+    "mcpe_food:crt_monitor",
+    "mcpe_food:daifuku_on_black_gold_plate",
+    "mcpe_food:daifuku_on_burgundy_platter",
+    "mcpe_food:daifuku_serving",
+    "mcpe_food:dell_laptop_closed",
+    "mcpe_food:dell_laptop_open",
+    "mcpe_food:desk_organizer",
+    "mcpe_food:desktop_computer",
+    "mcpe_food:desktop_projector",
+    "mcpe_food:digital_oscilloscope",
+    "mcpe_food:dishwasher",
+    "mcpe_food:document_camera",
+    "mcpe_food:document_stack",
+    "mcpe_food:dongpo_pork_on_black_gold_plate",
+    "mcpe_food:dongpo_pork_on_plate",
+    "mcpe_food:dongpo_pork_serving",
+    "mcpe_food:donut_on_black_gold_plate",
+    "mcpe_food:donut_on_burgundy_platter",
+    "mcpe_food:donut_serving",
+    "mcpe_food:dorayaki_on_black_gold_plate",
+    "mcpe_food:dorayaki_on_burgundy_platter",
+    "mcpe_food:dorayaki_serving",
+    "mcpe_food:double_clothing_shelf",
+    "mcpe_food:drink_counter",
+    "mcpe_food:dry_type_transformer",
+    "mcpe_food:dumplings_on_black_gold_plate",
+    "mcpe_food:dumplings_on_burgundy_platter",
+    "mcpe_food:dumplings_serving",
+    "mcpe_food:ecg_machine",
+    "mcpe_food:egg_fried_rice_on_black_gold_bowl",
+    "mcpe_food:egg_fried_rice_on_burgundy_bowl",
+    "mcpe_food:egg_fried_rice_serving",
+    "mcpe_food:egg_tart_on_black_gold_plate",
+    "mcpe_food:egg_tart_on_burgundy_platter",
+    "mcpe_food:egg_tart_serving",
+    "mcpe_food:electric_kettle",
+    "mcpe_food:electrical_distribution_cabinet",
+    "mcpe_food:electrician_toolbox",
+    "mcpe_food:electronic_whiteboard",
+    "mcpe_food:field_news_camera",
+    "mcpe_food:flat_screen_tv",
+    "mcpe_food:floor_air_conditioner",
+    "mcpe_food:flower_vase",
+    "mcpe_food:fork",
+    "mcpe_food:four_bay_nas",
+    "mcpe_food:french_onion_soup_on_bowl",
+    "mcpe_food:french_onion_soup_on_burgundy_bowl",
+    "mcpe_food:french_onion_soup_serving",
+    "mcpe_food:fridge_double_black",
+    "mcpe_food:fridge_double_black_upper",
+    "mcpe_food:fridge_double_rose_gold",
+    "mcpe_food:fridge_double_rose_gold_upper",
+    "mcpe_food:fridge_double_white",
+    "mcpe_food:fridge_double_white_upper",
+    "mcpe_food:fridge_single_black",
+    "mcpe_food:fridge_single_rose_gold",
+    "mcpe_food:fridge_single_white",
+    "mcpe_food:fries_on_black_gold_plate",
+    "mcpe_food:fries_on_burgundy_platter",
+    "mcpe_food:fries_serving",
+    "mcpe_food:front_load_washer",
+    "mcpe_food:frozen_tofu_platter_on_burgundy_platter",
+    "mcpe_food:frozen_tofu_platter_on_plate",
+    "mcpe_food:frozen_tofu_platter_serving",
+    "mcpe_food:fruit_platter_on_black_gold_plate",
+    "mcpe_food:fruit_platter_on_plate",
+    "mcpe_food:fruit_platter_serving",
+    "mcpe_food:ft_b1_open",
+    "mcpe_food:ft_government_all_in_one",
+    "mcpe_food:ft_government_desktop",
+    "mcpe_food:ft_government_ultrabook_open",
+    "mcpe_food:ft_ideabook_p1_open",
+    "mcpe_food:ft_master_open",
+    "mcpe_food:full_length_mirror",
+    "mcpe_food:game_console_set",
+    "mcpe_food:gaming_laptop_closed",
+    "mcpe_food:gaming_laptop_open",
+    "mcpe_food:garlic_scallops_on_black_gold_plate",
+    "mcpe_food:garlic_scallops_on_burgundy_platter",
+    "mcpe_food:garlic_scallops_serving",
+    "mcpe_food:glass",
+    "mcpe_food:gongfu_tea_tray",
+    "mcpe_food:government_document_scanner",
+    "mcpe_food:government_fingerprint_scanner",
+    "mcpe_food:government_id_reader",
+    "mcpe_food:government_queue_screen",
+    "mcpe_food:government_service_kiosk",
+    "mcpe_food:government_signature_pad",
+    "mcpe_food:government_stamp_set",
+    "mcpe_food:gpu_dual_fan",
+    "mcpe_food:gpu_single_fan",
+    "mcpe_food:gpu_triple_fan",
+    "mcpe_food:green_tea_on_glass",
+    "mcpe_food:green_tea_serving",
+    "mcpe_food:greens_platter_on_black_gold_plate",
+    "mcpe_food:greens_platter_on_plate",
+    "mcpe_food:greens_platter_serving",
+    "mcpe_food:grilled_squid_on_black_gold_plate",
+    "mcpe_food:grilled_squid_on_plate",
+    "mcpe_food:grilled_squid_serving",
+    "mcpe_food:gunkan_sushi_on_burgundy_platter",
+    "mcpe_food:gunkan_sushi_on_plate",
+    "mcpe_food:gunkan_sushi_serving",
+    "mcpe_food:guo_bao_rou_on_black_gold_plate",
+    "mcpe_food:guo_bao_rou_on_burgundy_platter",
+    "mcpe_food:guo_bao_rou_serving",
+    "mcpe_food:helmet_display",
+    "mcpe_food:herb_roasted_lamb_rack_on_black_gold_plate",
+    "mcpe_food:herb_roasted_lamb_rack_on_plate",
+    "mcpe_food:herb_roasted_lamb_rack_serving",
+    "mcpe_food:hot_chocolate_on_glass",
+    "mcpe_food:hot_chocolate_serving",
+    "mcpe_food:hotdog_on_black_gold_plate",
+    "mcpe_food:hotdog_on_burgundy_platter",
+    "mcpe_food:hotdog_serving",
+    "mcpe_food:hotpot_beef_on_burgundy_platter",
+    "mcpe_food:hotpot_beef_on_plate",
+    "mcpe_food:hotpot_beef_serving",
+    "mcpe_food:hotpot_lamb_on_burgundy_platter",
+    "mcpe_food:hotpot_lamb_on_plate",
+    "mcpe_food:hotpot_lamb_serving",
+    "mcpe_food:huaiyang_eel_on_black_gold_plate",
+    "mcpe_food:huaiyang_eel_on_burgundy_platter",
+    "mcpe_food:huaiyang_eel_serving",
+    "mcpe_food:huaiyang_sanding_bao_on_black_gold_plate",
+    "mcpe_food:huaiyang_sanding_bao_on_burgundy_platter",
+    "mcpe_food:huaiyang_sanding_bao_serving",
+    "mcpe_food:ice_cream_on_black_gold_bowl",
+    "mcpe_food:ice_cream_on_burgundy_bowl",
+    "mcpe_food:ice_cream_serving",
+    "mcpe_food:infusion_pump_stand",
+    "mcpe_food:insulator_display",
+    "mcpe_food:interview_audio_set",
+    "mcpe_food:ipad_air_magic_keyboard",
+    "mcpe_food:jujube_lotus_soup_on_black_gold_bowl",
+    "mcpe_food:jujube_lotus_soup_on_bowl",
+    "mcpe_food:jujube_lotus_soup_serving",
+    "mcpe_food:keyboard_mouse_set",
+    "mcpe_food:kung_pao_chicken_on_black_gold_plate",
+    "mcpe_food:kung_pao_chicken_on_burgundy_platter",
+    "mcpe_food:kung_pao_chicken_serving",
+    "mcpe_food:laboratory_centrifuge",
+    "mcpe_food:laboratory_cloud_storage_array",
+    "mcpe_food:laboratory_dual_monitor_set",
+    "mcpe_food:laboratory_incubator",
+    "mcpe_food:laboratory_microscope",
+    "mcpe_food:laboratory_radio_station",
+    "mcpe_food:lamb_slices_on_black_gold_plate",
+    "mcpe_food:lamb_slices_on_plate",
+    "mcpe_food:lamb_slices_serving",
+    "mcpe_food:landscape_frame",
+    "mcpe_food:lions_head_on_black_gold_bowl",
+    "mcpe_food:lions_head_on_burgundy_bowl",
+    "mcpe_food:lions_head_serving",
+    "mcpe_food:lobster_bisque_on_bowl",
+    "mcpe_food:lobster_bisque_on_burgundy_bowl",
+    "mcpe_food:lobster_bisque_serving",
+    "mcpe_food:lobster_thermidor_on_black_gold_plate",
+    "mcpe_food:lobster_thermidor_on_plate",
+    "mcpe_food:lobster_thermidor_serving",
+    "mcpe_food:mac_studio_set",
+    "mcpe_food:macbook_air_gray_open",
+    "mcpe_food:macbook_air_silver_open",
+    "mcpe_food:macbook_closed",
+    "mcpe_food:macbook_open",
+    "mcpe_food:macbook_pro_gpt_closed",
+    "mcpe_food:macbook_pro_gpt_open",
+    "mcpe_food:mannequin_display",
+    "mcpe_food:mapo_tofu_on_black_gold_bowl",
+    "mcpe_food:mapo_tofu_on_burgundy_bowl",
+    "mcpe_food:mapo_tofu_serving",
+    "mcpe_food:medical_trolley",
+    "mcpe_food:menu_stand",
+    "mcpe_food:microwave_oven",
+    "mcpe_food:military_police_cabinet",
+    "mcpe_food:milk_tea_on_mug",
+    "mcpe_food:milk_tea_serving",
+    "mcpe_food:mille_feuille_on_black_gold_plate",
+    "mcpe_food:mille_feuille_on_plate",
+    "mcpe_food:mille_feuille_serving",
+    "mcpe_food:mug",
+    "mcpe_food:mung_bean_soup_on_black_gold_bowl",
+    "mcpe_food:mung_bean_soup_on_burgundy_bowl",
+    "mcpe_food:mung_bean_soup_serving",
+    "mcpe_food:mushroom_platter_on_black_gold_plate",
+    "mcpe_food:mushroom_platter_on_plate",
+    "mcpe_food:mushroom_platter_serving",
+    "mcpe_food:mushroom_soup_on_black_gold_bowl",
+    "mcpe_food:mushroom_soup_on_burgundy_bowl",
+    "mcpe_food:mushroom_soup_serving",
+    "mcpe_food:network_switch",
+    "mcpe_food:news_backdrop",
+    "mcpe_food:news_microphone_stand",
+    "mcpe_food:news_teleprompter",
+    "mcpe_food:notebook_closed",
+    "mcpe_food:notebook_open",
+    "mcpe_food:oden_on_bowl",
+    "mcpe_food:oden_on_burgundy_bowl",
+    "mcpe_food:oden_serving",
+    "mcpe_food:okonomiyaki_on_burgundy_platter",
+    "mcpe_food:okonomiyaki_on_plate",
+    "mcpe_food:okonomiyaki_serving",
+    "mcpe_food:open_reel_tape_recorder",
+    "mcpe_food:oven",
+    "mcpe_food:pan_seared_sole_on_black_gold_plate",
+    "mcpe_food:pan_seared_sole_on_plate",
+    "mcpe_food:pan_seared_sole_serving",
+    "mcpe_food:patient_monitor",
+    "mcpe_food:payment_scanner",
+    "mcpe_food:peacock_platter_on_burgundy_platter",
+    "mcpe_food:peacock_platter_on_plate",
+    "mcpe_food:peacock_platter_serving",
+    "mcpe_food:peking_duck_on_black_gold_plate",
+    "mcpe_food:peking_duck_on_plate",
+    "mcpe_food:peking_duck_serving",
+    "mcpe_food:pen_display_set",
+    "mcpe_food:pen_holder",
+    "mcpe_food:pepsi_paper_cup",
+    "mcpe_food:pickled_greens_pork_on_black_gold_bowl",
+    "mcpe_food:pickled_greens_pork_on_burgundy_bowl",
+    "mcpe_food:pickled_greens_pork_serving",
+    "mcpe_food:pipette_rack_set",
+    "mcpe_food:pizza_on_black_gold_plate",
+    "mcpe_food:pizza_on_burgundy_platter",
+    "mcpe_food:pizza_serving",
+    "mcpe_food:plate",
+    "mcpe_food:platform_information_screen",
+    "mcpe_food:poached_tiger_prawns_on_burgundy_platter",
+    "mcpe_food:poached_tiger_prawns_on_plate",
+    "mcpe_food:poached_tiger_prawns_serving",
+    "mcpe_food:portrait_paper_monitor",
+    "mcpe_food:premium_baijiu_bottle",
+    "mcpe_food:premium_baijiu_on_mug",
+    "mcpe_food:premium_baijiu_serving",
+    "mcpe_food:premium_red_wine_bottle",
+    "mcpe_food:premium_red_wine_on_mug",
+    "mcpe_food:premium_red_wine_on_wine_glass",
+    "mcpe_food:premium_red_wine_serving",
+    "mcpe_food:prep_counter",
+    "mcpe_food:printer_scanner",
+    "mcpe_food:pudding_on_black_gold_bowl",
+    "mcpe_food:pudding_on_burgundy_bowl",
+    "mcpe_food:pudding_serving",
+    "mcpe_food:queue_ticket_kiosk",
+    "mcpe_food:radar_equipment",
+    "mcpe_food:receipt_printer",
+    "mcpe_food:red_bean_cake_on_black_gold_plate",
+    "mcpe_food:red_bean_cake_on_burgundy_platter",
+    "mcpe_food:red_bean_cake_serving",
+    "mcpe_food:reed_diffuser",
+    "mcpe_food:reserved_sign",
+    "mcpe_food:rice_cooker",
+    "mcpe_food:rice_crop",
+    "mcpe_food:ring_sculpture",
+    "mcpe_food:riot_shield_display",
+    "mcpe_food:road_safety_barrier",
+    "mcpe_food:roast_chicken_on_black_gold_plate",
+    "mcpe_food:roast_chicken_on_burgundy_platter",
+    "mcpe_food:roast_chicken_serving",
+    "mcpe_food:roast_goose_on_black_gold_plate",
+    "mcpe_food:roast_goose_on_plate",
+    "mcpe_food:roast_goose_serving",
+    "mcpe_food:robot_vacuum_dock",
+    "mcpe_food:router",
+    "mcpe_food:salad_on_black_gold_bowl",
+    "mcpe_food:salad_on_burgundy_bowl",
+    "mcpe_food:salad_serving",
+    "mcpe_food:sandwich_on_black_gold_plate",
+    "mcpe_food:sandwich_on_burgundy_platter",
+    "mcpe_food:sandwich_serving",
+    "mcpe_food:sashimi_platter_on_black_gold_plate",
+    "mcpe_food:sashimi_platter_on_plate",
+    "mcpe_food:sashimi_platter_serving",
+    "mcpe_food:server_cabinet",
+    "mcpe_food:service_bell",
+    "mcpe_food:sesame_dip_on_black_gold_bowl",
+    "mcpe_food:sesame_dip_on_bowl",
+    "mcpe_food:sesame_dip_serving",
+    "mcpe_food:shrimp_rice_rolls_on_burgundy_platter",
+    "mcpe_food:shrimp_rice_rolls_on_plate",
+    "mcpe_food:shrimp_rice_rolls_serving",
+    "mcpe_food:silver_laptop_closed",
+    "mcpe_food:silver_laptop_open",
+    "mcpe_food:single_clothing_rail",
+    "mcpe_food:skewers_on_black_gold_plate",
+    "mcpe_food:skewers_on_burgundy_platter",
+    "mcpe_food:skewers_serving",
+    "mcpe_food:smashed_cucumber_on_black_gold_plate",
+    "mcpe_food:smashed_cucumber_on_burgundy_platter",
+    "mcpe_food:smashed_cucumber_serving",
+    "mcpe_food:snow_pear_tremella_on_bowl",
+    "mcpe_food:snow_pear_tremella_on_burgundy_bowl",
+    "mcpe_food:snow_pear_tremella_serving",
+    "mcpe_food:soybean_crop",
+    "mcpe_food:spaghetti_on_black_gold_plate",
+    "mcpe_food:spaghetti_on_burgundy_platter",
+    "mcpe_food:spaghetti_serving",
+    "mcpe_food:spoon",
+    "mcpe_food:spring_rolls_on_black_gold_plate",
+    "mcpe_food:spring_rolls_on_burgundy_platter",
+    "mcpe_food:spring_rolls_serving",
+    "mcpe_food:standby_generator",
+    "mcpe_food:standing_binder",
+    "mcpe_food:standing_fan",
+    "mcpe_food:stapler",
+    "mcpe_food:steak_on_black_gold_plate",
+    "mcpe_food:steak_on_burgundy_platter",
+    "mcpe_food:steak_serving",
+    "mcpe_food:steamed_grouper_on_black_gold_plate",
+    "mcpe_food:steamed_grouper_on_plate",
+    "mcpe_food:steamed_grouper_serving",
+    "mcpe_food:steamed_sea_bass_on_black_gold_plate",
+    "mcpe_food:steamed_sea_bass_on_burgundy_platter",
+    "mcpe_food:steamed_sea_bass_serving",
+    "mcpe_food:stir_fried_yellow_beef_on_black_gold_plate",
+    "mcpe_food:stir_fried_yellow_beef_on_plate",
+    "mcpe_food:stir_fried_yellow_beef_serving",
+    "mcpe_food:storage_box",
+    "mcpe_food:stove",
+    "mcpe_food:strawberry_cake_on_black_gold_plate",
+    "mcpe_food:strawberry_cake_on_burgundy_platter",
+    "mcpe_food:strawberry_cake_serving",
+    "mcpe_food:strawberry_crop",
+    "mcpe_food:strawberry_shake_on_mug",
+    "mcpe_food:strawberry_shake_serving",
+    "mcpe_food:studio_news_camera",
+    "mcpe_food:succulent_pot",
+    "mcpe_food:supermarket_checkout",
+    "mcpe_food:surface_pro_keyboard",
+    "mcpe_food:sushi_platter_on_burgundy_platter",
+    "mcpe_food:sushi_platter_on_plate",
+    "mcpe_food:sushi_platter_serving",
+    "mcpe_food:sweet_sour_pork_on_black_gold_plate",
+    "mcpe_food:sweet_sour_pork_on_burgundy_platter",
+    "mcpe_food:sweet_sour_pork_serving",
+    "mcpe_food:table_clock",
+    "mcpe_food:table_knife",
+    "mcpe_food:table_number_sign",
+    "mcpe_food:tactical_equipment_case",
+    "mcpe_food:takoyaki_on_black_gold_plate",
+    "mcpe_food:takoyaki_on_burgundy_platter",
+    "mcpe_food:takoyaki_serving",
+    "mcpe_food:tape_dispenser",
+    "mcpe_food:tea_crop",
+    "mcpe_food:teaching_lectern",
+    "mcpe_food:template_ai_triple_monitor_set",
+    "mcpe_food:tempura_on_burgundy_platter",
+    "mcpe_food:tempura_on_plate",
+    "mcpe_food:tempura_serving",
+    "mcpe_food:thinkbook16_plus_closed",
+    "mcpe_food:thinkbook16_plus_open",
+    "mcpe_food:thinkpad_closed",
+    "mcpe_food:thinkpad_open",
+    "mcpe_food:ticket_vending_machine",
+    "mcpe_food:tieguanyin_on_glass",
+    "mcpe_food:tieguanyin_serving",
+    "mcpe_food:tiramisu_on_burgundy_platter",
+    "mcpe_food:tiramisu_on_plate",
+    "mcpe_food:tiramisu_serving",
+    "mcpe_food:tissue_box",
+    "mcpe_food:tomato_crop",
+    "mcpe_food:tomato_eggs_on_black_gold_plate",
+    "mcpe_food:tomato_eggs_on_burgundy_platter",
+    "mcpe_food:tomato_eggs_serving",
+    "mcpe_food:tomato_juice_on_mug",
+    "mcpe_food:tomato_juice_serving",
+    "mcpe_food:tonkotsu_ramen_on_bowl",
+    "mcpe_food:tonkotsu_ramen_on_burgundy_bowl",
+    "mcpe_food:tonkotsu_ramen_serving",
+    "mcpe_food:touchscreen_register",
+    "mcpe_food:tower_ups",
+    "mcpe_food:transit_ticket_gate",
+    "mcpe_food:tripe_platter_on_burgundy_platter",
+    "mcpe_food:tripe_platter_on_plate",
+    "mcpe_food:tripe_platter_serving",
+    "mcpe_food:triple_tray",
+    "mcpe_food:truffle_abalone_on_burgundy_platter",
+    "mcpe_food:truffle_abalone_on_plate",
+    "mcpe_food:truffle_abalone_serving",
+    "mcpe_food:ultrasound_cart",
+    "mcpe_food:unagi_don_on_black_gold_bowl",
+    "mcpe_food:unagi_don_on_bowl",
+    "mcpe_food:unagi_don_serving",
+    "mcpe_food:upright_archive_cabinet",
+    "mcpe_food:vegetables_in_superior_broth_on_black_gold_bowl",
+    "mcpe_food:vegetables_in_superior_broth_on_burgundy_bowl",
+    "mcpe_food:vegetables_in_superior_broth_serving",
+    "mcpe_food:vermicelli_platter_on_burgundy_platter",
+    "mcpe_food:vermicelli_platter_on_plate",
+    "mcpe_food:vermicelli_platter_serving",
+    "mcpe_food:wagyu_rice_on_black_gold_bowl",
+    "mcpe_food:wagyu_rice_on_bowl",
+    "mcpe_food:wagyu_rice_serving",
+    "mcpe_food:wall_air_conditioner",
+    "mcpe_food:wall_diagnostic_station",
+    "mcpe_food:wall_electric_meter",
+    "mcpe_food:wensi_tofu_on_black_gold_bowl",
+    "mcpe_food:wensi_tofu_on_burgundy_bowl",
+    "mcpe_food:wensi_tofu_serving",
+    "mcpe_food:white_cut_chicken_on_black_gold_plate",
+    "mcpe_food:white_cut_chicken_on_burgundy_platter",
+    "mcpe_food:white_cut_chicken_serving",
+    "mcpe_food:wild_mushroom_risotto_on_bowl",
+    "mcpe_food:wild_mushroom_risotto_on_burgundy_bowl",
+    "mcpe_food:wild_mushroom_risotto_serving",
+    "mcpe_food:wine_glass",
+    "mcpe_food:yakisoba_on_black_gold_plate",
+    "mcpe_food:yakisoba_on_plate",
+    "mcpe_food:yakisoba_serving"
+  ],
+  "uuids": {
+    "FoodAndTable_BP": [
+      "c260f73a-480b-441e-91e2-de90849fa140",
+      "a1aa9410-be01-43bb-bec4-806426c234fb",
+      "851d963e-b413-4cab-af11-74e029441d0a"
+    ],
+    "FoodAndTable_RP": [
+      "1a31bbad-5ab0-4860-aa36-1dded1fb5689",
+      "f52c1cef-a4fd-4d0b-ae75-f66cb93d6386"
+    ]
+  },
+  "loot": {
+    "aed_cabinet.json": "352381152ae00a4257a02c4a9a9f8a061c50eac4bc179c939355c747bfc1b72d",
+    "ai_compute_rack.json": "04795bb86613db23f8b789ac50d6efddbdf5fef69e2ce8d9c57397419304a9a9",
+    "ai_dual_screen_desk.json": "b48888125a96e8b9d47e0e6dca8e4dbde8c5f5c6d1fd5e6d170f7e68d6c2bea2",
+    "ai_inference_workstation.json": "d51614f2633cc8ea711df5ada0dd358c2645cfbb479e40d6f8d50561aa31ef66",
+    "air_purifier.json": "3c2306be438cf90879b459e61b816b97f017d4abd70cafa038b064f4632cf685",
+    "all_in_one_computer.json": "3e95aad80439ac3f4951aaa70cd182c27942b8ce5ee2b43027ebd01a1d8761ff",
+    "arcade_cabinet.json": "3b151eda49e299c1583ee74c144e972873afdf1ff27cfcec098ee55507a0b6d8",
+    "atm_terminal.json": "f32a991a83d1471fb2b90edc18dde1e158fea498f58b81652d42accc327bdd9d",
+    "baijiu_bottle.json": "f497f98242da1bb28f80f5782f2acadaa9fcc71850215d5bbba3144a6c9a64c0",
+    "baijiu_on_mug.json": "5fa60ee152eece0629f9361f7a41cf8f811f6cc54650e2a052237fe02e1b5373",
+    "baijiu_serving.json": "bae25b89072975aade26fffc7950c8845f81fd264a19b4a4c100ae3206efbe88",
+    "banknote_counter.json": "d58f5116c9452af20aa3abb6464b0c3ff4a0fa4cf2063bdd4c9792edf6474470",
+    "baozi_on_black_gold_plate.json": "4cab56e01190171367c5cfab52f933bdc90c017e05924d4aa6485f72f01e0e7e",
+    "baozi_on_burgundy_platter.json": "5cd6a15695e525735134e81103d59f5d39f9d69fedb9338ddc6975e3b57792e4",
+    "baozi_serving.json": "4778e5ab7fe0b04514cd8c9db9d1c0d2b50a6d767ceab4698f0482ca78f2ad62",
+    "beef_noodle_soup_on_black_gold_bowl.json": "8417116659d57c795f6ce2deb9233b6dbf52e4b9406e1ae960a2491841b935f1",
+    "beef_noodle_soup_on_burgundy_bowl.json": "66f34bd9dbdf1ddf9cb7e68d248eee822c98e066713b6e7607a8887e76ef492c",
+    "beef_noodle_soup_serving.json": "dcbc99b059832b23fff12e05bdbf6ab41f561b8a57860a32c13273518e3f72a0",
+    "beef_slices_on_black_gold_plate.json": "3f1e08b49e7e098d8dbeb5203494a9069945c6e58e2f648ca6c140b892a87b41",
+    "beef_slices_on_plate.json": "ca87373b9237fbfa8b0ce5330503c6b574211aa4f819a1cb322362dcc019a175",
+    "beef_slices_serving.json": "fa8a25f424b48e31ff18745e05b44132901577704835c540feebc3a7767d9f67",
+    "beef_wellington_on_black_gold_plate.json": "7b9bbf1ba6a537c2848a340315aa3bc572d3f77a09172a509babac0888586703",
+    "beef_wellington_on_plate.json": "aa99e5ab3bccaaa876e70dab3331cccf6ea141dc5143fbd2882895f4e315a505",
+    "beef_wellington_serving.json": "49701633b024e5f222c4e39b79a0debd2ca0a96a9ac0231ef1ff5160b1dc4ba9",
+    "black_bean_ribs_on_black_gold_bowl.json": "f07f7190df2f5de54aafde52826b07eddee48f37e6bd178ed5c03dbc3e1ab9e0",
+    "black_bean_ribs_on_burgundy_bowl.json": "1bc5d30f3e0fd0071d95aa960792c220c48a1a6d5959335563ecc16c4feea0c6",
+    "black_bean_ribs_serving.json": "078f2723008f900b7a3df787c3e553dabda137cf611fbd5304591fb3979e9252",
+    "black_coffee_on_glass.json": "e963977954ed641cfbf4493d0d3160d10419216efd31d23f1d837b21901b60c1",
+    "black_coffee_serving.json": "8785550c96a6a04016cf6ab43309571eada25517672e2c9dc92fa7f1da9f10fd",
+    "black_gold_bowl.json": "c474dba264b47db1dc2f170a11c26277715aa9fa52696000f9177c8428dd5dc3",
+    "black_gold_plate.json": "e20aada4fe2ad9bbf5841963a77742e4b8847f0cb32945b10b2426b84e138b49",
+    "black_truffle_foie_gras_on_burgundy_platter.json": "350a4845c93e8c767929b6098d928d27b713f9d0dfecbcccdab511732f00f365",
+    "black_truffle_foie_gras_on_plate.json": "fa980b687e62a66f2999c114d1ec4ee99b208af15b73a49a7497b7b4403139f1",
+    "black_truffle_foie_gras_serving.json": "2d233223fb89febeb22ed3032f6d61304cc97f83b1af13787294213be91e153b",
+    "boeuf_bourguignon_on_bowl.json": "63768428be715a9686bf0e15b77f0376d0a828c5eecca05d027979ff54bdfd8c",
+    "boeuf_bourguignon_on_burgundy_bowl.json": "3ea37ede4ed06e713d145b75f097021fd7ce4225972cb1b3a6797861d6d04b9e",
+    "boeuf_bourguignon_serving.json": "d93fd639ffe0e98b218b2af7ce1c1ce21aee26208be32c4fb7b70826cdefb054",
+    "boiled_tofu_shreds_on_black_gold_bowl.json": "f2d8dfb5dde04f22c5690458c5683fd6845e923fe693413f02c75e758140f11a",
+    "boiled_tofu_shreds_on_burgundy_bowl.json": "1b65d6dbffc471b4abaaee133e9aaf7e93f2b90276db0b03c9d1906cfb7b657e",
+    "boiled_tofu_shreds_serving.json": "7339d29b65dfe1e62921ba7faaa60d4ad228ba0f589a3fb8e7926a7bef1e8dbf",
+    "bowl.json": "7ba2592a1fdb3d19d1ea041b2138ba463ccc01182547816afc607613ef6bb853",
+    "braised_pork_on_black_gold_bowl.json": "2a449ce6d36a8f8a2570416d0fb3f520d1a14cb93ae559fdd6d1a65ebfc25e86",
+    "braised_pork_on_burgundy_bowl.json": "b470155b11012bfbb1aeb5e787f992e7b2f9310a5ffb8c77b77d4c6fd4544fad",
+    "braised_pork_serving.json": "01041ec3e5c7db921038c4a3e8221134d7c8b43bfac1d2d2a5737dee2f974ef0",
+    "braised_prawns_on_black_gold_plate.json": "75ae83fced0e1afda73b3df37e4ac5c2efc9bf112dbe55002a8d9ffb74fe76a5",
+    "braised_prawns_on_burgundy_platter.json": "da8da9a750529d6470575b20bfac45e30925e24b844fb8143cb0fe69166a8ab4",
+    "braised_prawns_serving.json": "f3ccdc2867807caf385181c6cc750c27a06e3bded2f9b564fa7e287f2f7e3b3d",
+    "broadcast_control_desk.json": "9efc18d8d84a5db6fc3d7bd54e92f116b7882b0535414b335ec208b9cd7dbbda",
+    "buddha_jumps_wall_on_bowl.json": "3c83ba8b29cb2ae8b4a27f57040986512c19fbd923e2510f959deb6bdafa3549",
+    "buddha_jumps_wall_on_burgundy_bowl.json": "adb1ef2da1ecb1c930e31aa3cfcb205644c073a934bd697b60ddb260df605ea3",
+    "buddha_jumps_wall_serving.json": "cb1ee4a18eef122eabb70d6b9913c51587962387e2011adef354fc52309a3070",
+    "burger_on_black_gold_plate.json": "e376d278f071e8ba2e0f271a299dd32b3800d7532aecaabfc08fae846486fc0d",
+    "burger_on_burgundy_platter.json": "f85f3a20df50bb2fbf60a57c560fa4e23f529eb79c02689edf63539d6887d82e",
+    "burger_serving.json": "f5ef93c5671e99a96ba33bdd1cd6e093d7d2501af7809b8cfa7f750d68569b34",
+    "burgundy_bowl.json": "79eec068a56f646bf3b49f1074674037739e66291227b9c36ba9d64d655ec74d",
+    "burgundy_platter.json": "07f41dc3872ea325674aa137975c89ca1e9e92486c13b6cacac01d7fd3bb0a09",
+    "cable_reel.json": "67c972926494b60aae8ae3c372fec715bde2e41e4daa3944c0689ba83184c927",
+    "caviar_blini_on_burgundy_platter.json": "d5c3eb62e35a3404053741c3223d7bba42ceb0e3e65d12607d70b4dbfc08fa77",
+    "caviar_blini_on_plate.json": "7eafcd09c7074a91edcf981548014a08c78a7474e86285b9a8a6b6570464f695",
+    "caviar_blini_serving.json": "36625f95a41aa4c3899634ae7da475710a06a7f2a54c397d113548607b963d7d",
+    "ceiling_arm_display_2x1.json": "0c6a216e8210e68c24ab3085631110514d2c9433b6bb17eea63ac2cec0b743e0",
+    "ceramic_vase.json": "b0f1cb6bb9c1fbb659a88c7bf5862e2a2f64d08bf1b4364aa28175d1882070c1",
+    "char_siu_on_black_gold_plate.json": "81fcf36e063536d222f969afc43a5360e83ee41fdb77a3e23fad09f0508c3c66",
+    "char_siu_on_burgundy_platter.json": "79edab166f8d03ead1920fb88a5af900fad8ea89afdd82ef1f0c51586042e2f3",
+    "char_siu_serving.json": "ae80b67ebd5ac3cf30cd702f329be82f259611c0ff496fcb3594569ec4d78b66",
+    "cheesecake_on_black_gold_plate.json": "7af50522bc5ce5422721c0e691843ba8656b5399e4e9f4573c0bd9ce96845e61",
+    "cheesecake_on_burgundy_platter.json": "29a9b900372873528ac40c2fb7fcb453fadbd5382606b043a3ed14e7e8265bc2",
+    "cheesecake_serving.json": "af79bdb259a07dce0ba7be95c45b5b314fed84cd94ae2d42faca9d64dc7c6b36",
+    "chicken_cordon_bleu_on_burgundy_platter.json": "aa1a3728677dd34df574165ea8357489f46f827a1a74e11f1417591576dcff23",
+    "chicken_cordon_bleu_on_plate.json": "d53170b921088cb90919f30198c43d5efe053fe4acd3056f5b29448ab7993bdb",
+    "chicken_cordon_bleu_serving.json": "1c55d5223b4578b65feb2f0a90d844c07210e03ee4a9069b308c14fae3fa99c4",
+    "chicken_nuggets_on_black_gold_plate.json": "a2ca2f90fb5f75eb9586055dc64f150f5a2ca0cf697bf6b894deff7d9f7622ab",
+    "chicken_nuggets_on_burgundy_platter.json": "eb5319de5d08813bb1915740f753a97e633a82e5b8649f6a356327a6f1d10244",
+    "chicken_nuggets_serving.json": "8c9ef7e179eda860a2ce96cd7e589e64684564d9673492271660a44cc53cd682",
+    "chinese_five_sauce_set.json": "30c56c0569b3b0bf33f34ffb0198c74cbaba15387cc11f6a1d17f926dce78feb",
+    "chocolate_cake_on_black_gold_plate.json": "771d4579d544961c29304c6270939dd8872f791b3313f61b417f9c67f55cf7bf",
+    "chocolate_cake_on_burgundy_platter.json": "01eb68027d02d6558f1c69e541485492431ddd0e8de8f05478833662d28a29d3",
+    "chocolate_cake_serving.json": "1d95db5cae32429f2591d64c638e272202f6ea163082297cfa2f19ff7ac88dd5",
+    "chopsticks.json": "f0476761385e0d0aa59c3d084de25bef1a17b9b42ce3ee2234de9f99cb1bc889",
+    "claypot_rice_on_black_gold_bowl.json": "9cab5aab8c7a891a4d1c1a2567ceff19133e79e290c78c043f821b35cb3c3916",
+    "claypot_rice_on_burgundy_bowl.json": "5f21d31b42047fdc2e54f9ec0767efd6d38f3e193beb197e5f40004632261d0d",
+    "claypot_rice_serving.json": "e830a8c0c57d015cce59fcd4ce4d1fcbb5f01fb7024b3dc831f743f2fa61da4f",
+    "coca_cola_paper_cup.json": "333acd7257fd3152361666469a1d2bd5fdb1e59eff7b37c78a0aa409a5e42877",
+    "coffee_crop_mature.json": "1cce833f421047489fadb84483285f927d62e9115dcbd32a72ef2aaaeb369f17",
+    "coffee_crop_young.json": "2995475cbc03d9fc5a62f7faa6581516bb1bc14bd1a2d78d583f3b313f90d035",
+    "cola_on_mug.json": "a9ec0decaa8bcb7b0d4f840a6628ce1a1275770dd844f41eb8d32dca3e0b8cdf",
+    "cola_serving.json": "8a0eb7f9311ecef4f6460e22ad9fd68ac2b7bd93e9918d930a48e336430977db",
+    "communications_radio.json": "9f82e948e5489fcb861f2a193d02ed71b044a76a352155132c7e0e8f4fa4495f",
+    "compact_shredder.json": "8c295598b3b7d21d4fbf0131224165745d3019d3691eb27cbeebc5da6921d9ae",
+    "conference_phone.json": "fed7cd43276f1627eeed0e8db46b2bde4c2ac4fcc3d6ee2e9bbb9e9ee109ed9a",
+    "cookies_on_black_gold_plate.json": "8566fe44c3824f27af66f6dc29cd02674baa25ac8bb7169bbb08c9f209da9957",
+    "cookies_on_burgundy_platter.json": "6c832b5f77c6bc7320f24c6f7c3e790c14db86be55ec35f35baaf18cfe17fa78",
+    "cookies_serving.json": "5b8bda10b92ad7c688f30e0c5c08841c5668d1c1518934bd19355b9879e07ace",
+    "copper_hotpot_broth.json": "920f2458733116131243335e4722afd5245d61922ff955866cd9353255a323bc",
+    "copper_hotpot_empty.json": "0f25907fd189dc0aa76b45510b8ab766bfb59a2db8575a9fec5bad9874de9b40",
+    "creme_brulee_on_black_gold_bowl.json": "a261e9a4dbeb9a2547dcffa5d60fae4452c7c46be6556095810c71ea8a88e225",
+    "creme_brulee_on_bowl.json": "efe6b6613c5b8a6adcff0473e4e4315cb5433f44056125f10710146df7580900",
+    "creme_brulee_serving.json": "1c4de2cd79ae7e32a359b214ba0b4148211124111c1e26660369cb4c97346e71",
+    "crt_monitor.json": "cc5ee97a73274cf74d55ab6b1cc478129cc57a594ed99a402e0a86dcd10d76f1",
+    "daifuku_on_black_gold_plate.json": "c3fcc6717353fa780c0f7aea33aeff78e4201d2f3620fdb0c7663a3b758a1c3f",
+    "daifuku_on_burgundy_platter.json": "127501d568f594f84c5e39a8c388806cf9f5c545129654f0dcf793ea6c16200a",
+    "daifuku_serving.json": "9e3d9bd62ceaea54e1a0f7fe71ac5338eec7ff528bcbd1f2fe4497492824829d",
+    "dell_laptop_closed.json": "0b6cf651a6f3746e655478adb2ad0b719eadae4f2c3dd465ac5470d138613ca2",
+    "dell_laptop_open.json": "83aa69338e13d9f0ff4652e1fd990ff96ae0f00b8ec16037bd775b96a3fa8782",
+    "desk_organizer.json": "ca6d4bb8a0356163dedd3c4c3e4fe442fe5130e59bdea66384a7cc8402edc41c",
+    "desktop_computer.json": "72b8ec864e35bea1b183db3ddd6ccf7b13fa527b07e712c3da45356da8c14af5",
+    "desktop_projector.json": "30568936cf71248d03ab764eb5da69c1fb1fba3448150ba72a13b46ee7b2fe98",
+    "digital_oscilloscope.json": "2c381425c255fc6a27a4a8767175dc3cb1f8f959c7e5258890dda524cffa975e",
+    "dishwasher.json": "5197a1feb54af56601c900f4b5b4acd37679360a51a5bc11a6956116661c31f2",
+    "document_camera.json": "1592a16f6e3c0dc58155fe3883d6ef817aba60c1414d84583a3fa9f817622f38",
+    "document_stack.json": "8ed9dca1fc9a54f229a4bbbb9aa73589690c886d8896459cc22d7296ae4b0161",
+    "dongpo_pork_on_black_gold_plate.json": "8fee06da67942913280a0861c9f28bedbd6f337a0444c43f2ded48e4197468e3",
+    "dongpo_pork_on_plate.json": "7e99c84003577347bcc9a1a677cb7f62a686504f3a3a9a51b36f593baf28b793",
+    "dongpo_pork_serving.json": "783594c86d0ee3244f751d7b2eca5ed2c0242d99bd9731fbdd2fa922cd3f045d",
+    "donut_on_black_gold_plate.json": "04e006aaa930137e750a697aee8a4748abf99bd92619183c677a48709368a854",
+    "donut_on_burgundy_platter.json": "3e908a638ff54cae9d93f15f4ecbb9deb20a59cce1bdea8c8af4d01c9f7eed3c",
+    "donut_serving.json": "e4bb30263d361c29fcd989a5f4c93e9d1462a4ed3200f97971496c781e16846b",
+    "dorayaki_on_black_gold_plate.json": "4333c9ccba7df189a47cabb84c111bbcf0b5e6d086a9ac61ec03f795c030a822",
+    "dorayaki_on_burgundy_platter.json": "76b13a02c7146fc7ebd1c4a9d2c4162c75307e37be59d3646858414826341258",
+    "dorayaki_serving.json": "ab78a73abd113bd3d5e05dbbb49d15da3c13df0e44459b9533c2297b9d977bed",
+    "double_clothing_shelf.json": "450d502fe054eef0febff1289b15337bb3b194f51db94dabe9ee61d54de4766f",
+    "drink_counter.json": "0be56ac6ffe9b84bc3bce0d3d6ed2cf985337edbc2c840dbb1bca51dd474162e",
+    "dry_type_transformer.json": "2dc4fcb5c70b03bae69a672288058729069c8ef29771ef0aac3df2599ece8b6c",
+    "dumplings_on_black_gold_plate.json": "458ecd794f6b8e5b519d7b5ea227ac9871421657c9a504979bd23f7ff8a64bf8",
+    "dumplings_on_burgundy_platter.json": "f0e0c1002dd22adb514230c86b32af40bcae00723b4f1448b4ded2790943bef5",
+    "dumplings_serving.json": "ad9fb5674e33fe741a0bef7b9b8ff35603412b8ec855ecf0a7bbf4b27ca6b72b",
+    "ecg_machine.json": "7f557ee3623b25727b5ddc30a9912aaa4b499bf858521b3d80ca1d05df9c2189",
+    "egg_fried_rice_on_black_gold_bowl.json": "884e15b0d2ed02a7c25a67015368bb7aa101b2911e90e8875613031349171ae5",
+    "egg_fried_rice_on_burgundy_bowl.json": "00e4298db5fef4ec1b9cf68851222d90a0ab0f2a660aab30284c3514017e1130",
+    "egg_fried_rice_serving.json": "b3d19e33f4e85b0770be0ae25c6d899b5a272bc9b1c6654f341cae6d4010b29d",
+    "egg_tart_on_black_gold_plate.json": "9d8cb1f2fff0ec07afdffecf160b4733938b0f91d443877b7b4c247aacfc96a5",
+    "egg_tart_on_burgundy_platter.json": "bfafad426c29a6f6867c4a52e3957749f3f8e880a3cf9dfbc52c426d03d30636",
+    "egg_tart_serving.json": "d378b2adf943a12f704cc68fd1cfd8509726cac51a75e2df3322af4468bf4239",
+    "electric_kettle.json": "e495e529aa3ac503cf1cac7e775e043433393299c0a7b5b6d94068658cf22519",
+    "electrical_distribution_cabinet.json": "3a28c1f9387c21e933041967bc45c30ad218ef12b1ecb053b1de006e24926582",
+    "electrician_toolbox.json": "d06ecee7797aa906ec968ff78cc0a32271a0a0f61b7f9abcb258fbe340e7d5a8",
+    "electronic_whiteboard.json": "020d9540e237a3cb6d1550ef2faa01f722082c2da9bf37374973b30a1740d030",
+    "field_news_camera.json": "9b36ee809fc2c324c487cb32131aa4e4b05dc9068bf00ec9bd0cbb2fe5787b80",
+    "flat_screen_tv.json": "6e19d041d6615fae2c0f9de5d36d14c65c35d7f479c049f2a93e314f474a01c1",
+    "floor_air_conditioner.json": "6827dd3725a02dc46898e1f076088e1ad93111f981786719f54ab314d65a4fe5",
+    "flower_vase.json": "15f97afc5c05477063a88e0dcb13c9b1d235bc046a41048b3f60b8e172c714bf",
+    "fork.json": "ad0ab88b12fd2b7541475bed6ae9426f332097b50e8d9335731c5d7ef1786f44",
+    "four_bay_nas.json": "d3df4e327f16810c2d1ac4a7fc47839a049e17119ea68ceb9e950597c9f1e011",
+    "french_onion_soup_on_bowl.json": "92f3fe367a37a3885f47fa0e22f573413c20e73dfdac0085a453009c9fcc39c6",
+    "french_onion_soup_on_burgundy_bowl.json": "f449a8b5731f3428bcf4c9b1b8c59475a1fa2fc58d75d53d96d00aeee6b9a9e9",
+    "french_onion_soup_serving.json": "8151c9bd6317f9b147fc594a97d8684cdb809bbe806b10fb3fd64d2195d6dba3",
+    "fridge_double_black.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "fridge_double_black_upper.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "fridge_double_rose_gold.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "fridge_double_rose_gold_upper.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "fridge_double_white.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "fridge_double_white_upper.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "fridge_single_black.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "fridge_single_rose_gold.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "fridge_single_white.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "fries_on_black_gold_plate.json": "5daa893b692ee7d0d8cf542676307a2e00292f8fce7ff78acb3cd5bbef775142",
+    "fries_on_burgundy_platter.json": "4320b84ca725bcd4a46e459c882622aecd64f4f277f28920c4ce1261769badfc",
+    "fries_serving.json": "f44a039cacfc474db26b0276e85ce852f01cbb17518fcc0f9664218183f31a0b",
+    "front_load_washer.json": "89bdafeaffd16348c71fdf6c2bb66d62a96242c4600a834f1fdc2041ca2b44ef",
+    "frozen_tofu_platter_on_burgundy_platter.json": "70616a8c7fa4cdc891f1b08ac387e2fb71b6b7a025e764fa7bae3c259663fc06",
+    "frozen_tofu_platter_on_plate.json": "3f8a7afdade8816615e37537b597cfd0bffc06f5585e49c4e56d7b05fd4615b9",
+    "frozen_tofu_platter_serving.json": "113ba10e424dd92f100a0450158aeaad2b6948c293535a4374af020f238ad44d",
+    "fruit_platter_on_black_gold_plate.json": "992e2f043335965b8b129067b69c1f8f4936827ae0933b2e10172058f45b889f",
+    "fruit_platter_on_plate.json": "b6a3ba56756abce141f5acda4e438cab838e5031a1c955ce7e3ac42da46b3531",
+    "fruit_platter_serving.json": "be3ba790233008d0f5f81880101057ab040b9bd4db63145056c54d7470100370",
+    "ft_b1_open.json": "6e8987011619300c289f8c374dd7e297be9439b0f5654a9e3a959d49552ab3f8",
+    "ft_government_all_in_one.json": "6f6e6c04f014fcaae8e950b306b76508f5c1fa2e79a9e04c88212a4999150d4e",
+    "ft_government_desktop.json": "913c418ecae9a3df5c0610c372849604d7919a19ba7b52ce9e61da6805b4c7b7",
+    "ft_government_ultrabook_open.json": "0f7af1458389f4d255bb3a9d5f6df029cfff74fe51ff1e1e4a425f30e5b36878",
+    "ft_ideabook_p1_open.json": "626c1626f92fddacfcd92d0c1354c319867d8b4818b5c031ddd7f665e1707121",
+    "ft_master_open.json": "79d00b8b64d671bdab640ae46fb93e8eb1c29cad7a610e4b5fa4e7492fc0ff60",
+    "full_length_mirror.json": "63c937af054e09f44b6845ba91539d50ab2c035afe5940ceb96cd0f1a1bfb056",
+    "game_console_set.json": "0ede611425cc2f036518db733ac7de176e25e8e2d04d5917a5fb7169bf38fd09",
+    "gaming_laptop_closed.json": "79e848a773f544ae1da6fa7634ee19370ae8990f1ad0fd9092c2fdde54d5e1df",
+    "gaming_laptop_open.json": "e7391af1c75099ced252b90d3699cf59f85150a57df893db11b1488780e25ca8",
+    "garlic_scallops_on_black_gold_plate.json": "038ee859ef5e209bf0642a2399769d45a6929a03f8f09f6f29a5e272b269ec89",
+    "garlic_scallops_on_burgundy_platter.json": "25c9e50c8176f598db7054db42f57bdb9448faeb2ab6a6d6e47c6ad839756278",
+    "garlic_scallops_serving.json": "590e6dee6743e1fe042ccfc4ad49838d2649d30a1297e3a1052624d0c8a1c935",
+    "glass.json": "470b0d343c7c051f947bfdd3197f8e622dfae6318a658fc95abd0980981c445d",
+    "gongfu_tea_tray.json": "98b5565a6d33951292f4403212d70057df95028d3ca7e67459956177bce8ebc0",
+    "government_document_scanner.json": "238af0b2973d4ff4ea7afd53449a91349270bf461ce3f55eecf15bc12c4e7a86",
+    "government_fingerprint_scanner.json": "b29bc34a7435f0def946ac309623f69339fa7884ecda6c8654696e6a141294bb",
+    "government_id_reader.json": "6dbcf6e71813cd85f6e2a62d892ee567d8c3585004c721a91c1209c3f946a555",
+    "government_queue_screen.json": "471c52a8fabccb3c3e6dfbc0e5ca2fcda7615bd4065111e36d10a80990fce4a4",
+    "government_service_kiosk.json": "2d7b9ff0fe31c77da16c2467262a7faafe3ed5d754a582fc0635c2ccfbcfa562",
+    "government_signature_pad.json": "686707c905946ad3dfd5e31b78c9eee314a3d77dea023aedbfca7a1e90e6671f",
+    "government_stamp_set.json": "401a92ae5a54496c2b1a0ef463bf3d319e037a6d3c9219c986a0cb6f010a5111",
+    "gpu_dual_fan.json": "298fb7004b388301633b287acb830381a0fb81714de7ff0443dbdd32f17360ce",
+    "gpu_single_fan.json": "7ec820909cfbe40619f1e9a3fa2b2909164862d6739b3aeba75c4ed932050652",
+    "gpu_triple_fan.json": "39230163e5966c8f52ec135b79140966157edb90f303a975634539cd8505d5c2",
+    "green_tea_on_glass.json": "167b15757255266fc0de2936486ca9f19695bb8203f7f4fe33e636a2d2e5c390",
+    "green_tea_serving.json": "e4adf3438094fb8ab3f6a7871b9ee0e57d74ca08e20fa9eabf634c4af575c2d8",
+    "greens_platter_on_black_gold_plate.json": "0d0e34caf371b058ab023aca5764174f45df91044b8d8e9654ce20e4e12d4bd8",
+    "greens_platter_on_plate.json": "966cd94b30db2d9d1ebd9c9e933b42d36170431f3e2453a8eeee64492dbe9611",
+    "greens_platter_serving.json": "29220f9a577cfd08ef3bbb9058b4ee5cb187a5cefa96358102acaabafbcf4ce7",
+    "grilled_squid_on_black_gold_plate.json": "8efef9bfdc06516a6c2e328ab54c7f05749b117bb30f581689737fcfd35979fb",
+    "grilled_squid_on_plate.json": "f0972933c2b15a1e50f4e2f8f3d041a89cc771df08753928016cc4483826c276",
+    "grilled_squid_serving.json": "4d1ddda78dd3cd3f514296e1d8989b4b3173875752fcb4f147f965f498216b07",
+    "gunkan_sushi_on_burgundy_platter.json": "a08543acead57b32a4c6e17a47fe182f409acc561541944ecb3c864d25f7804f",
+    "gunkan_sushi_on_plate.json": "e659e56277739d462f73d3218fe89df44a09f3677bc4b09bfc9ec4d58906aac8",
+    "gunkan_sushi_serving.json": "050466831cb58983a4569cf2efa7703f65d803c48747f3b40ef56ca115c47c6d",
+    "guo_bao_rou_on_black_gold_plate.json": "b3666cc96751bdf4c567c3c75b6d263f6d7339e9a2af7ebe8cc1de57da420a86",
+    "guo_bao_rou_on_burgundy_platter.json": "741d7f90a83141ef6ee8dfb2eaf4c76ec9c2d3a6c2ad745776a79caa5e50fc34",
+    "guo_bao_rou_serving.json": "2ea072bb8d2d8eb568a8e670636773fe7a4937d1fe05e74e0d1e1f1ff4926015",
+    "helmet_display.json": "012cab3ddbc1e7b071709679b4098b2d83355eb826e94b0c44e399e7de70e6d1",
+    "herb_roasted_lamb_rack_on_black_gold_plate.json": "b7c499378f11fc5d13aaf9c6471df0442827d62c26a8a3bae6670379d32ab9e2",
+    "herb_roasted_lamb_rack_on_plate.json": "8f311dcbe65c002b4d295923e1a620cf2d51891963502fd12fc66991dcd22337",
+    "herb_roasted_lamb_rack_serving.json": "5ecc95e8137348a8d1f5117b5c4c3073d1c5c5c2cbbdb88d85ed14b5ae51ee29",
+    "hot_chocolate_on_glass.json": "96c1f72c7f253d949727f7343ef2d8151596d30778c5f52c6d900f08fa5828d1",
+    "hot_chocolate_serving.json": "417bb31f2b1bf067685e83520e8977c8aafba121e0db6042d2b7b9f90e352e7f",
+    "hotdog_on_black_gold_plate.json": "ac69f9850924da4f237951fdb7d87ebe2edb4424b15cf6f204d3a654ed880fc1",
+    "hotdog_on_burgundy_platter.json": "2c7de3439c9ffe69b1999f20a7afe7f561728cf2461eaac1d37ab1258f84b976",
+    "hotdog_serving.json": "7935857a4358ffd3ffaf0d80dd806c96b27cb43288cce6b68f5ea16c264137a7",
+    "hotpot_beef_on_burgundy_platter.json": "7ad36808d144373f465de058ac02da0daedadf07971f2a1baa501b9f3bee64a1",
+    "hotpot_beef_on_plate.json": "b2f6582cbf2d5f50837a939c1cf990616454019a991feb5bf8fdaa0f4094bfd6",
+    "hotpot_beef_serving.json": "db1b004dd3f105b88b513e74c3b91879bb5fa120aa871538a6a4cbb34c5576cf",
+    "hotpot_lamb_on_burgundy_platter.json": "a2e3983319751f3300bff982cb2efb8bd7aa59d8192451de86364cedf163807c",
+    "hotpot_lamb_on_plate.json": "5ff719198e75c7fe03747e08e5749392839b0a81945d1c2912cf788db358f2bc",
+    "hotpot_lamb_serving.json": "198714babf787044385701c42a605c8f7fb4673f3a966dc50ee994aa28512236",
+    "huaiyang_eel_on_black_gold_plate.json": "2095baba5a785f67d33cf8000d3a7d8153c1c58a5d099b11591b6d884e15b452",
+    "huaiyang_eel_on_burgundy_platter.json": "d9c0e78a2705b1101f986cc46e152a6692490a3f15984f410c436225e0ccf61f",
+    "huaiyang_eel_serving.json": "3bd2a4bbcfa4f8c0a1c1f8506c2d332e5889e8bf2d54e04192448972aa61333f",
+    "huaiyang_sanding_bao_on_black_gold_plate.json": "6b58bee41f143d42749b2097827ab31a431221f0a22a34979dcc56a7bd9f939a",
+    "huaiyang_sanding_bao_on_burgundy_platter.json": "68146217e95ce1c8ddcbab14eb671e165efca9ffba3ea169fbe79947195855dd",
+    "huaiyang_sanding_bao_serving.json": "c5f631e44aa2a65177b5920cbf68392f280eab8a277692e65fc362064ba2cfa1",
+    "ice_cream_on_black_gold_bowl.json": "62778d5eade997e5a304635d2c627fd7a7a0c9f6967a6a16ad9685c804f93bd1",
+    "ice_cream_on_burgundy_bowl.json": "35cd5ae9acac528fdb5daad51048a2b0991fd8dfe6488b4cafe5ae557c98c778",
+    "ice_cream_serving.json": "5c1a959c30609c7c1e16d065cc4fee2ddddce9503bc091d7af3b7b509f31da4a",
+    "infusion_pump_stand.json": "e922136a167b1acceb2d97b6ba1951a24ad7658dbfb8ca554e9859b0d64e205d",
+    "insulator_display.json": "d384a6bc55eae801eb3d81cc34f685e3e8702e23f5321ff337cb94f33fa00b02",
+    "interview_audio_set.json": "eeef37748ea03c9741902105f9cf6b8d3e6ea9ad524f81b2c805237697757e9c",
+    "ipad_air_magic_keyboard.json": "fcfdf48256e5b32809ab145b7d0d06051d2dc4ce26eed05fd80ea0cb7c992c9c",
+    "jujube_lotus_soup_on_black_gold_bowl.json": "a69603398291d9d3d8bb8dad244411b6d26eab37f735d6fad2684f88077f6662",
+    "jujube_lotus_soup_on_bowl.json": "2d2b0f55220733e7e620ce39c5e669852ec47fbc7b354ae397d7171b9d413c70",
+    "jujube_lotus_soup_serving.json": "85ff96ab8a67900d2bce8a2972a168eab6235cfbb5a65217bc1d1cd967362942",
+    "keyboard_mouse_set.json": "7b9f9e03e2a95590450ef2422906018e811b5bef8af71661ec72fc09ffcf7781",
+    "kung_pao_chicken_on_black_gold_plate.json": "60b6d0e48c276dd1b62544d57637a338df38f99eccc4e5aa127b353b86eb0f64",
+    "kung_pao_chicken_on_burgundy_platter.json": "2075d35b9524a723d8cd166f99eb0d465fffc07d38ca8d851bffa27b9ea69dd7",
+    "kung_pao_chicken_serving.json": "47792c249e82a5bc96004ecf202965f8308e2c29e212dfc33e4148cbf95c0cb1",
+    "laboratory_centrifuge.json": "4c26c11af4ac4c03587eb8b65b0e6bc17418f84321b13f3aa56a75eb980935f1",
+    "laboratory_cloud_storage_array.json": "2856a1d5894b24d213e7e8adcfda8b4ccd1fd6ee50944a57cece3434eb3d9ddf",
+    "laboratory_dual_monitor_set.json": "25faec2680a3352dfae8a3510b4190ed1dd2d7d45e22127766248b456ba9f779",
+    "laboratory_incubator.json": "bcaf4e064a7dd48f74ffa02c6904df602159f0865f298357322e24e8996bdc36",
+    "laboratory_microscope.json": "4bdbe8a9a69b5c2e9d7771d11e0d5883f20d3170260ff2c8fae162e4260944d8",
+    "laboratory_radio_station.json": "4b73b081a3f70ffc8cc2da5294292746848bd77f4edfcf24c56623ea025c4a4c",
+    "lamb_slices_on_black_gold_plate.json": "a3b67cd5d23d2a2665fdbe40b85eb4350a2014bb331321435975be09decc8f76",
+    "lamb_slices_on_plate.json": "fde5c51017597579d47082ec8c04d39aea3688b17962dc65fcb5602d613e3f70",
+    "lamb_slices_serving.json": "789cccec09f2ec8bfbd2f3a1e068f65a6d896b1fb4b28d149aaa07aa9c68bbc2",
+    "landscape_frame.json": "0966ffae73866f77f09eeafd676eebd5fafded731894c3ba8ea54da8a0bdb8a9",
+    "lions_head_on_black_gold_bowl.json": "dcaa75bdf0adbab8d0401289be31b461c4e8b74bb11b98ba5542f2610995c013",
+    "lions_head_on_burgundy_bowl.json": "1f7d0617e84c57b2a2b32749de7a6bb7d58ea524bffaa4e47eccce34d63ca06b",
+    "lions_head_serving.json": "e3417cdc41b0e6b33b80d88ef1fb0b8e54c19ee6f5fbe6010bae4c7b11ebc375",
+    "lobster_bisque_on_bowl.json": "64c1f6121406b6963c03b6bb2f2e0f4a6b49ffb2d83a253c2710e6b0e089e71b",
+    "lobster_bisque_on_burgundy_bowl.json": "0b1e854948fa8e0ec7e2a8a00bd0fb91477effa11fe627290a197c1bcecec649",
+    "lobster_bisque_serving.json": "849ee248fc225cd48583c5e4ea93ae955f412dcdbd7d5aad9abdd7eb9ac1e3b8",
+    "lobster_thermidor_on_black_gold_plate.json": "1c6c24bdceed35372c1e8d88a5e7b84275a7033c47c1ddba09701fe9d40a0618",
+    "lobster_thermidor_on_plate.json": "b129abae9b10b96322c421f3bcc4cf5cad7b9d3d39cb079d2378e3c699206c9d",
+    "lobster_thermidor_serving.json": "fd7af8d647ad3b7ae4e8be591dc02bb2edb7d45c669e687415674a55ca622a72",
+    "mac_studio_set.json": "93ddcf5166713882e368da3790b7750f33fcb81478acaa13109b8b02113966c6",
+    "macbook_air_gray_open.json": "d4902c6035b3ad5f7290093ad3af0598bdb9779509d1768696f3434cab769c58",
+    "macbook_air_silver_open.json": "4072e136acfb9b48f75fcae5c80abdbf2a03de4240ef6f33b94b23d3d3ab89a0",
+    "macbook_closed.json": "13cbb273057c55702547b851e8aa270a39ef0670b6bc550f93276f683d81894d",
+    "macbook_open.json": "fb884341ded9cb8bedb52fd29befca71868c6b69a00781f22a4efb95d1d829cc",
+    "macbook_pro_gpt_closed.json": "f46b9e22ecb38d1e3d74045e2484ede40c698d65ab41626c66b6bbfb4b00d3d0",
+    "macbook_pro_gpt_open.json": "7fe2791528ff0991125b4ca128d143e3d0a3a40123d716bf02e97f6a42d3522d",
+    "mannequin_display.json": "3f8abd86ededaaff577f50572f9e50a85669b853188498cfc39b7643138bf1f8",
+    "mapo_tofu_on_black_gold_bowl.json": "e70e6a1d137121350d3008adcd7bcf50f8eeecc4c5563b6abf74e86e69314aab",
+    "mapo_tofu_on_burgundy_bowl.json": "a6891f552d0db1842d527298420bb69033420e7125d50c427406919685325e2b",
+    "mapo_tofu_serving.json": "70de206a3c8f38ff3f28d71e43a9bf35f1f3358744884241feadbc1c78dea1df",
+    "medical_trolley.json": "e6d782be0a53ac5632536bf76b0eb42c42b6ad8df2af213834a9708d7b0fd2dd",
+    "menu_stand.json": "937fb1d1ea273e457b6779206e25567c9cb593b0bfa8494774bc51dbc0492054",
+    "microwave_oven.json": "937c0f24c1b4b13460167f3d24d0d6ee76e8252b69757156ca9ff72046b6d8fe",
+    "military_police_cabinet.json": "d529c317611218bb0d2fc38c857ca0ffd1321cf5e692368034125ab9488b5947",
+    "milk_tea_on_mug.json": "0ea8076f0a5938e4d11b511bb10c3cd736d3229b3a6fe822fb47f7ae3859c745",
+    "milk_tea_serving.json": "04c699ee8c6a9717644669a55a4d0f6df86f9ff071acc1f7675925f6ccb156c1",
+    "mille_feuille_on_black_gold_plate.json": "f0574d7c51fa602301665fb9c1086745b3b4df4f6fd1ffbbae4fad4895fd6da0",
+    "mille_feuille_on_plate.json": "48b9abbe8b7e5cad78c610c5f6d2acbcdb94407a010e2c513ad3fedbd7d2f025",
+    "mille_feuille_serving.json": "8bb0acce3116057507b00754b2c518f71125b035987d959deafce179c4209d43",
+    "mug.json": "a8fe4732f96c12cb05fa35a99beb0c58ab4186e92afad9248e1eda6f1fec8ca8",
+    "mung_bean_soup_on_black_gold_bowl.json": "209f5cc2facf097b88a4fd3a33675bd18aceb02322ec6dccc660b00cfd8bd0c5",
+    "mung_bean_soup_on_burgundy_bowl.json": "666756fbc83461ba6287be4cd8b6b1cd015a96d9aca3008c28ab1e6232a00857",
+    "mung_bean_soup_serving.json": "b5803f4fa89c4c1b5c67e820508feb23dc21ab6f6f9b57b90f2cae43ec7486cd",
+    "mushroom_platter_on_black_gold_plate.json": "d7bd1708633e2b395f21640a41b81c19e6c6c2cb4bf4b6942f0a9d92471b93ee",
+    "mushroom_platter_on_plate.json": "cd7ff2ef4be703cee1807abb977f68207d2642648639e4f00cd1a9e9033bb223",
+    "mushroom_platter_serving.json": "814aafe986b2c5d65f592f725c9d82c158c6f32807e62e12ac51a34b4361988f",
+    "mushroom_soup_on_black_gold_bowl.json": "9e5cf306b4de243cf6e8eda7b1eea1524c6c213f0b3c165666b93c74ccd0670d",
+    "mushroom_soup_on_burgundy_bowl.json": "b1336f57367adeb399170ffedd4995c6022ea001824e3e9712124c1c01ea5cd4",
+    "mushroom_soup_serving.json": "615bd89111f3a5ad954b60476bcf9b0d6f319a89d09b2d7f0b179d7dd63f81eb",
+    "network_switch.json": "0945e6335916f67ee2cf5c4ab465dd033f7b4f1c8c9ccab0421dee9f50ef5d6e",
+    "news_backdrop.json": "f1c1bc3364fb9191771619f8723ee250f2fd4304bdbab820597851a79bf0150f",
+    "news_microphone_stand.json": "1f9f48875854b1a2507b331368d8f0e75e244c98eddefc4fc9505af3162762f5",
+    "news_teleprompter.json": "6c00d3cd34cd6a999b7db6cc2970eda75199f51d34dfb1ff817d9ffda1f6d47b",
+    "notebook_closed.json": "8578da75158383f2e5b59f3e094a9e74f3edc382d43a976b715ea36610a254ab",
+    "notebook_open.json": "b3c51833089e3c8aaa67f23f77a210d431a90ec6ae07f4b7ce9db52ae750aa05",
+    "oden_on_bowl.json": "3e9fe723393997803279f1b3f4e586bf502f96a4778357fcea53dba219a11039",
+    "oden_on_burgundy_bowl.json": "d91d5ccb58deaa94191b2bd6afa69f604c57c61902533b7009d9f0c6a0ecd590",
+    "oden_serving.json": "ca9e4891423a37f5983958526771382675646330f106e4df9f147af358954970",
+    "okonomiyaki_on_burgundy_platter.json": "fdf16a26cb5634119df6b2a3a0cdce63b75b44f3df569a695a6673c75eee93da",
+    "okonomiyaki_on_plate.json": "293d97c168b527477be374f19c7398e54581ba0702068ff21e80e27ff133d9cc",
+    "okonomiyaki_serving.json": "ca816b2a9b1e5468cea93e9c6dfb03eeb39e184292a7dbb4ece7990779f0295a",
+    "open_reel_tape_recorder.json": "a4bee3ff36d12767e77dcd3aff0f03f959908429c9935164c2bfba277e4f744d",
+    "oven.json": "9ca9ec503184d14645159f6587114a72347012670eeda19c971b5aac765be3d6",
+    "pan_seared_sole_on_black_gold_plate.json": "b41b3c092fc2d4669793b014092d8fb86a9fd915174e1aae813d28f3f33fce1d",
+    "pan_seared_sole_on_plate.json": "434aca12e498fa3b7fa45c0f31aa4249d433503155fd26ddb63b2af97a60043a",
+    "pan_seared_sole_serving.json": "7b9ba56d41a20dbbc8adfe4625df8c283cd31a348f5e7d752867ad64f6311dd4",
+    "patient_monitor.json": "c925094ac1438045b3990b9acabd3d6409db10dbd20e42e9cf2e2cc6d26eda4f",
+    "payment_scanner.json": "a57a91b22e2eb0c733d4715b13a569f420d3a4a91947091ee4d775ac6bf530a8",
+    "peacock_platter_on_burgundy_platter.json": "84d00cd758812630b6b281ddf20126a48075d106a8faac6f6f998304c8ee8223",
+    "peacock_platter_on_plate.json": "dcddad69de105545cb6d33af51167eee08a0f45bd0aa3f9a12ab6722ee390a1d",
+    "peacock_platter_serving.json": "f751053fbad7723ee15e98662de55cc9731dc9b3b63d395cc0436f3cfc5e5533",
+    "peking_duck_on_black_gold_plate.json": "ab015fe262f4babdd5a7c7d1e821059148d0d2411f13a1451eb05db4c25bc766",
+    "peking_duck_on_plate.json": "80d1fe4bb913f8519ae706ec032a489a883c27684c072250b9ad9e433a448f0b",
+    "peking_duck_serving.json": "7029efe6291a8b28dd9e1eda8c4f085b3269fd0d8c939e09f1a22759bad91f59",
+    "pen_display_set.json": "357d5f23c0fae91ba50be7295ee1529b97a5911a1e038639afba3605070a8807",
+    "pen_holder.json": "fc290872dde3822bd47f36e4812c4a74353dd456a8b8755e337aa108725a6498",
+    "pepsi_paper_cup.json": "4e5c0d0abc4615aae7f7af77ce43e6c2f1c967944d801f7fc930b46631fb89c1",
+    "pickled_greens_pork_on_black_gold_bowl.json": "958ead75286b5c876d88349246f1066e1e8efd65300c04fe557a7149dff7e0fa",
+    "pickled_greens_pork_on_burgundy_bowl.json": "0bd0bf0d0594b8133fc4787c572924477dd801e413e5306ddc89ac9f3567ada4",
+    "pickled_greens_pork_serving.json": "5cc34c0e0f93d0cafb3fe3e18f162b2f95014bd075fb4485cbc31567b860c6fe",
+    "pipette_rack_set.json": "339d516a5eed9ea12386d64acdff88edd199161e7a6350d7b2b51de12ee1cc1a",
+    "pizza_on_black_gold_plate.json": "1db99df35acadb53f11fe7577ff7c79cadcef7198d07b4dc45790a8e932b0f6b",
+    "pizza_on_burgundy_platter.json": "1295050832397c4145b0d9f743caa2751e96da956d5551785bef102a46449056",
+    "pizza_serving.json": "e30d1e4f25383e474f0ef27ae445153c1cf5c29d7799051de13fdf7f2dc7fa99",
+    "plate.json": "2897addf6063f90506f85660f82c14c6c432e536b5793d4cc4c3c73263632693",
+    "platform_information_screen.json": "3192ca3f54ef29a70aa0b783c0c5f3a6faef6697be6b7fc55c1fb963f1ee880c",
+    "poached_tiger_prawns_on_burgundy_platter.json": "179087ed8f4acd735687b39916ad6dfe51bac2c90ae20897aa834e6ba591d308",
+    "poached_tiger_prawns_on_plate.json": "1f445e2298104e940e462677d8af931d8034b555db94921f8b03a95bbe8432c8",
+    "poached_tiger_prawns_serving.json": "cad49162a3e67a62ead181f0ffc015f10a6ad666d473b202906b7fa970256b40",
+    "portrait_paper_monitor.json": "bc3e20e6256b0337769f5d4242915adc1ebcb4e1125271ea051a9b2e6cede551",
+    "premium_baijiu_bottle.json": "81d6924c0186c8726cb8b4ffa016916da1de3b94e863d3dbdc9cb44899353ba3",
+    "premium_baijiu_on_mug.json": "15d8a159b984aa62f19052398311dab9892f5fc6173826cc90e5bdb3ba928c83",
+    "premium_baijiu_serving.json": "5cdf44c6fcfd7de74e27ee224a156d705a6da0c13db7880390f9de0b14513b92",
+    "premium_red_wine_bottle.json": "52f829fcb1f59b986db22fd9469c621583919e128b50577b44a2ce94a83e2291",
+    "premium_red_wine_on_mug.json": "176afd952a87b287b12e9d54534153f2d4d5b96d82356244d5b03ee6aa940e68",
+    "premium_red_wine_on_wine_glass.json": "f8cc663d5ab257acdcdbddffd0c81f3158b874ea6132c8b84100c8f8bfab1bb4",
+    "premium_red_wine_serving.json": "f6d6e42cc4dca2f183adfa1dbb7164c21857d3dacf9b4ca29966576d03ce6499",
+    "prep_counter.json": "8be02c0fbfcadd2dca3a77b0bd58be45067108b9b229dbba66ffc3dd34f7cd11",
+    "printer_scanner.json": "805abfb5922f5d7d1c84c7f1249dbc9f5de32cc7b73bbe3a98f1c638538889bf",
+    "pudding_on_black_gold_bowl.json": "25c88fd0cdf4488887595e2b8af4892934fc5b3c0ac328a1e02c7a69cb7b409c",
+    "pudding_on_burgundy_bowl.json": "d30bc9ba5ce0907b1521663ca110e74cc136f6764e4243121f5b4b1733cbf28f",
+    "pudding_serving.json": "b00e3d6524702d82dae4a18edce536ab6f08d863734cd5935dc19bff147a27ac",
+    "queue_ticket_kiosk.json": "834e8bb275b50f4c82845a2db1b331247d346afc2b91382f27404f7a39396a6f",
+    "radar_equipment.json": "8eabfde525e4b0a21d57c3849e6a808c73c69a19d9602a40653829c160d27c11",
+    "receipt_printer.json": "68e4edb3c845c25cd6a804fa534e873a2e2de3907c40f579e2fdd56f1f98470d",
+    "red_bean_cake_on_black_gold_plate.json": "0e5dcede534404320752958b4e3310362ee476c14142fe5c925d960171c0f484",
+    "red_bean_cake_on_burgundy_platter.json": "566ac24d942aadb99fcfddccf4562758c530327f5e6123b78de0f69d814ef7c8",
+    "red_bean_cake_serving.json": "99f0c3f2b2f56a4264eee30933ebc6e07e57cadb224e3907dc6f2c68804c2e4a",
+    "reed_diffuser.json": "ded271b2e9dc0725ec4642ec1a3e1f8750e5beb9bbcd1abd4138e0fd5b802bb1",
+    "reserved_sign.json": "773c9f1089ba0d1fdb50d17161a6791413e71a44346884268a16d137d8007cab",
+    "rice_cooker.json": "84bafeca024e6083213587dec62fdc0026e963d4ac9ac9eb5f219dc8a2366f65",
+    "rice_crop_mature.json": "9134e8dd681fce8e1f29a6ef9b30b119666b2709396fec24fd5a210011dad8ea",
+    "rice_crop_young.json": "ed87f5801272336f00046c3a77e4f23c668888fff15355e457747b4134880d85",
+    "ring_sculpture.json": "165e8fcdaebf7344324835208a61f9107575c9783a2a20ce53fb30358aa7a12e",
+    "riot_shield_display.json": "68e1b842560800969d2a6ff2b0a7467f9aec2fb1b80bc17e466470b64298b519",
+    "road_safety_barrier.json": "a6877320f8b6eb785c8920c6a298d1eb7645b2942870cd5ba0b2ef687ce874aa",
+    "roast_chicken_on_black_gold_plate.json": "c6ebb8cf9d891130e1f93390df9e6fa208eb79414b4a97adfc696f270cf84728",
+    "roast_chicken_on_burgundy_platter.json": "2ae47c09999597dd61e12cf5fb112e7e03254f8d8fd293b713fcf54fdb33c937",
+    "roast_chicken_serving.json": "3014c3a5908da3d87f668d553916c50f444d57cd8cc897d6b62ce1626863d77c",
+    "roast_goose_on_black_gold_plate.json": "fabb7bf2f9e4ba39fbcff3d775e73c0a130ca546d46dae66d96a7ce64f180c6b",
+    "roast_goose_on_plate.json": "c9691e3f92c6e4283939f5e736fb129e89e7cf3261c279a55ab748288ff64b91",
+    "roast_goose_serving.json": "bb74350715b5d9ab97973157db5997bd6a75f5443556757ec0afd2ed4b98a413",
+    "robot_vacuum_dock.json": "04fc7d642234f0b9a119276f31fb1b753af4712abb2a6ef4a6726898ebc72d0f",
+    "router.json": "bc7731c54e5c0c4b749d32a59d5c5a7e5b6ea7bd0f8827a68bc25a6a54371767",
+    "salad_on_black_gold_bowl.json": "edd222bb0eea73e6641008b7c4c4f387927105ee323baabed8abc3510d56d1d3",
+    "salad_on_burgundy_bowl.json": "3c16668774fe679916d8fa5d399502369e1d49304d59129ccdbe41ab0a3b1c09",
+    "salad_serving.json": "4ab2c56ee9fad6c9483f493e6d3f9067119eeac58998c79292d54ae7f180639b",
+    "sandwich_on_black_gold_plate.json": "f12b3afa7546740cf3f13e97efa09f8e6ffd455168922e0761548c29f9648707",
+    "sandwich_on_burgundy_platter.json": "b196785cd91b4383cd38dcf6d21fc59ad84b4e03c466a77a652997ccaeff84ca",
+    "sandwich_serving.json": "1db0ce023e4a0bb8ddcfc470c4e06c2f1046eed04242d5132bcdfac6fc6c7e15",
+    "sashimi_platter_on_black_gold_plate.json": "f82685e73775503c1fe82a0b5f46632d5eaf545df9aec012b71ff8bf617853eb",
+    "sashimi_platter_on_plate.json": "d845bbfdd90fa7d9c52e8ad8e749b74425a54cd1ea7a4c956ca97e4e2117b7c2",
+    "sashimi_platter_serving.json": "772672b980f8b56bb8d1beadf201e13b9548e6cd5fef788e40d12a487d574b6f",
+    "server_cabinet.json": "5f2d27a6ad597218b26ccffb36202194b5505924c9229847a15a519ca105aa0a",
+    "service_bell.json": "b44e035b8da5560bf4dd68a2e8deb6beca8f3c89e0f803b94a4d6f48985e5214",
+    "sesame_dip_on_black_gold_bowl.json": "22cdd0cc19f1870d4ca148e2654349aed07a6e04220f3dee2b5c76c1e9709b5e",
+    "sesame_dip_on_bowl.json": "9ca5c9692a1cfdb95562f57446903cf936fd924ab02520a0fdeede683ad93262",
+    "sesame_dip_serving.json": "5748ea55f2ae34ba9c2af985264e411587a4c5c11f20d4910f0bab59a1052fe9",
+    "shrimp_rice_rolls_on_burgundy_platter.json": "5f05daa842a1fdf7a2f14e6337fc7f01855494da7041c62e44b8c007d2c3dbca",
+    "shrimp_rice_rolls_on_plate.json": "732e1cf76d799f8f0a4079ee306f138e5b7a388bbfb9e5cba9bb2f80bb46a0b4",
+    "shrimp_rice_rolls_serving.json": "085c8be085bd95eb9e27555cca87617387e316a5e83acd313b8299325819cc91",
+    "silver_laptop_closed.json": "92b65a904329ef247e94ad0cf7a1d691c278d8cf415f557c74887bbae032f73e",
+    "silver_laptop_open.json": "a5b9fbe60a9160c40bbec697371f99be405f10888172277b032d665a0dec52a1",
+    "single_clothing_rail.json": "ac8623e9711fb02a203cc5022f437c3d9dd9266afc660ca7b9f9605e7d90de87",
+    "skewers_on_black_gold_plate.json": "6af09e8c097998c5bee7740f67c5eae298ed25770df41cbb4a59d20949fd074b",
+    "skewers_on_burgundy_platter.json": "94d415697ff51774f17734ea8345b6e3bc2721a8d7ee11b6c2871683e7cb7207",
+    "skewers_serving.json": "8415d5c7a1f2ff412e282e3b89e2191ccccb29f662136c4a9787b76bd0f45596",
+    "smashed_cucumber_on_black_gold_plate.json": "76b33fb5eb600d468cec06a97a74c1c1fce180b8255209e1c393767747cb3824",
+    "smashed_cucumber_on_burgundy_platter.json": "f44ed8b73ea65cd1cb320d6c1ce33a30d4c7473f3d4f6939048ddcffa8ca9a21",
+    "smashed_cucumber_serving.json": "fbc894cc4ffdf4cc9c2ec11ddc8d8131eed997979c308f70515de5165c280bd7",
+    "snow_pear_tremella_on_bowl.json": "3e0de4deecee96e887b3215c8e835a7f02047ae1666ac2a9b7a1e6d54d809c5b",
+    "snow_pear_tremella_on_burgundy_bowl.json": "20138c1cecf6b631ab3775a836c573e900abc258b1e64d913bd25a541b43166c",
+    "snow_pear_tremella_serving.json": "c4d8b380133c0c8c3785e8b0c6e7b7789822821a2b2dd617d7253413b335d653",
+    "soybean_crop_mature.json": "20545dcd7731498c1675f357f3748b46a924e2793a8bcf683cb9238a41aae25e",
+    "soybean_crop_young.json": "d797e3268d30f6be5cd6779f3c9352441e2a15c48b5f5192012ec589183b2dc0",
+    "spaghetti_on_black_gold_plate.json": "ed17222d0c804760f50b239d54657741c3dc92c759a3b5dcee907de4653930bf",
+    "spaghetti_on_burgundy_platter.json": "24801592dec901d1c6951a274fb129c59dda4e6bc2f46a5561aafa4a1598858c",
+    "spaghetti_serving.json": "fd5bf50917283f86eab87e739bcf80f46f3e4783f42fe34e85a93ccf7abf5b7f",
+    "spoon.json": "5c64a46101833826d2c0156001f06c66e343b39ab4a91eb05a110828c8a94bb0",
+    "spring_rolls_on_black_gold_plate.json": "ccb8fb814a090fb5b57d398c8640c52c021e6484fa143b749a0003df8cfa215b",
+    "spring_rolls_on_burgundy_platter.json": "83e8a569bc596427284adef1ef1c6d73627a00f2db2cfb909c821b4de8240294",
+    "spring_rolls_serving.json": "cc4d9d980c8395fbec4e5f57d9751d18668db7f2cb77d64a1f204dd028a7927a",
+    "standby_generator.json": "a3fd12c00745a58f09f16ff51204be156c0a559a02d9acede1f90547e5070be1",
+    "standing_binder.json": "4b78ebdc436f59e9520b35cce7d6695152db04c6a100b9aa77db26ec3fa5db47",
+    "standing_fan.json": "20dc9b13f1109756658903495c54fa1426b4718e7910a28491d7cbcb553b851e",
+    "stapler.json": "dd8222155bf796c1f1dfdd3101e41a4b5c406f0817837f8e7479ac33c783c4a3",
+    "steak_on_black_gold_plate.json": "5f4f449c0ed7e8b4e4b29965a5bb47dc4e06dc6edb6ea0dacb524f126f42610e",
+    "steak_on_burgundy_platter.json": "558738280884e6cc9ae3ee796075446b28ad5a6a0970b23224aa3955a2e6444d",
+    "steak_serving.json": "fb9a9a4766017d529b5d72e541ea4fb2eb8c04b88a5896f36763057e5b402263",
+    "steamed_grouper_on_black_gold_plate.json": "bd0ae5ed7ece2213f8b8a96f4d994f52a1b041c0410bf88d3fe5b63079990167",
+    "steamed_grouper_on_plate.json": "ea8ae6b9146fdc5f7dcebfc292f4bd5c7bb1a7c8528d14077fd0830cb5bc2551",
+    "steamed_grouper_serving.json": "9d6ffdb287114becab3769a780c194d8467aa424b50d96767b0e9b165da50bb6",
+    "steamed_sea_bass_on_black_gold_plate.json": "ba4b69289f3b42942f9608fe79694aae761495e24c72c0422a07e6f254482340",
+    "steamed_sea_bass_on_burgundy_platter.json": "ff4772506684e1081d5ce42907f94e1421e246d882694d1505daf8febab9adf8",
+    "steamed_sea_bass_serving.json": "e2fa20bb841170a887a5cce5d14c0f184732642051ae7e53122196ae010582a2",
+    "stir_fried_yellow_beef_on_black_gold_plate.json": "db090120d0cbbb8559a84397b50ab09497c2d8ad13d803ce77f0fb59cb33a7bd",
+    "stir_fried_yellow_beef_on_plate.json": "84b1529417db10854031690e0993eca3732d1024683e1e250941a5fb9a20574e",
+    "stir_fried_yellow_beef_serving.json": "43ce052a012364d6d3ff12d71e1648473db2de0223fb4380411b747d528ef235",
+    "storage_box.json": "495484f36a2448546eeb6d58f5325438d3c683fff45cb335a295a7a3ff47ea18",
+    "stove.json": "3e1bb6693219e72cf1ad1f81a34feb6ecca15a5fd0456d4e2685b22d8e566104",
+    "strawberry_cake_on_black_gold_plate.json": "ff914c13b2e2d74a391f70bf52d9e211461c21007cb5319d1a12e25f312e3278",
+    "strawberry_cake_on_burgundy_platter.json": "ba57207c07ce6c7bdf402b1fb03bc8f3d1488138c86c15fba45348620f4f85ec",
+    "strawberry_cake_serving.json": "ca9dbb7d719c1a891250d1104bb6dbd31f9612cfd6ba05df20c8355c070fcf4c",
+    "strawberry_crop_mature.json": "355a621c8eb1b5f00697230ad57dbafd1878435a61ca86a83223c836c33113a9",
+    "strawberry_crop_young.json": "1b02df94c11cc4382199fafa9d0446e010ce7b92c7679588896374d4140fcb3e",
+    "strawberry_shake_on_mug.json": "071f38fa0d67a9015e9cc2bc32a89ac5c081d261af5a95e9a85f0fd8cc3bd6c3",
+    "strawberry_shake_serving.json": "1c95b0a2aea1c12459eefcf85d479d1e6d6224db7e8f374e66e57c72cd1ae7a2",
+    "studio_news_camera.json": "bdea986d5606aceed7836dd1da3ef4e8cd717d0d4fe73ad3c35a7b852864cb6c",
+    "succulent_pot.json": "3313b300ef7101cdb04c73359114c0a6380cd94717c21785c585c9f6b3ee9292",
+    "supermarket_checkout.json": "86da90895082ef60a999d428ef14c4d30a9b135f416b94a010fcae4e459325db",
+    "surface_pro_keyboard.json": "a39ac0caffdec521218aa864cafdc4de2332d8a8198a65ca024ba93a8508fa20",
+    "sushi_platter_on_burgundy_platter.json": "11f07aa010467600a879f3a5136cc3523ef412618fdf4848e25c3176b27806f4",
+    "sushi_platter_on_plate.json": "ea163407a5e294af77f6d86251b1efc11c779823a2bf3f5b939d058c2b942606",
+    "sushi_platter_serving.json": "8d623cdbf70cff6c0ca0987efe26a1ec88ff39f262c97ef5a11cf1f5f0674707",
+    "sweet_sour_pork_on_black_gold_plate.json": "04ce79b19d8139b687903d2a6150b7a88629b6a27702cd89bf30f9861616d149",
+    "sweet_sour_pork_on_burgundy_platter.json": "950f6431ee5302732816fa69ec57d3be1663bb456ba1e634ecedca3384e2fe10",
+    "sweet_sour_pork_serving.json": "4e56245ec40b3f8508d5c46e0cd626c3d9ddf64e2ff4bac52f0f14919e137f57",
+    "table_clock.json": "62116160005847704b90c8fbb7f04cfbc16f95d8690a07544613e6d868642aa0",
+    "table_knife.json": "cae54da7124ff3e2659e6105ab2e62aec54c99fad1416dd7f59a5d81dea8daa7",
+    "table_number_sign.json": "41ff97250151e7d59d7d8e72cb8bb86e42d791dfe6cce002826bb2a9f0f28d23",
+    "tactical_equipment_case.json": "335a0c15818312f0a342e4c53514c1ba1f08ae564e2b8b56bd19b3a78906a0ac",
+    "takoyaki_on_black_gold_plate.json": "3da5475f3a52d22da9b5954619565cb2024a8e44427f72d361c9355d8f26164e",
+    "takoyaki_on_burgundy_platter.json": "649b1bfcba5017d1b87ef8a35ed1c51740e4137fcf1747090e0ab7ed8acdb50e",
+    "takoyaki_serving.json": "40ccc9f9ea0d11e97cf7b6be1a5f8b0af6892b57025102eaf51c5302644837e7",
+    "tape_dispenser.json": "d56f821b8f4e54911a0766f0e3487f94e91900e6f91afe61ecd4fa8e689c9bef",
+    "tea_crop_mature.json": "29a7924a2f321a7463ac931d81f2703fbd6a5a71fe848d0270c094639d015c94",
+    "tea_crop_young.json": "c02559a98e10f7c58cdd45ac3795f39c4f2e50b20ad54150b155b59a1176db74",
+    "teaching_lectern.json": "6f69439f554656f64d9dcad8b4a3e913ffebc36c016272400cbc581d084e8764",
+    "template_ai_triple_monitor_set.json": "cd293961e38ac107bcf472b23f11cfd26575be4619a7f9cfeab9743d807d6d30",
+    "tempura_on_burgundy_platter.json": "d6d25c70b2bb8c9e466e8db9430107b1945ea68f2067528f7671c7a35ba6f8e6",
+    "tempura_on_plate.json": "fdcefe6d024b8c2c82e2dbdaf545c276f43a2f6b16cd89bab829a38164fae4fa",
+    "tempura_serving.json": "884b7c7a2211e060feb3af6e1e711873ad7bf474e13fd32237d94aa3016f8473",
+    "thinkbook16_plus_closed.json": "ed109aa38c404c418e6e521ea677ef7975dae48160c78e88a79b79c2a04a9358",
+    "thinkbook16_plus_open.json": "47b3b02c6aa6a527a90396592f0c5b89da93e726ec6d782b74d6d64652555fba",
+    "thinkpad_closed.json": "566cbcdd4e7d5b6d2223c846a29640907e9fa926f92a48c45f799a6b9c2b537e",
+    "thinkpad_open.json": "f852bacce031bf0807eccf734294c22b4e4ec0b45513cc94860dcfebd64bd617",
+    "ticket_vending_machine.json": "4d5dc8e3e546b6425d4de34444e1bdac58c51168868f50ade44f9671d4613853",
+    "tieguanyin_on_glass.json": "41c272bd0ad0faf31ca710ad53e705e911054b13d096606d1d5b964a8752377b",
+    "tieguanyin_serving.json": "5499affa4efa71a133c81b95de4c5ca5e1499a9eb61939672031929b3c3689fd",
+    "tiramisu_on_burgundy_platter.json": "7fa46d19f84f5d7160bd23695043173fc565817f7396f4a1e95652c1ad105864",
+    "tiramisu_on_plate.json": "de3d12cd41d448914425e234db02346c907ec3f3ab06efc5014b2983bfb0465a",
+    "tiramisu_serving.json": "69c7fbcdd1e28dc40b8b2db0b9a98027f645d3bb566ca50e0f091d83a6bd71ab",
+    "tissue_box.json": "176c8895b36d1a55cfea33793c931f639929facc8fab983c2c4cff95fb4d0042",
+    "tomato_crop_mature.json": "b73945f202589f9c8b6ccb01b1136acae82d7203bd234b18bf412471657e6547",
+    "tomato_crop_young.json": "b3f217d778b18b6c4e1eab42444381b52dd2a75714c1cc1aba55662415e87ff1",
+    "tomato_eggs_on_black_gold_plate.json": "27a001c7266de15690515358d5a80492b1a1f45d0d2e901be9471f5d5c0ec72f",
+    "tomato_eggs_on_burgundy_platter.json": "39385927ed0514122744529cfcb221e53f540655b032914134ea7462f43cbf84",
+    "tomato_eggs_serving.json": "115f9df1fd82bce883414963ee4f056186d663202156f61a764ae653ffe6cfc1",
+    "tomato_juice_on_mug.json": "bfe146f7cc3e1e00f0b19bd344e599c1c6a605ff0a06eb7a9f5301d782c18a01",
+    "tomato_juice_serving.json": "e87c8027a66684dc38986264d5a6202c600003172b88c43dd87b08493d36acbd",
+    "tonkotsu_ramen_on_bowl.json": "ac4304b51bf0bdfce1ecf128a740da24f5b249b9cefa77584414945f5bd35540",
+    "tonkotsu_ramen_on_burgundy_bowl.json": "e223f51897c69ff740b800e26102870840e2373ff8a31a38d39d6ac16a81f5ee",
+    "tonkotsu_ramen_serving.json": "30c1a0fef3880ef3c6127702020b8df5e28529a7657ace66a5c4f9a593455d41",
+    "touchscreen_register.json": "e66266799e0d061bfa4d0416a9bcdc09c09b42abb05858c377974b8447a48596",
+    "tower_ups.json": "2ffa2e541a6f0237fb13296851a0f338466267eabf8dbdca956f967e443f7880",
+    "transit_ticket_gate.json": "186d91b010cad24a89650b03bb46a67801a93b52fa03e108c071918206b46e06",
+    "tripe_platter_on_burgundy_platter.json": "82ac47308ab6ca0a4cd7fb9dd4030cafaed973882c57d44ea494e7ca5327fd13",
+    "tripe_platter_on_plate.json": "6a03f83e68431aabdf7ffb53a8fc9428875e79960372bfa67e5cd585994bb2dd",
+    "tripe_platter_serving.json": "c9009683ba36615748fdec55455b1a615b16e6d02ff26514dcdcf94cba991c75",
+    "triple_tray.json": "af73bfdbddd392cbfcf94acfc3638cdeb8cc8f69f70341727b8e174504a838d3",
+    "truffle_abalone_on_burgundy_platter.json": "a54a3ddaaa9f3a846c46997484d7128c29e3389e86a2fd2f1301de2b9a584cf9",
+    "truffle_abalone_on_plate.json": "de701bd7224f30bd5bc470e99ae9544f65dc1fcb4e47063974d68470b5cbbaea",
+    "truffle_abalone_serving.json": "6b273f7437a049700f1cb84a8a5152865f2f6b2117c677e52978c5a2c1b57da2",
+    "ultrasound_cart.json": "5972f5315a1e34aefa504bc123a2679371b039b653f3603e6bfb24e8990ffd9d",
+    "unagi_don_on_black_gold_bowl.json": "5606b22b9ffa64d571d5af76b12fc861fe953a73d175d48ce4577b3d3b6e14e6",
+    "unagi_don_on_bowl.json": "b4bffd615dbdd8f1e9eb72807f760d0b9cff85c0fc945980cd61683e89ac8021",
+    "unagi_don_serving.json": "843f00a155824616df37947aa920174db46fa95c09c8c2e61b49cb65d051d1a1",
+    "upright_archive_cabinet.json": "db2030ab9f4428a86362455daed5a41bd4c1b5faef684572fade3f0f61071a53",
+    "vegetables_in_superior_broth_on_black_gold_bowl.json": "bf209de810a101a56d2230fec7743b3bd300d7a70c64fee34bf0a91abffbee4d",
+    "vegetables_in_superior_broth_on_burgundy_bowl.json": "533927be2b09f2554563d987b0dc585d74f1f3e09a0cd078e15f0278f97f1722",
+    "vegetables_in_superior_broth_serving.json": "d1b0bc21821474df49c7a960045ebb91adce1af708594deb3ca0fefd292c73d3",
+    "vermicelli_platter_on_burgundy_platter.json": "6caac3f16497343fa90bbd87aff0b78154e63b0c8c0d784046adebd213f6375b",
+    "vermicelli_platter_on_plate.json": "d66673684e196d96ea3ab1cf26c593459d62224303ec03946cb97c60c930af97",
+    "vermicelli_platter_serving.json": "d94e1afc3f82ab57a822423109fb680c5ec92b816fac473e2486d2fcaacb12ef",
+    "wagyu_rice_on_black_gold_bowl.json": "293ce64d31fad29f306ab9c85df744b1c3d112712396ea0e408bab44823b1e2d",
+    "wagyu_rice_on_bowl.json": "202aa812412157199c5f14cc7d696e2cab0d29e6cba140e9e1feab24d79a8dac",
+    "wagyu_rice_serving.json": "5a7aba267844140d74e949dc3dd261bf26fe6f7b6480b89b417c235d16a483df",
+    "wall_air_conditioner.json": "703899eaefec9c719315f1d7b09b5bd9066a7d41103dc3182472f0937b3da429",
+    "wall_diagnostic_station.json": "3b07cb574f20d8b2e004aa1934606616f63401d1d0f2f48b117d1d1b2d4e94e2",
+    "wall_electric_meter.json": "491da4cb2c2ce2352fdcde807fb0709c8a2ffb2783e460baaa67d8b570d25d0b",
+    "wensi_tofu_on_black_gold_bowl.json": "0b78ac977ad1227ab643bc298a24a0a64b733070d74337497332e726a197e29f",
+    "wensi_tofu_on_burgundy_bowl.json": "4306ce82bfe6217516b7aa299de2efea2e16ad36d8d01572e866d607e4d44fdf",
+    "wensi_tofu_serving.json": "0ca936c30f76062aacc85350163ad1f51289979b7ebdf654db344906c957a4de",
+    "white_cut_chicken_on_black_gold_plate.json": "a6fcc25ece7eab96e8273fb5b6c43e0ebe50c09b79b35f3a0a46f1fb5db26d22",
+    "white_cut_chicken_on_burgundy_platter.json": "a85948b8c76253d2eb334a01f6cc958af12cbc91ad6676328bc0945e5e7a6768",
+    "white_cut_chicken_serving.json": "7fc8a3ae2e5bcdeb55457be722ab96faed9d1b64f06e69cbbb8fa2e7293d7de1",
+    "wild_mushroom_risotto_on_bowl.json": "7a7d561895f6f8eb50a7d2a5d42b885197153de151da626873097cd6e1351f00",
+    "wild_mushroom_risotto_on_burgundy_bowl.json": "13a615af1c31d7928cf109e841b216d660c3a45c4f5d1061ffb8441c1fd88484",
+    "wild_mushroom_risotto_serving.json": "eaabe7b280ef870eebf2e2b21001cff42f182e63e8a34349e8bfbc36132b4159",
+    "wine_glass.json": "b506807fb63e9c93472ff51a9c663e313e8214fbe6da296f4f25b097e2b8406d",
+    "yakisoba_on_black_gold_plate.json": "c8e3bf5a7d6689c4fe7dd960e688f46f61eb00566f196efe706ab1a644549e87",
+    "yakisoba_on_plate.json": "b06e965c7e1883a5360acdd095ba9c4dee66a97230d6f36b10a600921ce6937a",
+    "yakisoba_serving.json": "db2e362927f669d8ca48bdcda98266ddb95680aa90e440c4b00d72069c7072f8"
+  },
+  "crafting": {
+    "bowl.json": "84de9e7d10b5012440bc31af8eab1c2ee64f21f183d8bc999d28e5aa2e8ece2b",
+    "chopsticks.json": "9a25c76ea8849700089bb44c195f640e3a6122634128d8ace06a3681a9d71403",
+    "coffee_seeds.json": "1b21fb40f59ce331a61f1ec0c3537068ac69a64c329f82f94ac76489bc44e941",
+    "drink_counter.json": "422759cc371de7bbf1a120200ede94ea42ff20db71a3d883621ac82de922ccd9",
+    "fork.json": "af629bbd891e2bdb1a78aac5c3681d7fede5bbb746086dc53ec8350e723550d4",
+    "glass.json": "b7488fd5e0818f79cd01f90e50de693285c7145b52ed6737c56502cbf21013d0",
+    "mug.json": "1010b61646ae1e959d1133929e4795f948a8578fff595fd2e0ad8f56f7931ff6",
+    "oven.json": "4828a377b6f9a3e77d8f60622a341b74e1d68592661ea2a7959b61e8d43d5dee",
+    "plate.json": "39c28ecd530c43b0ff1bf25f2d60e1ec6260186ba6de7486bc826fbdbae03d2a",
+    "prep_counter.json": "46fd0396803f5fea9386fcd4523d191c06dadece0cc903838aae91ab246de37d",
+    "rice_seeds.json": "d35a80c47efd963ecde2eb2b1602f5c4356ff32aa45f7bca6cbe58dce5fbd52e",
+    "soybean_seeds.json": "2a3c4c6cf421be2fd20240b0eeac32e0bad057da47368849ebc470600df84969",
+    "spoon.json": "bf2d389d9db9b5b9383784e0c2d1f7c7b51d769b9e7ecc2c94d97b9e6d751259",
+    "stove.json": "064aceba791abfda14fdac6827d46ec00ff6bddc96555ec5d918648b377a4d49",
+    "strawberry_seeds.json": "5e1bca3a67a77087d465a328adb01e27e657a35a9dbc47361713a31c971a3b34",
+    "table_knife.json": "76b204c348fde0b48d5d70a091a6a1eaad79dfe618daa245ced114c70ad528d4",
+    "tea_seeds.json": "4606eefe771e9508c322592b5b0c1d380ee7e9f3ac34c0cfd85bb88315405932",
+    "tomato_seeds.json": "998f54483c3e4b5706b4d005d77d166eb3a820cbb3a45aaf2756664bd370fdbe"
+  },
+  "menuRecipes": [
+    {
+      "key": "tofu",
+      "station": "prep_counter",
+      "inputs": [
+        {
+          "item": "mcpe_food:soybean",
+          "count": 2
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        }
+      ],
+      "output": 4,
+      "category": "processing"
+    },
+    {
+      "key": "dough",
+      "station": "prep_counter",
+      "inputs": [
+        {
+          "item": "minecraft:wheat",
+          "count": 3
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        }
+      ],
+      "output": 4,
+      "category": "processing"
+    },
+    {
+      "key": "noodles",
+      "station": "prep_counter",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        }
+      ],
+      "output": 2,
+      "category": "processing"
+    },
+    {
+      "key": "cheese",
+      "station": "prep_counter",
+      "inputs": [
+        {
+          "item": "minecraft:milk_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        }
+      ],
+      "output": 4,
+      "category": "processing"
+    },
+    {
+      "key": "cream",
+      "station": "prep_counter",
+      "inputs": [
+        {
+          "item": "minecraft:milk_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 4,
+      "category": "processing"
+    },
+    {
+      "key": "egg_fried_rice",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:rice",
+          "count": 2
+        },
+        {
+          "item": "minecraft:egg",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "chinese"
+    },
+    {
+      "key": "kung_pao_chicken",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:chicken",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:soybean",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "chinese"
+    },
+    {
+      "key": "mapo_tofu",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:tofu",
+          "count": 2
+        },
+        {
+          "item": "minecraft:porkchop",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "chinese"
+    },
+    {
+      "key": "braised_pork",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:porkchop",
+          "count": 2
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "chinese"
+    },
+    {
+      "key": "tomato_eggs",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:tomato",
+          "count": 2
+        },
+        {
+          "item": "minecraft:egg",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "chinese"
+    },
+    {
+      "key": "sweet_sour_pork",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:porkchop",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:tomato",
+          "count": 1
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "chinese"
+    },
+    {
+      "key": "beef_noodle_soup",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:noodles",
+          "count": 1
+        },
+        {
+          "item": "minecraft:beef",
+          "count": 1
+        },
+        {
+          "item": "minecraft:carrot",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "chinese"
+    },
+    {
+      "key": "dumplings",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "minecraft:porkchop",
+          "count": 1
+        },
+        {
+          "item": "minecraft:carrot",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "chinese"
+    },
+    {
+      "key": "white_cut_chicken",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:chicken",
+          "count": 2
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "cantonese"
+    },
+    {
+      "key": "char_siu",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "minecraft:porkchop",
+          "count": 2
+        },
+        {
+          "item": "minecraft:honey_bottle",
+          "count": 1,
+          "returns": "minecraft:glass_bottle"
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "cantonese"
+    },
+    {
+      "key": "black_bean_ribs",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:porkchop",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:soybean",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "cantonese"
+    },
+    {
+      "key": "claypot_rice",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:rice",
+          "count": 2
+        },
+        {
+          "item": "minecraft:porkchop",
+          "count": 1
+        },
+        {
+          "item": "minecraft:egg",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "cantonese"
+    },
+    {
+      "key": "lions_head",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:porkchop",
+          "count": 2
+        },
+        {
+          "item": "mcpe_food:tofu",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "huaiyang"
+    },
+    {
+      "key": "boiled_tofu_shreds",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:tofu",
+          "count": 2
+        },
+        {
+          "item": "mcpe_food:shrimp",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "huaiyang"
+    },
+    {
+      "key": "wensi_tofu",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:tofu",
+          "count": 2
+        },
+        {
+          "item": "minecraft:brown_mushroom",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "huaiyang"
+    },
+    {
+      "key": "huaiyang_eel",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:eel",
+          "count": 2
+        },
+        {
+          "item": "mcpe_food:garlic",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "huaiyang"
+    },
+    {
+      "key": "guo_bao_rou",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:porkchop",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        },
+        {
+          "item": "minecraft:carrot",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "northeast"
+    },
+    {
+      "key": "steamed_sea_bass",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:sea_bass",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "seafood"
+    },
+    {
+      "key": "garlic_scallops",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:scallop",
+          "count": 2
+        },
+        {
+          "item": "mcpe_food:garlic",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:vermicelli",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "seafood"
+    },
+    {
+      "key": "braised_prawns",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:shrimp",
+          "count": 2
+        },
+        {
+          "item": "mcpe_food:tomato",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:seasoning",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "seafood"
+    },
+    {
+      "key": "steak",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:beef",
+          "count": 2
+        },
+        {
+          "item": "minecraft:potato",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "western"
+    },
+    {
+      "key": "burger",
+      "station": "prep_counter",
+      "inputs": [
+        {
+          "item": "minecraft:bread",
+          "count": 1
+        },
+        {
+          "item": "minecraft:cooked_beef",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:cheese",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:tomato",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "western"
+    },
+    {
+      "key": "pizza",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 2
+        },
+        {
+          "item": "mcpe_food:cheese",
+          "count": 2
+        },
+        {
+          "item": "mcpe_food:tomato",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "western"
+    },
+    {
+      "key": "spaghetti",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:noodles",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:tomato",
+          "count": 2
+        },
+        {
+          "item": "minecraft:beef",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "western"
+    },
+    {
+      "key": "sandwich",
+      "station": "prep_counter",
+      "inputs": [
+        {
+          "item": "minecraft:bread",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:cheese",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:tomato",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "western"
+    },
+    {
+      "key": "roast_chicken",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "minecraft:chicken",
+          "count": 2
+        },
+        {
+          "item": "minecraft:potato",
+          "count": 1
+        },
+        {
+          "item": "minecraft:carrot",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "western"
+    },
+    {
+      "key": "mushroom_soup",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:brown_mushroom",
+          "count": 2
+        },
+        {
+          "item": "mcpe_food:cream",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "western"
+    },
+    {
+      "key": "salad",
+      "station": "prep_counter",
+      "inputs": [
+        {
+          "item": "mcpe_food:tomato",
+          "count": 1
+        },
+        {
+          "item": "minecraft:carrot",
+          "count": 1
+        },
+        {
+          "item": "minecraft:beetroot",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "western"
+    },
+    {
+      "key": "baozi",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "minecraft:porkchop",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "snack"
+    },
+    {
+      "key": "spring_rolls",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "minecraft:carrot",
+          "count": 1
+        },
+        {
+          "item": "minecraft:porkchop",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "snack"
+    },
+    {
+      "key": "chicken_nuggets",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:chicken",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "snack"
+    },
+    {
+      "key": "fries",
+      "station": "stove",
+      "inputs": [
+        {
+          "item": "minecraft:potato",
+          "count": 2
+        }
+      ],
+      "output": 1,
+      "category": "snack"
+    },
+    {
+      "key": "hotdog",
+      "station": "prep_counter",
+      "inputs": [
+        {
+          "item": "minecraft:bread",
+          "count": 1
+        },
+        {
+          "item": "minecraft:cooked_porkchop",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:tomato",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "snack"
+    },
+    {
+      "key": "skewers",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "minecraft:beef",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:tomato",
+          "count": 1
+        },
+        {
+          "item": "minecraft:stick",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "snack"
+    },
+    {
+      "key": "green_tea",
+      "station": "drink_counter",
+      "inputs": [
+        {
+          "item": "mcpe_food:tea",
+          "count": 2
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        }
+      ],
+      "output": 1,
+      "category": "drink"
+    },
+    {
+      "key": "black_coffee",
+      "station": "drink_counter",
+      "inputs": [
+        {
+          "item": "mcpe_food:coffee",
+          "count": 2
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        }
+      ],
+      "output": 1,
+      "category": "drink"
+    },
+    {
+      "key": "milk_tea",
+      "station": "drink_counter",
+      "inputs": [
+        {
+          "item": "mcpe_food:tea",
+          "count": 1
+        },
+        {
+          "item": "minecraft:milk_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "drink"
+    },
+    {
+      "key": "strawberry_shake",
+      "station": "drink_counter",
+      "inputs": [
+        {
+          "item": "mcpe_food:strawberry",
+          "count": 2
+        },
+        {
+          "item": "minecraft:milk_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "drink"
+    },
+    {
+      "key": "tomato_juice",
+      "station": "drink_counter",
+      "inputs": [
+        {
+          "item": "mcpe_food:tomato",
+          "count": 2
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        }
+      ],
+      "output": 1,
+      "category": "drink"
+    },
+    {
+      "key": "hot_chocolate",
+      "station": "drink_counter",
+      "inputs": [
+        {
+          "item": "minecraft:cocoa_beans",
+          "count": 2
+        },
+        {
+          "item": "minecraft:milk_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "drink"
+    },
+    {
+      "key": "strawberry_cake",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:cream",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:strawberry",
+          "count": 2
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "dessert"
+    },
+    {
+      "key": "chocolate_cake",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:cream",
+          "count": 1
+        },
+        {
+          "item": "minecraft:cocoa_beans",
+          "count": 2
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "dessert"
+    },
+    {
+      "key": "cheesecake",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:cheese",
+          "count": 2
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "dessert"
+    },
+    {
+      "key": "pudding",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "minecraft:milk_bucket",
+          "count": 1,
+          "returns": "minecraft:bucket"
+        },
+        {
+          "item": "minecraft:egg",
+          "count": 1
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "dessert"
+    },
+    {
+      "key": "ice_cream",
+      "station": "drink_counter",
+      "inputs": [
+        {
+          "item": "mcpe_food:cream",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:strawberry",
+          "count": 1
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "dessert"
+    },
+    {
+      "key": "donut",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 2
+        }
+      ],
+      "output": 1,
+      "category": "dessert"
+    },
+    {
+      "key": "cookies",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "minecraft:cocoa_beans",
+          "count": 1
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "dessert"
+    },
+    {
+      "key": "egg_tart",
+      "station": "oven",
+      "inputs": [
+        {
+          "item": "mcpe_food:dough",
+          "count": 1
+        },
+        {
+          "item": "minecraft:egg",
+          "count": 1
+        },
+        {
+          "item": "mcpe_food:cream",
+          "count": 1
+        },
+        {
+          "item": "minecraft:sugar",
+          "count": 1
+        }
+      ],
+      "output": 1,
+      "category": "dessert"
+    }
+  ],
+  "dishes": [
+    {
+      "key": "egg_fried_rice",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "kung_pao_chicken",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "mapo_tofu",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "braised_pork",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "tomato_eggs",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "sweet_sour_pork",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "beef_noodle_soup",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "dumplings",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "white_cut_chicken",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "char_siu",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "black_bean_ribs",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "claypot_rice",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "lions_head",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "boiled_tofu_shreds",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "wensi_tofu",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "huaiyang_eel",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "guo_bao_rou",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "steamed_sea_bass",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "garlic_scallops",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "braised_prawns",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "steak",
+      "category": "western",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "burger",
+      "category": "western",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "pizza",
+      "category": "western",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "spaghetti",
+      "category": "western",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "sandwich",
+      "category": "western",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "roast_chicken",
+      "category": "western",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "mushroom_soup",
+      "category": "western",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "salad",
+      "category": "western",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "baozi",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "spring_rolls",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "chicken_nuggets",
+      "category": "western",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "fries",
+      "category": "western",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "hotdog",
+      "category": "western",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "skewers",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "green_tea",
+      "category": "drink",
+      "vessel": "mug",
+      "edible": true
+    },
+    {
+      "key": "black_coffee",
+      "category": "drink",
+      "vessel": "mug",
+      "edible": true
+    },
+    {
+      "key": "milk_tea",
+      "category": "drink",
+      "vessel": "glass",
+      "edible": true
+    },
+    {
+      "key": "strawberry_shake",
+      "category": "drink",
+      "vessel": "glass",
+      "edible": true
+    },
+    {
+      "key": "tomato_juice",
+      "category": "drink",
+      "vessel": "glass",
+      "edible": true
+    },
+    {
+      "key": "hot_chocolate",
+      "category": "drink",
+      "vessel": "mug",
+      "edible": true
+    },
+    {
+      "key": "strawberry_cake",
+      "category": "dessert",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "chocolate_cake",
+      "category": "dessert",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "cheesecake",
+      "category": "dessert",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "pudding",
+      "category": "dessert",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "ice_cream",
+      "category": "dessert",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "donut",
+      "category": "dessert",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "cookies",
+      "category": "dessert",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "egg_tart",
+      "category": "dessert",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "roast_goose",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "shrimp_rice_rolls",
+      "category": "chinese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "dongpo_pork",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "peking_duck",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "buddha_jumps_wall",
+      "category": "chinese",
+      "vessel": "black_gold_bowl",
+      "edible": true
+    },
+    {
+      "key": "boeuf_bourguignon",
+      "category": "western",
+      "vessel": "black_gold_bowl",
+      "edible": true
+    },
+    {
+      "key": "french_onion_soup",
+      "category": "western",
+      "vessel": "black_gold_bowl",
+      "edible": true
+    },
+    {
+      "key": "sushi_platter",
+      "category": "japanese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "sashimi_platter",
+      "category": "japanese",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "tempura",
+      "category": "japanese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "tonkotsu_ramen",
+      "category": "japanese",
+      "vessel": "black_gold_bowl",
+      "edible": true
+    },
+    {
+      "key": "unagi_don",
+      "category": "japanese",
+      "vessel": "burgundy_bowl",
+      "edible": true
+    },
+    {
+      "key": "okonomiyaki",
+      "category": "japanese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "hotpot_lamb",
+      "category": "chinese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "hotpot_beef",
+      "category": "chinese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "peacock_platter",
+      "category": "chinese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "stir_fried_yellow_beef",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "truffle_abalone",
+      "category": "chinese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "huaiyang_sanding_bao",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "fruit_platter",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "snow_pear_tremella",
+      "category": "chinese",
+      "vessel": "black_gold_bowl",
+      "edible": true
+    },
+    {
+      "key": "pickled_greens_pork",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "jujube_lotus_soup",
+      "category": "chinese",
+      "vessel": "burgundy_bowl",
+      "edible": true
+    },
+    {
+      "key": "takoyaki",
+      "category": "japanese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "yakisoba",
+      "category": "japanese",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "grilled_squid",
+      "category": "japanese",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "oden",
+      "category": "japanese",
+      "vessel": "black_gold_bowl",
+      "edible": true
+    },
+    {
+      "key": "dorayaki",
+      "category": "japanese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "wagyu_rice",
+      "category": "japanese",
+      "vessel": "burgundy_bowl",
+      "edible": true
+    },
+    {
+      "key": "gunkan_sushi",
+      "category": "japanese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "red_bean_cake",
+      "category": "dessert",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "mung_bean_soup",
+      "category": "dessert",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "baijiu",
+      "category": "drink",
+      "vessel": "glass",
+      "edible": true
+    },
+    {
+      "key": "premium_baijiu",
+      "category": "drink",
+      "vessel": "glass",
+      "edible": true
+    },
+    {
+      "key": "premium_red_wine",
+      "category": "drink",
+      "vessel": "glass",
+      "edible": true
+    },
+    {
+      "key": "cola",
+      "category": "drink",
+      "vessel": "glass",
+      "edible": true
+    },
+    {
+      "key": "steamed_grouper",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "poached_tiger_prawns",
+      "category": "chinese",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "smashed_cucumber",
+      "category": "chinese",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "vegetables_in_superior_broth",
+      "category": "chinese",
+      "vessel": "bowl",
+      "edible": true
+    },
+    {
+      "key": "tiramisu",
+      "category": "dessert",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "daifuku",
+      "category": "dessert",
+      "vessel": "plate",
+      "edible": true
+    },
+    {
+      "key": "mille_feuille",
+      "category": "dessert",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "lobster_bisque",
+      "category": "western",
+      "vessel": "black_gold_bowl",
+      "edible": true
+    },
+    {
+      "key": "chicken_cordon_bleu",
+      "category": "western",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "pan_seared_sole",
+      "category": "western",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "beef_wellington",
+      "category": "western",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "herb_roasted_lamb_rack",
+      "category": "western",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "wild_mushroom_risotto",
+      "category": "western",
+      "vessel": "black_gold_bowl",
+      "edible": true
+    },
+    {
+      "key": "lobster_thermidor",
+      "category": "western",
+      "vessel": "burgundy_platter",
+      "edible": true
+    },
+    {
+      "key": "caviar_blini",
+      "category": "western",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "creme_brulee",
+      "category": "western",
+      "vessel": "burgundy_bowl",
+      "edible": true
+    },
+    {
+      "key": "black_truffle_foie_gras",
+      "category": "western",
+      "vessel": "black_gold_plate",
+      "edible": true
+    },
+    {
+      "key": "tieguanyin",
+      "category": "drink",
+      "vessel": "mug",
+      "edible": true
+    },
+    {
+      "key": "lamb_slices",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": false
+    },
+    {
+      "key": "beef_slices",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": false
+    },
+    {
+      "key": "tripe_platter",
+      "category": "chinese",
+      "vessel": "black_gold_plate",
+      "edible": false
+    },
+    {
+      "key": "frozen_tofu_platter",
+      "category": "chinese",
+      "vessel": "black_gold_plate",
+      "edible": false
+    },
+    {
+      "key": "mushroom_platter",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": false
+    },
+    {
+      "key": "greens_platter",
+      "category": "chinese",
+      "vessel": "burgundy_platter",
+      "edible": false
+    },
+    {
+      "key": "vermicelli_platter",
+      "category": "chinese",
+      "vessel": "black_gold_plate",
+      "edible": false
+    },
+    {
+      "key": "sesame_dip",
+      "category": "chinese",
+      "vessel": "burgundy_bowl",
+      "edible": false
+    }
+  ],
+  "functions": {
+    "advertisements.mcfunction": "give @s mcpe_food:ad_japanese_snacks 4\ngive @s mcpe_food:ad_japanese_night 4\ngive @s mcpe_food:ad_wellington 4\ngive @s mcpe_food:ad_lamb 4\ngive @s mcpe_food:ad_lobster 4\ngive @s mcpe_food:ad_cantonese_roast 4\ngive @s mcpe_food:ad_dim_sum 4\ngive @s mcpe_food:ad_hotpot 4\ngive @s mcpe_food:ad_banquet 4\ngive @s mcpe_food:ad_grouper 4\ngive @s mcpe_food:ad_home_cooking 4\ngive @s mcpe_food:ad_dessert 4\ngive @s mcpe_food:ad_city_computer 4\ngive @s mcpe_food:ad_city_gaming 4\ngive @s mcpe_food:ad_city_camera 4\ngive @s mcpe_food:ad_city_music 4\ngive @s mcpe_food:ad_city_bookshop 4\ngive @s mcpe_food:ad_city_florist 4\ngive @s mcpe_food:ad_city_travel 4\ngive @s mcpe_food:ad_city_home 4\ngive @s mcpe_food:ad_template_ai 4\ngive @s mcpe_food:ad_luna_studio 4\ngive @s mcpe_food:ad_ft_computer 4\n",
+    "ai_work_devices.mcfunction": "give @s mcpe_food:ai_inference_workstation 4\ngive @s mcpe_food:ai_dual_screen_desk 4\ngive @s mcpe_food:ai_compute_rack 4\ngive @s mcpe_food:pen_display_set 4\ngive @s mcpe_food:gpu_single_fan 4\ngive @s mcpe_food:gpu_dual_fan 4\ngive @s mcpe_food:gpu_triple_fan 4\n",
+    "banking_equipment.mcfunction": "give @s mcpe_food:atm_terminal 4\ngive @s mcpe_food:banknote_counter 4\ngive @s mcpe_food:queue_ticket_kiosk 4\n",
+    "build_info.mcfunction": "tellraw @s {\"rawtext\":[{\"text\":\"Food & Table BP 0.8.1-release.1; check matching RP in active packs.\"}]}\n",
+    "clothing_fixtures.mcfunction": "give @s mcpe_food:single_clothing_rail 4\ngive @s mcpe_food:double_clothing_shelf 4\ngive @s mcpe_food:mannequin_display 4\ngive @s mcpe_food:full_length_mirror 4\n",
+    "clothing_items.mcfunction": "give @s mcpe_food:display_tshirt 4\ngive @s mcpe_food:display_shirt 4\ngive @s mcpe_food:display_coat 4\ngive @s mcpe_food:display_trousers 4\ngive @s mcpe_food:display_dress 4\ngive @s mcpe_food:display_hat 4\ngive @s mcpe_food:display_suit_black 4\ngive @s mcpe_food:display_suit_navy 4\ngive @s mcpe_food:display_suit_light_gray 4\n",
+    "clothing_store.mcfunction": "give @s mcpe_food:single_clothing_rail 4\ngive @s mcpe_food:double_clothing_shelf 4\ngive @s mcpe_food:mannequin_display 4\ngive @s mcpe_food:full_length_mirror 4\ngive @s mcpe_food:display_tshirt 4\ngive @s mcpe_food:display_shirt 4\ngive @s mcpe_food:display_coat 4\ngive @s mcpe_food:display_trousers 4\ngive @s mcpe_food:display_dress 4\ngive @s mcpe_food:display_hat 4\ngive @s mcpe_food:display_suit_black 4\ngive @s mcpe_food:display_suit_navy 4\ngive @s mcpe_food:display_suit_light_gray 4\n",
+    "creative_ingredients.mcfunction": "give @s mcpe_food:sea_bass 4\ngive @s mcpe_food:shrimp 4\ngive @s mcpe_food:scallop 4\ngive @s mcpe_food:eel 4\ngive @s mcpe_food:seasoning 4\ngive @s mcpe_food:garlic 4\ngive @s mcpe_food:vermicelli 4\n",
+    "digital_ad_screens.mcfunction": "give @s mcpe_food:digital_template_ai_2x2 4\ngive @s mcpe_food:digital_luna_studio_2x2 4\ngive @s mcpe_food:digital_ft_computer_2x2 4\ngive @s mcpe_food:digital_template_ai_4x4 4\ngive @s mcpe_food:digital_luna_studio_4x4 4\ngive @s mcpe_food:digital_ft_computer_4x4 4\ngive @s mcpe_food:digital_template_ai_4x3 4\ngive @s mcpe_food:digital_luna_studio_4x3 4\ngive @s mcpe_food:digital_ft_computer_4x3 4\ngive @s mcpe_food:digital_ft_computer_6x5 4\ngive @s mcpe_food:digital_apple_6x5 4\n",
+    "electrical_equipment.mcfunction": "give @s mcpe_food:electrical_distribution_cabinet 4\ngive @s mcpe_food:dry_type_transformer 4\ngive @s mcpe_food:standby_generator 4\ngive @s mcpe_food:cable_reel 4\ngive @s mcpe_food:electrician_toolbox 4\ngive @s mcpe_food:wall_electric_meter 4\ngive @s mcpe_food:insulator_display 4\n",
+    "electronics.mcfunction": "give @s mcpe_food:desktop_computer 4\ngive @s mcpe_food:all_in_one_computer 4\ngive @s mcpe_food:silver_laptop_open 4\ngive @s mcpe_food:silver_laptop_closed 4\ngive @s mcpe_food:gaming_laptop_open 4\ngive @s mcpe_food:gaming_laptop_closed 4\ngive @s mcpe_food:thinkpad_open 4\ngive @s mcpe_food:thinkpad_closed 4\ngive @s mcpe_food:macbook_open 4\ngive @s mcpe_food:macbook_closed 4\ngive @s mcpe_food:router 4\ngive @s mcpe_food:server_cabinet 4\ngive @s mcpe_food:ipad_air_magic_keyboard 4\ngive @s mcpe_food:crt_monitor 4\ngive @s mcpe_food:keyboard_mouse_set 4\ngive @s mcpe_food:dell_laptop_open 4\ngive @s mcpe_food:dell_laptop_closed 4\ngive @s mcpe_food:macbook_pro_gpt_open 4\ngive @s mcpe_food:macbook_pro_gpt_closed 4\ngive @s mcpe_food:macbook_air_silver_open 4\ngive @s mcpe_food:macbook_air_gray_open 4\ngive @s mcpe_food:thinkbook16_plus_open 4\ngive @s mcpe_food:thinkbook16_plus_closed 4\ngive @s mcpe_food:printer_scanner 4\ngive @s mcpe_food:mac_studio_set 4\ngive @s mcpe_food:surface_pro_keyboard 4\ngive @s mcpe_food:touchscreen_register 4\ngive @s mcpe_food:payment_scanner 4\ngive @s mcpe_food:receipt_printer 4\ngive @s mcpe_food:desktop_projector 4\ngive @s mcpe_food:conference_phone 4\ngive @s mcpe_food:network_switch 4\ngive @s mcpe_food:four_bay_nas 4\ngive @s mcpe_food:tower_ups 4\ngive @s mcpe_food:compact_shredder 4\ngive @s mcpe_food:fridge_single_rose_gold 4\ngive @s mcpe_food:fridge_single_white 4\ngive @s mcpe_food:fridge_single_black 4\ngive @s mcpe_food:fridge_double_rose_gold 4\ngive @s mcpe_food:fridge_double_white 4\ngive @s mcpe_food:fridge_double_black 4\ngive @s mcpe_food:supermarket_checkout 4\ngive @s mcpe_food:ft_government_desktop 4\ngive @s mcpe_food:ft_government_all_in_one 4\ngive @s mcpe_food:ft_government_ultrabook_open 4\ngive @s mcpe_food:government_queue_screen 4\ngive @s mcpe_food:ft_b1_open 4\ngive @s mcpe_food:ft_ideabook_p1_open 4\ngive @s mcpe_food:ft_master_open 4\ngive @s mcpe_food:laboratory_dual_monitor_set 4\ngive @s mcpe_food:template_ai_triple_monitor_set 4\ngive @s mcpe_food:portrait_paper_monitor 4\n",
+    "entertainment_devices.mcfunction": "give @s mcpe_food:arcade_cabinet 4\ngive @s mcpe_food:game_console_set 4\ngive @s mcpe_food:flat_screen_tv 4\n",
+    "government_equipment.mcfunction": "give @s mcpe_food:ft_government_desktop 4\ngive @s mcpe_food:ft_government_all_in_one 4\ngive @s mcpe_food:ft_government_ultrabook_open 4\ngive @s mcpe_food:government_queue_screen 4\ngive @s mcpe_food:upright_archive_cabinet 4\ngive @s mcpe_food:government_service_kiosk 4\ngive @s mcpe_food:government_id_reader 4\ngive @s mcpe_food:government_fingerprint_scanner 4\ngive @s mcpe_food:government_signature_pad 4\ngive @s mcpe_food:government_document_scanner 4\ngive @s mcpe_food:government_stamp_set 4\n",
+    "home_appliances.mcfunction": "give @s mcpe_food:wall_air_conditioner 4\ngive @s mcpe_food:microwave_oven 4\ngive @s mcpe_food:front_load_washer 4\ngive @s mcpe_food:floor_air_conditioner 4\ngive @s mcpe_food:standing_fan 4\ngive @s mcpe_food:air_purifier 4\ngive @s mcpe_food:robot_vacuum_dock 4\ngive @s mcpe_food:electric_kettle 4\ngive @s mcpe_food:rice_cooker 4\ngive @s mcpe_food:dishwasher 4\ngive @s mcpe_food:fridge_single_rose_gold 4\ngive @s mcpe_food:fridge_single_white 4\ngive @s mcpe_food:fridge_single_black 4\ngive @s mcpe_food:fridge_double_rose_gold 4\ngive @s mcpe_food:fridge_double_white 4\ngive @s mcpe_food:fridge_double_black 4\n",
+    "home_decor.mcfunction": "give @s mcpe_food:ceramic_vase 4\ngive @s mcpe_food:flower_vase 4\ngive @s mcpe_food:succulent_pot 4\ngive @s mcpe_food:table_clock 4\ngive @s mcpe_food:landscape_frame 4\ngive @s mcpe_food:reed_diffuser 4\ngive @s mcpe_food:storage_box 4\ngive @s mcpe_food:ring_sculpture 4\n",
+    "laboratory_equipment.mcfunction": "give @s mcpe_food:laboratory_centrifuge 4\ngive @s mcpe_food:laboratory_incubator 4\ngive @s mcpe_food:laboratory_cloud_storage_array 4\ngive @s mcpe_food:open_reel_tape_recorder 4\ngive @s mcpe_food:laboratory_radio_station 4\ngive @s mcpe_food:ceiling_arm_display_2x1 4\ngive @s mcpe_food:digital_oscilloscope 4\ngive @s mcpe_food:pipette_rack_set 4\n",
+    "medical_equipment.mcfunction": "give @s mcpe_food:aed_cabinet 4\ngive @s mcpe_food:patient_monitor 4\ngive @s mcpe_food:ultrasound_cart 4\ngive @s mcpe_food:infusion_pump_stand 4\ngive @s mcpe_food:ecg_machine 4\ngive @s mcpe_food:medical_trolley 4\ngive @s mcpe_food:laboratory_microscope 4\ngive @s mcpe_food:wall_diagnostic_station 4\n",
+    "military_police_equipment.mcfunction": "give @s mcpe_food:riot_shield_display 4\ngive @s mcpe_food:road_safety_barrier 4\ngive @s mcpe_food:military_police_cabinet 4\ngive @s mcpe_food:helmet_display 4\ngive @s mcpe_food:communications_radio 4\ngive @s mcpe_food:radar_equipment 4\ngive @s mcpe_food:tactical_equipment_case 4\n",
+    "news_equipment.mcfunction": "give @s mcpe_food:field_news_camera 4\ngive @s mcpe_food:studio_news_camera 4\ngive @s mcpe_food:news_microphone_stand 4\ngive @s mcpe_food:interview_audio_set 4\ngive @s mcpe_food:news_teleprompter 4\ngive @s mcpe_food:broadcast_control_desk 4\ngive @s mcpe_food:news_backdrop 4\n",
+    "office_stationery.mcfunction": "give @s mcpe_food:pen_holder 4\ngive @s mcpe_food:notebook_open 4\ngive @s mcpe_food:notebook_closed 4\ngive @s mcpe_food:document_stack 4\ngive @s mcpe_food:standing_binder 4\ngive @s mcpe_food:stapler 4\ngive @s mcpe_food:tape_dispenser 4\ngive @s mcpe_food:desk_organizer 4\ngive @s mcpe_food:upright_archive_cabinet 4\n",
+    "restaurant_accessories.mcfunction": "give @s mcpe_food:table_number_sign 4\ngive @s mcpe_food:menu_stand 4\ngive @s mcpe_food:reserved_sign 4\ngive @s mcpe_food:service_bell 4\ngive @s mcpe_food:tissue_box 4\n",
+    "starter.mcfunction": "give @s mcpe_food:prep_counter 4\ngive @s mcpe_food:stove 4\ngive @s mcpe_food:oven 4\ngive @s mcpe_food:drink_counter 4\ngive @s mcpe_food:plate 4\ngive @s mcpe_food:bowl 4\ngive @s mcpe_food:glass 4\ngive @s mcpe_food:mug 4\ngive @s mcpe_food:black_gold_bowl 4\ngive @s mcpe_food:burgundy_bowl 4\ngive @s mcpe_food:black_gold_plate 4\ngive @s mcpe_food:burgundy_platter 4\ngive @s mcpe_food:wine_glass 4\ngive @s mcpe_food:chopsticks 4\ngive @s mcpe_food:table_knife 4\ngive @s mcpe_food:fork 4\ngive @s mcpe_food:spoon 4\ngive @s mcpe_food:triple_tray 4\ngive @s mcpe_food:coca_cola_paper_cup 4\ngive @s mcpe_food:pepsi_paper_cup 4\ngive @s mcpe_food:peacock_platter 4\ngive @s mcpe_food:takoyaki 4\ngive @s mcpe_food:premium_red_wine 4\ngive @s mcpe_food:premium_red_wine_bottle 4\ngive @s mcpe_food:copper_hotpot_broth 4\n",
+    "tableware.mcfunction": "give @s mcpe_food:plate 4\ngive @s mcpe_food:bowl 4\ngive @s mcpe_food:glass 4\ngive @s mcpe_food:mug 4\ngive @s mcpe_food:black_gold_bowl 4\ngive @s mcpe_food:burgundy_bowl 4\ngive @s mcpe_food:black_gold_plate 4\ngive @s mcpe_food:burgundy_platter 4\ngive @s mcpe_food:wine_glass 4\ngive @s mcpe_food:chopsticks 4\ngive @s mcpe_food:table_knife 4\ngive @s mcpe_food:fork 4\ngive @s mcpe_food:spoon 4\ngive @s mcpe_food:triple_tray 4\ngive @s mcpe_food:gongfu_tea_tray 4\n",
+    "tasting_all_chinese.mcfunction": "give @s mcpe_food:egg_fried_rice 4\ngive @s mcpe_food:kung_pao_chicken 4\ngive @s mcpe_food:mapo_tofu 4\ngive @s mcpe_food:braised_pork 4\ngive @s mcpe_food:tomato_eggs 4\ngive @s mcpe_food:sweet_sour_pork 4\ngive @s mcpe_food:beef_noodle_soup 4\ngive @s mcpe_food:dumplings 4\ngive @s mcpe_food:white_cut_chicken 4\ngive @s mcpe_food:char_siu 4\ngive @s mcpe_food:black_bean_ribs 4\ngive @s mcpe_food:claypot_rice 4\ngive @s mcpe_food:lions_head 4\ngive @s mcpe_food:boiled_tofu_shreds 4\ngive @s mcpe_food:wensi_tofu 4\ngive @s mcpe_food:huaiyang_eel 4\ngive @s mcpe_food:guo_bao_rou 4\ngive @s mcpe_food:steamed_sea_bass 4\ngive @s mcpe_food:garlic_scallops 4\ngive @s mcpe_food:braised_prawns 4\ngive @s mcpe_food:baozi 4\ngive @s mcpe_food:spring_rolls 4\ngive @s mcpe_food:skewers 4\ngive @s mcpe_food:roast_goose 4\ngive @s mcpe_food:shrimp_rice_rolls 4\ngive @s mcpe_food:dongpo_pork 4\ngive @s mcpe_food:peking_duck 4\ngive @s mcpe_food:buddha_jumps_wall 4\ngive @s mcpe_food:hotpot_lamb 4\ngive @s mcpe_food:hotpot_beef 4\ngive @s mcpe_food:peacock_platter 4\ngive @s mcpe_food:stir_fried_yellow_beef 4\ngive @s mcpe_food:truffle_abalone 4\ngive @s mcpe_food:huaiyang_sanding_bao 4\ngive @s mcpe_food:fruit_platter 4\ngive @s mcpe_food:snow_pear_tremella 4\ngive @s mcpe_food:pickled_greens_pork 4\ngive @s mcpe_food:jujube_lotus_soup 4\ngive @s mcpe_food:steamed_grouper 4\ngive @s mcpe_food:poached_tiger_prawns 4\ngive @s mcpe_food:smashed_cucumber 4\ngive @s mcpe_food:vegetables_in_superior_broth 4\ngive @s mcpe_food:lamb_slices 4\ngive @s mcpe_food:beef_slices 4\ngive @s mcpe_food:tripe_platter 4\ngive @s mcpe_food:frozen_tofu_platter 4\ngive @s mcpe_food:mushroom_platter 4\ngive @s mcpe_food:greens_platter 4\ngive @s mcpe_food:vermicelli_platter 4\ngive @s mcpe_food:sesame_dip 4\ngive @s mcpe_food:chinese_five_sauce_set 4\n",
+    "tasting_all_dessert.mcfunction": "give @s mcpe_food:strawberry_cake 4\ngive @s mcpe_food:chocolate_cake 4\ngive @s mcpe_food:cheesecake 4\ngive @s mcpe_food:pudding 4\ngive @s mcpe_food:ice_cream 4\ngive @s mcpe_food:donut 4\ngive @s mcpe_food:cookies 4\ngive @s mcpe_food:egg_tart 4\ngive @s mcpe_food:red_bean_cake 4\ngive @s mcpe_food:mung_bean_soup 4\ngive @s mcpe_food:tiramisu 4\ngive @s mcpe_food:daifuku 4\ngive @s mcpe_food:mille_feuille 4\n",
+    "tasting_all_drink.mcfunction": "give @s mcpe_food:green_tea 4\ngive @s mcpe_food:black_coffee 4\ngive @s mcpe_food:milk_tea 4\ngive @s mcpe_food:strawberry_shake 4\ngive @s mcpe_food:tomato_juice 4\ngive @s mcpe_food:hot_chocolate 4\ngive @s mcpe_food:baijiu 4\ngive @s mcpe_food:premium_baijiu 4\ngive @s mcpe_food:premium_red_wine 4\ngive @s mcpe_food:cola 4\ngive @s mcpe_food:tieguanyin 4\ngive @s mcpe_food:baijiu_bottle 4\ngive @s mcpe_food:premium_baijiu_bottle 4\ngive @s mcpe_food:premium_red_wine_bottle 4\ngive @s mcpe_food:coca_cola_paper_cup 4\ngive @s mcpe_food:pepsi_paper_cup 4\n",
+    "tasting_all_japanese.mcfunction": "give @s mcpe_food:sushi_platter 4\ngive @s mcpe_food:sashimi_platter 4\ngive @s mcpe_food:tempura 4\ngive @s mcpe_food:tonkotsu_ramen 4\ngive @s mcpe_food:unagi_don 4\ngive @s mcpe_food:okonomiyaki 4\ngive @s mcpe_food:takoyaki 4\ngive @s mcpe_food:yakisoba 4\ngive @s mcpe_food:grilled_squid 4\ngive @s mcpe_food:oden 4\ngive @s mcpe_food:dorayaki 4\ngive @s mcpe_food:wagyu_rice 4\ngive @s mcpe_food:gunkan_sushi 4\n",
+    "tasting_all_western.mcfunction": "give @s mcpe_food:steak 4\ngive @s mcpe_food:burger 4\ngive @s mcpe_food:pizza 4\ngive @s mcpe_food:spaghetti 4\ngive @s mcpe_food:sandwich 4\ngive @s mcpe_food:roast_chicken 4\ngive @s mcpe_food:mushroom_soup 4\ngive @s mcpe_food:salad 4\ngive @s mcpe_food:chicken_nuggets 4\ngive @s mcpe_food:fries 4\ngive @s mcpe_food:hotdog 4\ngive @s mcpe_food:boeuf_bourguignon 4\ngive @s mcpe_food:french_onion_soup 4\ngive @s mcpe_food:lobster_bisque 4\ngive @s mcpe_food:chicken_cordon_bleu 4\ngive @s mcpe_food:pan_seared_sole 4\ngive @s mcpe_food:beef_wellington 4\ngive @s mcpe_food:herb_roasted_lamb_rack 4\ngive @s mcpe_food:wild_mushroom_risotto 4\ngive @s mcpe_food:lobster_thermidor 4\ngive @s mcpe_food:caviar_blini 4\ngive @s mcpe_food:creme_brulee 4\ngive @s mcpe_food:black_truffle_foie_gras 4\n",
+    "tasting_cantonese.mcfunction": "give @s mcpe_food:white_cut_chicken 4\ngive @s mcpe_food:char_siu 4\ngive @s mcpe_food:black_bean_ribs 4\ngive @s mcpe_food:claypot_rice 4\ngive @s mcpe_food:roast_goose 4\ngive @s mcpe_food:shrimp_rice_rolls 4\n",
+    "tasting_chinese.mcfunction": "give @s mcpe_food:egg_fried_rice 4\ngive @s mcpe_food:kung_pao_chicken 4\ngive @s mcpe_food:mapo_tofu 4\ngive @s mcpe_food:braised_pork 4\ngive @s mcpe_food:tomato_eggs 4\ngive @s mcpe_food:sweet_sour_pork 4\ngive @s mcpe_food:beef_noodle_soup 4\ngive @s mcpe_food:dumplings 4\ngive @s mcpe_food:dongpo_pork 4\ngive @s mcpe_food:peking_duck 4\ngive @s mcpe_food:buddha_jumps_wall 4\n",
+    "tasting_dessert.mcfunction": "give @s mcpe_food:strawberry_cake 4\ngive @s mcpe_food:chocolate_cake 4\ngive @s mcpe_food:cheesecake 4\ngive @s mcpe_food:pudding 4\ngive @s mcpe_food:ice_cream 4\ngive @s mcpe_food:donut 4\ngive @s mcpe_food:cookies 4\ngive @s mcpe_food:egg_tart 4\n",
+    "tasting_drink.mcfunction": "give @s mcpe_food:green_tea 4\ngive @s mcpe_food:black_coffee 4\ngive @s mcpe_food:milk_tea 4\ngive @s mcpe_food:strawberry_shake 4\ngive @s mcpe_food:tomato_juice 4\ngive @s mcpe_food:hot_chocolate 4\n",
+    "tasting_french.mcfunction": "give @s mcpe_food:boeuf_bourguignon 4\ngive @s mcpe_food:french_onion_soup 4\n",
+    "tasting_hotpot.mcfunction": "give @s mcpe_food:hotpot_lamb 4\ngive @s mcpe_food:hotpot_beef 4\ngive @s mcpe_food:lamb_slices 4\ngive @s mcpe_food:beef_slices 4\ngive @s mcpe_food:tripe_platter 4\ngive @s mcpe_food:frozen_tofu_platter 4\ngive @s mcpe_food:mushroom_platter 4\ngive @s mcpe_food:greens_platter 4\ngive @s mcpe_food:vermicelli_platter 4\ngive @s mcpe_food:sesame_dip 4\ngive @s mcpe_food:copper_hotpot_empty 4\ngive @s mcpe_food:copper_hotpot_broth 4\n",
+    "tasting_huaiyang.mcfunction": "give @s mcpe_food:lions_head 4\ngive @s mcpe_food:boiled_tofu_shreds 4\ngive @s mcpe_food:wensi_tofu 4\ngive @s mcpe_food:huaiyang_eel 4\n",
+    "tasting_japanese.mcfunction": "give @s mcpe_food:sushi_platter 4\ngive @s mcpe_food:sashimi_platter 4\ngive @s mcpe_food:tempura 4\ngive @s mcpe_food:tonkotsu_ramen 4\ngive @s mcpe_food:unagi_don 4\ngive @s mcpe_food:okonomiyaki 4\n",
+    "tasting_new.mcfunction": "give @s mcpe_food:laboratory_centrifuge 4\ngive @s mcpe_food:laboratory_incubator 4\ngive @s mcpe_food:laboratory_cloud_storage_array 4\ngive @s mcpe_food:open_reel_tape_recorder 4\ngive @s mcpe_food:laboratory_radio_station 4\ngive @s mcpe_food:ceiling_arm_display_2x1 4\ngive @s mcpe_food:digital_oscilloscope 4\ngive @s mcpe_food:pipette_rack_set 4\ngive @s mcpe_food:laboratory_dual_monitor_set 4\ngive @s mcpe_food:template_ai_triple_monitor_set 4\ngive @s mcpe_food:portrait_paper_monitor 4\n",
+    "tasting_northeast.mcfunction": "give @s mcpe_food:guo_bao_rou 4\n",
+    "tasting_seafood.mcfunction": "give @s mcpe_food:steamed_sea_bass 4\ngive @s mcpe_food:garlic_scallops 4\ngive @s mcpe_food:braised_prawns 4\n",
+    "tasting_snack.mcfunction": "give @s mcpe_food:baozi 4\ngive @s mcpe_food:spring_rolls 4\ngive @s mcpe_food:chicken_nuggets 4\ngive @s mcpe_food:fries 4\ngive @s mcpe_food:hotdog 4\ngive @s mcpe_food:skewers 4\n",
+    "tasting_western.mcfunction": "give @s mcpe_food:steak 4\ngive @s mcpe_food:burger 4\ngive @s mcpe_food:pizza 4\ngive @s mcpe_food:spaghetti 4\ngive @s mcpe_food:sandwich 4\ngive @s mcpe_food:roast_chicken 4\ngive @s mcpe_food:mushroom_soup 4\ngive @s mcpe_food:salad 4\n",
+    "teaching_equipment.mcfunction": "give @s mcpe_food:electronic_whiteboard 4\ngive @s mcpe_food:teaching_lectern 4\ngive @s mcpe_food:document_camera 4\n",
+    "transit_equipment.mcfunction": "give @s mcpe_food:transit_ticket_gate 4\ngive @s mcpe_food:platform_information_screen 4\ngive @s mcpe_food:ticket_vending_machine 4\n"
+  },
+  "cropStates": {
+    "coffee_crop.json": {
+      "mcpe_food:growth": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "rice_crop.json": {
+      "mcpe_food:growth": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "soybean_crop.json": {
+      "mcpe_food:growth": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "strawberry_crop.json": {
+      "mcpe_food:growth": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "tea_crop.json": {
+      "mcpe_food:growth": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "tomato_crop.json": {
+      "mcpe_food:growth": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  }
+}

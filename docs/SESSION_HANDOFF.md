@@ -1,7 +1,7 @@
 # 接续入口
 
-本轮0.8.1修复进入世界脚本负载集中，当前已正式发布，软件提交eaa6f267707f178c9475a023cba5d6672a789f65，五附件及服务端摘要均通过；发布状态见PROGRESS。以0.8.0为基线，0.8.0兼容和资源摘要fixture已捕获。先读根AGENTS、PROJECT_CONTEXT、PROGRESS、KNOWN_ISSUES，核对git状态；工作区imgSrc是用户原图，不提交或归档。
+先读 AGENTS、PROJECT_CONTEXT、PROGRESS、KNOWN_ISSUES 和 VALIDATION，再检查 git 状态。当前公开版为 0.8.1，0.8.2-rc.1 是 Windows 验收候选。工作区 imgSrc 为用户原图。
 
-启动属性8／tick、实体载入4／tick、记录恢复2／tick，时间预算进一步限制；全量所有权加载前禁止破坏、回收、迁移和孤儿删除。占用索引只在内存，version=1与593／61／13索引不变。README仍为稳定入口。发布授权不代表实机验收；0.8.1是否消除原世界退出尚待实机反馈。
+0.8.2 包含 12 件医疗器械、4 件警务摆件和豪都大酒店 7×5 广告屏。批准草图及提示词在 assets/concepts/082，旧版兼容 fixture 来自 0.8.1。继续使用 v1 存档和 8／4／2 的每 tick 恢复限额。
 
-完成必要检查后直接发布五附件；不覆盖旧版本。未来内容变更前捕获对应已发布版本兼容fixture。0.8.0概念／源定义继续在assets/concepts/080、patch-080目录。
+用户自行执行 [Windows 验收](ACCEPTANCE_0.8.2.md)。通过后保留候选包原字节，提交当前 main、创建 v0.8.2 与 Release 并上传五附件。保留旧发行；任何影响产物的修复须生成下一候选批次并重验。

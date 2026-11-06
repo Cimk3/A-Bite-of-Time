@@ -1,7 +1,7 @@
 {
   "advertisements": 23,
   "advertisementSizes": 69,
-  "surfaceDefinitions": 593,
+  "surfaceDefinitions": 609,
   "trayFoods": 70,
   "trayCubes": 65,
   "maxMiniCubes": 39,
@@ -2973,6 +2973,86 @@
       "resolution": 128
     },
     {
+      "key": "surface_icu_ecmo",
+      "cubes": 43,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_ventilator",
+      "cubes": 41,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_crrt",
+      "cubes": 47,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_iabp",
+      "cubes": 34,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_manual_defibrillator",
+      "cubes": 20,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_high_flow_oxygen",
+      "cubes": 30,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_portable_suction",
+      "cubes": 22,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_oxygen_cart",
+      "cubes": 29,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_syringe_pump_bank",
+      "cubes": 25,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_pulse_oximeter",
+      "cubes": 12,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_emergency_cart",
+      "cubes": 33,
+      "resolution": 128
+    },
+    {
+      "key": "surface_icu_exam_lamp",
+      "cubes": 25,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_body_camera_dock",
+      "cubes": 15,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_evidence_workbench",
+      "cubes": 26,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_checkpoint_kit",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_breathalyzer_kit",
+      "cubes": 15,
+      "resolution": 128
+    },
+    {
       "key": "mini_kung_pao_chicken",
       "cubes": 31,
       "resolution": 128
@@ -3503,6 +3583,11 @@
       "resolution": 384
     },
     {
+      "key": "digital_haodu_hotel_7x5",
+      "cubes": 6,
+      "resolution": 448
+    },
+    {
       "key": "garment_display_tshirt_hanging_0",
       "cubes": 5,
       "resolution": 128
@@ -3809,5 +3894,5 @@
     }
   ],
   "entityTypes": 5,
-  "entityTextureSets": 419
+  "entityTextureSets": 436
 }
