@@ -10,3 +10,15 @@ give @s mcpe_food:digital_ft_computer_4x3 4
 give @s mcpe_food:digital_ft_computer_6x5 4
 give @s mcpe_food:digital_apple_6x5 4
 give @s mcpe_food:digital_haodu_hotel_7x5 4
+give @s mcpe_food:finance_report 4
+give @s mcpe_food:finance_board_10x4 4
+give @s mcpe_food:finance_board_10x5 4
+give @s mcpe_food:finance_board_5x4 4
+give @s mcpe_food:finance_board_4x4 4
+give @s mcpe_food:finance_ticker_10x1 4
+give @s mcpe_food:finance_ticker_5x1 4
+give @s mcpe_food:police_warning_light 4
+give @s mcpe_food:police_reception_sign 4
+give @s mcpe_food:police_command_screen 4
+give @s mcpe_food:ad_novacare_5x5 4
+give @s mcpe_food:ad_auramed_6x6 4

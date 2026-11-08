@@ -1,3 +1,7 @@
+import {patch090Props} from '../.build/patch-090-catalog.js';
+import {whole090Keys} from '../.build/patch-093-render.js';
+import {displaySlotScale} from '../.build/patch-092-layout.js';
+import {patch090Cubes} from './patch-090-art.mjs';
 import {patch082Props} from "../.build/patch-082-catalog.js";
 import {patch082Cubes} from "./patch-082-art.mjs";
 import {patch085Props} from '../.build/patch-085-catalog.js';
@@ -48,6 +52,9 @@ export function buildDisplays({root,BP,RP,json,write,icon,item,localize,modelRec
     const original=JSON.parse(readFileSync(path.join(RP,`models/blocks/mcpe_food/${d.key}.geo.json`),'utf8'))['minecraft:geometry'][0];
     const cubes=original.bones.flatMap(b=>b.cubes??[]),bones=['food','ware'].map(name=>({name,pivot:[0,0,0],cubes:cubes.filter(c=>Object.values(c.uv)[0]?.material_instance===name)}));
     const geometry={...original,description:{...original.description,identifier:`geometry.mcpe_food.surface.${d.key}`},bones};
+    if(whole090Keys.has(d.key)){
+      const b=modelBounds(cubes);Object.assign(geometry.description,{visible_bounds_width:Math.max(b.high[0]-b.low[0],b.high[2]-b.low[2])/16+.5,visible_bounds_height:(b.high[1]-b.low[1])/16+.5,visible_bounds_offset:[0,(b.high[1]+b.low[1])/32,0]});
+    }
     json(RP,`models/entity/mcpe_food/surface_${d.key}.geo.json`,{format_version:'1.12.0','minecraft:geometry':[geometry]});
     const food=record.slots.food??record.slots.ware,ware=record.slots.ware??food;
     definitions.push({geometry:geometry.description.identifier,food:tex(food),ware:tex(ware)});entities.push({key:`surface_${d.key}`,cubes:cubes.length,resolution:original.description.texture_width});
@@ -83,13 +90,29 @@ export function buildDisplays({root,BP,RP,json,write,icon,item,localize,modelRec
     }
     json(RP,`entity/mcpe_food/${type}.entity.json`,{format_version:'1.10.0','minecraft:client_entity':{description:{identifier,materials:{default:'entity_alphatest'},textures,geometry:geometries,render_controllers:renderNames,...(poster?{animations:{size:'animation.mcpe_food.poster_size'},scripts:{animate:['size']}}:explicit?{animations:{display_facing:'animation.mcpe_food.display_facing'},scripts:{animate:[{display_facing:"q.property('mcpe_food:display_facing') > 0"}]}}:{})}}});
     const shapes={},events={};
-    const specs=[['flat',.95,.12],['medium',.65,.6],['tall',.65,.9],...(interactive?[...electronics,...restaurantAccessories,...lifestyleItems,...scenarioProps,...patch071Props,...patch072Props,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props].map(d=>{const b=modelBounds('model' in d?electronicCubes(d):patch085Props.includes(d)?patch085Cubes(d.key):patch082Props.includes(d)?patch082Cubes(d.key):patch080Props.includes(d)?patch080Cubes(d.key):patch074Props.includes(d)?patch074Cubes(d.key):patch073Props.includes(d)?patch073Cubes(d.key):patch072Props.includes(d)?patch072Cubes(d.key):patch071Props.includes(d)?patch071Cubes(d.key):scenarioProps.includes(d)?scenarioCubes(d.key):lifestyleItems.includes(d)?lifestyleCubes(d.key):serviceCubes(d.key));const width=Math.max(...[b.low[0],b.low[2],b.high[0],b.high[2]].map(Math.abs))/8+.015;return[d.key,d.key==='icu_bed'?1:width,b.high[1]/16+.01];}):[])];
+    const specs=[['flat',.95,.12],['medium',.65,.6],['tall',.65,.9],...(interactive?[...electronics,...restaurantAccessories,...lifestyleItems,...scenarioProps,...patch071Props,...patch072Props,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props,...patch090Props].map(d=>{const b=modelBounds(patch090Props.includes(d)?patch090Cubes(d.key):'model' in d?electronicCubes(d):patch085Props.includes(d)?patch085Cubes(d.key):patch082Props.includes(d)?patch082Cubes(d.key):patch080Props.includes(d)?patch080Cubes(d.key):patch074Props.includes(d)?patch074Cubes(d.key):patch073Props.includes(d)?patch073Cubes(d.key):patch072Props.includes(d)?patch072Cubes(d.key):patch071Props.includes(d)?patch071Cubes(d.key):scenarioProps.includes(d)?scenarioCubes(d.key):lifestyleItems.includes(d)?lifestyleCubes(d.key):serviceCubes(d.key));const width=Math.max(...[b.low[0],b.low[2],b.high[0],b.high[2]].map(Math.abs))/8+.015;return[d.key,d.key==='icu_bed'?1:width,b.high[1]/16+.01];}):[])];
     for(const[name,width,height]of specs){shapes[`mcpe_food:${name}`]={'minecraft:collision_box':{width,height}};events[`mcpe_food:shape_${name}`]={remove:{component_groups:specs.map(([n])=>`mcpe_food:${n}`)},add:{component_groups:[`mcpe_food:${name}`]}};}
+    if(type==='surface_display'||type==='advert_display'){
+       shapes['mcpe_food:slot_scaled']={'minecraft:scale':{value:displaySlotScale}};
+     events['mcpe_food:slot_scale']={add:{component_groups:['mcpe_food:slot_scaled']}};
+    }
     json(BP,`entities/${type}.json`,{format_version:'1.21.0','minecraft:entity':{description:{identifier,is_spawnable:false,is_summonable:true,is_experimental:false,properties:{'mcpe_food:index':{type:'int',range:[0,max],default:0,client_sync:true},...(explicit?{'mcpe_food:display_facing':{type:'int',range:[0,4],default:0,client_sync:true}}:{}),...(poster?{'mcpe_food:size':{type:'int',range:[0,2],default:0,client_sync:true}}:{})}},component_groups:shapes,components:{'minecraft:type_family':{family:['mcpe_food_display']},'minecraft:physics':{has_gravity:false,has_collision:false},'minecraft:pushable':{is_pushable:false,is_pushable_by_piston:false},'minecraft:persistent':{},'minecraft:collision_box':{width:interactive?.65:0,height:interactive?.7:0},'minecraft:health':{value:1,max:1},'minecraft:damage_sensor':{triggers:[{cause:'all',deals_damage:false}]},'minecraft:knockback_resistance':{value:1}},events}});
   }
   const digital=digitalDisplays({root,BP,RP,json,write,icon,item});for(const key of digital.copied)copied.add(key);entities.push(...digital.entities);entity('digital_ad_display',digital.definitions,{ware:true,interactive:true,explicit:true});
   entity('surface_display',definitions,{ware:true,interactive:true,explicit:true});entity('tray_food_display',mini);entity('advert_display',posters,{poster:true});
 
+
+  json(BP,'entities/seat090_display.json',{format_version:'1.21.0','minecraft:entity':{
+   description:{identifier:'mcpe_food:seat090_display',is_spawnable:false,is_summonable:true,is_experimental:false},
+   components:{'minecraft:type_family':{family:['mcpe_food_display']},'minecraft:physics':{has_gravity:false,has_collision:false},
+    'minecraft:persistent':{},'minecraft:collision_box':{width:0,height:0},
+    'minecraft:rideable':{seat_count:1,family_types:['player'],seats:[{position:[0,0,0]}]},
+    'minecraft:damage_sensor':{triggers:[{cause:'all',deals_damage:false}]},
+   },
+  }});
+  json(RP,'models/entity/mcpe_food/seat090.geo.json',{format_version:'1.12.0','minecraft:geometry':[{description:{identifier:'geometry.mcpe_food.seat090',texture_width:128,texture_height:128,visible_bounds_width:1,visible_bounds_height:1},bones:[{name:'root',pivot:[0,0,0]}]}]});
+  json(RP,'entity/mcpe_food/seat090_display.entity.json',{format_version:'1.10.0','minecraft:client_entity':{description:{identifier:'mcpe_food:seat090_display',materials:{default:'entity_alphatest'},textures:{default:'textures/entity/mcpe_food/digital_frame'},geometry:{default:'geometry.mcpe_food.seat090'},render_controllers:['controller.render.mcpe_food.seat090']}}});
+  json(RP,'render_controllers/mcpe_food/seat090.json',{format_version:'1.8.0',render_controllers:{'controller.render.mcpe_food.seat090':{geometry:'Geometry.default',materials:[{'*':'Material.default'}],textures:['Texture.default']}}});
   const garments=[];
   for(const v of clothingVisuals){
     const cs=clothingCubes(v,v.pose,v.slot),g=clothingGeometry(v),original=g['minecraft:geometry'][0];

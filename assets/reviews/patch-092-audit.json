@@ -1,0 +1,684 @@
+{
+  "version": "0.9.2",
+  "items": 47,
+  "nativeItems": 20,
+  "engineConvention": "geometry X mirrored; native Y rotation per official cardinal example",
+  "gameTested": false,
+  "rows": [
+    {
+      "key": "asml_lithography",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 96,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 96,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 96,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 96,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "macbook_air_m5_open",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "legion_laptop_open",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "ps5_console_set",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "xbox_360_console_set",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "park_lamp",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "park_bench",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 3,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 3,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 3,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 3,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "park_bin",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 1,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 1,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 1,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 1,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "cafe_booth",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "cafe_pastry_case",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "cafe_espresso_machine",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "cafe_grinder",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "cafe_syrup_set",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "cafe_mug",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "cafe_double_mug",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "cafe_takeaway_cup",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "cafe_paper_bag",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "cafe_register",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "cafe_sealer",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "cafe_toppings",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "cafe_tea_urn",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "finance_terminal",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "finance_report",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "finance_trading_desk",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 12,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 12,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 12,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 12,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "finance_monitor",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "finance_phone",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "finance_board_10x4",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "finance_board_10x5",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "finance_board_5x4",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "finance_board_4x4",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "finance_ticker_10x1",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "finance_ticker_5x1",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "police_radio",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "police_radio_dock",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "police_first_aid_kit",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "police_monitoring_computer",
+      "kind": "surface",
+      "gameTested": false
+    },
+    {
+      "key": "police_service_terminal",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "police_water_dispenser",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 2,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "police_riot_cabinet",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "police_warning_light",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "police_file_cabinet",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 4,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "police_reception_sign",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "police_command_screen",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "ad_novacare_5x5",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "ad_auramed_6x6",
+      "kind": "wall",
+      "gameTested": false
+    },
+    {
+      "key": "home_display_cabinet",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 6,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    },
+    {
+      "key": "home_display_shelf",
+      "kind": "solid",
+      "gameTested": false,
+      "directions": {
+        "north": {
+          "parts": 9,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "east": {
+          "parts": 9,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "south": {
+          "parts": 9,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        },
+        "west": {
+          "parts": 9,
+          "uvMismatches": 0,
+          "missingSurfaceSamples": 0
+        }
+      }
+    }
+  ]
+}

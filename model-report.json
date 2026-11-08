@@ -1,5 +1,5 @@
 {
-  "version": "0.8.6",
+  "version": "0.9.3",
   "models": [
     {
       "key": "egg_fried_rice_serving",
@@ -3044,6 +3044,1774 @@
       }
     },
     {
+      "key": "asml_lithography",
+      "resolution": 128,
+      "cubes": 57,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_4",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_5",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_6",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_7",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_8",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_9",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_10",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_11",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_12",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_13",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_14",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_15",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_16",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_17",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_18",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_19",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_20",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_21",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_22",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_23",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_24",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_25",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_26",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_27",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_28",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_29",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_30",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_31",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_32",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_33",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_34",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_35",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_36",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_37",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_38",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_39",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_40",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_41",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_42",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_43",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_44",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_45",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_46",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_47",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_48",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_49",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_50",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_51",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_52",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_53",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_54",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_55",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_56",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_57",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_58",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_59",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_60",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_61",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_62",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_63",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_64",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_65",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_66",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_67",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_68",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_69",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_70",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_71",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_72",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_73",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_74",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_75",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_76",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_77",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_78",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_79",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_80",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_81",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_82",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_83",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_84",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_85",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_86",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_87",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_88",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_89",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_90",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_91",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_92",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_93",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_94",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "asml_lithography_part_95",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_asml_lithography"
+      }
+    },
+    {
+      "key": "macbook_air_m5_open",
+      "resolution": 128,
+      "cubes": 181,
+      "slots": {
+        "ware": "patch090_macbook_air_m5_open"
+      }
+    },
+    {
+      "key": "macbook_air_m5_open",
+      "resolution": 128,
+      "cubes": 181,
+      "slots": {
+        "ware": "patch090_macbook_air_m5_open"
+      }
+    },
+    {
+      "key": "legion_laptop_open",
+      "resolution": 128,
+      "cubes": 181,
+      "slots": {
+        "ware": "patch090_legion_laptop_open"
+      }
+    },
+    {
+      "key": "legion_laptop_open",
+      "resolution": 128,
+      "cubes": 181,
+      "slots": {
+        "ware": "patch090_legion_laptop_open"
+      }
+    },
+    {
+      "key": "ps5_console_set",
+      "resolution": 128,
+      "cubes": 18,
+      "slots": {
+        "ware": "patch090_ps5_console_set"
+      }
+    },
+    {
+      "key": "ps5_console_set",
+      "resolution": 128,
+      "cubes": 18,
+      "slots": {
+        "ware": "patch090_ps5_console_set"
+      }
+    },
+    {
+      "key": "xbox_360_console_set",
+      "resolution": 128,
+      "cubes": 23,
+      "slots": {
+        "ware": "patch090_xbox_360_console_set"
+      }
+    },
+    {
+      "key": "xbox_360_console_set",
+      "resolution": 128,
+      "cubes": 23,
+      "slots": {
+        "ware": "patch090_xbox_360_console_set"
+      }
+    },
+    {
+      "key": "park_lamp",
+      "resolution": 128,
+      "cubes": 10,
+      "slots": {
+        "ware": "patch090_park_lamp"
+      }
+    },
+    {
+      "key": "park_lamp_part_0",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_park_lamp"
+      }
+    },
+    {
+      "key": "park_lamp_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_park_lamp"
+      }
+    },
+    {
+      "key": "park_lamp_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_park_lamp"
+      }
+    },
+    {
+      "key": "park_lamp_part_3",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch090_park_lamp"
+      }
+    },
+    {
+      "key": "park_bench",
+      "resolution": 128,
+      "cubes": 15,
+      "slots": {
+        "ware": "patch090_park_bench"
+      }
+    },
+    {
+      "key": "park_bench_part_0",
+      "resolution": 128,
+      "cubes": 11,
+      "slots": {
+        "ware": "patch090_park_bench"
+      }
+    },
+    {
+      "key": "park_bench_part_1",
+      "resolution": 128,
+      "cubes": 7,
+      "slots": {
+        "ware": "patch090_park_bench"
+      }
+    },
+    {
+      "key": "park_bench_part_2",
+      "resolution": 128,
+      "cubes": 11,
+      "slots": {
+        "ware": "patch090_park_bench"
+      }
+    },
+    {
+      "key": "park_bin",
+      "resolution": 128,
+      "cubes": 14,
+      "slots": {
+        "ware": "patch090_park_bin"
+      }
+    },
+    {
+      "key": "park_bin_part_0",
+      "resolution": 128,
+      "cubes": 14,
+      "slots": {
+        "ware": "patch090_park_bin"
+      }
+    },
+    {
+      "key": "cafe_booth",
+      "resolution": 128,
+      "cubes": 8,
+      "slots": {
+        "ware": "patch090_cafe_booth"
+      }
+    },
+    {
+      "key": "cafe_booth_part_0",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_cafe_booth"
+      }
+    },
+    {
+      "key": "cafe_booth_part_1",
+      "resolution": 128,
+      "cubes": 2,
+      "slots": {
+        "ware": "patch090_cafe_booth"
+      }
+    },
+    {
+      "key": "cafe_booth_part_2",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_cafe_booth"
+      }
+    },
+    {
+      "key": "cafe_booth_part_3",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_cafe_booth"
+      }
+    },
+    {
+      "key": "cafe_booth_part_4",
+      "resolution": 128,
+      "cubes": 2,
+      "slots": {
+        "ware": "patch090_cafe_booth"
+      }
+    },
+    {
+      "key": "cafe_booth_part_5",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_cafe_booth"
+      }
+    },
+    {
+      "key": "cafe_pastry_case",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_cafe_pastry_case"
+      }
+    },
+    {
+      "key": "cafe_pastry_case_part_0",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch090_cafe_pastry_case"
+      }
+    },
+    {
+      "key": "cafe_pastry_case_part_1",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_cafe_pastry_case"
+      }
+    },
+    {
+      "key": "cafe_pastry_case_part_2",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch090_cafe_pastry_case"
+      }
+    },
+    {
+      "key": "cafe_pastry_case_part_3",
+      "resolution": 128,
+      "cubes": 6,
+      "slots": {
+        "ware": "patch090_cafe_pastry_case"
+      }
+    },
+    {
+      "key": "cafe_pastry_case_part_4",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch090_cafe_pastry_case"
+      }
+    },
+    {
+      "key": "cafe_pastry_case_part_5",
+      "resolution": 128,
+      "cubes": 6,
+      "slots": {
+        "ware": "patch090_cafe_pastry_case"
+      }
+    },
+    {
+      "key": "cafe_espresso_machine",
+      "resolution": 128,
+      "cubes": 47,
+      "slots": {
+        "ware": "patch090_cafe_espresso_machine"
+      }
+    },
+    {
+      "key": "cafe_espresso_machine_part_0",
+      "resolution": 128,
+      "cubes": 23,
+      "slots": {
+        "ware": "patch090_cafe_espresso_machine"
+      }
+    },
+    {
+      "key": "cafe_espresso_machine_part_1",
+      "resolution": 128,
+      "cubes": 23,
+      "slots": {
+        "ware": "patch090_cafe_espresso_machine"
+      }
+    },
+    {
+      "key": "cafe_espresso_machine_part_2",
+      "resolution": 128,
+      "cubes": 11,
+      "slots": {
+        "ware": "patch090_cafe_espresso_machine"
+      }
+    },
+    {
+      "key": "cafe_espresso_machine_part_3",
+      "resolution": 128,
+      "cubes": 14,
+      "slots": {
+        "ware": "patch090_cafe_espresso_machine"
+      }
+    },
+    {
+      "key": "cafe_grinder",
+      "resolution": 128,
+      "cubes": 20,
+      "slots": {
+        "ware": "patch090_cafe_grinder"
+      }
+    },
+    {
+      "key": "cafe_grinder_part_0",
+      "resolution": 128,
+      "cubes": 12,
+      "slots": {
+        "ware": "patch090_cafe_grinder"
+      }
+    },
+    {
+      "key": "cafe_grinder_part_1",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_cafe_grinder"
+      }
+    },
+    {
+      "key": "cafe_syrup_set",
+      "resolution": 128,
+      "cubes": 16,
+      "slots": {
+        "ware": "patch090_cafe_syrup_set"
+      }
+    },
+    {
+      "key": "cafe_syrup_set",
+      "resolution": 128,
+      "cubes": 16,
+      "slots": {
+        "ware": "patch090_cafe_syrup_set"
+      }
+    },
+    {
+      "key": "cafe_mug",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_cafe_mug"
+      }
+    },
+    {
+      "key": "cafe_mug",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_cafe_mug"
+      }
+    },
+    {
+      "key": "cafe_double_mug",
+      "resolution": 128,
+      "cubes": 19,
+      "slots": {
+        "ware": "patch090_cafe_double_mug"
+      }
+    },
+    {
+      "key": "cafe_double_mug",
+      "resolution": 128,
+      "cubes": 19,
+      "slots": {
+        "ware": "patch090_cafe_double_mug"
+      }
+    },
+    {
+      "key": "cafe_takeaway_cup",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch090_cafe_takeaway_cup"
+      }
+    },
+    {
+      "key": "cafe_takeaway_cup",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch090_cafe_takeaway_cup"
+      }
+    },
+    {
+      "key": "cafe_paper_bag",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_cafe_paper_bag"
+      }
+    },
+    {
+      "key": "cafe_paper_bag",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_cafe_paper_bag"
+      }
+    },
+    {
+      "key": "cafe_register",
+      "resolution": 128,
+      "cubes": 11,
+      "slots": {
+        "ware": "patch090_cafe_register"
+      }
+    },
+    {
+      "key": "cafe_register_part_0",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_cafe_register"
+      }
+    },
+    {
+      "key": "cafe_register_part_1",
+      "resolution": 128,
+      "cubes": 11,
+      "slots": {
+        "ware": "patch090_cafe_register"
+      }
+    },
+    {
+      "key": "cafe_sealer",
+      "resolution": 128,
+      "cubes": 12,
+      "slots": {
+        "ware": "patch090_cafe_sealer"
+      }
+    },
+    {
+      "key": "cafe_sealer_part_0",
+      "resolution": 128,
+      "cubes": 10,
+      "slots": {
+        "ware": "patch090_cafe_sealer"
+      }
+    },
+    {
+      "key": "cafe_sealer_part_1",
+      "resolution": 128,
+      "cubes": 11,
+      "slots": {
+        "ware": "patch090_cafe_sealer"
+      }
+    },
+    {
+      "key": "cafe_toppings",
+      "resolution": 128,
+      "cubes": 45,
+      "slots": {
+        "ware": "patch090_cafe_toppings"
+      }
+    },
+    {
+      "key": "cafe_toppings_part_0",
+      "resolution": 128,
+      "cubes": 23,
+      "slots": {
+        "ware": "patch090_cafe_toppings"
+      }
+    },
+    {
+      "key": "cafe_toppings_part_1",
+      "resolution": 128,
+      "cubes": 23,
+      "slots": {
+        "ware": "patch090_cafe_toppings"
+      }
+    },
+    {
+      "key": "cafe_tea_urn",
+      "resolution": 128,
+      "cubes": 16,
+      "slots": {
+        "ware": "patch090_cafe_tea_urn"
+      }
+    },
+    {
+      "key": "cafe_tea_urn_part_0",
+      "resolution": 128,
+      "cubes": 11,
+      "slots": {
+        "ware": "patch090_cafe_tea_urn"
+      }
+    },
+    {
+      "key": "cafe_tea_urn_part_1",
+      "resolution": 128,
+      "cubes": 8,
+      "slots": {
+        "ware": "patch090_cafe_tea_urn"
+      }
+    },
+    {
+      "key": "finance_terminal",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_finance_terminal"
+      }
+    },
+    {
+      "key": "finance_terminal_part_0",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_finance_terminal"
+      }
+    },
+    {
+      "key": "finance_terminal_part_1",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_finance_terminal"
+      }
+    },
+    {
+      "key": "finance_trading_desk",
+      "resolution": 128,
+      "cubes": 20,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_4",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_5",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_6",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_7",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_8",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_9",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_10",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_trading_desk_part_11",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_finance_trading_desk"
+      }
+    },
+    {
+      "key": "finance_monitor",
+      "resolution": 128,
+      "cubes": 13,
+      "slots": {
+        "ware": "patch090_finance_monitor"
+      }
+    },
+    {
+      "key": "finance_monitor",
+      "resolution": 128,
+      "cubes": 13,
+      "slots": {
+        "ware": "patch090_finance_monitor"
+      }
+    },
+    {
+      "key": "finance_phone",
+      "resolution": 128,
+      "cubes": 10,
+      "slots": {
+        "ware": "patch090_finance_phone"
+      }
+    },
+    {
+      "key": "finance_phone",
+      "resolution": 128,
+      "cubes": 10,
+      "slots": {
+        "ware": "patch090_finance_phone"
+      }
+    },
+    {
+      "key": "police_radio",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch090_police_radio"
+      }
+    },
+    {
+      "key": "police_radio",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch090_police_radio"
+      }
+    },
+    {
+      "key": "police_radio_dock",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_police_radio_dock"
+      }
+    },
+    {
+      "key": "police_radio_dock",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_police_radio_dock"
+      }
+    },
+    {
+      "key": "police_first_aid_kit",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_police_first_aid_kit"
+      }
+    },
+    {
+      "key": "police_first_aid_kit",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_police_first_aid_kit"
+      }
+    },
+    {
+      "key": "police_monitoring_computer",
+      "resolution": 128,
+      "cubes": 51,
+      "slots": {
+        "ware": "patch090_police_monitoring_computer"
+      }
+    },
+    {
+      "key": "police_monitoring_computer",
+      "resolution": 128,
+      "cubes": 51,
+      "slots": {
+        "ware": "patch090_police_monitoring_computer"
+      }
+    },
+    {
+      "key": "police_service_terminal",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_police_service_terminal"
+      }
+    },
+    {
+      "key": "police_service_terminal_part_0",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_police_service_terminal"
+      }
+    },
+    {
+      "key": "police_service_terminal_part_1",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_police_service_terminal"
+      }
+    },
+    {
+      "key": "police_water_dispenser",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_police_water_dispenser"
+      }
+    },
+    {
+      "key": "police_water_dispenser_part_0",
+      "resolution": 128,
+      "cubes": 8,
+      "slots": {
+        "ware": "patch090_police_water_dispenser"
+      }
+    },
+    {
+      "key": "police_water_dispenser_part_1",
+      "resolution": 128,
+      "cubes": 2,
+      "slots": {
+        "ware": "patch090_police_water_dispenser"
+      }
+    },
+    {
+      "key": "police_riot_cabinet",
+      "resolution": 128,
+      "cubes": 19,
+      "slots": {
+        "ware": "patch090_police_riot_cabinet"
+      }
+    },
+    {
+      "key": "police_riot_cabinet_part_0",
+      "resolution": 128,
+      "cubes": 10,
+      "slots": {
+        "ware": "patch090_police_riot_cabinet"
+      }
+    },
+    {
+      "key": "police_riot_cabinet_part_1",
+      "resolution": 128,
+      "cubes": 10,
+      "slots": {
+        "ware": "patch090_police_riot_cabinet"
+      }
+    },
+    {
+      "key": "police_riot_cabinet_part_2",
+      "resolution": 128,
+      "cubes": 7,
+      "slots": {
+        "ware": "patch090_police_riot_cabinet"
+      }
+    },
+    {
+      "key": "police_riot_cabinet_part_3",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch090_police_riot_cabinet"
+      }
+    },
+    {
+      "key": "police_file_cabinet",
+      "resolution": 128,
+      "cubes": 10,
+      "slots": {
+        "ware": "patch090_police_file_cabinet"
+      }
+    },
+    {
+      "key": "police_file_cabinet_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_police_file_cabinet"
+      }
+    },
+    {
+      "key": "police_file_cabinet_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_police_file_cabinet"
+      }
+    },
+    {
+      "key": "police_file_cabinet_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_police_file_cabinet"
+      }
+    },
+    {
+      "key": "police_file_cabinet_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch090_police_file_cabinet"
+      }
+    },
+    {
+      "key": "home_display_cabinet",
+      "resolution": 128,
+      "cubes": 6,
+      "slots": {
+        "ware": "patch090_home_display_cabinet"
+      }
+    },
+    {
+      "key": "home_display_cabinet_part_0",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_home_display_cabinet"
+      }
+    },
+    {
+      "key": "home_display_cabinet_part_1",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_home_display_cabinet"
+      }
+    },
+    {
+      "key": "home_display_cabinet_part_2",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_home_display_cabinet"
+      }
+    },
+    {
+      "key": "home_display_cabinet_part_3",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_home_display_cabinet"
+      }
+    },
+    {
+      "key": "home_display_cabinet_part_4",
+      "resolution": 128,
+      "cubes": 2,
+      "slots": {
+        "ware": "patch090_home_display_cabinet"
+      }
+    },
+    {
+      "key": "home_display_cabinet_part_5",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_home_display_cabinet"
+      }
+    },
+    {
+      "key": "home_display_shelf",
+      "resolution": 128,
+      "cubes": 7,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "home_display_shelf_part_0",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "home_display_shelf_part_1",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "home_display_shelf_part_2",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "home_display_shelf_part_3",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "home_display_shelf_part_4",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "home_display_shelf_part_5",
+      "resolution": 128,
+      "cubes": 4,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "home_display_shelf_part_6",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "home_display_shelf_part_7",
+      "resolution": 128,
+      "cubes": 2,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "home_display_shelf_part_8",
+      "resolution": 128,
+      "cubes": 3,
+      "slots": {
+        "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
       "key": "gongfu_tea_tray",
       "resolution": 128,
       "cubes": 230,
@@ -5074,6 +6842,302 @@
       "cubes": 16,
       "slots": {
         "*": "coffee_crop_3"
+      }
+    },
+    {
+      "key": "slot_icon_rice",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_rice"
+      }
+    },
+    {
+      "key": "slot_icon_tomato",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_tomato"
+      }
+    },
+    {
+      "key": "slot_icon_soybean",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_soybean"
+      }
+    },
+    {
+      "key": "slot_icon_tea",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_tea"
+      }
+    },
+    {
+      "key": "slot_icon_strawberry",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_strawberry"
+      }
+    },
+    {
+      "key": "slot_icon_coffee",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_coffee"
+      }
+    },
+    {
+      "key": "slot_icon_tofu",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_tofu"
+      }
+    },
+    {
+      "key": "slot_icon_dough",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_dough"
+      }
+    },
+    {
+      "key": "slot_icon_noodles",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_noodles"
+      }
+    },
+    {
+      "key": "slot_icon_cheese",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_cheese"
+      }
+    },
+    {
+      "key": "slot_icon_cream",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_cream"
+      }
+    },
+    {
+      "key": "slot_icon_sea_bass",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_sea_bass"
+      }
+    },
+    {
+      "key": "slot_icon_shrimp",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_shrimp"
+      }
+    },
+    {
+      "key": "slot_icon_scallop",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_scallop"
+      }
+    },
+    {
+      "key": "slot_icon_eel",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_eel"
+      }
+    },
+    {
+      "key": "slot_icon_seasoning",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_seasoning"
+      }
+    },
+    {
+      "key": "slot_icon_garlic",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_garlic"
+      }
+    },
+    {
+      "key": "slot_icon_vermicelli",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_vermicelli"
+      }
+    },
+    {
+      "key": "slot_icon_rice_seeds",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_rice_seeds"
+      }
+    },
+    {
+      "key": "slot_icon_tomato_seeds",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_tomato_seeds"
+      }
+    },
+    {
+      "key": "slot_icon_soybean_seeds",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_soybean_seeds"
+      }
+    },
+    {
+      "key": "slot_icon_tea_seeds",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_tea_seeds"
+      }
+    },
+    {
+      "key": "slot_icon_strawberry_seeds",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_strawberry_seeds"
+      }
+    },
+    {
+      "key": "slot_icon_coffee_seeds",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_coffee_seeds"
+      }
+    },
+    {
+      "key": "slot_icon_display_tshirt",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_display_tshirt"
+      }
+    },
+    {
+      "key": "slot_icon_display_shirt",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_display_shirt"
+      }
+    },
+    {
+      "key": "slot_icon_display_coat",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_display_coat"
+      }
+    },
+    {
+      "key": "slot_icon_display_trousers",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_display_trousers"
+      }
+    },
+    {
+      "key": "slot_icon_display_dress",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_display_dress"
+      }
+    },
+    {
+      "key": "slot_icon_display_hat",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_display_hat"
+      }
+    },
+    {
+      "key": "slot_icon_display_suit_black",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_display_suit_black"
+      }
+    },
+    {
+      "key": "slot_icon_display_suit_navy",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_display_suit_navy"
+      }
+    },
+    {
+      "key": "slot_icon_display_suit_light_gray",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_display_suit_light_gray"
+      }
+    },
+    {
+      "key": "slot_icon_prep_counter",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_prep_counter"
+      }
+    },
+    {
+      "key": "slot_icon_stove",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_stove"
+      }
+    },
+    {
+      "key": "slot_icon_oven",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_oven"
+      }
+    },
+    {
+      "key": "slot_icon_drink_counter",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "sloticon_slot_icon_drink_counter"
       }
     }
   ],
@@ -7744,6 +9808,366 @@
       "resolution": 128
     },
     {
+      "key": "surface_asml_lithography",
+      "cubes": 57,
+      "resolution": 128
+    },
+    {
+      "key": "surface_macbook_air_m5_open",
+      "cubes": 181,
+      "resolution": 128
+    },
+    {
+      "key": "surface_legion_laptop_open",
+      "cubes": 181,
+      "resolution": 128
+    },
+    {
+      "key": "surface_ps5_console_set",
+      "cubes": 18,
+      "resolution": 128
+    },
+    {
+      "key": "surface_xbox_360_console_set",
+      "cubes": 23,
+      "resolution": 128
+    },
+    {
+      "key": "surface_park_lamp",
+      "cubes": 10,
+      "resolution": 128
+    },
+    {
+      "key": "surface_park_bench",
+      "cubes": 15,
+      "resolution": 128
+    },
+    {
+      "key": "surface_park_bin",
+      "cubes": 14,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_booth",
+      "cubes": 8,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_pastry_case",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_espresso_machine",
+      "cubes": 47,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_grinder",
+      "cubes": 20,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_syrup_set",
+      "cubes": 16,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_mug",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_double_mug",
+      "cubes": 19,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_takeaway_cup",
+      "cubes": 5,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_paper_bag",
+      "cubes": 4,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_register",
+      "cubes": 11,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_sealer",
+      "cubes": 12,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_toppings",
+      "cubes": 45,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_tea_urn",
+      "cubes": 16,
+      "resolution": 128
+    },
+    {
+      "key": "surface_finance_terminal",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_finance_trading_desk",
+      "cubes": 20,
+      "resolution": 128
+    },
+    {
+      "key": "surface_finance_monitor",
+      "cubes": 13,
+      "resolution": 128
+    },
+    {
+      "key": "surface_finance_phone",
+      "cubes": 10,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_radio",
+      "cubes": 5,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_radio_dock",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_first_aid_kit",
+      "cubes": 4,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_monitoring_computer",
+      "cubes": 51,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_service_terminal",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_water_dispenser",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_riot_cabinet",
+      "cubes": 19,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_file_cabinet",
+      "cubes": 10,
+      "resolution": 128
+    },
+    {
+      "key": "surface_home_display_cabinet",
+      "cubes": 6,
+      "resolution": 128
+    },
+    {
+      "key": "surface_home_display_shelf",
+      "cubes": 7,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_rice",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tomato",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_soybean",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tea",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_strawberry",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_coffee",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tofu",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_dough",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_noodles",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_cheese",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_cream",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_sea_bass",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_shrimp",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_scallop",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_eel",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_seasoning",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_garlic",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_vermicelli",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_rice_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tomato_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_soybean_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tea_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_strawberry_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_coffee_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_tshirt",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_shirt",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_coat",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_trousers",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_dress",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_hat",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_suit_black",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_suit_navy",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_suit_light_gray",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_prep_counter",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_stove",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_oven",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_drink_counter",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
       "key": "mini_kung_pao_chicken",
       "cubes": 31,
       "resolution": 128
@@ -8279,6 +10703,66 @@
       "resolution": 448
     },
     {
+      "key": "finance_report",
+      "cubes": 6,
+      "resolution": 64
+    },
+    {
+      "key": "finance_board_10x4",
+      "cubes": 6,
+      "resolution": 640
+    },
+    {
+      "key": "finance_board_10x5",
+      "cubes": 6,
+      "resolution": 640
+    },
+    {
+      "key": "finance_board_5x4",
+      "cubes": 6,
+      "resolution": 320
+    },
+    {
+      "key": "finance_board_4x4",
+      "cubes": 6,
+      "resolution": 256
+    },
+    {
+      "key": "finance_ticker_10x1",
+      "cubes": 6,
+      "resolution": 640
+    },
+    {
+      "key": "finance_ticker_5x1",
+      "cubes": 6,
+      "resolution": 320
+    },
+    {
+      "key": "police_warning_light",
+      "cubes": 6,
+      "resolution": 64
+    },
+    {
+      "key": "police_reception_sign",
+      "cubes": 6,
+      "resolution": 192
+    },
+    {
+      "key": "police_command_screen",
+      "cubes": 6,
+      "resolution": 256
+    },
+    {
+      "key": "ad_novacare_5x5",
+      "cubes": 6,
+      "resolution": 320
+    },
+    {
+      "key": "ad_auramed_6x6",
+      "cubes": 6,
+      "resolution": 384
+    },
+    {
       "key": "garment_display_tshirt_hanging_0",
       "cubes": 5,
       "resolution": 128
@@ -8715,6 +11199,41 @@
     "mcpe_food_premium_red_wine_bottle": 128,
     "mcpe_food_coca_cola_paper_cup": 128,
     "mcpe_food_pepsi_paper_cup": 128,
+    "mcpe_food_asml_lithography": 128,
+    "mcpe_food_macbook_air_m5_open": 128,
+    "mcpe_food_legion_laptop_open": 128,
+    "mcpe_food_ps5_console_set": 128,
+    "mcpe_food_xbox_360_console_set": 128,
+    "mcpe_food_park_lamp": 128,
+    "mcpe_food_park_bench": 128,
+    "mcpe_food_park_bin": 128,
+    "mcpe_food_cafe_booth": 128,
+    "mcpe_food_cafe_pastry_case": 128,
+    "mcpe_food_cafe_espresso_machine": 128,
+    "mcpe_food_cafe_grinder": 128,
+    "mcpe_food_cafe_syrup_set": 128,
+    "mcpe_food_cafe_mug": 128,
+    "mcpe_food_cafe_double_mug": 128,
+    "mcpe_food_cafe_takeaway_cup": 128,
+    "mcpe_food_cafe_paper_bag": 128,
+    "mcpe_food_cafe_register": 128,
+    "mcpe_food_cafe_sealer": 128,
+    "mcpe_food_cafe_toppings": 128,
+    "mcpe_food_cafe_tea_urn": 128,
+    "mcpe_food_finance_terminal": 128,
+    "mcpe_food_finance_trading_desk": 128,
+    "mcpe_food_finance_monitor": 128,
+    "mcpe_food_finance_phone": 128,
+    "mcpe_food_police_radio": 128,
+    "mcpe_food_police_radio_dock": 128,
+    "mcpe_food_police_first_aid_kit": 128,
+    "mcpe_food_police_monitoring_computer": 128,
+    "mcpe_food_police_service_terminal": 128,
+    "mcpe_food_police_water_dispenser": 128,
+    "mcpe_food_police_riot_cabinet": 128,
+    "mcpe_food_police_file_cabinet": 128,
+    "mcpe_food_home_display_cabinet": 128,
+    "mcpe_food_home_display_shelf": 128,
     "mcpe_food_gongfu_tea_tray": 128,
     "mcpe_food_fridge_single_rose_gold": 128,
     "mcpe_food_fridge_single_white": 128,
@@ -8985,7 +11504,19 @@
     "mcpe_food_digital_ft_computer_4x3": 128,
     "mcpe_food_digital_ft_computer_6x5": 128,
     "mcpe_food_digital_apple_6x5": 128,
-    "mcpe_food_digital_haodu_hotel_7x5": 128
+    "mcpe_food_digital_haodu_hotel_7x5": 128,
+    "mcpe_food_finance_report": 128,
+    "mcpe_food_finance_board_10x4": 128,
+    "mcpe_food_finance_board_10x5": 128,
+    "mcpe_food_finance_board_5x4": 128,
+    "mcpe_food_finance_board_4x4": 128,
+    "mcpe_food_finance_ticker_10x1": 128,
+    "mcpe_food_finance_ticker_5x1": 128,
+    "mcpe_food_police_warning_light": 128,
+    "mcpe_food_police_reception_sign": 128,
+    "mcpe_food_police_command_screen": 128,
+    "mcpe_food_ad_novacare_5x5": 128,
+    "mcpe_food_ad_auramed_6x6": 128
   },
   "sharedTableGeometry": "geometry.mcpe_food.surface.table_number_sign"
 }

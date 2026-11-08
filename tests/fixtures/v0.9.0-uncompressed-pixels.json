@@ -1,0 +1,52 @@
+{
+  "textures/entity/mcpe_food/digital_content_finance_board_10x4_10x4.png": {
+    "width": 640,
+    "height": 256,
+    "rgba": "914845af62a52b61387be7ff40fab2d2b42c4e5ce0d475ed316bd4c258dd626e"
+  },
+  "textures/entity/mcpe_food/digital_content_finance_board_10x5_10x5.png": {
+    "width": 640,
+    "height": 320,
+    "rgba": "c8fe701d444bdadd04a943b40441168acb77e8097bbe34eeb4e799d9bf7b4862"
+  },
+  "textures/entity/mcpe_food/digital_content_finance_board_4x4_4x4.png": {
+    "width": 256,
+    "height": 256,
+    "rgba": "789a073b3081d62807695eec3788e7d47dfa2eb0a69a3f9358f7472e937c1c51"
+  },
+  "textures/entity/mcpe_food/digital_content_finance_board_5x4_5x4.png": {
+    "width": 320,
+    "height": 256,
+    "rgba": "a13ccf906eb7540bfaea650b2e4be945feba6c15b257e125de96246a3a4fcd71"
+  },
+  "textures/entity/mcpe_food/digital_content_finance_ticker_10x1_10x1.png": {
+    "width": 640,
+    "height": 64,
+    "rgba": "7dd6e86e443e151f843f72ae617aa6291ad80a3529d5dba0061437eb02242118"
+  },
+  "textures/entity/mcpe_food/digital_content_finance_ticker_5x1_5x1.png": {
+    "width": 320,
+    "height": 64,
+    "rgba": "02537da80abf3433d426273cb21db4a0511853749c6e985970b9586ef46b69c0"
+  },
+  "textures/entity/mcpe_food/digital_content_police_command_screen_4x2.png": {
+    "width": 256,
+    "height": 128,
+    "rgba": "eb4512bf1ef0d3dbec0d18d4986398f24076342fc76ec470f5f14e94d60973b1"
+  },
+  "textures/entity/mcpe_food/digital_content_police_reception_sign_3x1.png": {
+    "width": 192,
+    "height": 64,
+    "rgba": "bf4ac45b9b847021f65b4dfc964ab4f612e1e053b8a7a70620d21bce9cb3ba9e"
+  },
+  "textures/entity/mcpe_food/digital_content_police_warning_light_1x0_5.png": {
+    "width": 64,
+    "height": 32,
+    "rgba": "df31455231c4eb7e2d96cdac476346a2430c3399cc025732fffcfe5e5cde63cc"
+  },
+  "textures/items/mcpe_food/police_warning_light.png": {
+    "width": 128,
+    "height": 128,
+    "rgba": "8729d50a51b3e982e1a4a17a3fcf8900f08672e431589f20b2a30d3943a9f171"
+  }
+}

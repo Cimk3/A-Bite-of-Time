@@ -1,3 +1,5 @@
+import {clothingItems} from './patch-072-catalog.js';
+import {patch090Props} from './patch-090-catalog.js';
 import {patch082Props} from './patch-082-catalog.js';
 import {patch085Props} from './patch-085-catalog.js';
 import {patch080Props} from './patch-080-catalog.js';
@@ -6,7 +8,7 @@ import {patch073Props} from './patch-073-catalog.js';
 import {patch072Props} from './patch-072-catalog.js';
 import {patch071Props} from './patch-071-catalog.js';
 import {scenarioProps,wallVariants,brandAdvertisements} from './scenario-catalog.js';
-import {bottleProps,cutlery,dishes,hotpots,id,servings,vesselByKey,vessels} from './catalog.js';
+import {bottleProps,cutlery,dishes,hotpots,id,servings,vesselByKey,vessels,materials,crops,stations} from './catalog.js';
 import {cityAdvertisements,newProps,lifestyleItems} from './lifestyle-catalog.js';
 import {restaurantItems,restaurantAccessories,numberVisuals} from './restaurant-catalog.js';
 import {electronics,originalElectronics,newElectronics,officeElectronics} from './electronics-catalog.js';
@@ -36,9 +38,10 @@ export function adSize(ad: typeof advertisements[number], size: number): [number
   const n=Math.max(0,Math.min(2,size))+1;
   return ad.aspect==='wide'?[n*2,n]:ad.aspect==='portrait'?[n,n*2]:[n,n];
 }
-export const tableItems = [...vessels,...cutlery,...hotpots,...bottleProps,...paperCups,tray,...electronics,teaTray,...restaurantAccessories,...lifestyleItems,...scenarioProps,...patch071Props,...patch072Props,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props];
+export const tableItems = [...vessels,...cutlery,...hotpots,...bottleProps,...paperCups,tray,...electronics,teaTray,...restaurantAccessories,...lifestyleItems,...scenarioProps,...patch071Props,...patch072Props,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props,...patch090Props];
 export const tableItemById = new Map(tableItems.map(t=>[id(t.key),t]));
 export const trayFoods = dishes.filter(f=>vesselByKey.get(f.vessel)?.family==='plate');
+const requestedSlotIconEntries=[...materials,...crops.flatMap(c=>[{key:c.key,zh:c.zh,en:c.en},{key:c.key+'_seeds',zh:c.zh+'种子',en:c.en+' Seeds'}]),...clothingItems,...stations];
 export const surfaceVisuals = [
   ...[...vessels,...cutlery,...hotpots,...bottleProps,...paperCups,tray].map(t=>({key:t.key,zh:t.zh,en:t.en})),
   ...servings.filter(s=>s.food.key!=='tieguanyin').map(s=>({key:s.key,zh:s.food.zh,en:s.food.en})),
@@ -46,6 +49,8 @@ export const surfaceVisuals = [
   ...newElectronics.map(t=>({key:t.key,zh:t.zh,en:t.en})),teaTray,
   ...servings.filter(s=>s.food.key==='tieguanyin').map(s=>({key:s.key,zh:s.food.zh,en:s.food.en})),
   ...officeElectronics.map(d=>({key:d.key,zh:d.zh,en:d.en})),
-  ...restaurantItems.map(d=>({key:d.key,zh:d.zh,en:d.en})),...numberVisuals.filter(d=>d.number!==8),...newProps.map(d=>({key:d.key,zh:d.zh,en:d.en})),...scenarioProps,...wallVariants,...patch071Props,...patch072Props,...patch073Props,...patch074Props,...patch074WallVariants,...patch080Props,...patch082Props,...patch085Props
+  ...restaurantItems.map(d=>({key:d.key,zh:d.zh,en:d.en})),...numberVisuals.filter(d=>d.number!==8),...newProps.map(d=>({key:d.key,zh:d.zh,en:d.en})),...scenarioProps,...wallVariants,...patch071Props,...patch072Props,...patch073Props,...patch074Props,...patch074WallVariants,...patch080Props,...patch082Props,...patch085Props,...patch090Props
 ];
+export const slotIconEntries=[...new Map(requestedSlotIconEntries.map(d=>[d.key,d])).values()].filter(d=>!surfaceVisuals.some(v=>v.key===d.key)).map(d=>({...d,baseKey:d.key,key:'slot_icon_'+d.key}));
+surfaceVisuals.push(...slotIconEntries);
 export const surfaceIndex = new Map(surfaceVisuals.map((t,i)=>[id(t.key),i]));

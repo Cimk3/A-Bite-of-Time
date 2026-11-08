@@ -1,0 +1,1 @@
+{"format_version":"1.21.90","minecraft:item":{"description":{"identifier":"mcpe_food:ps5_console_set","menu_category":{"category":"items","group":"mcpe_food:group_entertainment_devices"}},"components":{"minecraft:display_name":{"value":"item.mcpe_food:ps5_console_set.name"},"minecraft:icon":"mcpe_food_ps5_console_set","minecraft:max_stack_size":64}}}

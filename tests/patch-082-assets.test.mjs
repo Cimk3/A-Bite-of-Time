@@ -1,3 +1,4 @@
+import {addedDefinitions,addedBlocks,addedSurfaceCount,patch090Items,patch090Props,patch090Walls,slotIconEntries} from './patch-090-expectations.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync} from 'node:fs';
@@ -22,7 +23,7 @@ const body=key=>readFileSync(bp+'/functions/mcpe_food/'+key,'utf8');
 test('0.8.2 adds precisely 17 creative items, 16 blocks and append-only display indices',()=>{
   for(const [folder,expected,total] of [['items',patch082Items,371],['blocks',patch082Props,522]]) {
     const current=readdirSync(bp+'/'+folder).map(f=>read(bp+'/'+folder+'/'+f)['minecraft:'+folder.slice(0,-1)].description.identifier);
-    const prior=current.filter(key=>!patch085Props.some(item=>id(item.key)===key));
+    const prior=current.filter(key=>![...patch085Props,...addedDefinitions].some(item=>id(item.key)===key));
     assert.equal(prior.length,total);
     assert.deepEqual(prior.filter(k=>!old[folder].includes(k)).sort(),expected.map(d=>id(d.key)).sort());
     for(const k of old[folder])assert.ok(current.includes(k),k);
@@ -31,10 +32,10 @@ test('0.8.2 adds precisely 17 creative items, 16 blocks and append-only display 
     const manifest=read('packs/'+pack+'/manifest.json');
     assert.deepEqual([manifest.header.uuid,...manifest.modules.map(m=>m.uuid)],uuids);
   }
-  assert.deepEqual(surfaceVisuals.map(d=>d.key),[...order.surfaceKeys,...patch082Props.map(d=>d.key),...patch085Props.map(d=>d.key)]);
+  assert.deepEqual(surfaceVisuals.map(d=>d.key),[...order.surfaceKeys,...patch082Props.map(d=>d.key),...patch085Props.map(d=>d.key),...patch090Props.map(d=>d.key),...slotIconEntries.map(d=>d.key)]);
   assert.deepEqual(clothingVisuals,order.clothingVisuals);
-  assert.deepEqual(digitalScreens,[...order.digitalScreens,haoduScreen]);
-  assert.deepEqual(wallScreens,[...order.wallScreens,haoduScreen]);
+  assert.deepEqual(digitalScreens,[...order.digitalScreens,haoduScreen,...patch090Walls]);
+  assert.deepEqual(wallScreens,[...order.wallScreens,haoduScreen,...patch090Walls]);
   assert.deepEqual(read(bp+'/mcpe_food_build.json'),read(rp+'/mcpe_food_build.json'));
 });
 
@@ -52,14 +53,14 @@ test('creative groups and give commands append the approved content to their old
   const additions={
     'medical_equipment.mcfunction':[...patch082Props,...patch085Props].filter(d=>d.group==='medical_equipment'),
     'military_police_equipment.mcfunction':patch082Props.filter(d=>d.group==='military_police_equipment'),
-    'digital_ad_screens.mcfunction':[haoduScreen],
+    'digital_ad_screens.mcfunction':[haoduScreen,...patch090Walls],
   };
   for(const [key,prior] of Object.entries(old.functions)) {
     if(['build_info.mcfunction','tasting_new.mcfunction'].includes(key))continue;
     const newItems=additions[key];
     assert.equal(body(key),newItems?prior+newItems.map(d=>give(d.key)).join('\n')+'\n':prior,key);
   }
-  assert.equal(body('tasting_new.mcfunction'),patch085Props.map(d=>give(d.key)).join('\n')+'\n');
+  assert.equal(body('tasting_new.mcfunction'),patch090Items.map(d=>give(d.key)).join('\n')+'\n');
   for(const prop of patch082Items) {
     const found=groups.filter(g=>g.items.includes(id(prop.key)));
     assert.equal(found.length,1);

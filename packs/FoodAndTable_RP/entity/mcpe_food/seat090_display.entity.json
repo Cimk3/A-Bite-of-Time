@@ -1,0 +1,1 @@
+{"format_version":"1.10.0","minecraft:client_entity":{"description":{"identifier":"mcpe_food:seat090_display","materials":{"default":"entity_alphatest"},"textures":{"default":"textures/entity/mcpe_food/digital_frame"},"geometry":{"default":"geometry.mcpe_food.seat090"},"render_controllers":["controller.render.mcpe_food.seat090"]}}}

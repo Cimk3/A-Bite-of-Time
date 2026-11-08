@@ -1,0 +1,1 @@
+{"format_version":"1.21.90","minecraft:item":{"description":{"identifier":"mcpe_food:home_display_shelf","menu_category":{"category":"items","group":"mcpe_food:group_home_decor"}},"components":{"minecraft:display_name":{"value":"item.mcpe_food:home_display_shelf.name"},"minecraft:icon":"mcpe_food_home_display_shelf","minecraft:max_stack_size":64}}}

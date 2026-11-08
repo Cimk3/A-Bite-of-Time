@@ -1,3 +1,4 @@
+import {patch090Props,patch090Walls} from '../.build/patch-090-catalog.js';
 import {patch082ById} from "../.build/patch-082-catalog.js";
 import {patch085ById,patch085ScreenIds} from '../.build/patch-085-catalog.js';
 import {patch080Screens} from '../.build/patch-080-catalog.js';
@@ -9,6 +10,13 @@ import {scenarioScreens} from '../.build/scenario-catalog.js';
 import {electronics} from '../.build/electronics-catalog.js';
 const devices=new Map(electronics.map(d=>[`device_${d.key}`,d]));
 export function emissionIsValid(image,colorKey){
+  if(colorKey==='patch090_park_lamp')return image.width===128&&image.height===128&&image.pixels.every((v,i)=>{
+    if(i%4!==1||v===0)return true;
+    const pixel=(i-1)/4,x=pixel%128,y=Math.floor(pixel/128);
+    return v<=24&&x>=32&&x<40&&y<8;
+  });
+  if(colorKey.startsWith('patch090_'))return patch090Props.some(d=>'patch090_'+d.key===colorKey)&&image.width===128&&image.height===128&&image.pixels.every((v,i)=>i%4!==1||v===0||v<=24&&((i-1)/4)%128<96&&Math.floor((i-1)/4/128)<48);
+  if(patch090Walls.some(d=>colorKey==='digital_content_'+d.brand+'_'+(d.width+'x'+d.height).replaceAll('.','_')))return image.pixels.every((v,i)=>i%4!==1||v<=24);
   if(colorKey.startsWith('patch085_')){
     const prop=patch085ById.get('mcpe_food:'+colorKey.slice(9)),screen=patch085ScreenIds.has('mcpe_food:'+colorKey.slice(9));
     return !!prop&&image.width===128&&image.height===128&&image.pixels.every((v,i)=>{

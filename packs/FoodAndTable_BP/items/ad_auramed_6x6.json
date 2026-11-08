@@ -1,0 +1,1 @@
+{"format_version":"1.21.90","minecraft:item":{"description":{"identifier":"mcpe_food:ad_auramed_6x6","menu_category":{"category":"items","group":"mcpe_food:group_advertisements"}},"components":{"minecraft:display_name":{"value":"item.mcpe_food:ad_auramed_6x6.name"},"minecraft:icon":"mcpe_food_ad_auramed_6x6","minecraft:max_stack_size":64}}}

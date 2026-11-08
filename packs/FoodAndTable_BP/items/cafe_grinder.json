@@ -1,0 +1,1 @@
+{"format_version":"1.21.90","minecraft:item":{"description":{"identifier":"mcpe_food:cafe_grinder","menu_category":{"category":"items","group":"mcpe_food:group_cafe"}},"components":{"minecraft:display_name":{"value":"item.mcpe_food:cafe_grinder.name"},"minecraft:icon":"mcpe_food_cafe_grinder","minecraft:max_stack_size":64}}}

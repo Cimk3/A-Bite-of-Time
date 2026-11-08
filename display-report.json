@@ -1,7 +1,7 @@
 {
   "advertisements": 23,
   "advertisementSizes": 69,
-  "surfaceDefinitions": 631,
+  "surfaceDefinitions": 703,
   "trayFoods": 70,
   "trayCubes": 65,
   "maxMiniCubes": 39,
@@ -3163,6 +3163,366 @@
       "resolution": 128
     },
     {
+      "key": "surface_asml_lithography",
+      "cubes": 57,
+      "resolution": 128
+    },
+    {
+      "key": "surface_macbook_air_m5_open",
+      "cubes": 181,
+      "resolution": 128
+    },
+    {
+      "key": "surface_legion_laptop_open",
+      "cubes": 181,
+      "resolution": 128
+    },
+    {
+      "key": "surface_ps5_console_set",
+      "cubes": 18,
+      "resolution": 128
+    },
+    {
+      "key": "surface_xbox_360_console_set",
+      "cubes": 23,
+      "resolution": 128
+    },
+    {
+      "key": "surface_park_lamp",
+      "cubes": 10,
+      "resolution": 128
+    },
+    {
+      "key": "surface_park_bench",
+      "cubes": 15,
+      "resolution": 128
+    },
+    {
+      "key": "surface_park_bin",
+      "cubes": 14,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_booth",
+      "cubes": 8,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_pastry_case",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_espresso_machine",
+      "cubes": 47,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_grinder",
+      "cubes": 20,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_syrup_set",
+      "cubes": 16,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_mug",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_double_mug",
+      "cubes": 19,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_takeaway_cup",
+      "cubes": 5,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_paper_bag",
+      "cubes": 4,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_register",
+      "cubes": 11,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_sealer",
+      "cubes": 12,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_toppings",
+      "cubes": 45,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cafe_tea_urn",
+      "cubes": 16,
+      "resolution": 128
+    },
+    {
+      "key": "surface_finance_terminal",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_finance_trading_desk",
+      "cubes": 20,
+      "resolution": 128
+    },
+    {
+      "key": "surface_finance_monitor",
+      "cubes": 13,
+      "resolution": 128
+    },
+    {
+      "key": "surface_finance_phone",
+      "cubes": 10,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_radio",
+      "cubes": 5,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_radio_dock",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_first_aid_kit",
+      "cubes": 4,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_monitoring_computer",
+      "cubes": 51,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_service_terminal",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_water_dispenser",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_riot_cabinet",
+      "cubes": 19,
+      "resolution": 128
+    },
+    {
+      "key": "surface_police_file_cabinet",
+      "cubes": 10,
+      "resolution": 128
+    },
+    {
+      "key": "surface_home_display_cabinet",
+      "cubes": 6,
+      "resolution": 128
+    },
+    {
+      "key": "surface_home_display_shelf",
+      "cubes": 7,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_rice",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tomato",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_soybean",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tea",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_strawberry",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_coffee",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tofu",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_dough",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_noodles",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_cheese",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_cream",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_sea_bass",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_shrimp",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_scallop",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_eel",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_seasoning",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_garlic",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_vermicelli",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_rice_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tomato_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_soybean_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_tea_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_strawberry_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_coffee_seeds",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_tshirt",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_shirt",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_coat",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_trousers",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_dress",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_hat",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_suit_black",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_suit_navy",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_display_suit_light_gray",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_prep_counter",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_stove",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_oven",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_slot_icon_drink_counter",
+      "cubes": 1,
+      "resolution": 128
+    },
+    {
       "key": "mini_kung_pao_chicken",
       "cubes": 31,
       "resolution": 128
@@ -3698,6 +4058,66 @@
       "resolution": 448
     },
     {
+      "key": "finance_report",
+      "cubes": 6,
+      "resolution": 64
+    },
+    {
+      "key": "finance_board_10x4",
+      "cubes": 6,
+      "resolution": 640
+    },
+    {
+      "key": "finance_board_10x5",
+      "cubes": 6,
+      "resolution": 640
+    },
+    {
+      "key": "finance_board_5x4",
+      "cubes": 6,
+      "resolution": 320
+    },
+    {
+      "key": "finance_board_4x4",
+      "cubes": 6,
+      "resolution": 256
+    },
+    {
+      "key": "finance_ticker_10x1",
+      "cubes": 6,
+      "resolution": 640
+    },
+    {
+      "key": "finance_ticker_5x1",
+      "cubes": 6,
+      "resolution": 320
+    },
+    {
+      "key": "police_warning_light",
+      "cubes": 6,
+      "resolution": 64
+    },
+    {
+      "key": "police_reception_sign",
+      "cubes": 6,
+      "resolution": 192
+    },
+    {
+      "key": "police_command_screen",
+      "cubes": 6,
+      "resolution": 256
+    },
+    {
+      "key": "ad_novacare_5x5",
+      "cubes": 6,
+      "resolution": 320
+    },
+    {
+      "key": "ad_auramed_6x6",
+      "cubes": 6,
+      "resolution": 384
+    },
+    {
       "key": "garment_display_tshirt_hanging_0",
       "cubes": 5,
       "resolution": 128
@@ -4004,5 +4424,5 @@
     }
   ],
   "entityTypes": 5,
-  "entityTextureSets": 458
+  "entityTextureSets": 542
 }

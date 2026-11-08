@@ -1,3 +1,7 @@
+import {patch090Items,patch090Props,patch090Walls} from '../.build/patch-090-catalog.js';
+import {patch090Cubes,patch090Texture,split090} from './patch-090-art.mjs';
+import {nativeBlockBoxes} from './native-block-boxes.mjs';
+import {whole090Keys} from '../.build/patch-093-render.js';
 import {patch082Props,patch082Items} from "../.build/patch-082-catalog.js";
 import {patch082Cubes,patch082Texture} from "./patch-082-art.mjs";
 import {patch085Props,patch085Items} from '../.build/patch-085-catalog.js';
@@ -22,7 +26,7 @@ import {fileURLToPath} from 'node:url';
 import {writeOutput} from './fs-output.mjs';
 import {categories,legacyCategories,previousDishes,newFoods,bottleProps,cutlery,crops,foods,displays,dishes,hotpots,id,materials,recipes,servings,stations,vessels,label} from '../.build/catalog.js';
 import {supportBlocks,placementSupports} from '../.build/supports.js';
-import {advertisements,paperCups,tray,teaTray} from '../.build/decor-catalog.js';
+import {advertisements,paperCups,tray,teaTray,slotIconEntries} from '../.build/decor-catalog.js';
 import {electronics,newElectronics,officeElectronics} from '../.build/electronics-catalog.js';
 import {officeStationery,homeDecor,lifestyleItems,newProps,cityAdvertisements} from '../.build/lifestyle-catalog.js';
 import {lifestyleCubes,lifestyleTexture} from './lifestyle-art.mjs';
@@ -46,7 +50,7 @@ for(const target of[BP,RP]){if(path.relative(path.join(root,'packs'),target).sta
 const write=(base,file,data)=>{const target=path.join(base,file);mkdirSync(path.dirname(target),{recursive:true});writeOutput(target,data);};
 const json=(base,file,data)=>write(base,file,JSON.stringify(data,null,2)+'\n');
 const {version}=JSON.parse(readFileSync(path.join(root,'package.json'),'utf8')),VERSION=version.split('.').map(Number),ENGINE=[1,26,20];
-const BUILD_ID=version+'-release.1';
+const BUILD_ID=['0.9.0','0.9.1','0.9.2'].includes(version)?version+'-candidate.1':version+'-release.1';
 const BP_UUID='c260f73a-480b-441e-91e2-de90849fa140',RP_UUID='1a31bbad-5ab0-4860-aa36-1dded1fb5689',metadata={authors:['Food & Table contributors'],license:'MIT',product_type:'addon'};
 json(BP,'manifest.json',{format_version:2,header:{name:`方寸食光 · Food & Table BP ${BUILD_ID}`,description:`${foods.length} 道料理 · 铜锅桌景 · 128px | Food & Table ${BUILD_ID}`,uuid:BP_UUID,version:VERSION,min_engine_version:ENGINE},modules:[{type:'data',uuid:'a1aa9410-be01-43bb-bec4-806426c234fb',version:VERSION},{type:'script',language:'javascript',entry:'scripts/main.js',uuid:'851d963e-b413-4cab-af11-74e029441d0a',version:VERSION}],dependencies:[{uuid:RP_UUID,version:VERSION},{module_name:'@minecraft/server',version:'2.0.0'},{module_name:'@minecraft/server-ui',version:'2.0.0'}],metadata});
 json(RP,'manifest.json',{format_version:2,header:{name:`方寸食光 · Food & Table RP ${BUILD_ID}`,description:`Food & Table PBR | ${BUILD_ID} | 需启用同批次BP`,uuid:RP_UUID,version:VERSION,min_engine_version:ENGINE},modules:[{type:'resources',uuid:'f52c1cef-a4fd-4d0b-ae75-f66cb93d6386',version:VERSION}],capabilities:['pbr'],metadata});
@@ -77,7 +81,7 @@ function selection(cubes){const{low,high}=modelBounds(cubes),origin=[Math.max(-8
 function electronicSelection(cubes){const result=selection(cubes);result.size[1]=Math.min(16,modelBounds(cubes).high[1]+.15);return result;}
 function block(key,zh,en,{kind='table',hidden=false,visual,select}={}){const kitchen=kind==='kitchen',appliance=kind==='appliance';visual??={'minecraft:geometry':{identifier:`geometry.mcpe_food.${key}`},'minecraft:material_instances':{'*':blockMaterial(key)}};json(BP,`blocks/${key}.json`,{format_version:'1.26.20','minecraft:block':{description:{identifier:id(key),menu_category:{category:hidden?'none':'construction'},traits:{'minecraft:placement_direction':{enabled_states:['minecraft:cardinal_direction']}}},components:{...visual,'minecraft:destruction_particles':destructionParticles(),'minecraft:collision_box':kitchen||appliance?true:false,'minecraft:selection_box':kitchen||appliance?true:select??{origin:[-6,0,-6],size:[12,12,12]},'minecraft:destructible_by_mining':{seconds_to_destroy:kitchen?1.2:.25},'minecraft:destructible_by_explosion':{explosion_resistance:kitchen?4:1},'minecraft:loot':`loot_tables/blocks/${key}.json`,...(kitchen?{'mcpe_food:kitchen':{}}:appliance?{'mcpe_food:appliance':{},'minecraft:movable':{movement_type:'immovable'},'minecraft:tick':{interval_range:[20,20],looping:true}}:{'mcpe_food:table':{},'minecraft:tick':{interval_range:[20,20],looping:true},'minecraft:placement_filter':{conditions:supportConditions}})},permutations:directions.map(([d,angle])=>({condition:`q.block_state('minecraft:cardinal_direction') == '${d}'`,components:{'minecraft:transformation':{rotation:[0,angle,0]}}}))}});sounds[id(key)]={sound:kitchen?'wood':'glass'};localize(`tile.${id(key)}.name`,zh,en);}
 const placeable=(key,zh,en)=>{const ware=vessels.some(v=>v.key===key)||cutlery.some(c=>c.key===key)||key===tray.key;item(key,zh,en,{'minecraft:block_placer':{block:id(key),replace_block_item:true}},ware?'items':'construction',ware?'mcpe_food:group_tableware':undefined);if(ware){const file=path.join(BP,`blocks/${key}.json`),b=JSON.parse(readFileSync(file,'utf8'));b['minecraft:block'].description.menu_category={category:'none'};write(BP,`blocks/${key}.json`,JSON.stringify(b,null,2)+'\n');}};
-function prepareModel(key,cubes,slots){const maps=Object.fromEntries(Object.entries(slots).map(([slot,key])=>[slot,textures.get(key)]));icon(key,renderDetail(cubes,maps,128,128,[...patch074Props,...patch080Props,...patch082Props,...patch085Props].some(d=>d.key===key)?{front:true}:{}));artRecords.set(key,{cubes,textures:maps});}
+function prepareModel(key,cubes,slots){const maps=Object.fromEntries(Object.entries(slots).map(([slot,key])=>[slot,textures.get(key)]));const current=patch090Props.find(d=>d.key===key);const view=current?{front:current.placementFront!==180}:[...patch074Props,...patch080Props,...patch082Props,...patch085Props].some(d=>d.key===key)?{front:true}:{};icon(key,renderDetail(cubes,maps,128,128,view));artRecords.set(key,{cubes,textures:maps});}
 for(const vessel of vessels)highTexture(`ware_${vessel.key}`,textureSpec(vessel.key,'ware'));
 for(const piece of cutlery)highTexture(`ware_${piece.key}`,textureSpec(piece.key,'ware'));
 highTexture('ware_copper_hotpot',textureSpec('copper_hotpot','ware'));
@@ -94,6 +98,44 @@ function authoredTexture(key,painted,folder){
  write(RP,`${texturePath('blocks',key)}.png`,painted.png);write(RP,`${texturePath('blocks',key)}_mer.png`,painted.mer);
  json(RP,`${texturePath('blocks',key)}.texture_set.json`,blockTextureSet(key));terrain[textureKey(key)]={textures:texturePath('blocks',key)};
 }
+
+for(const d of patch090Props){
+ const texture='patch090_'+d.key,cubes=patch090Cubes(d.key),slots={ware:texture};
+ authoredTexture(texture,patch090Texture(d.key),'assets/patch-090/'+d.key);
+ prepareModel(d.key,cubes,slots);
+ // Keep a full geometry for scaled cabinet displays.
+ const fullVisual=highModel(d.key,cubes,slots);
+ // Preserve the 0.9.0 base ID for old records; new toppings use two native parts.
+ if(d.key==='cafe_toppings'){
+  block(d.key,d.zh,d.en,{hidden:true,visual:fullVisual,select:selection(cubes)});loot(d.key,[[id(d.key),1]]);
+ }
+ if(d.kind==='solid'){
+  const parts=split090(cubes,d.size);
+  for(const [index,cs] of parts.entries()){
+   const key=d.key+'_part_'+index;
+   // A valid closed cube hidden by bone visibility avoids the empty-mesh fallback.
+   // Appearance is one existing full entity model; collision still uses cs.
+   const helper=whole090Keys.has(d.key);
+   const visual=highModel(key,helper?[{origin:[-.5,0,-.5],size:[1,1,1],material:'ware',uv:Object.fromEntries(['north','south','east','west','up','down'].map(f=>[f,{uv:[100,0],uv_size:[1,1],material_instance:'ware'}]))}]:cs,slots);
+   if(helper)visual['minecraft:geometry'].bone_visibility={root:false};
+   if(d.key==='cafe_pastry_case'||d.key==='cafe_grinder')for(const mat of Object.values(visual['minecraft:material_instances']))mat.render_method='blend';
+   const boxes=nativeBlockBoxes(cs,{table:d.key==='cafe_booth'&&index%3===1});
+   json(BP,'blocks/'+key+'.json',{format_version:'1.26.20','minecraft:block':{
+    description:{identifier:id(key),menu_category:{category:'none'},traits:{'minecraft:placement_direction':{enabled_states:['minecraft:cardinal_direction']}}},
+    components:{...visual,'minecraft:destruction_particles':destructionParticles(),
+     'minecraft:collision_box':boxes.collision,'minecraft:selection_box':boxes.selection,
+     'minecraft:movable':{movement_type:'immovable'},'minecraft:destructible_by_mining':{seconds_to_destroy:.25},
+     'minecraft:loot':'loot_tables/blocks/'+key+'.json',...(d.key==='park_lamp'&&index===3?{'minecraft:light_emission':15}:{})},
+    permutations:directions.map(([direction,angle])=>({condition:`q.block_state('minecraft:cardinal_direction') == '${direction}'`,components:{'minecraft:transformation':{rotation:[0,angle,0]}}})),
+   }});
+   localize('tile.'+id(key)+'.name',d.zh,d.en);loot(key,[]);
+  }
+ }else{
+  block(d.key,d.zh,d.en,{hidden:true,visual:highModel(d.key,cubes,slots),select:selection(cubes)});loot(d.key,[[id(d.key),1]]);
+ }
+ item(d.key,d.zh,d.en,{},'items','mcpe_food:group_'+d.group);
+}
+
 {
  const cubes=teaTrayCubes(),key='ware_gongfu_tea_tray',slots={ware:key};authoredTexture(key,tableTexture('tea'),'assets/tea/gongfu_tea_tray');prepareModel(teaTray.key,cubes,slots);
  block(teaTray.key,teaTray.zh,teaTray.en,{hidden:true,visual:highModel(teaTray.key,cubes,slots),select:selection(cubes)});
@@ -160,10 +202,18 @@ for(const c of crops){const key=`${c.key}_crop`,seeds=`${c.key}_seeds`;lowAsset(
 shapeless('plate',[['minecraft:clay_ball'],['minecraft:clay_ball'],['minecraft:clay_ball']],id('plate'),2);shapeless('bowl',Array.from({length:4},()=>['minecraft:clay_ball']),id('bowl'),2);shapeless('glass',Array.from({length:3},()=>['minecraft:glass']),id('glass'),2);shapeless('mug',[['minecraft:clay_ball'],['minecraft:clay_ball'],['minecraft:clay_ball'],['minecraft:brick']],id('mug'),2);shapeless('chopsticks',[['minecraft:bamboo'],['minecraft:bamboo']],id('chopsticks'),2);shapeless('table_knife',[['minecraft:iron_ingot'],['minecraft:stick']],id('table_knife'));shapeless('fork',[['minecraft:iron_ingot'],['minecraft:iron_nugget'],['minecraft:iron_nugget'],['minecraft:stick']],id('fork'));shapeless('spoon',[['minecraft:iron_nugget'],['minecraft:stick']],id('spoon'));
 shaped('prep_counter',['PPP','SCS','PPP'],{P:'minecraft:oak_planks',S:'minecraft:stick',C:'minecraft:crafting_table'},id('prep_counter'));shaped('stove',['III','IFI','SSS'],{I:'minecraft:iron_ingot',F:'minecraft:furnace',S:'minecraft:stone'},id('stove'));shaped('oven',['III','IFI','BBB'],{I:'minecraft:iron_ingot',F:'minecraft:furnace',B:'minecraft:brick'},id('oven'));shaped('drink_counter',['GGG','PBP','PPP'],{G:'minecraft:glass',P:'minecraft:oak_planks',B:'minecraft:bucket'},id('drink_counter'));
 write(RP,`${texturePath('blocks',BREAK_DUST)}.png`,breakDustImage());json(RP,`${texturePath('blocks',BREAK_DUST)}.texture_set.json`,itemTextureSet(BREAK_DUST));terrain[textureKey(BREAK_DUST)]={textures:texturePath('blocks',BREAK_DUST)};
+
+for(const d of slotIconEntries){
+ const src=decodeRGBA(readFileSync(path.join(RP,texturePath('items',d.baseKey)+'.png'))),color=canvas(128,128),mer=canvas(128,128,[0,0,180,255]);
+ for(let y=0;y<128;y++)for(let x=0;x<128;x++){const i=(Math.floor(y*src.height/128)*src.width+Math.floor(x*src.width/128))*4;color.data.set(src.pixels.subarray(i,i+4),(y*128+x)*4);}
+ const key='sloticon_'+d.key;authoredTexture(key,{width:128,height:128,pixels:color.data,png:png(128,128,color.data),mer:png(128,128,mer.data)},'assets/patch-090/'+key);
+ const uv={uv:[0,0],uv_size:[128,128],material_instance:'ware'};
+ highModel(d.key,[{origin:[-5,0,-.1],size:[10,10,.2],uv:{north:uv,south:uv},material:'ware',faces:['north','south']}],{ware:key});
+}
 const displayBuild=buildDisplays({root,BP,RP,json,write,icon,item,localize,modelRecords});
 const groupIcons=['egg_fried_rice','steak','sushi_platter','egg_tart','green_tea'];
 const creativeGroups=Object.entries(categories).map(([category,names],i)=>{const name=`mcpe_food:group_${category}`;localize(name,...names);return{group_identifier:{name,icon:id(groupIcons[i])},items:[...dishes.filter(f=>f.category===category),...(category==='drink'?[...bottleProps,...paperCups]:[])].map(f=>id(f.key))};});
-creativeGroups.push({group_identifier:{name:'mcpe_food:group_tableware',icon:id('plate')},items:[...vessels,...cutlery,tray,teaTray].map(v=>id(v.key))},{group_identifier:{name:'mcpe_food:group_advertisements',icon:id(advertisements[0].key)},items:[...advertisements,...digitalScreens].map(a=>id(a.key))});
+creativeGroups.push({group_identifier:{name:'mcpe_food:group_tableware',icon:id('plate')},items:[...vessels,...cutlery,tray,teaTray].map(v=>id(v.key))},{group_identifier:{name:'mcpe_food:group_advertisements',icon:id(advertisements[0].key)},items:[...advertisements,...digitalScreens.filter(d=>!d.group||d.group==='advertisements')].map(a=>id(a.key))});
 localize('mcpe_food:group_electronics','电子设备','Electronics');creativeGroups.push({group_identifier:{name:'mcpe_food:group_electronics',icon:id('desktop_computer')},items:[...electronics,...patch071Props.filter(d=>d.group==='electronics'),...patch072Props.filter(d=>d.group==='electronics')].map(d=>id(d.key))});
 localize('mcpe_food:group_restaurant_accessories','餐厅用品','Restaurant Accessories');creativeGroups.push({group_identifier:{name:'mcpe_food:group_restaurant_accessories',icon:id('table_number_sign')},items:restaurantAccessories.map(d=>id(d.key))});
 for(const [key,zh,en,list]of [['office_stationery','办公文具','Office Stationery',[...officeStationery,...patch072Props.filter(d=>d.group==='office_stationery')]],['home_decor','居家装饰','Home Decor',homeDecor]]){localize(`mcpe_food:group_${key}`,zh,en);creativeGroups.push({group_identifier:{name:`mcpe_food:group_${key}`,icon:id(list[0].key)},items:list.map(d=>id(d.key))});}
@@ -177,19 +227,28 @@ localize('mcpe_food:group_laboratory_equipment','实验设备','Laboratory Equip
 for(const d of patch080Props.filter(d=>d.group==='electronics'))creativeGroups.find(g=>g.group_identifier.name==='mcpe_food:group_electronics').items.push(id(d.key));
 for(const d of patch082Props)creativeGroups.find(g=>g.group_identifier.name==='mcpe_food:group_'+d.group).items.push(id(d.key));
 for(const d of patch085Props)creativeGroups.find(g=>g.group_identifier.name==='mcpe_food:group_'+d.group).items.push(id(d.key));
+
+for(const [key,zh] of [['park','公园物品'],['cafe','咖啡店'],['finance','金融'],['police_station','警察局']]){
+ localize('mcpe_food:group_'+key,zh,key);
+ creativeGroups.push({group_identifier:{name:'mcpe_food:group_'+key,icon:id(patch090Items.find(d=>d.group===key).key)},items:[]});
+}
+for(const d of [...patch090Props,...patch090Walls.filter(d=>d.group!=='advertisements')])creativeGroups.find(g=>g.group_identifier.name==='mcpe_food:group_'+d.group).items.push(id(d.key));
+
 json(BP,'item_catalog/crafting_item_catalog.json' ,{format_version:'1.21.60','minecraft:crafting_items_catalog':{categories:[{category_name:'items',groups:creativeGroups}]}});
 json(RP,'textures/item_texture.json',{resource_pack_name:'food_and_table',texture_name:'atlas.items',texture_data:icons});json(RP,'textures/terrain_texture.json',{resource_pack_name:'food_and_table',texture_name:'atlas.terrain',padding:8,num_mip_levels:4,texture_data:terrain});json(RP,'blocks.json',sounds);json(RP,'texts/languages.json',['en_US','zh_CN']);for(const[locale,lines]of Object.entries(langs))write(RP,`texts/${locale}.lang`,lines.join('\n')+'\n');
 const giveFunction=(name,keys)=>write(BP,`functions/mcpe_food/${name}.mcfunction`,keys.map(key=>`give @s ${id(key)} 4`).join('\n')+'\n');
+for(const group of ['park','cafe','finance','police_station'])giveFunction(group,patch090Items.filter(d=>d.group===group).map(d=>d.key));
 giveFunction('starter',[...stations,...vessels,...cutlery,tray,...paperCups].map(v=>v.key).concat(['peacock_platter','takoyaki','premium_red_wine','premium_red_wine_bottle','copper_hotpot_broth']));giveFunction('creative_ingredients',materials.filter(m=>m.creativeOnly).map(m=>m.key));
 for(const category of Object.keys(legacyCategories)){const keys=previousDishes.filter(f=>f.legacyCategory===category).map(f=>f.key);if(category==='hotpot')keys.push(...hotpots.map(p=>p.key));if(keys.length)giveFunction(`tasting_${category}`,keys);}
 for(const category of Object.keys(categories))giveFunction(`tasting_all_${category}`,[...dishes.filter(f=>f.category===category),...(category==='drink'?[...bottleProps,...paperCups]:[]),...(category==='chinese'?patch073Props.filter(d=>d.group==='chinese'):[])].map(f=>f.key));
-giveFunction('restaurant_accessories',restaurantAccessories.map(d=>d.key));giveFunction('office_stationery',[...officeStationery,...patch072Props.filter(d=>d.group==='office_stationery')].map(d=>d.key));giveFunction('home_decor',homeDecor.map(d=>d.key));giveFunction('tasting_new',patch085Items.map(d=>d.key));giveFunction('medical_equipment',[...scenarioGroups.find(g=>g.key==='medical_equipment').items,...patch071Props.filter(d=>d.group==='medical_equipment'),...patch082Props.filter(d=>d.group==='medical_equipment'),...patch085Props].map(d=>d.key));giveFunction('laboratory_equipment',laboratoryKeys);giveFunction('government_equipment',governmentKeys);giveFunction('electronics',[...electronics,...refrigerators,...patch071Props.filter(d=>d.group==='electronics'),...patch072Props.filter(d=>d.group==='electronics'),...patch073Props.filter(d=>d.group==='electronics'),...patch080Props.filter(d=>d.group==='electronics')].map(d=>d.key));
+giveFunction('restaurant_accessories',restaurantAccessories.map(d=>d.key));giveFunction('office_stationery',[...officeStationery,...patch072Props.filter(d=>d.group==='office_stationery')].map(d=>d.key));giveFunction('home_decor',homeDecor.map(d=>d.key));giveFunction('tasting_new',patch090Items.map(d=>d.key));giveFunction('medical_equipment',[...scenarioGroups.find(g=>g.key==='medical_equipment').items,...patch071Props.filter(d=>d.group==='medical_equipment'),...patch082Props.filter(d=>d.group==='medical_equipment'),...patch085Props].map(d=>d.key));giveFunction('laboratory_equipment',laboratoryKeys);giveFunction('government_equipment',governmentKeys);giveFunction('electronics',[...electronics,...refrigerators,...patch071Props.filter(d=>d.group==='electronics'),...patch072Props.filter(d=>d.group==='electronics'),...patch073Props.filter(d=>d.group==='electronics'),...patch080Props.filter(d=>d.group==='electronics')].map(d=>d.key));
 for(const g of scenarioGroups.filter(g=>g.key!=='medical_equipment'))giveFunction(g.key,[...g.items,...patch071Props.filter(d=>d.group===g.key),...patch082Props.filter(d=>d.group===g.key),...(g.key==='home_appliances'?refrigerators:[])].map(d=>d.key));giveFunction('digital_ad_screens',digitalScreens.map(d=>d.key));
 for(const g of patch074Groups)giveFunction(g.key,[...g.items,...patch082Props.filter(d=>d.group===g.key)].map(d=>d.key));
 for(const g of patch072Groups)giveFunction(g.key,g.items.map(d=>d.key));giveFunction('clothing_store',[...patch072Groups[0].items,...clothingItems].map(d=>d.key));
 giveFunction('advertisements',advertisements.map(a=>a.key));giveFunction('tableware',[...vessels,...cutlery,tray,teaTray].map(v=>v.key));
 mkdirSync(path.join(root,'previews'),{recursive:true});
 function sheet(keys,columns,title,file,cell=176,viewOverride){
+  if(process.env.MCPE_FOOD_NEW_PREVIEWS==='1'&&!file.startsWith('patch_090'))return;
   const rows=Math.ceil(keys.length/columns),image=canvas(columns*cell,80+rows*cell,[25,36,35,255]);
   text(image,title,20,18,2,[233,212,166,255]);
   text(image,'128PX / ACTUAL UV COLOR PREVIEW - NOT A GAME SCREENSHOT',20,48,1,[153,174,158,255]);
@@ -197,7 +256,9 @@ function sheet(keys,columns,title,file,cell=176,viewOverride){
     const art=artRecords.get(key),x=i%columns*cell,y=80+Math.floor(i/columns)*cell;
     rect(image,x+5,y+3,cell-10,cell-8,[36,48,45,255]);
     const view=(file.startsWith('patch_085')||file.startsWith('patch_082')||file.startsWith('patch_080')||file.startsWith('patch_074')||file.startsWith('patch_073')||file.startsWith('patch_072')||file.includes('rear')||file==='wall_mounts.png')?{front:true}:file.startsWith('details')||file==='patch_071_hardware.png'||modelBounds(art.cubes).high[1]>16?{}:{worldScale:cell*.033};
-    blit(image,renderDetail(art.cubes,art.textures,cell-12,cell-45,viewOverride??view),x+6,y+4);
+    const chosen=viewOverride??view;
+    const camera=file.startsWith('patch_090')&&patch090Props.find(d=>d.key===key)?.placementFront===180?{...chosen,front:!chosen.front}:chosen;
+    blit(image,renderDetail(art.cubes,art.textures,cell-12,cell-45,camera),x+6,y+4);
     const en=patch085Props.find(d=>d.key===key)?.en??patch082Props.find(d=>d.key===key)?.en??refrigerators.find(d=>d.key===key)?.en??(key===teaTray.key?teaTray.en:undefined)??electronics.find(d=>d.key===key)?.en??dishes.find(f=>f.key===key)?.en??vessels.find(v=>v.key===key)?.en??cutlery.find(v=>v.key===key)?.en??hotpots.find(v=>v.key===key)?.en??bottleProps.find(v=>v.key===key)?.en??(key==='premium_red_wine_on_wine_glass'?'Stemmed Red Wine':key);
     let line='',lineIndex=0;
     for(const word of en.toUpperCase().split(' ')){
@@ -238,7 +299,7 @@ const cover=canvas(256,256,[25,36,35,255]),burger=artRecords.get('burger');blit(
 const lines=[`# ${version} 菜品与器皿索引`,'',`${foods.length} 种可食成品，${displays.length} 种不可食展示配菜，${hotpots.length} 款静态铜锅，${vessels.length+cutlery.length+2} 种餐具，${bottleProps.length} 款酒瓶摆件。新增内容通过创造物品栏或分组试用命令获取。`,'', '| 分类 | 可食成品数 |', '|---|---|', ...Object.entries(categories).map(([key,names])=>`| ${names[0]} | ${foods.filter(f=>f.category===key).length} |`) ,'','## 菜品与展示配菜','','同类别碗盘通用；表中标注的是默认器皿。蛋挞沿用 `mcpe_food:egg_tart`。','','| 类型 | 分类 | 中文名 | ID | 默认器皿 |','|---|---|---|---|---|'];for(const f of [...dishes].sort((a,b)=>Object.keys(categories).indexOf(a.category)-Object.keys(categories).indexOf(b.category)))lines.push(`| ${f.edible?'可食':'展示'} | ${categories[f.category][0]} | ${f.zh} | \`${id(f.key)}\` | ${vessels.find(v=>v.key===f.vessel).zh} |`);lines.push('','## 餐具','','| 名称 | ID | 类别 |','|---|---|---|');for(const v of vessels)lines.push(`| ${v.zh} | \`${id(v.key)}\` | ${v.family} |`);for(const c of cutlery)lines.push(`| ${c.zh} | \`${id(c.key)}\` | 装饰 |`);lines.push(`| ${tray.zh} | ${id(tray.key)} | 三盘托盘 |`,`| ${teaTray.zh} | ${id(teaTray.key)} | 静态茶具套装 |`);lines.push('', '## 酒瓶摆件', '', '| 名称 | ID |', '|---|---|'); for(const p of bottleProps)lines.push(`| ${p.zh} | ${id(p.key)} |`); lines.push('','## 原有制作配方（保持不变）','','| 菜品/备料 | 厨具 | 材料 | 产量 |','|---|---|---|---|');for(const r of recipes)lines.push(`| ${r.zh} | ${stations.find(s=>s.key===r.station).zh} | ${r.inputs.map(i=>`${label(i.item)} ×${i.count}${i.returns?'（返还'+label(i.returns)+'）':''}`).join('、')} | ${r.output} |`);lines.push('','## 品牌纸杯摆件','','| 名称 | ID |','|---|---|');for(const p of paperCups)lines.push(`| ${p.zh} | ${id(p.key)} |`);lines.push('','## 广告画','','每幅支持三档尺寸，完整尺寸与操作见ADVERTISEMENTS.md。','','| 名称 | ID | 比例 |','|---|---|---|');for(const a of advertisements)lines.push(`| ${a.zh} | ${id(a.key)} | ${a.aspect} |`);lines.push('','## 支撑表面','','另支持原版上半砖、下半砖和双层半砖；低位桌面展示贴合下半砖。广告画只使用完整背墙。','','## 完整支撑方块','',supportBlocks.map(b=>`\`${b}\``).join('、'));lines.push('','## 电子设备','',`${electronics.length+refrigerators.length}款静态摆件；笔记本开合为独立物品，冰箱高度为1或2格。`,'','| 名称 | ID | 姿态 |','|---|---|---|');for(const d of [...electronics,...refrigerators.map(r=>({...r,pose:r.shape}))])lines.push(`| ${d.zh} | ${id(d.key)} | ${d.pose} |`);write(root,'docs/CATALOG.md',lines.join('\n')+'\n');
 patchPreviews(root,artRecords,electronics);
 json(root,'model-report.json',{version,models:modelRecords,entityModels:displayBuild.entityModels,iconSizes:Object.fromEntries(Object.entries(icons).map(([k,e])=>[k,readFileSync(path.join(RP,e.textures+'.png')).readUInt32BE(16)]))});
-json(root,'build-report.json',{version,foods:foods.length,displayDishes:displays.length,hotpots:hotpots.length,bottleProps:bottleProps.length,categories:Object.fromEntries(Object.keys(categories).map(key=>[key,foods.filter(f=>f.category===key).length])),tableware:vessels.length+cutlery.length+2,advertisements:advertisements.length,advertisementSizes:advertisements.length*3,paperCups:paperCups.length,officeStationery:creativeGroups.find(g=>g.group_identifier.name==='mcpe_food:group_office_stationery').items.length,legacyOfficeStationery:officeStationery.length,homeDecor:homeDecor.length,restaurantAccessories:restaurantAccessories.length,electronics:patch080Props.filter(d=>d.group==='electronics').length+patch073Props.filter(d=>d.group==='electronics').length+electronics.length+refrigerators.length+patch071Props.filter(d=>d.group==='electronics').length+patch072Props.filter(d=>d.group==='electronics').length,legacyElectronics:electronics.length+refrigerators.length,refrigerators:refrigerators.length,refrigeratorParts:refrigerators.reduce((n,r)=>n+r.height,0),surfaceClasses:Object.fromEntries(['full','slab','stairs','excluded'].map(k=>[k,Object.values(vanillaSurfaceClasses).filter(v=>v.kind===k).length])),entityGeometryCount:displayBuild.entityModels.length,stations:stations.length,crops:crops.length,menuRecipes:recipes.length,servingVariants:servings.length,geometryCount:modelRecords.length+displayBuild.entityModels.length,blockGeometryCount:modelRecords.length,scenarioProps:scenarioProps.length,patch071Props:patch071Props.length,patch072Props:patch072Props.length,patch073Props:patch073Props.length,governmentEquipment:governmentKeys.length,clothingItems:clothingItems.length,patch074Props:patch074Props.length,patch080Props:patch080Props.length,laboratoryEquipment:laboratoryKeys.length,patch082Props:patch082Props.length,patch085Props:patch085Props.length,newCreativeItems:patch085Items.length,clothingDisplayDefinitions:clothingVisuals.length,electronicsGroupItems:creativeGroups.find(g=>g.group_identifier.name==='mcpe_food:group_electronics').items.length,officeStationeryCommandItems:officeStationery.length+patch072Props.filter(d=>d.group==='office_stationery').length,infoScreens:infoScreens.length,trialBuild:BUILD_ID,electronicsCommandItems:patch080Props.filter(d=>d.group==='electronics').length+patch073Props.filter(d=>d.group==='electronics').length+electronics.length+refrigerators.length+patch071Props.filter(d=>d.group==='electronics').length+patch072Props.filter(d=>d.group==='electronics').length,aiWorkDevices:scenarioGroups.find(g=>g.key==='ai_work_devices').items.length+patch071Props.filter(d=>d.group==='ai_work_devices').length,digitalScreens:digitalScreens.length,pbrTextureSets:Object.keys(terrain).length+Object.keys(icons).length+displayBuild.entityTextureSets,highDetailModels:modelRecords.filter(m=>m.resolution===128).length,maxDetailCubes:Math.max(...modelRecords.filter(m=>m.resolution===128).map(m=>m.cubes)),customDestructionParticles:0,staticStatus:'pending',gameStatus:'NOT TESTED — Windows / Android / multiplayer / Vibrant Visuals'});
+json(root,'build-report.json',{version,foods:foods.length,displayDishes:displays.length,hotpots:hotpots.length,bottleProps:bottleProps.length,categories:Object.fromEntries(Object.keys(categories).map(key=>[key,foods.filter(f=>f.category===key).length])),tableware:vessels.length+cutlery.length+2,advertisements:advertisements.length,advertisementSizes:advertisements.length*3,paperCups:paperCups.length,officeStationery:creativeGroups.find(g=>g.group_identifier.name==='mcpe_food:group_office_stationery').items.length,legacyOfficeStationery:officeStationery.length,homeDecor:homeDecor.length,restaurantAccessories:restaurantAccessories.length,electronics:patch080Props.filter(d=>d.group==='electronics').length+patch073Props.filter(d=>d.group==='electronics').length+electronics.length+refrigerators.length+patch071Props.filter(d=>d.group==='electronics').length+patch072Props.filter(d=>d.group==='electronics').length,legacyElectronics:electronics.length+refrigerators.length,refrigerators:refrigerators.length,refrigeratorParts:refrigerators.reduce((n,r)=>n+r.height,0),surfaceClasses:Object.fromEntries(['full','slab','stairs','excluded'].map(k=>[k,Object.values(vanillaSurfaceClasses).filter(v=>v.kind===k).length])),entityGeometryCount:displayBuild.entityModels.length,stations:stations.length,crops:crops.length,menuRecipes:recipes.length,servingVariants:servings.length,geometryCount:modelRecords.length+displayBuild.entityModels.length,blockGeometryCount:modelRecords.length,scenarioProps:scenarioProps.length,patch071Props:patch071Props.length,patch072Props:patch072Props.length,patch073Props:patch073Props.length,governmentEquipment:governmentKeys.length,clothingItems:clothingItems.length,patch074Props:patch074Props.length,patch080Props:patch080Props.length,laboratoryEquipment:laboratoryKeys.length,patch082Props:patch082Props.length,patch085Props:patch085Props.length,patch090Items:patch090Items.length,patch090Blocks:readdirSync(path.join(BP,'blocks')).filter(f=>patch090Props.some(d=>f===d.key+'.json'||f.startsWith(d.key+'_part_'))).length,newCreativeItems:patch090Items.length,clothingDisplayDefinitions:clothingVisuals.length,electronicsGroupItems:creativeGroups.find(g=>g.group_identifier.name==='mcpe_food:group_electronics').items.length,officeStationeryCommandItems:officeStationery.length+patch072Props.filter(d=>d.group==='office_stationery').length,infoScreens:infoScreens.length,trialBuild:BUILD_ID,electronicsCommandItems:patch080Props.filter(d=>d.group==='electronics').length+patch073Props.filter(d=>d.group==='electronics').length+electronics.length+refrigerators.length+patch071Props.filter(d=>d.group==='electronics').length+patch072Props.filter(d=>d.group==='electronics').length,aiWorkDevices:scenarioGroups.find(g=>g.key==='ai_work_devices').items.length+patch071Props.filter(d=>d.group==='ai_work_devices').length,digitalScreens:digitalScreens.length,pbrTextureSets:Object.keys(terrain).length+Object.keys(icons).length+displayBuild.entityTextureSets,highDetailModels:modelRecords.filter(m=>m.resolution===128).length,maxDetailCubes:Math.max(...modelRecords.filter(m=>m.resolution===128).map(m=>m.cubes)),customDestructionParticles:0,staticStatus:'pending',gameStatus:'NOT TESTED — Windows / Android / multiplayer / Vibrant Visuals'});
 console.log(`Generated ${foods.length} edible dishes, ${displays.length} display dishes, ${hotpots.length} hotpots, ${vessels.length+cutlery.length+2} tableware, ${servings.length} serving variants.`);console.log('128px UV previews: previews/menu.png, tableware.png, hotpot.png, details.png');
 
 await import('./service-previews.mjs');
@@ -275,4 +336,9 @@ const repairedMedical=patch085Props.slice(-9).map(d=>d.key);
 sheet(repairedMedical,3,'0.8.6 ICU DEVICES / FRONT','patch_086_medical_front.png',300,{front:true});
 sheet(repairedMedical,3,'0.8.6 ICU DEVICES / REAR','patch_086_medical_rear.png',300,{});
 write(root,'docs/CATALOG.md',readFileSync(path.join(root,'docs/CATALOG.md'),'utf8')+'\n\n## 0.8.5 医疗器械新品（22件）\n\n'+patch085Props.map(d=>'- '+d.zh+' / '+id(d.key)).join('\n')+'\n');
+sheet(patch090Props.map(d=>d.key),4,'0.9.0 CANDIDATE','patch_090.png',260,{front:true});
+sheet(patch090Props.map(d=>d.key),4,'0.9.0 REAR','patch_090_rear.png',260,{});
+await import('./patch-091-previews.mjs');
+if(version==='0.9.2')await import('./patch-092-review.mjs');
+if(version==='0.9.3')await import('./patch-093-review.mjs');
 const {optimizeRelease}=await import('./optimize-release.mjs');optimizeRelease();

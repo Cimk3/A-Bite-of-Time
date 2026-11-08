@@ -1,5 +1,10 @@
 import {patch082ById} from './patch-082-catalog.js';
-import {patch085ById,patch085MultiGrid} from './patch-085-catalog.js';
+import {patch085ById,patch085MultiGrid as oldMultiGrid} from './patch-085-catalog.js';
+import {patch090ById,patch090PartId,patch090Props} from './patch-090-catalog.js';
+import {patch090Cells,nativeRight} from './patch-090-grid.js';
+import {whole090Keys} from './patch-093-render.js';
+import {facingPlayer,nativePartIndex,oppositeDirection,seatLocal,slotLocal} from './patch-092-layout.js';
+import type {GridDirection} from './patch-090-grid.js';
 import {patch080ById,ceilingDisplayKey} from './patch-080-catalog.js';
 import {patch074ById} from './patch-074-catalog.js';
 import {patch073ById} from './patch-073-catalog.js';
@@ -22,18 +27,21 @@ import {isWallSupport,surfaceHeight} from './supports.js';
 
 export interface DecorRecord {
   version:1; uid:string; revision:number; dimension:string; support:Vector3;
-  kind:'surface'|'tray'|'ad'|'appliance'|'digital_ad'|'clothing_rack'; wallFace?:string; mount?:'ceiling'; definition:string; direction:string; native:boolean; yaw?:number; tableNumber?:number;
-  slots:(string|null)[]; art?:AdKey; size?:number;
+  kind:'surface'|'tray'|'ad'|'appliance'|'digital_ad'|'clothing_rack'|'solid090'; wallFace?:string; mount?:'ceiling'; definition:string; direction:string; native:boolean; yaw?:number; tableNumber?:number;
+  slots:(string|null)[]; art?:AdKey; size?:number; modelRevision?:1;
+  nativeFacing?:'normal'|'reversed'; nativePending?:true; nativeGrid?:1;
 }
 interface Snapshot {originals:(ItemStack|undefined)[];slots:Slots}
 interface IO {
   inventory(p:Player):Container|undefined;snapshot(c:Container):Snapshot;commit(c:Container,b:Snapshot,a:Slots):void;
   notify(p:Player,zh:string,en:string):void;sessions:MenuSessions;
 }
+const patch085MultiGrid=new Map([...oldMultiGrid,...patch090Props.filter(d=>(d.kind==='surface'||d.key==='cafe_toppings')&&d.footprint).map(d=>[id(d.key),d] as const)]);
 let io:IO;
 const PREFIX='mcpe_food:decor:',records=new Map<string,DecorRecord>(),locks=new Set<string>(),cooldowns=new Map<string,number>();
 // Derived spatial index only; persisted v1 records remain the source of truth.
 const occupancy=new Map<string,Set<string>>(),recordCells=new Map<string,string[]>();
+const activeSeats=new Map<string,Entity>();
 const loadedEntities=new Map<string,Entity>(),dirtyOwners=new Set<string>();
 let loading=true,loadGeneration=0,recordCursor=records.values();
 const cellKey=(dimension:string,p:Vector3)=>`${dimension}:${p.x},${p.y},${p.z}`;
@@ -80,6 +88,12 @@ function save(r:DecorRecord):void {world.setDynamicProperty(storageKey(r),JSON.s
 function unique():string {const n=Number(world.getDynamicProperty('mcpe_food:decor_serial')??0)+1;world.setDynamicProperty('mcpe_food:decor_serial',n);return `d${n}`;}
 function near(p:Player,r:DecorRecord):boolean {
   if(loading||!p.isValid||p.dimension.id!==r.dimension)return false;
+  if(r.kind==='solid090'){
+    const cells=occupiedCells(r);
+    if(!cells.length)return false;
+    const distance=(axis:'x'|'y'|'z')=>Math.max(Math.min(...cells.map(c=>c[axis]))-p.location[axis],0,p.location[axis]-Math.max(...cells.map(c=>c[axis]+1)));
+    return Math.hypot(distance('x'),distance('y'),distance('z'))<7;
+  }
   if(isPanel(r)){
     const[w,h]=panelSize(r),right=rights[r.direction]!,normal=normals[r.direction]!;
     const d={x:p.location.x-r.support.x-.5,y:p.location.y-r.support.y,z:p.location.z-r.support.z-.5};
@@ -104,6 +118,23 @@ function surfaceValid(r:DecorRecord):boolean|undefined {
   if(r.mount==='ceiling')return ceilingFits(r);
   if(isPanel(r))return adFits(r);
   const b=safeBlock(r);if(!b)return undefined;
+  if(r.kind==='solid090'){
+    const spec=patch090ById.get(r.definition);
+    if(!spec||spec.kind!=='solid')return false;
+    if(r.nativePending)return undefined;
+    const cells=patch090Cells(spec,r.support,r.direction as GridDirection,r.nativeGrid!==1);
+    let missing=false,invalid=surfaceHeight(b)!==1;
+    for(const [i,p] of cells.entries()){
+      const part=safeBlock(r,p);
+      if(!part){missing=true;continue;}
+      if(part.typeId!==patch090PartId(spec,nativePartIndex(spec,i,r.nativeFacing==='reversed',r.direction as GridDirection))||part.permutation.getState('minecraft:cardinal_direction')!==nativeDirection(r))invalid=true;
+      if(p.y===r.support.y+1){
+        const support=safeBlock(r,add(p,{x:0,y:-1,z:0}));
+        if(!support)missing=true;else if(surfaceHeight(support)!==1)invalid=true;
+      }
+    }
+    return missing?undefined:!invalid;
+  }
   if(r.kind==='appliance'){
     if(surfaceHeight(b)!==1)return false;
     for(const [i,p]of applianceCells(r).entries()){const part=safeBlock(r,p);if(!part)return undefined;if(part.typeId!==(i===0?r.definition:r.definition+'_upper')||part.permutation.getState('minecraft:cardinal_direction')!==r.direction)return false;}
@@ -157,6 +188,10 @@ function occupiedCells(r:DecorRecord):Vector3[]{
   if(r.mount==='ceiling')return ceilingSupports(r).flatMap(p=>[add(p,{x:0,y:-1,z:0}),add(p,{x:0,y:-2,z:0})]);
   if(isPanel(r)){const n=normals[r.wallFace??r.direction];return n?posterCells(r).map(p=>add(p,n)):[];}
   if(r.kind==='appliance')return applianceCells(r);
+  if(r.kind==='solid090'){
+    const spec=patch090ById.get(r.definition);
+    return spec?patch090Cells(spec,r.support,r.direction as GridDirection,r.nativeGrid!==1):[];
+  }
   const footprint=patch085MultiGrid.get(r.definition);
   if(footprint){const height=Math.max(1,Math.ceil(scenarioById.get(r.definition)?.height??1));return multiSupports(r).flatMap(s=>Array.from({length:height},(_,i)=>add(s,{x:0,y:i+1,z:0})));}
   // Catalog heights are integral; full/slab/stair tops occupy the same cells.
@@ -190,7 +225,7 @@ function visual(r:DecorRecord,type:string,part:string,index:number,position:Vect
   }
   if(r.kind==='ad'&&entity.getProperty('mcpe_food:size')!==(r.size??0))entity.setProperty('mcpe_food:size',r.size??0);
   // Explicit facing is display-only: saved direction, yaw and revision stay intact.
-  const explicit=!!r.wallFace||r.kind==='digital_ad'||r.definition===id('supermarket_checkout')||patch072ById.has(r.definition)||patch073ById.has(r.definition)||patch074ById.has(r.definition)||patch080ById.has(r.definition)||patch082ById.has(r.definition)||patch085ById.has(r.definition)||r.kind==='clothing_rack';
+  const explicit=!!r.wallFace||r.kind==='digital_ad'||r.definition===id('supermarket_checkout')||patch072ById.has(r.definition)||patch073ById.has(r.definition)||patch074ById.has(r.definition)||patch080ById.has(r.definition)||patch082ById.has(r.definition)||patch085ById.has(r.definition)||patch090ById.has(r.definition)||r.kind==='clothing_rack';
   if(type!=='mcpe_food:advert_display'&&type!=='mcpe_food:tray_food_display'){
     const code=explicit?(isPanel(r)?displayFacing(r.wallFace??r.direction):facingFromYaw(r.yaw??yaw[r.direction]??0)):0;
     if(entity.getProperty('mcpe_food:display_facing')!==code)entity.setProperty('mcpe_food:display_facing',code);
@@ -202,12 +237,14 @@ function visual(r:DecorRecord,type:string,part:string,index:number,position:Vect
   if(!found||!same(entity.location,position)||entity.getDynamicProperty('mcpe_food:yaw')!==facing){entity.teleport(position,{rotation:{x:0,y:facing}});entity.setDynamicProperty('mcpe_food:yaw',facing);}return entity;
 }
 export function synchronize(r:DecorRecord):void {
+  if(r.kind==='solid090'&&r.nativePending&&!repairNative(r))return;
   if(surfaceValid(r)===true)synchronizeValidated(r);
 }
 
 /** Only call after successful support validation in the same synchronous operation. */
 function synchronizeValidated(r:DecorRecord):void {
   if(r.kind==='appliance')return;
+  if(r.kind==='solid090'){syncSolidWhole(r);syncSolidSlots(r);syncSolidSeats(r);return;}
   const wanted=new Set<string>(),entities=visuals(r);
   if(r.mount==='ceiling'){
     const right=rights[r.direction]!;visual(r,'mcpe_food:surface_display','base',surfaceIndex.get(r.definition)!,add({x:r.support.x+.5,y:r.support.y-2,z:r.support.z+.5},right,.5),entities);wanted.add('base');
@@ -252,7 +289,7 @@ function change(p:Player,old:DecorRecord,next:DecorRecord,plan:Plan):boolean {
 }
 function drops(r:DecorRecord):string[] {
   if(r.kind==='ad')return [id(r.art!)];
-  if(r.kind==='clothing_rack')return [r.definition,...r.slots.filter((s):s is string=>!!s)];
+  if(r.kind==='clothing_rack'||r.kind==='solid090')return [r.definition,...r.slots.filter((s):s is string=>!!s)];
   if(r.kind==='tray')return [id(tray.key),...r.slots.filter((s):s is string=>!!s)];
   const serving=foodByServing.get(r.definition);return serving?[id(serving.vessel.key),id(serving.food.key)]:[r.definition];
 }
@@ -260,12 +297,20 @@ export function removeDecor(requested:DecorRecord,drop:boolean):void {
   const r=records.get(requested.uid);if(!r||locks.has(r.uid))return;locks.add(r.uid);
   const spawned:Entity[]=[],changed:{block:Block;permutation:Block['permutation']}[]=[];
   try {
+    if(r.kind==='solid090'&&occupiedCells(r).some(p=>!safeBlock(r,p)))return;
     if(r.kind==='appliance'){
       const cells=applianceCells(r);
       for(const child of [...records.values()])if(child.uid!==r.uid&&child.dimension===r.dimension&&((child.kind!=='ad'&&cells.some(p=>same(p,child.support)))||(isPanel(child)&&posterCells(child).some(p=>cells.some(c=>same(p,c))))))removeDecor(child,drop);
     }
     if(drop)for(const key of drops(r))spawned.push(dim(r).spawnItem(new ItemStack(key),{x:r.support.x+.5,y:r.support.y+(r.mount==='ceiling'?-1:1),z:r.support.z+.5}));
     if(r.kind==='appliance')for(const[i,p]of applianceCells(r).entries()){const block=safeBlock(r,p);if(block?.typeId===(i===0?r.definition:r.definition+'_upper')){changed.push({block,permutation:block.permutation});block.setPermutation(BlockPermutation.resolve('minecraft:air'));}}
+    if(r.kind==='solid090'){
+      const spec=patch090ById.get(r.definition);
+      if(spec)for(const p of occupiedCells(r)){
+        const block=safeBlock(r,p);
+        if(block&&nativeOwned(spec.key,block.typeId)){changed.push({block,permutation:block.permutation});block.setPermutation(BlockPermutation.resolve('minecraft:air'));}
+      }
+    }
     if(r.native&&safeBlock(r,anchor(r))?.typeId===id(tray.key))safeBlock(r,anchor(r))!.setPermutation(BlockPermutation.resolve('minecraft:air'));
     world.setDynamicProperty(storageKey(r));forgetRecord(r.uid);for(const e of visuals(r))e.remove();
   }catch(error){for(const e of spawned)if(e.isValid)e.remove();for(const c of changed)c.block.setPermutation(c.permutation);if(r.kind==='tray'&&r.native&&safeBlock(r,anchor(r)))safeBlock(r,anchor(r))!.setPermutation(BlockPermutation.resolve(id(tray.key),{'minecraft:cardinal_direction':r.direction}));save(r);throw error;}finally{locks.delete(r.uid);}
@@ -351,6 +396,7 @@ function createWall(p:Player,block:Block,definition:string,face:string):void{
   try{save(r);io.commit(c,before,plan.slots);synchronize(r);}catch(error){restore(c,before);if(records.has(r.uid))removeDecor(r,false);throw error;}
 }
 function surfaceInteract(p:Player,r:DecorRecord):void|Promise<void> {
+  if(r.kind==='solid090')return solid090Interact(p,r);
   if(r.kind==='clothing_rack')return clothingMenu(p,r);
   if(scenarioById.has(r.definition)||r.wallFace||r.kind==='digital_ad'||['mcpe_food:landscape_frame','mcpe_food:table_clock'].includes(r.definition))return staticMenu(p,r);
   if(!click(p,r.uid)||!assertCurrent(p,r))return;const c=io.inventory(p);if(!c)return;
@@ -389,7 +435,8 @@ function createSurface(p:Player,support:Block,definition:string):void {
   const height=surfaceHeight(support),c=io.inventory(p);if(definition===id(ceilingDisplayKey)||scenarioById.get(definition)?.wallOnly||!height||!c||recordAtSurfaceSupport(support.dimension.id,support.location))return;
   const r:DecorRecord={version:1,uid:unique(),revision:0,dimension:support.dimension.id,support:{...support.location},kind:rackById.has(definition)?'clothing_rack':definition===id(tray.key)?'tray':'surface',definition,direction:direction(p),native:definition===id(tray.key)&&height===1,slots:Array.from({length:rackById.get(definition)?.capacity??3},()=>null)};
   r.yaw=screenYaw(definition,{x:support.location.x+.5,z:support.location.z+.5},p.location,p.getRotation().y);
-  if(patch085ById.has(definition)&&r.yaw!==undefined)r.direction=directionByFacing[facingFromYaw(r.yaw)]??r.direction;
+  if(patch090ById.get(definition)?.placementFront===180)r.modelRevision=1;
+  if((patch085ById.has(definition)||patch090ById.has(definition))&&r.yaw!==undefined)r.direction=directionByFacing[facingFromYaw(r.yaw)]??r.direction;
   if(!near(p,r)||surfaceValid({...r,native:false})!==true)return;const before=io.snapshot(c),plan=isCreative(p)?{ok:true as const,slots:before.slots}:planServe(before.slots,p.selectedSlotIndex,definition);if(!plan.ok)return;
   // Publish the owner first: an engine onPlace callback must reuse this same
   // instance rather than creating a second persistent tray at the same anchor.
@@ -401,6 +448,143 @@ export function nativeTray(block:Block):DecorRecord {
   const r:DecorRecord={version:1,uid:unique(),revision:0,dimension:block.dimension.id,support:{...support.location},kind:'tray',definition:id(tray.key),direction:String(block.permutation.getState('minecraft:cardinal_direction')??'north'),native:true,slots:[null,null,null]};save(r);return r;
 }
 export function applianceCells(r:DecorRecord):Vector3[]{return Array.from({length:refrigeratorById.get(r.definition)?.height??1},(_,i)=>add(r.support,{x:0,y:1,z:0},i+1));}
+
+function slotVisualIndex(key:string):number|undefined {
+ const direct=surfaceIndex.get(key)??surfaceIndex.get(id('slot_icon_'+key.replace('mcpe_food:','')));if(direct!==undefined)return direct;
+ const food=foodById.get(key);return food?surfaceIndex.get(id(servingKey(food,food.vessel))):adById.has(key)?advertisements.findIndex(d=>id(d.key)===key):undefined;
+}
+function solidLocal(r:DecorRecord,x:number,y:number,z:number):Vector3 {
+ if(r.nativeFacing==='reversed'){const spec=patch090ById.get(r.definition)!;if(r.direction==='north'||r.direction==='south')x=spec.size[0]-1-x;z=spec.size[1]-1-z;}
+ return add(add({x:r.support.x+.5,y:r.support.y+1+y,z:r.support.z+.5},nativeRight(r.direction as GridDirection,r.nativeGrid!==1),x),normals[r.direction]!,-z);
+}
+function nativeDirection(r:DecorRecord):string {return r.nativeFacing==='reversed'?oppositeDirection[r.direction as GridDirection]:r.direction;}
+function syncSolidWhole(r:DecorRecord):void {
+ const spec=patch090ById.get(r.definition);if(!spec||!whole090Keys.has(spec.key))return;
+ const position=solidLocal(r,(spec.size[0]-1)/2,0,(spec.size[1]-1)/2),n=normals[nativeDirection(r)]!;
+ const angle=screenYaw(r.definition,position,add(position,n),0)!;
+ visual({...r,yaw:angle},'mcpe_food:surface_display','whole',surfaceIndex.get(r.definition)!,position,visuals(r));
+}
+function nativeOwned(key:string,type:string):boolean {return type.startsWith(id(key)+'_part_')&&/^\d+$/.test(type.slice((id(key)+'_part_').length));}
+/** Deferred until all original cells are loaded; preserve content and the footprint. */
+function repairNative(r:DecorRecord):boolean {
+ if(!r.nativePending)return true;
+ const spec=patch090ById.get(r.definition);if(!spec)return false;
+ const blocks=occupiedCells(r).map(p=>safeBlock(r,p));
+ if(blocks.some(b=>!b))return false;
+ if(blocks.some(b=>!nativeOwned(spec.key,b!.typeId))){r.nativePending=undefined;save(r);return true;}
+ const old=blocks.map(b=>b!.permutation);
+ try{
+  const next=blocks.map((_,i)=>BlockPermutation.resolve(patch090PartId(spec,nativePartIndex(spec,i,true,r.direction as GridDirection)),{'minecraft:cardinal_direction':nativeDirection(r)}));
+  blocks.forEach((b,i)=>b!.setPermutation(next[i]!));
+  r.nativePending=undefined;r.revision++;save(r);return true;
+ }catch(error){
+  blocks.forEach((b,i)=>{try{b!.setPermutation(old[i]!);}catch{}});
+  r.nativePending=true;console.warn(`[Food & Table] native repair deferred: ${String(error)}`);return false;
+ }
+}
+function seatPosition(r:DecorRecord,i:number):Vector3 {const p=seatLocal(patch090ById.get(r.definition)!,i);return solidLocal(r,p.x,p.y,p.z);}
+function seatYaw(r:DecorRecord,i:number):number {
+ const n=normals[nativeDirection(r)]!;
+ return cardinalYaw(Math.atan2(-n.x,n.z)*180/Math.PI+(r.definition===id('cafe_booth')?(i<2?-90:90):0));
+}
+function syncSolidSeats(r:DecorRecord):void {
+ const count=patch090ById.get(r.definition)?.seats;if(!count)return;
+ for(const e of visuals(r)){
+  const part=String(e.getDynamicProperty('mcpe_food:part')),i=Number(part.slice(4));
+  if(e.typeId==='mcpe_food:seat090_display'&&/^seat\d+$/.test(part)&&i<count){const p=seatPosition(r,i);if(!same(e.location,p)||e.getRotation().y!==seatYaw(r,i))e.teleport(p,{rotation:{x:0,y:seatYaw(r,i)}});}
+ }
+}
+function syncSolidSlots(r:DecorRecord):void {
+ const spec=patch090ById.get(r.definition);if(!spec?.slots)return;
+ const entities=visuals(r),wanted=new Set<string>();
+ for(const [i,key] of r.slots.entries()){
+  if(!key)continue;const index=slotVisualIndex(key);if(index===undefined)continue;
+  const local=slotLocal(spec,i),name='slot'+i,position=solidLocal(r,local.x,local.y,local.z),n=normals[nativeDirection(r)]!;
+  const angle=screenYaw(key,position,add(position,n),0)??cardinalYaw(Math.atan2(-n.x,n.z)*180/Math.PI-180);
+  const e=visual({...r,definition:key,yaw:angle},adById.has(key)?'mcpe_food:advert_display':'mcpe_food:surface_display',name,index,position,entities);
+  e.triggerEvent('mcpe_food:slot_scale');wanted.add(name);
+ }
+ for(const e of entities)if(String(e.getDynamicProperty('mcpe_food:part')).startsWith('slot')&&!wanted.has(String(e.getDynamicProperty('mcpe_food:part'))))e.remove();
+}
+async function solid090Interact(p:Player,r:DecorRecord):Promise<void> {
+ if(!assertCurrent(p,r))return;
+ const spec=patch090ById.get(r.definition)!;
+ if(spec.slots){
+  const c=io.inventory(p);if(!c||!click(p,r.uid))return;
+  const selected=p.selectedSlotIndex,hand=c.getItem(selected),token=io.sessions.begin(p.id);if(token===undefined)return;
+  try{
+   if(hand&&(!hand.isStackableWith(new ItemStack(hand.typeId))||slotVisualIndex(hand.typeId)===undefined||patch090ById.get(hand.typeId)?.slots||patch090ById.get(hand.typeId)?.kind==='wall'||hand.typeId===id('asml_lithography')||spec.key==='cafe_pastry_case'&&!foodById.has(hand.typeId))){
+    io.notify(p,'该物品暂不支持放入此展示柜。','This item cannot be displayed here.');return;
+   }
+   const form=new ActionFormData().title(spec.zh);
+   for(let i=0;i<spec.slots;i++)form.button((i+1)+' · '+(r.slots[i]?(foodById.get(r.slots[i]!)?.zh??tableItemById.get(r.slots[i]!)?.zh??r.slots[i]!.replace('mcpe_food:','')):'空位'));
+   if(!hand)form.button('收回整件及内容');
+   const answer=await form.show(p),i=answer.selection;
+   if(answer.canceled||i===undefined||!io.sessions.claim(p.id,token)||!assertCurrent(p,r)||p.selectedSlotIndex!==selected)return;
+   const current=c.getItem(selected);if(current?.typeId!==hand?.typeId||current&&!current.isStackableWith(new ItemStack(current.typeId)))return;
+   const before=io.snapshot(c);
+   if(i===spec.slots&&!hand){
+    let slots=before.slots;
+    for(const key of [r.definition,...r.slots.filter((v):v is string=>!!v)]){
+     const plan=planInsert(slots,key,1,new ItemStack(key).maxAmount);if(!plan.ok)return;slots=plan.slots;
+    }
+    try{io.commit(c,before,slots);removeDecor(r,false);}catch(error){restore(c,before);throw error;}return;
+   }
+   if(i<0||i>=spec.slots)return;
+   const next=copy(r);next.revision++;
+   if(hand){if(r.slots[i])return;next.slots[i]=hand.typeId;change(p,r,next,planServe(before.slots,selected,hand.typeId));}
+   else{const key=r.slots[i];if(!key)return;next.slots[i]=null;change(p,r,next,planInsert(before.slots,key,1,new ItemStack(key).maxAmount));}
+  }finally{io.sessions.finish(p.id,token);}
+  return;
+ }
+ if(spec.seats&&!p.isSneaking){
+  const entities=visuals(r);
+  if(entities.some(e=>e.typeId==='mcpe_food:seat090_display'&&e.getComponent('minecraft:rideable')?.getRiders().some(rider=>rider.id===p.id)))return;
+  for(let i=0;i<spec.seats;i++){
+   if(entities.some(e=>e.getDynamicProperty('mcpe_food:part')==='seat'+i))continue;
+   const position=seatPosition(r,i);
+   const e=dim(r).spawnEntity('mcpe_food:seat090_display',position);
+   e.setDynamicProperty('mcpe_food:owner',r.uid);e.setDynamicProperty('mcpe_food:part','seat'+i);
+   e.teleport(position,{rotation:{x:0,y:seatYaw(r,i)}});
+   if(!e.getComponent('minecraft:rideable')?.addRider(p))e.remove();else activeSeats.set(e.id,e);
+   return;
+  }
+  return;
+ }
+ await staticMenu(p,r);
+}
+function createSolid090(p:Player,support:Block,definition:string):void {
+  const spec=patch090ById.get(definition),container=io.inventory(p);
+  if(!spec||spec.kind!=='solid'||!container||!isCreative(p)||surfaceHeight(support)!==1)return;
+  const selected=p.selectedSlotIndex;
+  if(container.getItem(selected)?.typeId!==definition)return;
+  const r:DecorRecord={version:1,uid:unique(),revision:0,dimension:support.dimension.id,
+    support:{...support.location},kind:'solid090',definition,direction:facingPlayer(p.location,support.location,p.getRotation().y),native:false,nativeFacing:'normal',nativeGrid:1,slots:Array(spec.slots??0).fill(null)};
+  if(!near(p,r)||overlaps(r))return;
+  const positions=occupiedCells(r),blocks=positions.map(pos=>safeBlock(r,pos));
+  if(blocks.some(block=>!empty(block)))return;
+  for(const pos of positions.filter(pos=>pos.y===r.support.y+1)){
+    if(surfaceHeight(safeBlock(r,add(pos,{x:0,y:-1,z:0})))!==1)return;
+  }
+  const original=blocks.map(block=>block!.permutation);
+  // Resolve every component before publishing ownership or changing the world.
+  // Unknown part IDs/states must never leave a half-written structure behind.
+  const permutations=positions.map((_,i)=>{
+    const part=patch090PartId(spec,i);
+    try{return BlockPermutation.resolve(part,{'minecraft:cardinal_direction':r.direction});}
+    catch(error){throw new Error(`部件未注册 / Unregistered part: ${part}; ${String(error)}`);}
+  });
+  try{
+    save(r);
+    blocks.forEach((block,i)=>block!.setPermutation(permutations[i]!));
+    if(whole090Keys.has(spec.key))synchronize(r);
+  }catch(error){
+    for(const e of visuals(r))e.remove();
+    blocks.forEach((block,i)=>block!.setPermutation(original[i]!));
+    world.setDynamicProperty(storageKey(r));forgetRecord(r.uid);
+    throw error;
+  }
+}
 function createAppliance(p:Player,support:Block,definition:string):void {
   const info=refrigeratorById.get(definition),c=io.inventory(p);if(!info||!c||surfaceHeight(support)!==1||recordForSupport(support.dimension.id,support.location))return;
   const r:DecorRecord={version:1,uid:unique(),revision:0,dimension:support.dimension.id,support:{...support.location},kind:'appliance',definition,direction:direction(p),native:false,slots:[]};
@@ -435,11 +619,23 @@ export function migrateLowSurface(block:Block):void {
   try{block.setPermutation(BlockPermutation.resolve('minecraft:air'));save(next);synchronize(next);}catch(error){block.setPermutation(old);if(existing)save(existing);else{world.setDynamicProperty(storageKey(next));forgetRecord(next.uid);}throw error;}
 }
 function posterAt(block:Block,face:string):DecorRecord|undefined {return [...records.values()].find(r=>isPanel(r)&&r.dimension===block.dimension.id&&r.direction===face&&posterCells(r).some(p=>same(p,block.location)));}
-function run(p:Player,work:()=>void|Promise<void>):void {system.run(()=>{Promise.resolve().then(work).catch(error=>{console.warn(`[Food & Table] decor: ${String(error)}`);if(p.isValid)io.notify(p,'操作未完成，请重试。','Operation could not complete; please retry.');});});}
+function run(p:Player,work:()=>void|Promise<void>):void {system.run(()=>{Promise.resolve().then(work).catch(error=>{const detail=String(error);console.warn(`[Food & Table] decor: ${error instanceof Error?error.stack??detail:detail}`);if(p.isValid)io.notify(p,`操作未完成：${detail.slice(0,180)}`,`Operation failed: ${detail.slice(0,180)}`);});});}
 export function handleDecorBlock(event:PlayerInteractWithBlockBeforeEvent):boolean {
   // Do not publish new records or run vanilla interactions against a partial index.
   if(loading){event.cancel=true;return true;}
   const p=event.player,block=event.block,face=String(event.blockFace).toLowerCase(),c=io.inventory(p),hand=c?.getItem(p.selectedSlotIndex),ad=hand&&adById.get(hand.typeId);
+  if(hand&&patch090ById.get(hand.typeId)?.kind==='solid'&&face==='up'){
+    event.cancel=true;
+    if(event.isFirstEvent){const definition=hand.typeId;run(p,()=>createSolid090(p,block,definition));}
+    return true;
+  }
+  const solid090=[...(occupancy.get(cellKey(block.dimension.id,block.location))??[])]
+    .map(uid=>records.get(uid)).find(r=>r?.kind==='solid090');
+  if(solid090){
+    event.cancel=true;
+    if(event.isFirstEvent)run(p,()=>solid090Interact(p,copy(solid090)));
+    return true;
+  }
   if(hand?.typeId===id(ceilingDisplayKey)){event.cancel=true;if(face==='down'&&event.isFirstEvent){const selected=p.selectedSlotIndex;run(p,()=>{if(p.selectedSlotIndex===selected&&io.inventory(p)?.getItem(selected)?.typeId===id(ceilingDisplayKey))createCeiling(p,block);});}return true;}
   const ceiling=face==='down'?[...records.values()].find(r=>r.mount==='ceiling'&&r.dimension===block.dimension.id&&ceilingSupports(r).some(c=>same(c,block.location))):undefined;
   if(ceiling){event.cancel=true;if(!hand&&event.isFirstEvent)run(p,()=>staticMenu(p,copy(ceiling)));return true;}
@@ -477,6 +673,7 @@ export function reconcileDecor():void {
     if(!r){let next=recordCursor.next();if(next.done){recordCursor=records.values();next=recordCursor.next();}r=next.value;}
     if(!r)break;
     try{
+      if(r.kind==='solid090'&&r.nativePending&&!repairNative(r))continue;
       const valid=surfaceValid(r);if(valid===undefined)continue;
       if(r.native&&surfaceHeight(safeBlock(r))===.5&&safeBlock(r,anchor(r))?.typeId===id(tray.key)){migrateLowSurface(safeBlock(r,anchor(r))!);continue;}
       if(!valid){removeDecor(r,true);continue;}synchronizeValidated(r);
@@ -492,6 +689,13 @@ export function loadDecorRecords():void {
     for(let n=0;n<8&&offset<keys.length;n++){
       const key=keys[offset++]!;if(!key.startsWith(PREFIX))continue;
       try{const r=JSON.parse(String(world.getDynamicProperty(key))) as DecorRecord;if(r.version===1&&r.uid&&r.support){
+        if(r.kind==='solid090'&&!r.nativeFacing){r.nativeFacing='reversed';r.nativePending=true;r.revision++;world.setDynamicProperty(storageKey(r),JSON.stringify(r));}
+        if(r.kind==='surface'&&patch090ById.get(r.definition)?.placementFront===180&&r.modelRevision!==1){
+          // Preserve the old footprint and centre; only the corrected model's
+          // facing basis changes, exactly once across subsequent reloads.
+          r.yaw=cardinalYaw((r.yaw??yaw[r.direction]??0)+180);r.modelRevision=1;r.revision++;
+          world.setDynamicProperty(storageKey(r),JSON.stringify(r));
+        }
         if(r.kind==='surface'&&electronicsById.has(r.definition)&&Number.isFinite(r.yaw)){const snapped=cardinalYaw(r.yaw!);if(snapped!==r.yaw){r.yaw=snapped;r.revision++;world.setDynamicProperty(storageKey(r),JSON.stringify(r));}}
         rememberRecord(r);
       }}catch{console.warn(`[Food & Table] invalid decor record ${key}`);}
@@ -523,19 +727,25 @@ export function installDecor(adapter:IO):void {
   });
   world.beforeEvents.playerBreakBlock.subscribe(event=>{
     if(loading){event.cancel=true;return;}
-    const candidates=[...records.values()].filter(r=>r.dimension===event.block.dimension.id&&((r.kind==='appliance'&&applianceCells(r).some(p=>same(p,event.block.location)))||(r.native&&same(anchor(r),event.block.location))||(isPanel(r)&&posterCells(r).some(p=>same(p,event.block.location)))));
-    const supportLost=[...records.values()].filter(r=>!candidates.some(c=>c.uid===r.uid)&&r.dimension===event.block.dimension.id&&(r.mount==='ceiling'?ceilingSupports(r).some(p=>same(p,event.block.location)):patch085MultiGrid.has(r.definition)?multiSupports(r).some(p=>same(p,event.block.location)):same(r.support,event.block.location)));
+    const candidates=[...records.values()].filter(r=>r.dimension===event.block.dimension.id&&(((r.kind==='appliance'||r.kind==='solid090')&&occupiedCells(r).some(p=>same(p,event.block.location)))||(r.native&&same(anchor(r),event.block.location))||(isPanel(r)&&posterCells(r).some(p=>same(p,event.block.location)))));
+    const supportLost=[...records.values()].filter(r=>!candidates.some(c=>c.uid===r.uid)&&r.dimension===event.block.dimension.id&&(r.mount==='ceiling'?ceilingSupports(r).some(p=>same(p,event.block.location)):r.kind==='solid090'?occupiedCells(r).some(p=>p.y===r.support.y+1&&same(add(p,{x:0,y:-1,z:0}),event.block.location)):patch085MultiGrid.has(r.definition)?multiSupports(r).some(p=>same(p,event.block.location)):same(r.support,event.block.location)));
     if(!candidates.length&&!supportLost.length)return;if(candidates.some(r=>!isPanel(r)))event.cancel=true;
-    run(event.player,()=>{for(const r of [...candidates,...supportLost])if(near(event.player,r))removeDecor(r,!isCreative(event.player));});
+    run(event.player,()=>{for(const r of [...candidates,...supportLost])if(near(event.player,r))removeDecor(r,!isCreative(event.player)||(r.kind==='solid090'&&r.slots.some(Boolean)));});
   });
   world.afterEvents.entityHitEntity.subscribe(event=>{
     if(loading)return;
-    if(!event.hitEntity.isValid||event.damagingEntity.typeId!=='minecraft:player')return;const owner=event.hitEntity.getDynamicProperty('mcpe_food:owner'),r=records.get(String(owner));if(r)removeDecor(r,!isCreative(event.damagingEntity as Player));
+    if(!event.hitEntity.isValid||event.damagingEntity.typeId!=='minecraft:player')return;const owner=event.hitEntity.getDynamicProperty('mcpe_food:owner'),r=records.get(String(owner));if(r)removeDecor(r,!isCreative(event.damagingEntity as Player)||(r.kind==='solid090'&&r.slots.some(Boolean)));
   });
   world.afterEvents.entityLoad.subscribe(({entity})=>{
     if(!entity.typeId.startsWith('mcpe_food:')||!entity.typeId.endsWith('_display'))return;
+    if(entity.typeId==='mcpe_food:seat090_display')activeSeats.set(entity.id,entity);
     loadedEntities.set(entity.id,entity);
   });
+  system.runInterval(()=>{
+   for(const [key,e] of activeSeats){
+    try{if(!e.isValid||!e.getComponent('minecraft:rideable')?.getRiders().length){if(e.isValid)e.remove();activeSeats.delete(key);}}catch{activeSeats.delete(key);}
+   }
+  },20);
   system.runInterval(maintainDecor,1);
   system.runInterval(()=>{for(const[k,t]of cooldowns)if(system.currentTick-t>200)cooldowns.delete(k);},200);
 }

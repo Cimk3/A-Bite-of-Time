@@ -1,0 +1,1 @@
+{"format_version":"1.21.90","minecraft:item":{"description":{"identifier":"mcpe_food:park_bench","menu_category":{"category":"items","group":"mcpe_food:group_park"}},"components":{"minecraft:display_name":{"value":"item.mcpe_food:park_bench.name"},"minecraft:icon":"mcpe_food_park_bench","minecraft:max_stack_size":64}}}

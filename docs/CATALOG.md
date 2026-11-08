@@ -1,4 +1,4 @@
-# 0.8.6 菜品与器皿索引
+# 0.9.3 菜品与器皿索引
 
 102 种可食成品，8 种不可食展示配菜，2 款静态铜锅，15 种餐具，3 款酒瓶摆件。新增内容通过创造物品栏或分组试用命令获取。
 
@@ -421,6 +421,18 @@
 - 电子广告屏 · FT电脑 6×5 / mcpe_food:digital_ft_computer_6x5
 - 电子广告屏 · Apple 6×5 / mcpe_food:digital_apple_6x5
 - 电子广告屏 · 豪都大酒店 7×5 / mcpe_food:digital_haodu_hotel_7x5
+- 金融报表 / mcpe_food:finance_report
+- 大盘屏10×4 / mcpe_food:finance_board_10x4
+- 大盘屏10×5 / mcpe_food:finance_board_10x5
+- 大盘屏5×4 / mcpe_food:finance_board_5x4
+- 大盘屏4×4 / mcpe_food:finance_board_4x4
+- 股票走势条10×1 / mcpe_food:finance_ticker_10x1
+- 股票走势条5×1 / mcpe_food:finance_ticker_5x1
+- 壁挂警示灯 / mcpe_food:police_warning_light
+- 接待大厅标识 / mcpe_food:police_reception_sign
+- 综合指挥大屏 / mcpe_food:police_command_screen
+- NovaCare医疗器械广告屏 / mcpe_food:ad_novacare_5x5
+- AuraMed医疗设备广告屏 / mcpe_food:ad_auramed_6x6
 
 
 ## 0.7.2试用新品（21件）

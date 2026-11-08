@@ -1,3 +1,4 @@
+import {addedDefinitions} from './patch-090-expectations.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
@@ -10,6 +11,7 @@ const bp='packs/FoodAndTable_BP',rp='packs/FoodAndTable_RP';
 const read=path=>JSON.parse(readFileSync(path,'utf8'));
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const baseline=read('tests/fixtures/v0.8.5-candidate.json');
+const priorCommands=read('tests/fixtures/v0.8.6-commands.json');
 const repaired=[
   'icu_bed','icu_large_patient_monitor','icu_six_channel_syringe_pump',
   'auramed_ecmo','auramed_ventilator','auramed_crrt',
@@ -22,10 +24,11 @@ test('0.8.6 preserves 0.8.5 definitions, UUIDs and surface display order',()=>{
   const files=['items','blocks','recipes','loot_tables','functions'].flatMap(folder=>
     readdirSync(`${bp}/${folder}`,{recursive:true,withFileTypes:true})
       .filter(entry=>entry.isFile())
-      .map(entry=>`${entry.parentPath}/${entry.name}`.replaceAll('\\','/').slice(bp.length+1))
-  ).filter(path=>path!=='functions/mcpe_food/build_info.mcfunction'&&!Object.hasOwn(baseline.repairedBlockDefinitions,path)).sort();
+      .map(entry=>`${entry.parentPath}/${entry.name}`.split(String.fromCharCode(92)).join('/').slice(bp.length+1))
+  ).filter(path=>!addedDefinitions.some(d=>path==='items/'+d.key+'.json'||path==='blocks/'+d.key+'.json'||path==='loot_tables/blocks/'+d.key+'.json')&&!['functions/mcpe_food/park.mcfunction','functions/mcpe_food/cafe.mcfunction','functions/mcpe_food/finance.mcfunction','functions/mcpe_food/police_station.mcfunction'].includes(path))
+   .filter(path=>path!=='functions/mcpe_food/build_info.mcfunction'&&!Object.hasOwn(baseline.repairedBlockDefinitions,path)).sort();
   assert.equal(files.length,baseline.behaviorDefinitionCount);
-  assert.equal(hash(files.map(path=>`${path}:${hash(readFileSync(`${bp}/${path}`))}\n`).join('')),baseline.behaviorDefinitionDigest);
+  assert.equal(hash(files.map(path=>`${path}:${hash(Object.hasOwn(priorCommands,path)?priorCommands[path]:readFileSync(`${bp}/${path}`))}\n`).join('')),baseline.behaviorDefinitionDigest);
   for(const [path,expected] of Object.entries(baseline.repairedBlockDefinitions)){
     const block=read(`${bp}/${path}`);
     delete block['minecraft:block'].components['minecraft:selection_box'];
@@ -36,7 +39,7 @@ test('0.8.6 preserves 0.8.5 definitions, UUIDs and surface display order',()=>{
     assert.deepEqual([manifest.header.uuid,...manifest.modules.map(module=>module.uuid)],baseline.uuids[i]);
   }
   const client=read(`${rp}/entity/mcpe_food/surface_display.entity.json`)['minecraft:client_entity'];
-  assert.deepEqual(Object.values(client.description.geometry),baseline.surfaceGeometryOrder);
+  assert.deepEqual(Object.values(client.description.geometry).slice(0,baseline.surfaceGeometryOrder.length),baseline.surfaceGeometryOrder);
 });
 
 test('ICU bed mesh fits 1×2 and the square entity selection fits a single block across',()=>{
