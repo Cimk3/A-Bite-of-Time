@@ -1,0 +1,26 @@
+{
+  "tool": "image_gen",
+  "status": "pending approval",
+  "concepts": [
+    {
+      "key": "mri",
+      "prompt": "Wide professional concept board for original Minecraft Bedrock voxel decoration. Show the SAME medical MRI prop in three equally sized angles: front three-quarter, true side, rear three-quarter. Physically buildable using cuboids and stepped bevels. Bounding dimensions 3 Minecraft blocks wide, 4 deep including patient table, 3 tall. Ivory/soft white gantry with stepped rounded/octagonal form, deep genuinely open tunnel with charcoal inner liner, restrained teal accents. Long fixed white and graphite sliding patient table extending from front with aqua mattress, twin metal tracks and sturdy plinth; consistent geometry across all views. Side access seam and rear removable panel, four slotted cooling grilles and recessed connectors. Small dark control inset outside tunnel. Clean pale slate studio background, warm neutral illumination, enough contrast to read construction. Three English labels only FRONT, SIDE, REAR. No clinical room or background objects, no brand or watermark. Crisp pixel-scale material accents.",
+      "file": "mri-concept.png"
+    },
+    {
+      "key": "food",
+      "prompt": "2 by 2 concept sheet of four distinct Chinese Minecraft tabletop dishes, true chunky voxel geometry, crafted cuboid details with readable silhouettes at 128px texture size, isometric three-quarter top view for each. Individually plated dish per cell, pale warm-gray neutral studio. TOP LEFT: steamed whole Yangcheng Lake Chinese mitten crab on ivory plate, single rust-orange compact shell, two claws and four segmented legs per side tucked in naturally, beside a very small separate dark ginger-vinegar saucer on plate. TOP RIGHT: Chaozhou braised goose, sliced dark lacquered goose laid in fan on oval white plate with dark braising sauce and a small cilantro garnish, visibly a sliced dish. BOTTOM LEFT: round golden crispy oyster omelette with angular crisp edge, distinct small gray-ivory oyster chunks embedded within and a little green scallion, celadon plate. BOTTOM RIGHT: pale lavender taro paste in shallow white porcelain bowl, smooth low dome with golden ginkgo kernels on top. Different plate silhouettes, all food opaque, natural unlit colors. No text, no steam or watermarks.",
+      "file": "food-concept.png"
+    },
+    {
+      "key": "computer",
+      "prompt": "Wide concept review board for an original Minecraft Bedrock interactive simulated Linux computer. Left half shows a single-block desk prop in front three-quarter and small rear inset: charcoal mini PC with teal power LED and vents, thin matte monitor on proper stand, compact keyboard with visible low-profile keys, all firmly seated on the same plane. Screen has restrained teal wallpaper and tiny panel. Right half shows actual feasible game dialogs as two separate representative mockups styled like Bedrock Add-On forms: simple Desktop title and stacked File Browser, Terminal, Close buttons; separate Terminal window showing a few monospaced lines such as `$ pwd`, `/home/player`, `$ ls`, `Documents  README.txt`, one command text input and a submit button. Cool slate, teal accent, vanilla-style legible game forms, no mouse-based real desktop or proprietary logos, no extra hardware. Crisp voxel model silhouette, sufficient panel spacing.",
+      "file": "computer-concept.png"
+    },
+    {
+      "key": "gym",
+      "prompt": "Wide design board for a Minecraft Bedrock voxel vertical-wall gym advertisement fixture, two equally clear panels. LEFT: front-facing full bleed flat 2:1 pixel art poster with exact bold Chinese title 方寸健身, single athletic black/dark navy silhouette doing a clean squat with a barbell, vibrant lime geometric diagonal on midnight navy and unobtrusive cold white highlight typography title, strong margin, no other text, design must read at a 256x128 final texture size. RIGHT: exact same poster, 4 blocks wide by 2 blocks high, installed in a tasteful voxel gym on a pale concrete feature wall, seen from three-quarter angle showing thin private graphite metal frame, small dark rear mounting rail visible at edge; subtle glow confined to poster plane. Clean original graphic, no logos, no watermarks, no cropping text or poster corners.",
+      "file": "gym-concept.png"
+    }
+  ]
+}

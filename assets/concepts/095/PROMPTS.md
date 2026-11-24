@@ -1,0 +1,15 @@
+# 0.9.5 草图提示词
+
+使用内置 imagegen。格数以 0.9.5 已确认的规格表为准。
+
+## cinema
+
+Wide landscape clean voxel furniture concept sheet with exactly three rows, columns FRONT, SIDE, BACK, each showing the same item in aligned orthographic views on faint square 1-block grid with a simple unbranded 2-block tall reference silhouette outside rows. Minecraft-like voxel cube construction, pixel material, dark neutral backdrop. Row 1 POPCORN MACHINE 1W x 1D x 2H: red enamel kiosk, transparent upper glass, visible hanging stainless kettle, few yellow popcorn voxels, lower closed storage cabinet and rear vent. Row 2 DUAL DRINK DISPENSER 1W x 1D x 1H: compact countertop black/silver unit with precisely two nozzles, one shared drip tray, top label strip, rear inlet. Row 3 POSTER LIGHTBOX 2W x 0.25D x 3H: wall mounting, dark slim frame and back bracket, slightly luminous original fictional cinema poster titled LUNAR SIGNAL with simplified moon and original abstract landscape. No other items, no unrelated props. Label in clear short English. Top title CINEMA / FOOD & TABLE 0.9.5.
+
+## music-studio
+
+Wide landscape clean voxel furniture technical concept sheet exactly 2 rows, 3 columns labeled FRONT, SIDE, BACK: same exact object across orthographic views on faint 1-block square grid, detached two-block figure for scale. Bedrock add-on voxel modeling reference with restrained charcoal, ash metallic and muted teal trim, no brands. Row 1 MIXING CONSOLE 2W x 1D x 0.5H: small wedge desktop mixer with distinct rows of knobs and faders, LED meter bars, tactile caps, rear input/output ports integrated into enclosure. Row 2 STUDIO MONITOR 1W x 1D x 1H: one independently placeable speaker, dark compact square-edged enclosure, exact two drivers (tweeter and larger woofer), subtle power LED, rear connectors and controls. No desk, stand, racks or additional props. Dimension captions exact. Title MUSIC STUDIO / FOOD & TABLE 0.9.5.
+
+## gym
+
+Tall landscape or square technical industrial design sheet for EXACTLY SEVEN original Minecraft-style blocky gym props. Arrange seven legible horizontal bands, each same model repeated in orthographic FRONT / SIDE / REAR, faint one-block grid, small separate two-block human silhouette as scale reference. Restrained dark gray steel, muted teal pads, light metal small hardware. Item labels and dimensions width depth height: TREADMILL 1 x 2 x 1.5, complete belt rails and supported console; SQUAT RACK 2 x 2 x 3, sturdy floor feet, two uprights, hook-supported barbell and open training clearance; INCLINE BENCH 1 x 2 x 1, separate seat and fixed angled back pad connected to frame; DUMBBELL RACK 2 x 1 x 1.5, three tiers of paired weights, no unsupported weights; CABLE MACHINE 2 x 1 x 3, clearly linked pulley handles and enclosed visible stacks; MAT RACK 1 x 1 x 1.5, three upright rolled mats; PUNCHING BAG 1 x 1 x 3, attached chain and integral freestanding support with balanced bottom foot. Keep all hardware connected and dimensions realistic. No other items, no brand logos, no literal people using equipment. Title GYM / FOOD & TABLE 0.9.5.

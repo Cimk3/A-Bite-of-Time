@@ -4,6 +4,7 @@ import {foodModel as legacyFood, vesselModel as legacyVessel, box, palette, png,
 import {banquetContents,bottleCubes as makeBottle} from './banquet-art.mjs';
 import {restaurantContents} from './restaurant-art.mjs';
 import {fineDiningContents} from './fine-dining-art.mjs';
+import {patch097FoodContents} from './patch-097-art.mjs';
 const RAD=Math.PI/180;
 export const DETAIL=128;
 const cube=(x,y,z,w,h,d,color=6,material='food',rotation)=>({origin:[x,y,z],size:[w,h,d],color,material,...(rotation?{rotation,pivot:[x+w/2,y+h/2,z+d/2]}:{})});
@@ -103,6 +104,8 @@ function poultry(a,goose){
   for(let i=0;i<5;i++)add(a,-2.6+i,5.04,-.8,.4,.06,.18,8);
 }
 function detailedContents(f){
+  const newDish=patch097FoodContents(f.shape,{add,disc,ring});
+  if(newDish)return newDish;
   if(f.key==='tieguanyin'){
     const tea=[];disc(tea,0,.8,0,2.25,2.25,5.45,6,'food',12);
     for(let i=0;i<3;i++)tea.push(cube(-.9+i*.85,6.29,-.3+i*.2,.65,.055,.22,9,'food',[0,i*28,0]));
@@ -342,7 +345,7 @@ function rotate(p,c){
   }return[x+center[0],y+center[1],z+center[2]];
 }
 /** Software preview interpolates actual per-face UVs and samples the production color map. */
-export function renderDetail(source,textures,width=128,height=128,{worldScale,front=false,projection='isometric'}={}){
+export function renderDetail(source,textures,width=128,height=128,{worldScale,front=false,projection='isometric',alphaBlend=false}={}){
   const cubes=pruneFaces(source),target=canvas(width,height),depth=new Float64Array(width*height).fill(-Infinity),faces=[];
   const project=([x,y,z])=>projection==='side'?[-z,-y,x]:projection==='entity-front'?[-x,.45*z-y,y+z]:[.866*(x-z),.5*(x+z)-y,x+y+z];
   for(const c of cubes)for(const name of c.faces??FACE_NAMES){
@@ -357,6 +360,10 @@ export function renderDetail(source,textures,width=128,height=128,{worldScale,fr
   const scale=worldScale??Math.min((width-8)/(maxX-minX||1),(height-8)/(maxY-minY||1));
   const ox=width/2-(minX+maxX)*scale/2;
   const oy=worldScale?height*.83:(height-(maxY-minY)*scale)/2-minY*scale;
+  if(alphaBlend){
+    const translucent=f=>f.texture.pixels[(Math.floor(f.uv.uv[1])*f.texture.width+Math.floor(f.uv.uv[0]))*4+3]<255;
+    faces.sort((a,b)=>Number(translucent(a))-Number(translucent(b)));
+  }
   for(const face of faces){
     if(!face.texture)throw new Error('Missing preview material');
     const [u,v]=face.uv.uv,[du,dv]=face.uv.uv_size;
@@ -374,7 +381,8 @@ export function renderDetail(source,textures,width=128,height=128,{worldScale,fr
         const factor=1;
         const tx=Math.max(0,Math.min(face.texture.width-1,Math.floor((wa*a[3]+wb*b[3]+wc*c[3])/factor))),ty=Math.max(0,Math.min(face.texture.height-1,Math.floor((wa*a[4]+wb*b[4]+wc*c[4])/factor))),at=(ty*face.texture.width+tx)*4;
         if(!face.texture.pixels[at+3])continue;depth[index]=z;
-        target.data.set([0,1,2].map(i=>Math.round(face.texture.pixels[at+i]*face.shade)).concat(255),index*4);
+        const alpha=alphaBlend&&target.data[index*4+3]?face.texture.pixels[at+3]/255:1;
+        target.data.set([0,1,2].map(i=>Math.round(face.texture.pixels[at+i]*face.shade*alpha+target.data[index*4+i]*(1-alpha))).concat(255),index*4);
       }
     }
   }

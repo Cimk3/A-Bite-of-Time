@@ -1,3 +1,7 @@
+import {refreshed096Keys} from '../.build/patch-096-catalog.js';
+import {screen096Keys} from './patch-096-art.mjs';
+import {patch095Keys} from '../.build/patch-095-catalog.js';
+import {patch097PropKeys} from '../.build/patch-097-catalog.js';
 import {patch090Props,patch090Walls} from '../.build/patch-090-catalog.js';
 import {patch082ById} from "../.build/patch-082-catalog.js";
 import {patch085ById,patch085ScreenIds} from '../.build/patch-085-catalog.js';
@@ -10,6 +14,26 @@ import {scenarioScreens} from '../.build/scenario-catalog.js';
 import {electronics} from '../.build/electronics-catalog.js';
 const devices=new Map(electronics.map(d=>[`device_${d.key}`,d]));
 export function emissionIsValid(image,colorKey){
+  if(colorKey.startsWith('patch097_'))return patch097PropKeys.has(colorKey.slice(9))&&image.width===128&&image.height===128&&image.pixels.every((v,i)=>{
+    if(i%4!==1||v===0)return true;
+    const pixel=(i-1)/4,x=pixel%128,y=Math.floor(pixel/128);
+    return v<=13&&(x<88&&y<48||x>=84&&x<92&&y>=56&&y<64);
+  });
+  const refresh=colorKey.match(/^patch(?:072|073|080|090)_(.+)$/)?.[1];
+  if(refresh&&refreshed096Keys.has(refresh))return image.width===128&&image.height===128&&image.pixels.every((v,i)=>{
+    if(i%4!==1||v===0)return true;
+    const pixel=(i-1)/4;
+    return screen096Keys.has(refresh)&&v<=14&&pixel%128<96&&Math.floor(pixel/128)<48;
+  });
+  if(colorKey==='digital_content_cinema_poster_lightbox_2x3')return image.width===128&&image.height===128&&image.pixels.every((v,i)=>i%4!==1||v<=12);
+  if(colorKey.startsWith('patch095_')){
+    const key=colorKey.slice(9);
+    return patch095Keys.has(key)&&image.width===128&&image.height===128&&image.pixels.every((v,i)=>{
+      if(i%4!==1||v===0)return true;
+      const p=(i-1)/4,x=p%128,y=Math.floor(p/128);
+      return v<=16&&(key==='studio_monitor_speaker'&&x>=120&&y>=24&&y<32||key==='studio_mixing_console'&&x<16&&y>=76&&y<104||key==='gym_treadmill'&&x<42&&y>=48&&y<71);
+    });
+  }
   if(colorKey==='patch090_park_lamp')return image.width===128&&image.height===128&&image.pixels.every((v,i)=>{
     if(i%4!==1||v===0)return true;
     const pixel=(i-1)/4,x=pixel%128,y=Math.floor(pixel/128);

@@ -6,9 +6,9 @@ const stack=(typeId,amount,maxAmount=64,plain=true)=>({typeId,amount,maxAmount,p
 const max=key=>key==='minecraft:bucket'?16:key==='minecraft:glass_bottle'?64:foods.some(f=>id(f.key)===key)?16:64;
 const recipe=(inputs,key='test',output=1)=>({key,inputs,output});
 test('catalog has the exact approved content and unique stable IDs',()=>{
-  assert.equal(foods.length,102);assert.equal(displays.length,8);assert.equal(hotpots.length,2);assert.equal(stations.length,4);assert.equal(crops.length,6);assert.equal(cutlery.length+vessels.length,13);
+  assert.equal(foods.length,106);assert.equal(displays.length,8);assert.equal(hotpots.length,2);assert.equal(stations.length,4);assert.equal(crops.length,6);assert.equal(cutlery.length+vessels.length,13);
   assert.equal(foods.filter(f=>f.category==='western').length,23);assert.equal(foods.filter(f=>f.category==='japanese').length,13);
-  assert.equal(foods.filter(f=>f.category==='chinese').length,42);assert.ok(foods.some(f=>f.key==='guo_bao_rou'));
+  assert.equal(foods.filter(f=>f.category==='chinese').length,46);assert.ok(foods.some(f=>f.key==='guo_bao_rou'));
   const items=[...dishes,...materials,...stations,...vessels,...cutlery,...hotpots,...bottleProps];assert.equal(new Set(items.map(x=>x.key)).size,items.length);
 });
 test('all menu outputs have defined items; special ingredients have no processing recipe',()=>{

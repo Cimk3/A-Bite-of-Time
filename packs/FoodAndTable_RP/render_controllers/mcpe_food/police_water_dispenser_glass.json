@@ -1,0 +1,1 @@
+{"format_version":"1.8.0","render_controllers":{"controller.render.mcpe_food.police_water_dispenser_glass":{"geometry":"Geometry.g661","materials":[{"*":"Material.glass"}],"textures":["Texture.f661"],"part_visibility":[{"food":true},{"ware":false}]}}}

@@ -77,6 +77,9 @@ export class MenuSessions {
     this.active.delete(player);
     return true;
   }
+  isActive(player: string, token: number): boolean {
+    return this.active.get(player) === token;
+  }
   finish(player: string, token?: number): void {
     if (token === undefined || this.active.get(player) === token) this.active.delete(player);
   }

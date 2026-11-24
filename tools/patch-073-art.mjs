@@ -1,9 +1,11 @@
+import {patch096Cubes,patch096Texture} from './patch-096-art.mjs';
 /** Original 0.7.3 art. One item per set; no vanilla assets or real identity data. */
 import {canvas,rect,text,png} from './art.mjs';
 import {disc,pruneFaces} from './detail-art.mjs';
 import {northFacingCubes} from './patch-072-art.mjs';
 import {patch073Screens,saucePositions} from '../.build/patch-073-catalog.js';
 export function patch073Cubes(key){
+ if(key==='government_service_kiosk')return patch096Cubes(key);
  const a=[],put=(x,y,z,w,h,d,color=0)=>{const c={origin:[x,y,z],size:[w,h,d],color,material:'ware'};a.push(c);return c;};
  const face=(x,y,z,w,h)=>{const c=put(x,y,z,w,h,.04,1);c.uv={south:{uv:[0,0],uv_size:[96,56],material_instance:'ware'}};return c;};
  if(key==='government_service_kiosk'){
@@ -36,6 +38,7 @@ export function patch073Cubes(key){
  const cs=northFacingCubes(pruneFaces(a));if(cs.length>256)throw Error('0.7.3 model budget '+key);return cs;
 }
 export function patch073Texture(key){
+ if(key==='government_service_kiosk')return patch096Texture(key);
  const game=key==='ft_master_open',creator=key==='ft_ideabook_p1_open',laptop=key.startsWith('ft_'),signature=key==='government_signature_pad';
  const colors=[laptop?(game?[34,38,47,255]:creator?[223,229,230,255]:[159,171,182,255]):[57,64,75,255],[18,25,35,255],[158,170,176,255],[177,47,49,255],[59,68,78,255],[208,217,218,255],[233,223,180,255],[235,237,225,255],[216,202,142,255],[174,49,33,255],[87,48,29,255],[133,156,64,255],[58,38,26,255],[69,131,97,255],[228,215,169,255],[100,66,42,255]];
  const im=canvas(128,128,colors[0]),mer=canvas(128,128,[0,0,190,255]);

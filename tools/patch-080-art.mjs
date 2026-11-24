@@ -1,9 +1,11 @@
+import {patch096Cubes,patch096Texture} from './patch-096-art.mjs';
 /** Approved 0.8.0 concepts, static cuboid models and original fixed UIs. */
 import {canvas,rect,text,png} from './art.mjs';
 import {pruneFaces} from './detail-art.mjs';
 import {northFacingCubes} from './patch-072-art.mjs';
 import {patch080Screens} from '../.build/patch-080-catalog.js';
 export function patch080Cubes(key){
+ if(key==='laboratory_dual_monitor_set'||key==='template_ai_triple_monitor_set')return patch096Cubes(key);
  const a=[],p=(x,y,z,w,h,d,color=0)=>{const c={origin:[x,y,z],size:[w,h,d],color,material:'ware'};a.push(c);return c;};
  const face=(x,y,z,w,h,uv=[0,0],size=[96,56],material='ware')=>{const c=p(x,y,z,w,h,.04,1);c.material=material;c.uv={south:{uv,uv_size:size,material_instance:material}};return c;};
  const base=()=>p(-7.5,0,-6.5,15,.6,13,1);
@@ -35,6 +37,7 @@ export function patch080Cubes(key){
  const out=northFacingCubes(pruneFaces(a)).map(c=>c.rotation&&c.pivot?{...c,pivot:[-c.pivot[0],c.pivot[1],-c.pivot[2]]}:c);if(out.length>256)throw Error('0.8.0 model budget '+key);return out;
 }
 export function patch080Texture(key){
+ if(key==='laboratory_dual_monitor_set'||key==='template_ai_triple_monitor_set')return patch096Texture(key);
  const im=canvas(128,128,[208,211,204,255]),mer=canvas(128,128,[0,0,185,255]);const colors=[[206,211,207,255],[23,30,39,255],[106,123,134,255],[159,111,60,255],[145,155,163,255],[180,61,54,255],[67,132,186,255],[231,231,209,255],[140,88,164,255],[212,177,59,255]];
  if(key==='laboratory_cloud_storage_array')colors[0]=[55,65,75,255];
  colors.forEach((c,i)=>{rect(im,96,64+i*4,32,4,c);rect(mer,96,64+i*4,32,4,[i===2?160:0,0,i===2?90:190,255]);});

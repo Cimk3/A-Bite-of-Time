@@ -1,3 +1,6 @@
+import {patch095Items,patch095Props,patch095Walls} from './patch-095-catalog.js';
+import {patch097Props} from './patch-097-catalog.js';
+
 /** 0.9.0 content, shared by resource generation and placement. */
 export type Patch090Kind = 'surface' | 'solid' | 'wall';
 export type Patch090Item = {
@@ -62,7 +65,7 @@ export const patch090Items: readonly Patch090Item[] = [
   {key:'home_display_shelf',zh:'开放展示架',group:'home_decor',kind:'solid',size:[3,1,3],slots:12},
 ];
 
-export const patch090ById = new Map(patch090Items.map(item=>['mcpe_food:'+item.key,item]));
+export const patch090ById = new Map<string,Patch090Item>([...patch090Items,...patch095Items,...patch097Props].map(item=>['mcpe_food:'+item.key,item]));
 export function patch090PartId(item:Patch090Item,index:number):string {
   return 'mcpe_food:'+item.key+'_part_'+index;
 }
@@ -74,3 +77,6 @@ export const patch090Props=patch090Items.filter(item=>item.kind!=='wall').map(it
 export const patch090Walls=patch090Items.filter(item=>item.kind==='wall').map(item=>({
  ...item,en:item.key.replaceAll('_',' '),width:item.size[0],height:item.size[2],brand:item.key,
 }));
+
+export const placedSceneProps=[...patch090Props,...patch095Props,...patch097Props];
+export const placedSceneWalls=[...patch090Walls,...patch095Walls];

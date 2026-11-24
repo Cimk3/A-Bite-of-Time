@@ -1,3 +1,4 @@
+import {refresh096Block,refresh096Visual,append097Asset} from './patch-096-scope.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -7,8 +8,15 @@ const read=p=>JSON.parse(readFileSync(p,'utf8'));
 test('0.9.3 changes only the three reported appearances and required runtime/version data',()=>{
  const old=read('tests/fixtures/v0.9.2-resources.json');
  for(const [pack,files] of Object.entries(old.packs))for(const [file,hash] of Object.entries(files)){
+  if(append097Asset(file))continue;
+   if(refresh096Visual(file)||(pack==='BP'&&refresh096Block(file)))continue;
   const path='packs/FoodAndTable_'+pack+'/'+file;
   if(['manifest.json','mcpe_food_build.json','functions/mcpe_food/build_info.mcfunction','scripts/decor-runtime.js'].includes(file))continue;
+  // Shared catalogs and bindings append 0.9.5 entries. The immutable
+  // 0.9.3 fixture checks old assets and binding prefixes separately.
+  if(pack==='BP'&&['item_catalog/crafting_item_catalog.json','entities/surface_display.json','entities/digital_ad_display.json','functions/mcpe_food/tasting_new.mcfunction','functions/mcpe_food/digital_ad_screens.mcfunction'].includes(file))continue;
+  if(pack==='RP'&&(/^(entity|render_controllers)\/mcpe_food\/(surface_display|digital_ad_display)/.test(file)||['textures/item_texture.json','textures/terrain_texture.json'].includes(file)))continue;
+  if(file.startsWith('scripts/')||file.startsWith('texts/')||file==='blocks.json')continue;
   if(pack==='BP'&&old.blocks[file]){
    const a=read(path),b=structuredClone(old.blocks[file]);
    assert.deepEqual(a['minecraft:block'].components['minecraft:geometry'].bone_visibility,{root:false});

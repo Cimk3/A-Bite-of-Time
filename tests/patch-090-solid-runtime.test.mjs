@@ -1,12 +1,13 @@
+import {fitPastry} from '../.build/pastry-display-layout.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {registerHooks} from 'node:module';
 import {FakeDimension,FakePlayer,GameMode,ItemStack,BlockPermutation,state,flush,interact,reset} from './mock-server.mjs';
 import {readFileSync} from 'node:fs';
-import {patch090Props,patch090Walls,patch090PartId} from '../.build/patch-090-catalog.js';
+import {patch090Props,placedSceneProps,placedSceneWalls,patch090PartId} from '../.build/patch-090-catalog.js';
 import {patch090Cells} from '../.build/patch-090-grid.js';
 import {nativePartIndex,oppositeDirection} from '../.build/patch-092-layout.js';
-import {whole090Keys} from '../.build/patch-093-render.js';
+import {wholeSceneKeys} from '../.build/patch-093-render.js';
 import {screenNormal} from '../.build/device-facing.js';
 
 registerHooks({resolve(specifier,context,next){
@@ -31,12 +32,12 @@ async function place(player,block,key){
   interact(player,block);await tick();
 }
 
-test('three repaired objects keep one correctly centred whole display across four directions and reload',async()=>{
- for(const key of whole090Keys)for(const [dir,n] of Object.entries({north:{x:0,z:-1},south:{x:0,z:1},east:{x:1,z:0},west:{x:-1,z:0}})){
+test('complete models keep one correctly centred whole display across four directions and reload',async()=>{
+ for(const key of wholeSceneKeys)for(const [dir,n] of Object.entries({north:{x:0,z:-1},south:{x:0,z:1},east:{x:1,z:0},west:{x:-1,z:0}})){
   const {dimension,player}=setup();player.location={x:.5+n.x*3,y:1,z:.5+n.z*3};
   for(let x=-7;x<=7;x++)for(let z=-7;z<=7;z++)dimension.put('minecraft:stone',{x,y:0,z});
   await place(player,dimension.getBlock({x:0,y:0,z:0}),key);
-  const [r]=records(),spec=patch090Props.find(d=>d.key===key),cells=patch090Cells(spec,r.support,dir);
+  const [r]=records(),spec=placedSceneProps.find(d=>d.key===key),cells=patch090Cells(spec,r.support,dir);
   const check=()=>{
    const es=dimension.getEntities();assert.equal(es.length,1,key+' '+dir);const e=es[0];assert.equal(e.getDynamicProperty('mcpe_food:part'),'whole');
    assert.deepEqual(e.location,{x:(Math.min(...cells.map(p=>p.x))+Math.max(...cells.map(p=>p.x)))/2+.5,y:1,z:(Math.min(...cells.map(p=>p.z))+Math.max(...cells.map(p=>p.z)))/2+.5});
@@ -72,7 +73,7 @@ test('0.9.1 native placements resolve generated definitions in all four directio
   return original(key,states);
  };
  try{
-  for(const spec of patch090Props.filter(d=>d.kind==='solid'))for(const [direction,angle] of [['south',180],['west',-90],['north',0],['east',90]]){
+  for(const spec of placedSceneProps.filter(d=>d.kind==='solid'))for(const [direction,angle] of [['south',180],['west',-90],['north',0],['east',90]]){
    const {dimension,player}=setup();player.getRotation=()=>({x:0,y:angle});player.location=({south:{x:.5,y:1,z:3.5},north:{x:.5,y:1,z:-2.5},east:{x:3.5,y:1,z:.5},west:{x:-2.5,y:1,z:.5}})[direction];
    for(let x=-7;x<=7;x++)for(let z=-7;z<=7;z++)dimension.put('minecraft:stone',{x,y:0,z});
    await place(player,dimension.getBlock({x:0,y:0,z:0}),spec.key);
@@ -146,10 +147,10 @@ test('native correction waits for unloaded cells and rolls back failed rewrites 
  reconcileDecor();assert.equal(records()[0].nativePending,undefined);
  assert.equal(records()[0].slots.filter(Boolean).length,2);assert.equal(dimension.getEntities().length,2);assert.equal(dimension.drops.length,0);
 });
-test('all 15 surface props face the placer in four directions regardless of camera yaw',async()=>{
+test('all surface props face the placer in four directions regardless of camera yaw',async()=>{
  const viewers={north:{x:.5,y:1,z:-2.5},east:{x:3.5,y:1,z:.5},south:{x:.5,y:1,z:3.5},west:{x:-2.5,y:1,z:.5}};
  const expected={north:1,east:2,south:3,west:4},opposite={1:3,2:4,3:1,4:2};
- for(const spec of patch090Props.filter(d=>d.kind==='surface'))for(const [dir,pos] of Object.entries(viewers)){
+ for(const spec of placedSceneProps.filter(d=>d.kind==='surface'))for(const [dir,pos] of Object.entries(viewers)){
   const {dimension,player}=setup();player.location=pos;player.getRotation=()=>({x:0,y:37});
   for(let x=-3;x<=3;x++)for(let z=-3;z<=3;z++)dimension.put('minecraft:stone',{x,y:0,z});
   await place(player,dimension.getBlock({x:0,y:0,z:0}),spec.key);
@@ -158,10 +159,10 @@ test('all 15 surface props face the placer in four directions regardless of came
   assert.equal(e.getProperty('mcpe_food:display_facing'),spec.placementFront===180?opposite[expected[dir]]:expected[dir],spec.key+' '+dir);
  }
 });
-test('all 12 wall items require full backing and clear front cells on every mounting face',async()=>{
+test('all wall items require full backing and clear front cells on every mounting face',async()=>{
  const normals={north:{x:0,y:0,z:-1},east:{x:1,y:0,z:0},south:{x:0,y:0,z:1},west:{x:-1,y:0,z:0}};
  const rights={north:{x:-1,z:0},east:{x:0,z:1},south:{x:1,z:0},west:{x:0,z:-1}};
- for(const spec of patch090Walls)for(const dir of Object.keys(normals)){
+ for(const spec of placedSceneWalls)for(const dir of Object.keys(normals)){
   const {dimension,player}=setup(),n=normals[dir],r=rights[dir];player.location={x:.5+n.x*3,y:1,z:.5+n.z*3};
   for(let x=0;x<spec.width;x++)for(let y=0;y<spec.height;y++)dimension.put('minecraft:stone',{x:r.x*x,y,z:r.z*x});
   const last={x:r.x*(spec.width-1),y:Math.ceil(spec.height)-1,z:r.z*(spec.width-1)};
@@ -339,4 +340,37 @@ test('clicking a cabinet display opens its slots and creative destruction refund
  assert.equal(dimension.drops.filter(d=>d.item.typeId==='mcpe_food:glass').length,1);
  state.breakBlock({player,block,cancel:false});await tick();
  assert.equal(dimension.drops.filter(d=>d.item.typeId==='mcpe_food:glass').length,1);
+});
+
+
+test('six filled pastry slots upgrade an old scale in place and survive reload and collection',async()=>{
+ const {dimension,player}=setup();
+ for(let x=0;x<3;x++)dimension.put('minecraft:stone',{x,y:0,z:0});
+ await place(player,dimension.getBlock({x:0,y:0,z:0}),'cafe_pastry_case');
+ const keys=['egg_tart','cookies','tiramisu','creme_brulee','chocolate_cake','fruit_platter'].map(k=>'mcpe_food:'+k);
+ const part=dimension.getBlock({x:0,y:1,z:0});
+ for(const [i,key] of keys.entries()){
+  reset();player.container.setItem(0,new ItemStack(key,1));state.responses.push({selection:i});interact(player,part);await tick();
+ }
+ const [record]=records();assert.deepEqual(record.slots,keys);
+ const slots=()=>dimension.getEntities().filter(e=>String(e.getDynamicProperty('mcpe_food:part')).startsWith('slot'));
+ const applied=[];
+ for(const e of slots()){
+  e.setDynamicProperty('mcpe_food:scale_event',undefined);
+  e.triggerEvent=event=>applied.push(event);
+ }
+ loadDecorRecords();flush();reconcileDecor();
+ const expected=keys.map((key,i)=>{
+  const fit=fitPastry(key,Math.floor(i/3));assert.ok(fit.level>0);
+  const e=slots().find(e=>e.getDynamicProperty('mcpe_food:part')==='slot'+i);
+  assert.ok(Math.abs(e.location.y-(1+fit.y))<.000001);
+  return 'mcpe_food:pastry_scale_'+fit.level;
+ });
+ assert.deepEqual(applied.sort(),expected.sort());
+ assert.equal(slots().length,6);assert.equal(dimension.getEntities().length,7);
+ reconcileDecor();assert.equal(applied.length,6,'stable entities do not restart scale events');
+ removeDecor(records()[0],true);
+ assert.equal(dimension.getEntities().length,0);
+ assert.equal(records().length,0);
+ for(const key of keys)assert.equal(dimension.drops.filter(d=>d.item.typeId===key).length,1);
 });

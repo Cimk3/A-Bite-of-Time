@@ -1,0 +1,1 @@
+{"format_version":"1.8.0","render_controllers":{"controller.render.mcpe_food.cafe_syrup_set_glass":{"geometry":"Geometry.g643","materials":[{"*":"Material.glass"}],"textures":["Texture.f643"],"part_visibility":[{"food":true},{"ware":false}]}}}

@@ -34,7 +34,7 @@ test('0.5.1 additions and all old interfaces remain present alongside the seven 
     const current=readdirSync(`${bp}/${kind}`).map(f=>read(`${bp}/${kind}/${f}`)[`minecraft:${kind.slice(0,-1)}`].description.identifier);
     assert.deepEqual(current.filter(k=>!old[kind].includes(k)&&![...newProps,...cityAdvertisements,...scenarioProps,...brandAdvertisements,...digitalScreens,...patch071Props,...patch072Props,...clothingItems,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props,...addedDefinitions].some(d=>'mcpe_food:'+d.key===k)).sort(),extra.concat(officeElectronics.map(d=>'mcpe_food:'+d.key),restaurantItems.map(d=>'mcpe_food:'+d.key)).sort());for(const key of old[kind])assert.ok(current.includes(key));
   }
-  assert.equal(expectedItems.length,12);assert.equal(foods.length,102);assert.equal(foods.filter(f=>f.category==='drink').length,11);assert.equal(electronics.length+refrigerators.length,41);
+  assert.equal(expectedItems.length,12);assert.equal(foods.length,106);assert.equal(foods.filter(f=>f.category==='drink').length,11);assert.equal(electronics.length+refrigerators.length,41);
   for(const[pack,uuids]of Object.entries(old.uuids)){const m=read(`packs/${pack}/manifest.json`);assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],uuids);}
   for(const[folder,entries]of [['recipes',old.crafting],['loot_tables/blocks',old.loot]])for(const[file,sha]of Object.entries(entries))assert.equal(hash(`${bp}/${folder}/${file}`),sha);
   assert.deepEqual(recipes.map(({key,station,inputs,output,category})=>({key,station,inputs,output,category})),old.menuRecipes);

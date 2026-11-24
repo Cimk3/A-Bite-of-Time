@@ -1,3 +1,4 @@
+import {patch097Items} from '../.build/patch-097-catalog.js';
 import {addedDefinitions,addedBlocks,addedSurfaceCount,patch090Items,patch090Props,patch090Walls,slotIconEntries} from './patch-090-expectations.mjs';
 import {patch082Items} from '../.build/patch-082-catalog.js';
 import {patch085Props} from '../.build/patch-085-catalog.js';
@@ -11,8 +12,8 @@ test('0.8.0 exact eleven item/block additions preserve v0.7.4 IDs, commands, UUI
  assert.equal(surfaceVisuals.length,609+patch085Props.length+addedSurfaceCount);assert.deepEqual(surfaceVisuals.slice(0,582).map(d=>d.key),order.surfaceKeys);assert.deepEqual(surfaceVisuals.slice(582,593).map(d=>d.key),patch080Props.map(d=>d.key));assert.deepEqual(clothingVisuals,order.clothingVisuals);assert.deepEqual(digitalScreens.slice(0,11),order.digitalScreens);assert.deepEqual(wallScreens.slice(0,13),order.wallScreens);
  for(const[folder,entries]of[['recipes',old.crafting],['loot_tables/blocks',old.loot]])for(const[f,h]of Object.entries(entries))assert.equal(createHash('sha256').update(readFileSync(`${bp}/${folder}/${f}`)).digest('hex'),h);
  for(const[pack,uuids]of Object.entries(old.uuids)){const m=read(`packs/${pack}/manifest.json`);assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],uuids);}for(const[f,v]of Object.entries(old.cropStates))assert.deepEqual(read(`${bp}/blocks/${f}`)['minecraft:block'].description.states,v);
- for(const[f,v]of Object.entries(old.functions))if(!['build_info.mcfunction','tasting_new.mcfunction','electronics.mcfunction'].includes(f))assert.equal(readFileSync(`${bp}/functions/mcpe_food/${f}`,'utf8').slice(0,['medical_equipment.mcfunction','military_police_equipment.mcfunction','digital_ad_screens.mcfunction'].includes(f)?v.length:undefined),v);
- assert.deepEqual(lines('electronics').slice(0,49),old.functions['electronics.mcfunction'].trim().split('\n'));assert.equal(lines('electronics').length,52);assert.deepEqual(lines('laboratory_equipment'),laboratoryKeys.map(k=>`give @s ${id(k)} 4`));assert.deepEqual(lines('tasting_new'),patch090Items.map(d=>`give @s ${id(d.key)} 4`));
+ for(const[f,v]of Object.entries(old.functions))if(!['build_info.mcfunction','tasting_new.mcfunction','electronics.mcfunction','tasting_all_chinese.mcfunction'].includes(f))assert.equal(readFileSync(`${bp}/functions/mcpe_food/${f}`,'utf8').slice(0,['medical_equipment.mcfunction','military_police_equipment.mcfunction','digital_ad_screens.mcfunction'].includes(f)?v.length:undefined),v);
+ assert.deepEqual(lines('electronics').slice(0,49),old.functions['electronics.mcfunction'].trim().split('\n'));assert.equal(lines('electronics').length,53);assert.deepEqual(lines('laboratory_equipment'),laboratoryKeys.map(k=>`give @s ${id(k)} 4`));assert.deepEqual(lines('tasting_new'),patch097Items.map(d=>`give @s ${id(d.key)} 4`));
  const groups=read(`${bp}/item_catalog/crafting_item_catalog.json`)['minecraft:crafting_items_catalog'].categories[0].groups;for(const d of patch080Props){assert.equal(groups.filter(g=>g.items.includes(id(d.key))).length,1);const item=read(`${bp}/items/${d.key}.json`)['minecraft:item'];assert.equal(item.description.menu_category.group,'mcpe_food:group_'+d.group);assert.equal(item.components['minecraft:food'],undefined);}assert.equal(read(`${bp}/items/${ceilingDisplayKey}.json`)['minecraft:item'].components['minecraft:block_placer'],undefined);
 });
 test('final ordinary geometry stays inside a single cell and budget, with 128px textures and screen-only emission',()=>{
@@ -26,7 +27,15 @@ test('ceiling screen final geometry is 32x16 with a 32-unit drop, independent ma
 test('final portrait panel has an independently computed 45-degree horizontal axis and vertical paper face; base stays axis-aligned',()=>{
  const c=cubes(geo('portrait_paper_monitor')),screen=c.find(c=>c.uv.north?.uv[1]===64),shell=c.find(c=>c.size[1]===14);assert.ok(screen);const point=(c,p)=>{const t=(c.rotation?.[1]??0)*Math.PI/180,[x,y,z]=p;return[x*Math.cos(t)+z*Math.sin(t),y,-x*Math.sin(t)+z*Math.cos(t)];};const a=point(screen,screen.origin),b=point(screen,[screen.origin[0]+screen.size[0],screen.origin[1],screen.origin[2]]),up=point(screen,[screen.origin[0],screen.origin[1]+screen.size[1],screen.origin[2]]);assert.ok(Math.abs(Math.abs(b[0]-a[0])-Math.abs(b[2]-a[2]))<1e-8);assert.ok(Math.abs(up[0]-a[0])<1e-8&&Math.abs(up[2]-a[2])<1e-8);assert.ok(up[1]>a[1]);assert.ok(c.filter(c=>c.size[1]<1).every(c=>!c.rotation));assert.ok(screen.origin[2]+screen.size[2]<shell.origin[2]);
 });
-test('dual/triple screens have exactly one 30-key keyboard, one mouse, and independent correctly ordered UI islands',()=>{
- for(const[k,n]of[['laboratory_dual_monitor_set',2],['template_ai_triple_monitor_set',3]]){const c=cubes(geo(k)),screens=c.filter(c=>c.size[2]===.04).sort((a,b)=>b.origin[0]-a.origin[0]);assert.equal(screens.length,n);assert.equal(c.filter(c=>c.size[1]===.07).length,30);assert.equal(c.filter(c=>c.size[0]===1.4&&c.size[1]===.6).length,1);if(n===3)assert.deepEqual(screens.map(c=>c.uv.north.uv),[[0,28],[0,0],[48,28]]);}
+test('refitted displays have their 48-key keyboard, single mouse, ordered UI islands and inward triple wings',()=>{
+ for(const [key,n] of [['laboratory_dual_monitor_set',2],['template_ai_triple_monitor_set',3]]){
+  const mesh=cubes(geo(key));
+  const screens=mesh.filter(c=>c.uv.north?.uv_size[0]===96/n&&c.uv.north?.uv_size[1]===48).sort((a,b)=>a.origin[0]-b.origin[0]);
+  assert.equal(screens.length,n);
+  assert.deepEqual(screens.map(c=>c.uv.north.uv),Array.from({length:n},(_,i)=>[i*96/n,0]));
+  assert.deepEqual(screens.map(c=>c.rotation?.[1]??0),n===3?[-11,0,11]:[0,0]);
+  assert.equal(mesh.filter(c=>c.origin[1]===.39&&c.size[0]===.65&&c.size[1]===.1).length,48);
+  assert.equal(mesh.filter(c=>c.origin[1]===0&&c.size[0]===1.38&&c.size[1]===.48).length,1);
+ }
  const r=read(`${bp}/mcpe_food_build.json`);assert.equal(r.version,read('package.json').version);assert.deepEqual(r,read(`${rp}/mcpe_food_build.json`));
 });

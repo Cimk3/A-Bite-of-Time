@@ -1,3 +1,4 @@
+import {patch097Foods} from './patch-097-catalog.js';
 /** The single source of truth. IDs are save-file interfaces: do not rename them. */
 export const NS = "mcpe_food";
 export const id = (key: string): string => `${NS}:${key}`;
@@ -249,9 +250,10 @@ export const newFoods = creativeDishes(fineDiningAdditions, true);
 export const previousDishes = [...legacyFoods, ...creativeDishes(additions, true), ...creativeDishes(displayRows, false)];
 const teaBase=legacyFoods.find(f=>f.key==='green_tea')!;
 export const teaFoods:Food[]=[{...teaBase,key:'tieguanyin',zh:'铁观音',en:'Tieguanyin Oolong Tea',recipe:undefined,colors:['#b59a4e','#806f35','#d1b76c']}];
-export const foods: Food[] = [...legacyFoods, ...creativeDishes(additions, true), ...banquetFoods, ...restaurantFoods, ...newFoods,...teaFoods];
+const previousFoods = [...legacyFoods, ...creativeDishes(additions, true), ...banquetFoods, ...restaurantFoods, ...newFoods,...teaFoods];
+export const foods: Food[] = [...previousFoods,...patch097Foods];
 export const displays = creativeDishes(displayRows, false).map(f => ({...f, zh: `${f.zh}（展示）`, en: `${f.en} (Display)`}));
-export const dishes = [...foods, ...displays];
+export const dishes = [...previousFoods, ...displays, ...patch097Foods];
 export const recipes: Recipe[] = [...processing, ...legacyFoods.map(f => f.recipe!)];
 export const foodById = new Map(dishes.map(f => [id(f.key), f]));
 export const compatibleVessels = (food: Food): VesselDefinition[] => vessels.filter(v => food.category === "drink"

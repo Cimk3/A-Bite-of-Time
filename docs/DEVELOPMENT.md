@@ -78,3 +78,19 @@ tools/native-world-audit.mjs独立把实际输出部件变换到世界，再消�
 patch-093-render.ts仅列出ASML、交易工作台、文件柜。原生helper使用有效闭合小方块，再通过[稳定bone_visibility](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_geometry?view=minecraft-bedrock-stable)隐藏root；碰撞和选取仍由原始cs生成，不由helper小方块推算。运行时syncSolidWhole复用已有surfaceIndex，在solidLocal矩形中心创建一个whole外观，final nativeDirection决定正面，支持旧网格与旧reversed记录。依旧走有界恢复、owner关联和去重/删除。
 
 patch-093-resources测试与实际0.9.2包逐字节比较其他物品资源，并逐字段确认三件原生碰撞/状态/掉落不变。patch-092-world对三件改为核对实际完整实体网格，其余17件仍核对分格拼接；四向中心/朝向、重载、拆除及失败回滚由运行时测试核对，不能把隐藏helper当可见整件渲染证据。
+
+## 0.9.5 场馆摆件
+
+patch-095-catalog 维护分类、尺寸和放置类型，patch-095-art 维护源模型和专用图集。新落地件通过 wholeSceneKeys 复用原生碰撞与完整实体模型，原 0.9.3 三件保留自己的兼容范围。调音台沿用多格台面支撑。灯箱使用独立边框图集和原创 LUNAR SIGNAL 正面画布。
+
+爆米花机的玻璃骨骼单独使用既有半透明材质，机壳随表面展示的遮罩通道绘制。控制器引用与附加包资源使用私有标识。实机检查含玻璃排序、PBR 发光、背面及跨区块重载。
+
+## 0.9.6 旧模型精修
+
+patch-096-art 提供目标物品的网格和图集，历史生成器依物品 ID 调用。原生大件使用原部件碰撞与新版整体外观。透明模型和实体外壳按骨骼分绘。目录和展示索引沿用 0.9.5。
+
+西点柜倍率数据由 tools/capture-pastry-bounds.mjs 读取现有食品的默认器皿展示网格生成。若食品模型或西点柜层板发生变化，构建后重算数据并重新编译打包。自动测试核对 110 件真实网格尺寸、最大可用倍率和两层接触面。
+
+## 0.9.7 资源与模拟电脑
+
+MRI 与电脑由 patch-097-art 生成，四道菜沿用餐具变体。新增索引追加到旧桌面、托盘和墙面顺序后。需要重画菜品时，先构建，再用 capture-pastry-bounds 读取实际网格，随后重新构建。模拟桌面依赖锁定版 server-ui，虚拟目录由单次会话持有。

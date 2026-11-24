@@ -6,7 +6,7 @@ import {decodeRGBA} from '../tools/png-inspect.mjs';
 const bp='packs/FoodAndTable_BP',rp='packs/FoodAndTable_RP';
 test('0.4.2 adds exactly seven edible Western dishes including brulee, without creating recipes',()=>{
   assert.deepEqual(newFoods.map(f=>f.zh),['惠灵顿牛排','香草烤羊排','野菌烩饭','奶油焗龙虾','鱼子酱配薄饼','焦糖布蕾','黑松露鹅肝']);
-  assert.ok(newFoods.every(f=>f.category==='western'&&f.edible&&!f.recipe));assert.equal(foods.length,102);assert.equal(recipes.length,53);
+  assert.ok(newFoods.every(f=>f.category==='western'&&f.edible&&!f.recipe));assert.equal(foods.length,106);assert.equal(recipes.length,53);
 });
 test('new food PBR is nonmetallic and nonemissive, with glossy caviar and caramel inside private assets',()=>{
   for(const food of newFoods){

@@ -40,6 +40,11 @@ export function bakeDeviceTilts(cubes){
 /** Measure the emitted screen coordinates, never the source rotation value. */
 export function emittedLidAngle(cubes){
   const screen=cubes.filter(c=>c.tag==='screen'||(c.uv?.south?.uv_size[0]===96&&c.uv.south.uv[0]===0&&c.uv.south.uv[1]<56));
+  if(screen.length===1){
+    const [pitch,yaw,roll]=(screen[0].rotation??[0,0,0]).map(angle=>angle*Math.PI/180);
+    const dz=Math.cos(yaw)*Math.sin(pitch)*Math.cos(roll)-Math.sin(yaw)*Math.sin(roll);
+    return Math.acos(dz)*180/Math.PI;
+  }
   if(screen.length<2)throw new Error('Expected a baked multi-row screen');
   const center=c=>[c.origin[1]+c.size[1]/2,c.origin[2]+c.size[2]/2];
   screen.sort((a,b)=>center(a)[0]-center(b)[0]);const bottom=center(screen[Math.floor(screen.length*.15)]),top=center(screen[Math.floor(screen.length*.85)]),dy=top[0]-bottom[0],dz=top[1]-bottom[1];

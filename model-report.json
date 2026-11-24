@@ -1,5 +1,5 @@
 {
-  "version": "0.9.3",
+  "version": "0.9.8",
   "models": [
     {
       "key": "egg_fried_rice_serving",
@@ -2882,6 +2882,114 @@
       }
     },
     {
+      "key": "yangcheng_hairy_crab_serving",
+      "resolution": 128,
+      "cubes": 148,
+      "slots": {
+        "food": "food_yangcheng_hairy_crab",
+        "ware": "ware_yangcheng_hairy_crab"
+      }
+    },
+    {
+      "key": "yangcheng_hairy_crab_on_black_gold_plate",
+      "resolution": 128,
+      "cubes": 148,
+      "slots": {
+        "food": "food_yangcheng_hairy_crab",
+        "ware": "ware_black_gold_plate"
+      }
+    },
+    {
+      "key": "yangcheng_hairy_crab_on_burgundy_platter",
+      "resolution": 128,
+      "cubes": 148,
+      "slots": {
+        "food": "food_yangcheng_hairy_crab",
+        "ware": "ware_burgundy_platter"
+      }
+    },
+    {
+      "key": "chaozhou_braised_goose_on_plate",
+      "resolution": 128,
+      "cubes": 108,
+      "slots": {
+        "food": "food_chaozhou_braised_goose",
+        "ware": "ware_plate"
+      }
+    },
+    {
+      "key": "chaozhou_braised_goose_on_black_gold_plate",
+      "resolution": 128,
+      "cubes": 108,
+      "slots": {
+        "food": "food_chaozhou_braised_goose",
+        "ware": "ware_black_gold_plate"
+      }
+    },
+    {
+      "key": "chaozhou_braised_goose_serving",
+      "resolution": 128,
+      "cubes": 108,
+      "slots": {
+        "food": "food_chaozhou_braised_goose",
+        "ware": "ware_chaozhou_braised_goose"
+      }
+    },
+    {
+      "key": "chaozhou_oyster_omelette_serving",
+      "resolution": 128,
+      "cubes": 191,
+      "slots": {
+        "food": "food_chaozhou_oyster_omelette",
+        "ware": "ware_chaozhou_oyster_omelette"
+      }
+    },
+    {
+      "key": "chaozhou_oyster_omelette_on_black_gold_plate",
+      "resolution": 128,
+      "cubes": 191,
+      "slots": {
+        "food": "food_chaozhou_oyster_omelette",
+        "ware": "ware_black_gold_plate"
+      }
+    },
+    {
+      "key": "chaozhou_oyster_omelette_on_burgundy_platter",
+      "resolution": 128,
+      "cubes": 191,
+      "slots": {
+        "food": "food_chaozhou_oyster_omelette",
+        "ware": "ware_burgundy_platter"
+      }
+    },
+    {
+      "key": "ginkgo_taro_paste_serving",
+      "resolution": 128,
+      "cubes": 190,
+      "slots": {
+        "food": "food_ginkgo_taro_paste",
+        "ware": "ware_ginkgo_taro_paste"
+      }
+    },
+    {
+      "key": "ginkgo_taro_paste_on_black_gold_bowl",
+      "resolution": 128,
+      "cubes": 190,
+      "slots": {
+        "food": "food_ginkgo_taro_paste",
+        "ware": "ware_black_gold_bowl"
+      }
+    },
+    {
+      "key": "ginkgo_taro_paste_on_burgundy_bowl",
+      "resolution": 128,
+      "cubes": 190,
+      "slots": {
+        "food": "food_ginkgo_taro_paste",
+        "ware": "ware_burgundy_bowl"
+      }
+    },
+    {
       "key": "plate",
       "resolution": 128,
       "cubes": 66,
@@ -3822,7 +3930,7 @@
     {
       "key": "macbook_air_m5_open",
       "resolution": 128,
-      "cubes": 181,
+      "cubes": 25,
       "slots": {
         "ware": "patch090_macbook_air_m5_open"
       }
@@ -3830,7 +3938,7 @@
     {
       "key": "macbook_air_m5_open",
       "resolution": 128,
-      "cubes": 181,
+      "cubes": 25,
       "slots": {
         "ware": "patch090_macbook_air_m5_open"
       }
@@ -3838,7 +3946,7 @@
     {
       "key": "legion_laptop_open",
       "resolution": 128,
-      "cubes": 181,
+      "cubes": 34,
       "slots": {
         "ware": "patch090_legion_laptop_open"
       }
@@ -3846,7 +3954,7 @@
     {
       "key": "legion_laptop_open",
       "resolution": 128,
-      "cubes": 181,
+      "cubes": 34,
       "slots": {
         "ware": "patch090_legion_laptop_open"
       }
@@ -4030,63 +4138,70 @@
     {
       "key": "cafe_pastry_case",
       "resolution": 128,
-      "cubes": 9,
+      "cubes": 37,
       "slots": {
-        "ware": "patch090_cafe_pastry_case"
+        "ware": "patch090_cafe_pastry_case",
+        "food": "patch090_cafe_pastry_case"
       }
     },
     {
       "key": "cafe_pastry_case_part_0",
       "resolution": 128,
-      "cubes": 5,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_cafe_pastry_case"
+        "ware": "patch090_cafe_pastry_case",
+        "food": "patch090_cafe_pastry_case"
       }
     },
     {
       "key": "cafe_pastry_case_part_1",
       "resolution": 128,
-      "cubes": 4,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_cafe_pastry_case"
+        "ware": "patch090_cafe_pastry_case",
+        "food": "patch090_cafe_pastry_case"
       }
     },
     {
       "key": "cafe_pastry_case_part_2",
       "resolution": 128,
-      "cubes": 5,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_cafe_pastry_case"
+        "ware": "patch090_cafe_pastry_case",
+        "food": "patch090_cafe_pastry_case"
       }
     },
     {
       "key": "cafe_pastry_case_part_3",
       "resolution": 128,
-      "cubes": 6,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_cafe_pastry_case"
+        "ware": "patch090_cafe_pastry_case",
+        "food": "patch090_cafe_pastry_case"
       }
     },
     {
       "key": "cafe_pastry_case_part_4",
       "resolution": 128,
-      "cubes": 5,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_cafe_pastry_case"
+        "ware": "patch090_cafe_pastry_case",
+        "food": "patch090_cafe_pastry_case"
       }
     },
     {
       "key": "cafe_pastry_case_part_5",
       "resolution": 128,
-      "cubes": 6,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_cafe_pastry_case"
+        "ware": "patch090_cafe_pastry_case",
+        "food": "patch090_cafe_pastry_case"
       }
     },
     {
       "key": "cafe_espresso_machine",
       "resolution": 128,
-      "cubes": 47,
+      "cubes": 100,
       "slots": {
         "ware": "patch090_cafe_espresso_machine"
       }
@@ -4094,7 +4209,7 @@
     {
       "key": "cafe_espresso_machine_part_0",
       "resolution": 128,
-      "cubes": 23,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_cafe_espresso_machine"
       }
@@ -4102,7 +4217,7 @@
     {
       "key": "cafe_espresso_machine_part_1",
       "resolution": 128,
-      "cubes": 23,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_cafe_espresso_machine"
       }
@@ -4110,7 +4225,7 @@
     {
       "key": "cafe_espresso_machine_part_2",
       "resolution": 128,
-      "cubes": 11,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_cafe_espresso_machine"
       }
@@ -4118,7 +4233,7 @@
     {
       "key": "cafe_espresso_machine_part_3",
       "resolution": 128,
-      "cubes": 14,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_cafe_espresso_machine"
       }
@@ -4126,41 +4241,46 @@
     {
       "key": "cafe_grinder",
       "resolution": 128,
-      "cubes": 20,
+      "cubes": 81,
       "slots": {
-        "ware": "patch090_cafe_grinder"
+        "ware": "patch090_cafe_grinder",
+        "food": "patch090_cafe_grinder"
       }
     },
     {
       "key": "cafe_grinder_part_0",
       "resolution": 128,
-      "cubes": 12,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_cafe_grinder"
+        "ware": "patch090_cafe_grinder",
+        "food": "patch090_cafe_grinder"
       }
     },
     {
       "key": "cafe_grinder_part_1",
       "resolution": 128,
-      "cubes": 9,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_cafe_grinder"
+        "ware": "patch090_cafe_grinder",
+        "food": "patch090_cafe_grinder"
       }
     },
     {
       "key": "cafe_syrup_set",
       "resolution": 128,
-      "cubes": 16,
+      "cubes": 42,
       "slots": {
-        "ware": "patch090_cafe_syrup_set"
+        "ware": "patch090_cafe_syrup_set",
+        "food": "patch090_cafe_syrup_set"
       }
     },
     {
       "key": "cafe_syrup_set",
       "resolution": 128,
-      "cubes": 16,
+      "cubes": 42,
       "slots": {
-        "ware": "patch090_cafe_syrup_set"
+        "ware": "patch090_cafe_syrup_set",
+        "food": "patch090_cafe_syrup_set"
       }
     },
     {
@@ -4550,7 +4670,7 @@
     {
       "key": "police_service_terminal",
       "resolution": 128,
-      "cubes": 9,
+      "cubes": 34,
       "slots": {
         "ware": "patch090_police_service_terminal"
       }
@@ -4558,7 +4678,7 @@
     {
       "key": "police_service_terminal_part_0",
       "resolution": 128,
-      "cubes": 9,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_police_service_terminal"
       }
@@ -4566,7 +4686,7 @@
     {
       "key": "police_service_terminal_part_1",
       "resolution": 128,
-      "cubes": 3,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_police_service_terminal"
       }
@@ -4574,31 +4694,34 @@
     {
       "key": "police_water_dispenser",
       "resolution": 128,
-      "cubes": 9,
+      "cubes": 46,
       "slots": {
-        "ware": "patch090_police_water_dispenser"
+        "ware": "patch090_police_water_dispenser",
+        "food": "patch090_police_water_dispenser"
       }
     },
     {
       "key": "police_water_dispenser_part_0",
       "resolution": 128,
-      "cubes": 8,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_police_water_dispenser"
+        "ware": "patch090_police_water_dispenser",
+        "food": "patch090_police_water_dispenser"
       }
     },
     {
       "key": "police_water_dispenser_part_1",
       "resolution": 128,
-      "cubes": 2,
+      "cubes": 1,
       "slots": {
-        "ware": "patch090_police_water_dispenser"
+        "ware": "patch090_police_water_dispenser",
+        "food": "patch090_police_water_dispenser"
       }
     },
     {
       "key": "police_riot_cabinet",
       "resolution": 128,
-      "cubes": 19,
+      "cubes": 55,
       "slots": {
         "ware": "patch090_police_riot_cabinet"
       }
@@ -4606,7 +4729,7 @@
     {
       "key": "police_riot_cabinet_part_0",
       "resolution": 128,
-      "cubes": 10,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_police_riot_cabinet"
       }
@@ -4614,7 +4737,7 @@
     {
       "key": "police_riot_cabinet_part_1",
       "resolution": 128,
-      "cubes": 10,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_police_riot_cabinet"
       }
@@ -4622,7 +4745,7 @@
     {
       "key": "police_riot_cabinet_part_2",
       "resolution": 128,
-      "cubes": 7,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_police_riot_cabinet"
       }
@@ -4630,7 +4753,7 @@
     {
       "key": "police_riot_cabinet_part_3",
       "resolution": 128,
-      "cubes": 9,
+      "cubes": 1,
       "slots": {
         "ware": "patch090_police_riot_cabinet"
       }
@@ -4809,6 +4932,713 @@
       "cubes": 3,
       "slots": {
         "ware": "patch090_home_display_shelf"
+      }
+    },
+    {
+      "key": "cinema_popcorn_machine",
+      "resolution": 128,
+      "cubes": 77,
+      "slots": {
+        "ware": "patch095_cinema_popcorn_machine",
+        "food": "patch095_cinema_popcorn_machine"
+      }
+    },
+    {
+      "key": "cinema_popcorn_machine_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_cinema_popcorn_machine",
+        "food": "patch095_cinema_popcorn_machine"
+      }
+    },
+    {
+      "key": "cinema_popcorn_machine_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_cinema_popcorn_machine",
+        "food": "patch095_cinema_popcorn_machine"
+      }
+    },
+    {
+      "key": "cinema_dual_dispenser",
+      "resolution": 128,
+      "cubes": 38,
+      "slots": {
+        "ware": "patch095_cinema_dual_dispenser"
+      }
+    },
+    {
+      "key": "cinema_dual_dispenser",
+      "resolution": 128,
+      "cubes": 38,
+      "slots": {
+        "ware": "patch095_cinema_dual_dispenser"
+      }
+    },
+    {
+      "key": "studio_mixing_console",
+      "resolution": 128,
+      "cubes": 204,
+      "slots": {
+        "ware": "patch095_studio_mixing_console"
+      }
+    },
+    {
+      "key": "studio_mixing_console",
+      "resolution": 128,
+      "cubes": 204,
+      "slots": {
+        "ware": "patch095_studio_mixing_console"
+      }
+    },
+    {
+      "key": "studio_monitor_speaker",
+      "resolution": 128,
+      "cubes": 51,
+      "slots": {
+        "ware": "patch095_studio_monitor_speaker"
+      }
+    },
+    {
+      "key": "studio_monitor_speaker",
+      "resolution": 128,
+      "cubes": 51,
+      "slots": {
+        "ware": "patch095_studio_monitor_speaker"
+      }
+    },
+    {
+      "key": "gym_treadmill",
+      "resolution": 128,
+      "cubes": 48,
+      "slots": {
+        "ware": "patch095_gym_treadmill"
+      }
+    },
+    {
+      "key": "gym_treadmill_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_treadmill"
+      }
+    },
+    {
+      "key": "gym_treadmill_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_treadmill"
+      }
+    },
+    {
+      "key": "gym_treadmill_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_treadmill"
+      }
+    },
+    {
+      "key": "gym_treadmill_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_treadmill"
+      }
+    },
+    {
+      "key": "gym_squat_rack",
+      "resolution": 128,
+      "cubes": 118,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_4",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_5",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_6",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_7",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_8",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_9",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_10",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_squat_rack_part_11",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_squat_rack"
+      }
+    },
+    {
+      "key": "gym_incline_bench",
+      "resolution": 128,
+      "cubes": 41,
+      "slots": {
+        "ware": "patch095_gym_incline_bench"
+      }
+    },
+    {
+      "key": "gym_incline_bench_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_incline_bench"
+      }
+    },
+    {
+      "key": "gym_incline_bench_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_incline_bench"
+      }
+    },
+    {
+      "key": "gym_dumbbell_rack",
+      "resolution": 128,
+      "cubes": 119,
+      "slots": {
+        "ware": "patch095_gym_dumbbell_rack"
+      }
+    },
+    {
+      "key": "gym_dumbbell_rack_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_dumbbell_rack"
+      }
+    },
+    {
+      "key": "gym_dumbbell_rack_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_dumbbell_rack"
+      }
+    },
+    {
+      "key": "gym_dumbbell_rack_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_dumbbell_rack"
+      }
+    },
+    {
+      "key": "gym_dumbbell_rack_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_dumbbell_rack"
+      }
+    },
+    {
+      "key": "gym_cable_machine",
+      "resolution": 128,
+      "cubes": 76,
+      "slots": {
+        "ware": "patch095_gym_cable_machine"
+      }
+    },
+    {
+      "key": "gym_cable_machine_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_cable_machine"
+      }
+    },
+    {
+      "key": "gym_cable_machine_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_cable_machine"
+      }
+    },
+    {
+      "key": "gym_cable_machine_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_cable_machine"
+      }
+    },
+    {
+      "key": "gym_cable_machine_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_cable_machine"
+      }
+    },
+    {
+      "key": "gym_cable_machine_part_4",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_cable_machine"
+      }
+    },
+    {
+      "key": "gym_cable_machine_part_5",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_cable_machine"
+      }
+    },
+    {
+      "key": "gym_mat_rack",
+      "resolution": 128,
+      "cubes": 26,
+      "slots": {
+        "ware": "patch095_gym_mat_rack"
+      }
+    },
+    {
+      "key": "gym_mat_rack_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_mat_rack"
+      }
+    },
+    {
+      "key": "gym_mat_rack_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_mat_rack"
+      }
+    },
+    {
+      "key": "gym_punching_bag",
+      "resolution": 128,
+      "cubes": 34,
+      "slots": {
+        "ware": "patch095_gym_punching_bag"
+      }
+    },
+    {
+      "key": "gym_punching_bag_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_punching_bag"
+      }
+    },
+    {
+      "key": "gym_punching_bag_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_punching_bag"
+      }
+    },
+    {
+      "key": "gym_punching_bag_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch095_gym_punching_bag"
+      }
+    },
+    {
+      "key": "medical_mri_scanner",
+      "resolution": 128,
+      "cubes": 91,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_4",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_5",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_6",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_7",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_8",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_9",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_10",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_11",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_12",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_13",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_14",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_15",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_16",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_17",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_18",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_19",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_20",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_21",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_22",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_23",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_24",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_25",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_26",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_27",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_28",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_29",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_30",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_31",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_32",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_33",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_34",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "medical_mri_scanner_part_35",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch097_medical_mri_scanner"
+      }
+    },
+    {
+      "key": "linux_desktop_computer",
+      "resolution": 128,
+      "cubes": 73,
+      "slots": {
+        "ware": "patch097_linux_desktop_computer"
+      }
+    },
+    {
+      "key": "linux_desktop_computer",
+      "resolution": 128,
+      "cubes": 73,
+      "slots": {
+        "ware": "patch097_linux_desktop_computer"
       }
     },
     {
@@ -5654,9 +6484,10 @@
     {
       "key": "transit_ticket_gate",
       "resolution": 128,
-      "cubes": 10,
+      "cubes": 46,
       "slots": {
-        "ware": "patch072_transit_ticket_gate"
+        "ware": "patch072_transit_ticket_gate",
+        "food": "patch072_transit_ticket_gate"
       }
     },
     {
@@ -5670,7 +6501,7 @@
     {
       "key": "ticket_vending_machine",
       "resolution": 128,
-      "cubes": 10,
+      "cubes": 39,
       "slots": {
         "ware": "patch072_ticket_vending_machine"
       }
@@ -5718,7 +6549,7 @@
     {
       "key": "government_service_kiosk",
       "resolution": 128,
-      "cubes": 12,
+      "cubes": 34,
       "slots": {
         "ware": "patch073_government_service_kiosk"
       }
@@ -6039,7 +6870,7 @@
     {
       "key": "laboratory_dual_monitor_set",
       "resolution": 128,
-      "cubes": 41,
+      "cubes": 91,
       "slots": {
         "ware": "patch080_laboratory_dual_monitor_set"
       }
@@ -6047,7 +6878,7 @@
     {
       "key": "template_ai_triple_monitor_set",
       "resolution": 128,
-      "cubes": 43,
+      "cubes": 104,
       "slots": {
         "ware": "patch080_template_ai_triple_monitor_set"
       }
@@ -9364,7 +10195,7 @@
     },
     {
       "key": "surface_transit_ticket_gate",
-      "cubes": 10,
+      "cubes": 46,
       "resolution": 128
     },
     {
@@ -9374,7 +10205,7 @@
     },
     {
       "key": "surface_ticket_vending_machine",
-      "cubes": 10,
+      "cubes": 39,
       "resolution": 128
     },
     {
@@ -9404,7 +10235,7 @@
     },
     {
       "key": "surface_government_service_kiosk",
-      "cubes": 12,
+      "cubes": 34,
       "resolution": 128
     },
     {
@@ -9604,12 +10435,12 @@
     },
     {
       "key": "surface_laboratory_dual_monitor_set",
-      "cubes": 41,
+      "cubes": 91,
       "resolution": 128
     },
     {
       "key": "surface_template_ai_triple_monitor_set",
-      "cubes": 43,
+      "cubes": 104,
       "resolution": 128
     },
     {
@@ -9814,12 +10645,12 @@
     },
     {
       "key": "surface_macbook_air_m5_open",
-      "cubes": 181,
+      "cubes": 25,
       "resolution": 128
     },
     {
       "key": "surface_legion_laptop_open",
-      "cubes": 181,
+      "cubes": 34,
       "resolution": 128
     },
     {
@@ -9854,22 +10685,22 @@
     },
     {
       "key": "surface_cafe_pastry_case",
-      "cubes": 9,
+      "cubes": 37,
       "resolution": 128
     },
     {
       "key": "surface_cafe_espresso_machine",
-      "cubes": 47,
+      "cubes": 100,
       "resolution": 128
     },
     {
       "key": "surface_cafe_grinder",
-      "cubes": 20,
+      "cubes": 81,
       "resolution": 128
     },
     {
       "key": "surface_cafe_syrup_set",
-      "cubes": 16,
+      "cubes": 42,
       "resolution": 128
     },
     {
@@ -9954,17 +10785,17 @@
     },
     {
       "key": "surface_police_service_terminal",
-      "cubes": 9,
+      "cubes": 34,
       "resolution": 128
     },
     {
       "key": "surface_police_water_dispenser",
-      "cubes": 9,
+      "cubes": 46,
       "resolution": 128
     },
     {
       "key": "surface_police_riot_cabinet",
-      "cubes": 19,
+      "cubes": 55,
       "resolution": 128
     },
     {
@@ -10165,6 +10996,131 @@
     {
       "key": "surface_slot_icon_drink_counter",
       "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cinema_popcorn_machine",
+      "cubes": 77,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cinema_dual_dispenser",
+      "cubes": 38,
+      "resolution": 128
+    },
+    {
+      "key": "surface_studio_mixing_console",
+      "cubes": 204,
+      "resolution": 128
+    },
+    {
+      "key": "surface_studio_monitor_speaker",
+      "cubes": 51,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_treadmill",
+      "cubes": 48,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_squat_rack",
+      "cubes": 118,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_incline_bench",
+      "cubes": 41,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_dumbbell_rack",
+      "cubes": 119,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_cable_machine",
+      "cubes": 76,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_mat_rack",
+      "cubes": 26,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_punching_bag",
+      "cubes": 34,
+      "resolution": 128
+    },
+    {
+      "key": "surface_medical_mri_scanner",
+      "cubes": 91,
+      "resolution": 128
+    },
+    {
+      "key": "surface_linux_desktop_computer",
+      "cubes": 73,
+      "resolution": 128
+    },
+    {
+      "key": "surface_yangcheng_hairy_crab_serving",
+      "cubes": 148,
+      "resolution": 128
+    },
+    {
+      "key": "surface_yangcheng_hairy_crab_on_black_gold_plate",
+      "cubes": 148,
+      "resolution": 128
+    },
+    {
+      "key": "surface_yangcheng_hairy_crab_on_burgundy_platter",
+      "cubes": 148,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_braised_goose_on_plate",
+      "cubes": 108,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_braised_goose_on_black_gold_plate",
+      "cubes": 108,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_braised_goose_serving",
+      "cubes": 108,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_oyster_omelette_serving",
+      "cubes": 191,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_oyster_omelette_on_black_gold_plate",
+      "cubes": 191,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_oyster_omelette_on_burgundy_platter",
+      "cubes": 191,
+      "resolution": 128
+    },
+    {
+      "key": "surface_ginkgo_taro_paste_serving",
+      "cubes": 190,
+      "resolution": 128
+    },
+    {
+      "key": "surface_ginkgo_taro_paste_on_black_gold_bowl",
+      "cubes": 190,
+      "resolution": 128
+    },
+    {
+      "key": "surface_ginkgo_taro_paste_on_burgundy_bowl",
+      "cubes": 190,
       "resolution": 128
     },
     {
@@ -10518,6 +11474,21 @@
       "resolution": 128
     },
     {
+      "key": "mini_yangcheng_hairy_crab",
+      "cubes": 22,
+      "resolution": 128
+    },
+    {
+      "key": "mini_chaozhou_braised_goose",
+      "cubes": 6,
+      "resolution": 128
+    },
+    {
+      "key": "mini_chaozhou_oyster_omelette",
+      "cubes": 43,
+      "resolution": 128
+    },
+    {
       "key": "ad_japanese_snacks",
       "cubes": 1,
       "resolution": 2048
@@ -10761,6 +11732,16 @@
       "key": "ad_auramed_6x6",
       "cubes": 6,
       "resolution": 384
+    },
+    {
+      "key": "cinema_poster_lightbox",
+      "cubes": 12,
+      "resolution": 128
+    },
+    {
+      "key": "gym_ad_screen_4x2",
+      "cubes": 12,
+      "resolution": 256
     },
     {
       "key": "garment_display_tshirt_hanging_0",
@@ -11179,6 +12160,10 @@
     "mcpe_food_greens_platter": 128,
     "mcpe_food_vermicelli_platter": 128,
     "mcpe_food_sesame_dip": 128,
+    "mcpe_food_yangcheng_hairy_crab": 128,
+    "mcpe_food_chaozhou_braised_goose": 128,
+    "mcpe_food_chaozhou_oyster_omelette": 128,
+    "mcpe_food_ginkgo_taro_paste": 128,
     "mcpe_food_plate": 128,
     "mcpe_food_bowl": 128,
     "mcpe_food_glass": 128,
@@ -11234,6 +12219,19 @@
     "mcpe_food_police_file_cabinet": 128,
     "mcpe_food_home_display_cabinet": 128,
     "mcpe_food_home_display_shelf": 128,
+    "mcpe_food_cinema_popcorn_machine": 128,
+    "mcpe_food_cinema_dual_dispenser": 128,
+    "mcpe_food_studio_mixing_console": 128,
+    "mcpe_food_studio_monitor_speaker": 128,
+    "mcpe_food_gym_treadmill": 128,
+    "mcpe_food_gym_squat_rack": 128,
+    "mcpe_food_gym_incline_bench": 128,
+    "mcpe_food_gym_dumbbell_rack": 128,
+    "mcpe_food_gym_cable_machine": 128,
+    "mcpe_food_gym_mat_rack": 128,
+    "mcpe_food_gym_punching_bag": 128,
+    "mcpe_food_medical_mri_scanner": 128,
+    "mcpe_food_linux_desktop_computer": 128,
     "mcpe_food_gongfu_tea_tray": 128,
     "mcpe_food_fridge_single_rose_gold": 128,
     "mcpe_food_fridge_single_white": 128,
@@ -11516,7 +12514,9 @@
     "mcpe_food_police_reception_sign": 128,
     "mcpe_food_police_command_screen": 128,
     "mcpe_food_ad_novacare_5x5": 128,
-    "mcpe_food_ad_auramed_6x6": 128
+    "mcpe_food_ad_auramed_6x6": 128,
+    "mcpe_food_cinema_poster_lightbox": 128,
+    "mcpe_food_gym_ad_screen_4x2": 128
   },
   "sharedTableGeometry": "geometry.mcpe_food.surface.table_number_sign"
 }

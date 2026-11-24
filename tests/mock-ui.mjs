@@ -7,4 +7,9 @@ class Form{
 export class ActionFormData extends Form{}
 export class MessageFormData extends Form{}
 
-export class ModalFormData extends Form{dropdown(label,options,defaults){(this.details.dropdowns??=[]).push({label,options,defaults});return this;}}
+export class ModalFormData extends Form{
+  dropdown(label,options,defaults){(this.details.dropdowns??=[]).push({label,options,defaults});return this;}
+  label(value){this.details.label=value;return this;}
+  textField(label,placeholder){this.details.field={label,placeholder};return this;}
+  submitButton(value){this.details.submit=value;return this;}
+}

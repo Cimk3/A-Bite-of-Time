@@ -1,8 +1,12 @@
 import { patch082ById } from './patch-082-catalog.js';
 import { patch085ById, patch085MultiGrid as oldMultiGrid } from './patch-085-catalog.js';
-import { patch090ById, patch090PartId, patch090Props } from './patch-090-catalog.js';
+import { patch090ById, patch090PartId, placedSceneProps } from './patch-090-catalog.js';
+import { linuxComputerKey, mriKey } from './patch-097-catalog.js';
+import { showLinuxDesktop } from './linux-desktop.js';
+import { patch095Keys } from './patch-095-catalog.js';
 import { patch090Cells, nativeRight } from './patch-090-grid.js';
-import { whole090Keys } from './patch-093-render.js';
+import { wholeSceneKeys } from './patch-093-render.js';
+import { fitPastry } from './pastry-display-layout.js';
 import { facingPlayer, nativePartIndex, oppositeDirection, seatLocal, slotLocal } from './patch-092-layout.js';
 import { patch080ById, ceilingDisplayKey } from './patch-080-catalog.js';
 import { patch074ById } from './patch-074-catalog.js';
@@ -20,7 +24,7 @@ import { refrigeratorById } from './appliance-catalog.js';
 import { screenYaw, cardinalYaw, displayFacing, facingFromYaw } from './device-facing.js';
 import { planInsert, planServe } from './inventory.js';
 import { isWallSupport, surfaceHeight } from './supports.js';
-const patch085MultiGrid = new Map([...oldMultiGrid, ...patch090Props.filter(d => (d.kind === 'surface' || d.key === 'cafe_toppings') && d.footprint).map(d => [id(d.key), d])]);
+const patch085MultiGrid = new Map([...oldMultiGrid, ...placedSceneProps.filter(d => (d.kind === 'surface' || d.key === 'cafe_toppings') && d.footprint).map(d => [id(d.key), d])]);
 let io;
 const PREFIX = 'mcpe_food:decor:', records = new Map(), locks = new Set(), cooldowns = new Map();
 // Derived spatial index only; persisted v1 records remain the source of truth.
@@ -789,6 +793,8 @@ function surfaceInteract(p, r) {
         return solid090Interact(p, r);
     if (r.kind === 'clothing_rack')
         return clothingMenu(p, r);
+    if (r.definition === id(linuxComputerKey) && !p.isSneaking)
+        return linuxDesktopMenu(p, r);
     if (scenarioById.has(r.definition) || r.wallFace || r.kind === 'digital_ad' || ['mcpe_food:landscape_frame', 'mcpe_food:table_clock'].includes(r.definition))
         return staticMenu(p, r);
     if (!click(p, r.uid) || !assertCurrent(p, r))
@@ -810,6 +816,22 @@ function surfaceInteract(p, r) {
         return;
     next.definition = id(servingKey(food, vessel.key));
     change(p, r, next, planServe(io.snapshot(c).slots, p.selectedSlotIndex, hand.typeId));
+}
+async function linuxDesktopMenu(p, r) {
+    const c = io.inventory(p), selected = p.selectedSlotIndex;
+    if (!c || c.getItem(selected) || !click(p, r.uid) || !assertCurrent(p, r))
+        return;
+    const playerId = p.id, token = io.sessions.begin(playerId);
+    if (token === undefined)
+        return;
+    const started = system.currentTick;
+    try {
+        await showLinuxDesktop(p, () => p.isValid && io.sessions.isActive(playerId, token) &&
+            system.currentTick - started < 6000 && p.selectedSlotIndex === selected && !c.getItem(selected) && assertCurrent(p, r));
+    }
+    finally {
+        io.sessions.finish(playerId, token);
+    }
 }
 async function posterMenu(p, r, placing = false) {
     if (!placing && !click(p, r.uid))
@@ -948,7 +970,7 @@ function solidLocal(r, x, y, z) {
 function nativeDirection(r) { return r.nativeFacing === 'reversed' ? oppositeDirection[r.direction] : r.direction; }
 function syncSolidWhole(r) {
     const spec = patch090ById.get(r.definition);
-    if (!spec || !whole090Keys.has(spec.key))
+    if (!spec || !wholeSceneKeys.has(spec.key))
         return;
     const position = solidLocal(r, (spec.size[0] - 1) / 2, 0, (spec.size[1] - 1) / 2), n = normals[nativeDirection(r)];
     const angle = screenYaw(r.definition, position, add(position, n), 0);
@@ -1018,10 +1040,16 @@ function syncSolidSlots(r) {
         const index = slotVisualIndex(key);
         if (index === undefined)
             continue;
-        const local = slotLocal(spec, i), name = 'slot' + i, position = solidLocal(r, local.x, local.y, local.z), n = normals[nativeDirection(r)];
+        const local = slotLocal(spec, i), name = 'slot' + i;
+        const pastry = spec.key === 'cafe_pastry_case' ? fitPastry(key, Math.floor(i / 3)) : undefined;
+        const position = solidLocal(r, local.x, pastry?.y ?? local.y, local.z), n = normals[nativeDirection(r)];
         const angle = screenYaw(key, position, add(position, n), 0) ?? cardinalYaw(Math.atan2(-n.x, n.z) * 180 / Math.PI - 180);
         const e = visual({ ...r, definition: key, yaw: angle }, adById.has(key) ? 'mcpe_food:advert_display' : 'mcpe_food:surface_display', name, index, position, entities);
-        e.triggerEvent('mcpe_food:slot_scale');
+        const event = pastry ? 'mcpe_food:pastry_scale_' + pastry.level : 'mcpe_food:slot_scale';
+        if (e.getDynamicProperty('mcpe_food:scale_event') !== event) {
+            e.triggerEvent(event);
+            e.setDynamicProperty('mcpe_food:scale_event', event);
+        }
         wanted.add(name);
     }
     for (const e of entities)
@@ -1040,7 +1068,7 @@ async function solid090Interact(p, r) {
         if (token === undefined)
             return;
         try {
-            if (hand && (!hand.isStackableWith(new ItemStack(hand.typeId)) || slotVisualIndex(hand.typeId) === undefined || patch090ById.get(hand.typeId)?.slots || patch090ById.get(hand.typeId)?.kind === 'wall' || hand.typeId === id('asml_lithography') || spec.key === 'cafe_pastry_case' && !foodById.has(hand.typeId))) {
+            if (hand && (!hand.isStackableWith(new ItemStack(hand.typeId)) || slotVisualIndex(hand.typeId) === undefined || patch090ById.get(hand.typeId)?.slots || patch090ById.get(hand.typeId)?.kind === 'wall' || [id('asml_lithography'), id(mriKey)].includes(hand.typeId) || spec.key === 'cafe_pastry_case' && !foodById.has(hand.typeId))) {
                 io.notify(p, '该物品暂不支持放入此展示柜。', 'This item cannot be displayed here.');
                 return;
             }
@@ -1152,7 +1180,7 @@ function createSolid090(p, support, definition) {
     try {
         save(r);
         blocks.forEach((block, i) => block.setPermutation(permutations[i]));
-        if (whole090Keys.has(spec.key))
+        if (wholeSceneKeys.has(spec.key))
             synchronize(r);
     }
     catch (error) {
@@ -1264,6 +1292,10 @@ export function handleDecorBlock(event) {
         return true;
     }
     const p = event.player, block = event.block, face = String(event.blockFace).toLowerCase(), c = io.inventory(p), hand = c?.getItem(p.selectedSlotIndex), ad = hand && adById.get(hand.typeId);
+    if (hand && hand.typeId.startsWith('mcpe_food:') && patch095Keys.has(hand.typeId.slice('mcpe_food:'.length)) && !isCreative(p)) {
+        event.cancel = true;
+        return true;
+    }
     if (hand && patch090ById.get(hand.typeId)?.kind === 'solid' && face === 'up') {
         event.cancel = true;
         if (event.isFirstEvent) {

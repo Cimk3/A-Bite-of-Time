@@ -1,3 +1,4 @@
+import {patch097FoodKeys} from '../.build/patch-097-catalog.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync} from 'node:fs';
@@ -22,7 +23,7 @@ test('all original menu recipes, workbench recipes and legacy drops are byte-for
 });
 test('new creative content does not invent cooking recipes or duplicate egg tart',()=>{
   assert.equal(recipes.length,53);assert.equal(foods.filter(f=>f.key==='egg_tart').length,1);
-  assert.equal(foods.filter(f=>!f.recipe).length,54);assert.ok(displays.every(f=>!f.recipe&&!f.edible));
+  assert.equal(foods.filter(f=>!f.recipe).length,58);assert.ok(displays.every(f=>!f.recipe&&!f.edible));
   for(const f of dishes.filter(f=>!f.recipe))assert.equal(recipes.some(r=>r.key===f.key),false);
 });
 test('all meal, tableware and hotpot icons are true 128px assets',()=>{
@@ -33,12 +34,12 @@ test('all display platters omit edible/use components; cooked dishes allow full-
   for(const f of foods){const c=read(bp,`items/${f.key}.json`)['minecraft:item'].components;assert.equal(c['minecraft:food'].can_always_eat,true);}
 });
 test('every vessel combination drops the actual vessel and one copy of its food',()=>{
-  assert.equal(servings.length,320);
+  assert.equal(servings.length,332);
   for(const s of servings){const loot=read(bp,`loot_tables/blocks/${s.key}.json`);assert.deepEqual(loot.pools.map(p=>p.entries[0].name),[id(s.vessel.key),id(s.food.key)]);assert.ok(loot.pools.every(p=>p.entries[0].functions[0].count===1));}
 });
 test('vessel combinations share food textures while keeping a separate ware material',()=>{
   for(const f of dishes){const variants=servings.filter(s=>s.food.key===f.key),expected=f.category==='drink'?(f.key==='premium_red_wine'?3:2):['plate','bowl'].includes(vessels.find(v=>v.key===f.vessel).family)?3:1;assert.equal(variants.length,expected);
-    for(const s of variants){const mats=read(bp,`blocks/${s.key}.json`)['minecraft:block'].components['minecraft:material_instances'];assert.equal(mats.food.texture,`mcpe_food_food_${f.key}`);assert.equal(mats.ware.texture,`mcpe_food_ware_${s.vessel.key}`);}}
+    for(const s of variants){const mats=read(bp,`blocks/${s.key}.json`)['minecraft:block'].components['minecraft:material_instances'];assert.equal(mats.food.texture,`mcpe_food_food_${f.key}`);assert.equal(mats.ware.texture,`mcpe_food_ware_${patch097FoodKeys.has(f.key)&&s.vessel.key===f.vessel?f.key:s.vessel.key}`);}}
 });
 test('cups shrink to 75-percent scale with appropriately smaller selection boxes',()=>{
   const glass=modelBounds(vesselCubes('glass')),mug=modelBounds(vesselCubes('mug'));

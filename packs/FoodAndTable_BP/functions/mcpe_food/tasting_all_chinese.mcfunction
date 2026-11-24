@@ -49,3 +49,7 @@ give @s mcpe_food:greens_platter 4
 give @s mcpe_food:vermicelli_platter 4
 give @s mcpe_food:sesame_dip 4
 give @s mcpe_food:chinese_five_sauce_set 4
+give @s mcpe_food:yangcheng_hairy_crab 4
+give @s mcpe_food:chaozhou_braised_goose 4
+give @s mcpe_food:chaozhou_oyster_omelette 4
+give @s mcpe_food:ginkgo_taro_paste 4

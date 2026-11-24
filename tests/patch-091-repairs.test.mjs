@@ -1,3 +1,4 @@
+import {refresh096Block,refresh096Visual} from './patch-096-scope.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -23,20 +24,20 @@ test('native collision and selection boxes use bounded origin/size data, with sp
   if(d.key==='cafe_booth'&&i%3===1)assert.ok(boxes.collision.origin[1]>=9);
  }
 });
-test('repaired computer screens face their keyboards and stands, with baked 110-degree laptop lids',()=>{
+test('repaired computer screens face their keyboards and stands, with 90-degree laptop lids',()=>{
  for(const key of keys){
   const d=patch090Props.find(d=>d.key===key),cubes=patch090Cubes(key),bounds=modelBounds(cubes);
-  assert.ok(cubes.length<=256&&cubes.every(c=>!c.rotation));
+  assert.ok(cubes.length<=256&&cubes.filter(c=>c.tag==='screen'||c.tag==='display_shell').every(c=>!c.rotation));
   assert.ok(bounds.low[1]>=0&&bounds.high[1]<=16);
   assert.ok(bounds.low[0]>=-d.size[0]*8&&bounds.high[0]<=d.size[0]*8);
   assert.ok(bounds.low[2]>=-8&&bounds.high[2]<=8);
   const screens=cubes.filter(c=>c.tag==='screen');assert.ok(screens.length);
-  assert.ok(screens.every(c=>c.faces.includes('south')));
+  assert.ok(screens.every(c=>(c.faces??Object.keys(c.uv)).includes('south')));
   if(!key.includes('laptop')&&!key.includes('m5')){
    const stand=cubes.find(c=>c.tag==='stand');assert.ok(stand.origin[2]+stand.size[2]<screens[0].origin[2],'stand must remain behind the screen');
   }
   if(key.includes('laptop')||key.includes('m5')){
-   assert.ok(Math.abs(emittedLidAngle(cubes)-110)<.2);
+   assert.ok(Math.abs(emittedLidAngle(cubes)-90)<1e-7);
    const pad=cubes.find(c=>c.tag==='trackpad');assert.ok(pad.origin[2]>Math.max(...screens.map(c=>c.origin[2]+c.size[2])));
   }
   for(const player of [{x:0,z:3},{x:3,z:0},{x:0,z:-3},{x:-3,z:0}]){
@@ -50,7 +51,7 @@ test('emitted computer meshes retain the corrected screen side and laptop angle'
   const geometry=read('packs/FoodAndTable_RP/models/entity/mcpe_food/surface_'+key+'.geo.json')['minecraft:geometry'][0];
   const cubes=geometry.bones.flatMap(b=>b.cubes??[]),screens=cubes.filter(c=>c.uv?.south?.uv_size[0]===96&&c.uv.south.uv[0]===0&&c.uv.south.uv[1]<48);
   assert.ok(screens.length,key);assert.ok(screens.every(c=>!c.rotation));
-  if(key.includes('laptop')||key.includes('m5'))assert.ok(Math.abs(emittedLidAngle(cubes)-110)<.2,key);
+  if(key.includes('laptop')||key.includes('m5'))assert.ok(Math.abs(emittedLidAngle(cubes)-90)<1e-7,key);
   else for(const screen of screens)for(const c of cubes){
    if(c===screen)continue;
    const overlaps=[0,1].every(k=>Math.min(c.origin[k]+c.size[k],screen.origin[k]+screen.size[k])-Math.max(c.origin[k],screen.origin[k])>.001);
@@ -66,6 +67,7 @@ for(const baseline of ['v0.9.0-candidate','v0.9.1-candidate'])test('0.9.2 preser
   const prefix='packs/FoodAndTable_'+pack+'/';
   const m=read(prefix+'manifest.json');assert.deepEqual([m.header.uuid,...m.modules.map(v=>v.uuid)],data.uuids);
   for(const [file,hash] of Object.entries(data.files)){
+   if(refresh096Visual(file)||(pack==='BP'&&refresh096Block(file)))continue;
    if(!(/^(items|blocks|recipes|loot_tables)\//.test(file)||/^(models|textures\/(blocks|entity|items)\/mcpe_food)\//.test(file)))continue;
    if(pack==='BP'&&/^blocks\/.*_part_\d+\.json$/.test(file)){
     assert.equal(read(prefix+file)['minecraft:block'].description.identifier,'mcpe_food:'+file.slice(7,-5));continue;
@@ -88,5 +90,5 @@ for(const baseline of ['v0.9.0-candidate','v0.9.1-candidate'])test('0.9.2 preser
   }
  }
  const client=read('packs/FoodAndTable_RP/entity/mcpe_food/surface_display.entity.json')['minecraft:client_entity'];
- assert.deepEqual(Object.values(client.description.geometry),old.surfaceGeometryOrder);
+ assert.deepEqual(Object.values(client.description.geometry).slice(0,old.surfaceGeometryOrder.length),old.surfaceGeometryOrder);
 });

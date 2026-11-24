@@ -1,10 +1,10 @@
-# 0.9.3 菜品与器皿索引
+# 0.9.8 菜品与器皿索引
 
-102 种可食成品，8 种不可食展示配菜，2 款静态铜锅，15 种餐具，3 款酒瓶摆件。新增内容通过创造物品栏或分组试用命令获取。
+106 种可食成品，8 种不可食展示配菜，2 款静态铜锅，15 种餐具，3 款酒瓶摆件。新增内容通过创造物品栏或分组试用命令获取。
 
 | 分类 | 可食成品数 |
 |---|---|
-| 中餐 | 42 |
+| 中餐 | 46 |
 | 西餐 | 23 |
 | 日料 | 13 |
 | 甜品 | 13 |
@@ -66,6 +66,10 @@
 | 展示 | 中餐 | 青菜拼盘（展示） | `mcpe_food:greens_platter` | 酒红长盘 |
 | 展示 | 中餐 | 粉丝盘（展示） | `mcpe_food:vermicelli_platter` | 黑金圆盘 |
 | 展示 | 中餐 | 麻酱蘸碟（展示） | `mcpe_food:sesame_dip` | 酒红小碗 |
+| 可食 | 中餐 | 阳澄湖大闸蟹 | `mcpe_food:yangcheng_hairy_crab` | 白瓷盘 |
+| 可食 | 中餐 | 潮州卤水鹅 | `mcpe_food:chaozhou_braised_goose` | 酒红长盘 |
+| 可食 | 中餐 | 潮州蚝烙 | `mcpe_food:chaozhou_oyster_omelette` | 白瓷盘 |
+| 可食 | 中餐 | 福果甜芋泥 | `mcpe_food:ginkgo_taro_paste` | 青边瓷碗 |
 | 可食 | 西餐 | 煎牛排 | `mcpe_food:steak` | 白瓷盘 |
 | 可食 | 西餐 | 汉堡 | `mcpe_food:burger` | 白瓷盘 |
 | 可食 | 西餐 | 披萨 | `mcpe_food:pizza` | 白瓷盘 |
@@ -433,6 +437,8 @@
 - 综合指挥大屏 / mcpe_food:police_command_screen
 - NovaCare医疗器械广告屏 / mcpe_food:ad_novacare_5x5
 - AuraMed医疗设备广告屏 / mcpe_food:ad_auramed_6x6
+- 灯箱海报柜 / mcpe_food:cinema_poster_lightbox
+- 方寸健身广告屏 / mcpe_food:gym_ad_screen_4x2
 
 
 ## 0.7.2试用新品（21件）
@@ -569,3 +575,36 @@
 - NovaCare ECMO / mcpe_food:novacare_ecmo
 - NovaCare呼吸机 / mcpe_food:novacare_ventilator
 - NovaCare CRRT / mcpe_food:novacare_crrt
+
+## 0.9.5 新品
+
+### 电影院
+
+- 爆米花机 / mcpe_food:cinema_popcorn_machine / 1×1×2
+- 双口饮料机 / mcpe_food:cinema_dual_dispenser / 1×1×1
+- 灯箱海报柜 / mcpe_food:cinema_poster_lightbox / 2×0.25×3
+
+### 音乐工作室
+
+- 调音台 / mcpe_food:studio_mixing_console / 2×1×0.5
+- 监听音箱 / mcpe_food:studio_monitor_speaker / 1×1×1
+
+### 健身房
+
+- 跑步机 / mcpe_food:gym_treadmill / 1×2×1.5
+- 深蹲架 / mcpe_food:gym_squat_rack / 2×2×3
+- 可调卧推凳 / mcpe_food:gym_incline_bench / 1×2×1
+- 三层哑铃架 / mcpe_food:gym_dumbbell_rack / 2×1×1.5
+- 拉索训练器 / mcpe_food:gym_cable_machine / 2×1×3
+- 瑜伽垫收纳架 / mcpe_food:gym_mat_rack / 1×1×1.5
+- 拳击沙袋 / mcpe_food:gym_punching_bag / 1×1×3
+
+## 0.9.7 新品
+
+- 医用磁共振设备 / mcpe_food:medical_mri_scanner
+- 互动电脑 · Linux 模拟器 / mcpe_food:linux_desktop_computer
+- 阳澄湖大闸蟹 / mcpe_food:yangcheng_hairy_crab
+- 潮州卤水鹅 / mcpe_food:chaozhou_braised_goose
+- 潮州蚝烙 / mcpe_food:chaozhou_oyster_omelette
+- 福果甜芋泥 / mcpe_food:ginkgo_taro_paste
+- 方寸健身广告屏 / mcpe_food:gym_ad_screen_4x2

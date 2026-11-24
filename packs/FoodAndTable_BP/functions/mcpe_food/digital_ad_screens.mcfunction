@@ -22,3 +22,5 @@ give @s mcpe_food:police_reception_sign 4
 give @s mcpe_food:police_command_screen 4
 give @s mcpe_food:ad_novacare_5x5 4
 give @s mcpe_food:ad_auramed_6x6 4
+give @s mcpe_food:cinema_poster_lightbox 4
+give @s mcpe_food:gym_ad_screen_4x2 4

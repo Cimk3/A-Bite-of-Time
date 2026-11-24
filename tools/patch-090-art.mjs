@@ -1,3 +1,5 @@
+import {patch096Cubes,patch096Texture} from './patch-096-art.mjs';
+import {refreshed096Keys} from '../.build/patch-096-catalog.js';
 import {readFileSync} from 'node:fs';
 const chineseLabels=JSON.parse(readFileSync(new URL('../assets/patch-090/labels.json',import.meta.url),'utf8').replace(/^\uFEFF/,''));
 import {renderDetail,pruneFaces} from './detail-art.mjs';
@@ -9,6 +11,7 @@ import {patch090Items} from '../.build/patch-090-catalog.js';
 const faces=['north','south','east','west','up','down'];
 const colors=[[224,225,218],[36,40,47],[114,123,133],[127,83,45],[185,126,58],[170,58,47],[44,142,144],[60,105,174],[245,212,134],[152,192,207]];
 export function patch090Texture(key){
+ if(refreshed096Keys.has(key))return patch096Texture(key);
  if(key==='park_lamp')return parkLampTexture();
  const im=canvas(128,128,[224,225,218,255]),mer=canvas(128,128,[0,0,170,255]);
  colors.forEach((c,i)=>rect(im,100,10*i,20,8,[...c,i===9?40:255]));
@@ -32,6 +35,10 @@ export function patch090Texture(key){
  return {width:128,height:128,pixels:im.data,png:png(128,128,im.data),mer:png(128,128,mer.data)};
 }
 export function patch090Cubes(key){
+ if(refreshed096Keys.has(key))return patch096Cubes(key);
+ return legacy090Cubes(key);
+}
+export function legacy090Cubes(key){
  const def=patch090Items.find(x=>x.key===key),[w,d,h]=def.size.map(v=>v*16),a=[];
  if(key==='park_lamp')return parkLampParts().flatMap((cs,i)=>cs.map(c=>({...c,origin:[c.origin[0],c.origin[1]+i*16,c.origin[2]]})));
  const p=(x,y,z,sx,sy,sz,color=0)=>{const c={origin:[x,y,z],size:[sx,sy,sz],color,material:'ware',uv:Object.fromEntries(faces.map(f=>[f,{uv:[100,color*10],uv_size:[20,8],material_instance:'ware'}]))};a.push(c);return c;};

@@ -1,10 +1,10 @@
 {
   "advertisements": 23,
   "advertisementSizes": 69,
-  "surfaceDefinitions": 703,
-  "trayFoods": 70,
+  "surfaceDefinitions": 728,
+  "trayFoods": 73,
   "trayCubes": 65,
-  "maxMiniCubes": 39,
+  "maxMiniCubes": 43,
   "fullTrayCubeBudget": 209,
   "entities": [
     {
@@ -2719,7 +2719,7 @@
     },
     {
       "key": "surface_transit_ticket_gate",
-      "cubes": 10,
+      "cubes": 46,
       "resolution": 128
     },
     {
@@ -2729,7 +2729,7 @@
     },
     {
       "key": "surface_ticket_vending_machine",
-      "cubes": 10,
+      "cubes": 39,
       "resolution": 128
     },
     {
@@ -2759,7 +2759,7 @@
     },
     {
       "key": "surface_government_service_kiosk",
-      "cubes": 12,
+      "cubes": 34,
       "resolution": 128
     },
     {
@@ -2959,12 +2959,12 @@
     },
     {
       "key": "surface_laboratory_dual_monitor_set",
-      "cubes": 41,
+      "cubes": 91,
       "resolution": 128
     },
     {
       "key": "surface_template_ai_triple_monitor_set",
-      "cubes": 43,
+      "cubes": 104,
       "resolution": 128
     },
     {
@@ -3169,12 +3169,12 @@
     },
     {
       "key": "surface_macbook_air_m5_open",
-      "cubes": 181,
+      "cubes": 25,
       "resolution": 128
     },
     {
       "key": "surface_legion_laptop_open",
-      "cubes": 181,
+      "cubes": 34,
       "resolution": 128
     },
     {
@@ -3209,22 +3209,22 @@
     },
     {
       "key": "surface_cafe_pastry_case",
-      "cubes": 9,
+      "cubes": 37,
       "resolution": 128
     },
     {
       "key": "surface_cafe_espresso_machine",
-      "cubes": 47,
+      "cubes": 100,
       "resolution": 128
     },
     {
       "key": "surface_cafe_grinder",
-      "cubes": 20,
+      "cubes": 81,
       "resolution": 128
     },
     {
       "key": "surface_cafe_syrup_set",
-      "cubes": 16,
+      "cubes": 42,
       "resolution": 128
     },
     {
@@ -3309,17 +3309,17 @@
     },
     {
       "key": "surface_police_service_terminal",
-      "cubes": 9,
+      "cubes": 34,
       "resolution": 128
     },
     {
       "key": "surface_police_water_dispenser",
-      "cubes": 9,
+      "cubes": 46,
       "resolution": 128
     },
     {
       "key": "surface_police_riot_cabinet",
-      "cubes": 19,
+      "cubes": 55,
       "resolution": 128
     },
     {
@@ -3520,6 +3520,131 @@
     {
       "key": "surface_slot_icon_drink_counter",
       "cubes": 1,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cinema_popcorn_machine",
+      "cubes": 77,
+      "resolution": 128
+    },
+    {
+      "key": "surface_cinema_dual_dispenser",
+      "cubes": 38,
+      "resolution": 128
+    },
+    {
+      "key": "surface_studio_mixing_console",
+      "cubes": 204,
+      "resolution": 128
+    },
+    {
+      "key": "surface_studio_monitor_speaker",
+      "cubes": 51,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_treadmill",
+      "cubes": 48,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_squat_rack",
+      "cubes": 118,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_incline_bench",
+      "cubes": 41,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_dumbbell_rack",
+      "cubes": 119,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_cable_machine",
+      "cubes": 76,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_mat_rack",
+      "cubes": 26,
+      "resolution": 128
+    },
+    {
+      "key": "surface_gym_punching_bag",
+      "cubes": 34,
+      "resolution": 128
+    },
+    {
+      "key": "surface_medical_mri_scanner",
+      "cubes": 91,
+      "resolution": 128
+    },
+    {
+      "key": "surface_linux_desktop_computer",
+      "cubes": 73,
+      "resolution": 128
+    },
+    {
+      "key": "surface_yangcheng_hairy_crab_serving",
+      "cubes": 148,
+      "resolution": 128
+    },
+    {
+      "key": "surface_yangcheng_hairy_crab_on_black_gold_plate",
+      "cubes": 148,
+      "resolution": 128
+    },
+    {
+      "key": "surface_yangcheng_hairy_crab_on_burgundy_platter",
+      "cubes": 148,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_braised_goose_on_plate",
+      "cubes": 108,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_braised_goose_on_black_gold_plate",
+      "cubes": 108,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_braised_goose_serving",
+      "cubes": 108,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_oyster_omelette_serving",
+      "cubes": 191,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_oyster_omelette_on_black_gold_plate",
+      "cubes": 191,
+      "resolution": 128
+    },
+    {
+      "key": "surface_chaozhou_oyster_omelette_on_burgundy_platter",
+      "cubes": 191,
+      "resolution": 128
+    },
+    {
+      "key": "surface_ginkgo_taro_paste_serving",
+      "cubes": 190,
+      "resolution": 128
+    },
+    {
+      "key": "surface_ginkgo_taro_paste_on_black_gold_bowl",
+      "cubes": 190,
+      "resolution": 128
+    },
+    {
+      "key": "surface_ginkgo_taro_paste_on_burgundy_bowl",
+      "cubes": 190,
       "resolution": 128
     },
     {
@@ -3873,6 +3998,21 @@
       "resolution": 128
     },
     {
+      "key": "mini_yangcheng_hairy_crab",
+      "cubes": 22,
+      "resolution": 128
+    },
+    {
+      "key": "mini_chaozhou_braised_goose",
+      "cubes": 6,
+      "resolution": 128
+    },
+    {
+      "key": "mini_chaozhou_oyster_omelette",
+      "cubes": 43,
+      "resolution": 128
+    },
+    {
       "key": "ad_japanese_snacks",
       "cubes": 1,
       "resolution": 2048
@@ -4116,6 +4256,16 @@
       "key": "ad_auramed_6x6",
       "cubes": 6,
       "resolution": 384
+    },
+    {
+      "key": "cinema_poster_lightbox",
+      "cubes": 12,
+      "resolution": 128
+    },
+    {
+      "key": "gym_ad_screen_4x2",
+      "cubes": 12,
+      "resolution": 256
     },
     {
       "key": "garment_display_tshirt_hanging_0",
@@ -4424,5 +4574,5 @@
     }
   ],
   "entityTypes": 5,
-  "entityTextureSets": 542
+  "entityTextureSets": 566
 }

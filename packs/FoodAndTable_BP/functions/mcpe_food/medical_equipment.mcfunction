@@ -40,3 +40,4 @@ give @s mcpe_food:auramed_crrt 4
 give @s mcpe_food:novacare_ecmo 4
 give @s mcpe_food:novacare_ventilator 4
 give @s mcpe_food:novacare_crrt 4
+give @s mcpe_food:medical_mri_scanner 4

@@ -12,7 +12,7 @@ test('0.4.2 IDs, UUIDs, recipe inputs, drop tables and crop states survive the u
   assert.deepEqual(recipes.map(({key,station,inputs,output,category})=>({key,station,inputs,output,category})),old.menuRecipes);
   for(const[file,sha]of Object.entries(old.loot))assert.equal(createHash('sha256').update(readFileSync(`${bp}/loot_tables/blocks/${file}`)).digest('hex'),sha,file);
   for(const[file,states]of Object.entries(old.cropStates))assert.deepEqual(read(`${bp}/blocks/${file}`)['minecraft:block'].description.states,states);
-  assert.equal(foods.length,102);
+  assert.equal(foods.length,106);
 });
 test('all fifteen tableware items are in the items group with no construction duplicates',()=>{
   assert.equal(vessels.length+cutlery.length+2,15);
@@ -28,7 +28,7 @@ test('twelve independently generated posters have thirty-six non-stretched sizes
   }
 });
 test('tray miniatures fit the whole scene budget and cover every plate dish including seven display platters',()=>{
-  const report=read('display-report.json');assert.equal(trayFoods.length,70);assert.equal(trayFoods.filter(f=>!f.edible).length,7);assert.ok(report.trayCubes<=112);assert.ok(report.maxMiniCubes<=48);assert.ok(report.fullTrayCubeBudget<=256);
+  const report=read('display-report.json');assert.equal(trayFoods.length,73);assert.equal(trayFoods.filter(f=>!f.edible).length,7);assert.ok(report.trayCubes<=112);assert.ok(report.maxMiniCubes<=48);assert.ok(report.fullTrayCubeBudget<=256);
   assert.equal(report.surfaceDefinitions,surfaceVisuals.length);assert.equal(report.entityTypes,5);
 });
 test('paper cups are separate placeable displays with private branding and one self-drop',()=>{

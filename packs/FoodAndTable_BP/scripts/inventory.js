@@ -83,6 +83,9 @@ export class MenuSessions {
         this.active.delete(player);
         return true;
     }
+    isActive(player, token) {
+        return this.active.get(player) === token;
+    }
     finish(player, token) {
         if (token === undefined || this.active.get(player) === token)
             this.active.delete(player);

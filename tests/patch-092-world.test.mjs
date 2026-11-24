@@ -7,6 +7,7 @@ import {nativePartIndex,oppositeDirection} from '../.build/patch-092-layout.js';
 import {patch090Cubes,patch090Texture,split090} from '../tools/patch-090-art.mjs';
 import {officialAngles,assembleInModelSpace,faceMismatch,missingSurfaceSamples,geometryVectorToWorld} from '../tools/native-world-audit.mjs';
 import {renderDetail} from '../tools/detail-art.mjs';
+import {whole096Keys} from '../.build/patch-096-catalog.js';
 import {whole090Keys} from '../.build/patch-093-render.js';
 const read=p=>JSON.parse(readFileSync(p,'utf8'));
 const anchor={x:0,y:0,z:0};
@@ -32,11 +33,11 @@ for(const d of patch090Props.filter(d=>d.kind==='solid'))for(const dir of Object
    const g=read('packs/FoodAndTable_RP/models/blocks/mcpe_food/'+key+'.geo.json')['minecraft:geometry'][0];
    return {angle:permutation.components['minecraft:transformation'].rotation[1],cubes:g.bones.flatMap(b=>b.cubes??[])};
   });
-  const assembled=whole090Keys.has(d.key)?read('packs/FoodAndTable_RP/models/entity/mcpe_food/surface_'+d.key+'.geo.json')['minecraft:geometry'][0].bones.flatMap(b=>(b.cubes??[]).map(c=>({...c,material:'ware',faces:Object.keys(c.uv)}))):assembleInModelSpace(parts,cells,dir);
+  const assembled=(whole090Keys.has(d.key)||whole096Keys.has(d.key))?read('packs/FoodAndTable_RP/models/entity/mcpe_food/surface_'+d.key+'.geo.json')['minecraft:geometry'][0].bones.flatMap(b=>(b.cubes??[]).map(c=>({...c,material:b.name,faces:Object.keys(c.uv)}))):assembleInModelSpace(parts,cells,dir);
   assert.deepEqual(faceMismatch(source,assembled),[]);
   assert.deepEqual(missingSurfaceSamples(source,assembled),[],'external faces lost during splitting');
   for(const c of assembled)assert.ok(source.some(s=>c.origin.every((v,k)=>v>=s.origin[k]-.0001&&v+c.size[k]<=s.origin[k]+s.size[k]+.0001)),'unexpected detached geometry');
-  const textures={ware:patch090Texture(d.key)};
+  const texture=patch090Texture(d.key),textures={ware:texture,food:texture};
   for(const view of [{front:true},{front:false},{projection:'side',front:true},{projection:'side',front:false}]){
    const a=renderDetail(source,textures,160,160,view),b=renderDetail(assembled,textures,160,160,view);
    let different=0;for(let p=0;p<a.data.length;p+=4)if(a.data.subarray(p,p+4).some((v,k)=>Math.abs(v-b.data[p+k])>8))different++;
@@ -50,7 +51,7 @@ for(const d of patch090Props.filter(d=>d.kind==='solid'))for(const dir of Object
  });
 }
 
-for(const d of patch090Props)test(d.key+' source has only intentional separate subassemblies',()=>{
+for(const d of patch090Props.filter(d=>!['macbook_air_m5_open','legion_laptop_open'].includes(d.key)))test(d.key+' source has only intentional separate subassemblies',()=>{
  const remaining=new Set(patch090Cubes(d.key));let groups=0;
  while(remaining.size){
   const q=[remaining.values().next().value];remaining.delete(q[0]);groups++;

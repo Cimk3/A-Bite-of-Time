@@ -11,7 +11,7 @@ const bp='packs/FoodAndTable_BP',rp='packs/FoodAndTable_RP';
 const read=path=>JSON.parse(readFileSync(path,'utf8'));
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const baseline=read('tests/fixtures/v0.8.5-candidate.json');
-const priorCommands=read('tests/fixtures/v0.8.6-commands.json');
+const priorCommands={...read('tests/fixtures/v0.8.6-commands.json'),...read('tests/fixtures/v0.9.5-content.json').oldBlocks};
 const repaired=[
   'icu_bed','icu_large_patient_monitor','icu_six_channel_syringe_pump',
   'auramed_ecmo','auramed_ventilator','auramed_crrt',
@@ -25,7 +25,7 @@ test('0.8.6 preserves 0.8.5 definitions, UUIDs and surface display order',()=>{
     readdirSync(`${bp}/${folder}`,{recursive:true,withFileTypes:true})
       .filter(entry=>entry.isFile())
       .map(entry=>`${entry.parentPath}/${entry.name}`.split(String.fromCharCode(92)).join('/').slice(bp.length+1))
-  ).filter(path=>!addedDefinitions.some(d=>path==='items/'+d.key+'.json'||path==='blocks/'+d.key+'.json'||path==='loot_tables/blocks/'+d.key+'.json')&&!['functions/mcpe_food/park.mcfunction','functions/mcpe_food/cafe.mcfunction','functions/mcpe_food/finance.mcfunction','functions/mcpe_food/police_station.mcfunction'].includes(path))
+  ).filter(path=>!addedDefinitions.some(d=>path==='items/'+d.key+'.json'||path==='blocks/'+d.key+'.json'||path==='loot_tables/blocks/'+d.key+'.json')&&!['functions/mcpe_food/park.mcfunction','functions/mcpe_food/cafe.mcfunction','functions/mcpe_food/finance.mcfunction','functions/mcpe_food/police_station.mcfunction','functions/mcpe_food/cinema.mcfunction','functions/mcpe_food/music_studio.mcfunction','functions/mcpe_food/gym.mcfunction'].includes(path))
    .filter(path=>path!=='functions/mcpe_food/build_info.mcfunction'&&!Object.hasOwn(baseline.repairedBlockDefinitions,path)).sort();
   assert.equal(files.length,baseline.behaviorDefinitionCount);
   assert.equal(hash(files.map(path=>`${path}:${hash(Object.hasOwn(priorCommands,path)?priorCommands[path]:readFileSync(`${bp}/${path}`))}\n`).join('')),baseline.behaviorDefinitionDigest);

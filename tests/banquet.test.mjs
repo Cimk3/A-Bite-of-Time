@@ -1,3 +1,5 @@
+import {patch097Props,patch097Foods,patch097FoodKeys} from '../.build/patch-097-catalog.js';
+import {patch095Groups,patch095Props} from '../.build/patch-095-catalog.js';
 import {addedDefinitions,addedBlocks,addedSurfaceCount,patch090Items,patch090Props,patch090Walls,slotIconEntries} from './patch-090-expectations.mjs';
 import {patch082Props} from '../.build/patch-082-catalog.js';
 import {patch085Props} from '../.build/patch-085-catalog.js';
@@ -38,19 +40,22 @@ test('old tasting commands keep exactly their original series while new complete
   for(const[file,content]of Object.entries(baseline.functions).filter(([f])=>f.startsWith('tasting_')))assert.equal(readFileSync(`${bp}/functions/mcpe_food/${file}`,'utf8'),content,file);
   for(const key of Object.keys(categories)){
     const lines=readFileSync(`${bp}/functions/mcpe_food/tasting_all_${key}.mcfunction`,'utf8').trim().split('\n');
-    assert.deepEqual(lines,[...dishes.filter(f=>f.category===key),...(key==='drink'?[...bottleProps,...paperCups]:[]),...(key==='chinese'?patch073Props.filter(d=>d.group==='chinese'):[])].map(f=>`give @s ${id(f.key)} 4`));
+    const previous=dishes.filter(f=>f.category===key&&!patch097FoodKeys.has(f.key));
+    const drinks=key==='drink'?[...bottleProps,...paperCups]:[];
+    const chinese=key==='chinese'?[...patch073Props.filter(d=>d.group==='chinese'),...patch097Foods]:[];
+    assert.deepEqual(lines,[...previous,...drinks,...chinese].map(f=>`give @s ${id(f.key)} 4`));
   }
 });
 test('creative inventory has five food groups plus private tableware, advertisement and electronics groups',()=>{
   const groups=read(`${bp}/item_catalog/crafting_item_catalog.json`)['minecraft:crafting_items_catalog'].categories;
   assert.equal(groups.length,1);assert.equal(groups[0].category_name,'items');
-  assert.deepEqual(groups[0].groups.map(g=>g.group_identifier.name),[...Object.keys(categories).map(k=>`mcpe_food:group_${k}`),'mcpe_food:group_tableware','mcpe_food:group_advertisements','mcpe_food:group_electronics','mcpe_food:group_restaurant_accessories','mcpe_food:group_office_stationery','mcpe_food:group_home_decor',...[...scenarioGroups,...patch074Groups,...patch072Groups].map(g=>'mcpe_food:group_'+g.key),'mcpe_food:group_government_equipment','mcpe_food:group_laboratory_equipment','mcpe_food:group_park','mcpe_food:group_cafe','mcpe_food:group_finance','mcpe_food:group_police_station']);
+  assert.deepEqual(groups[0].groups.map(g=>g.group_identifier.name),[...Object.keys(categories).map(k=>`mcpe_food:group_${k}`),'mcpe_food:group_tableware','mcpe_food:group_advertisements','mcpe_food:group_electronics','mcpe_food:group_restaurant_accessories','mcpe_food:group_office_stationery','mcpe_food:group_home_decor',...[...scenarioGroups,...patch074Groups,...patch072Groups].map(g=>'mcpe_food:group_'+g.key),'mcpe_food:group_government_equipment','mcpe_food:group_laboratory_equipment','mcpe_food:group_park','mcpe_food:group_cafe','mcpe_food:group_finance','mcpe_food:group_police_station',...patch095Groups.map(([key])=>'mcpe_food:group_'+key)]);
   const all=groups[0].groups.flatMap(g=>g.items);assert.equal(new Set(all).size,all.length);
-  assert.deepEqual([...all].sort(),[...dishes,...bottleProps,...paperCups,...vessels,...cutlery,tray,teaTray,...advertisements,...electronics,...refrigerators,...restaurantAccessories,...lifestyleItems,...scenarioProps,...digitalScreens,...patch071Props,...patch072Props,...clothingItems,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props,...patch090Props].map(f=>id(f.key)).sort());
+  assert.deepEqual([...all].sort(),[...dishes,...bottleProps,...paperCups,...vessels,...cutlery,tray,teaTray,...advertisements,...electronics,...refrigerators,...restaurantAccessories,...lifestyleItems,...scenarioProps,...digitalScreens,...patch071Props,...patch072Props,...clothingItems,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props,...patch090Props,...patch095Props,...patch097Props].map(f=>id(f.key)).sort());
   for(const locale of['zh_CN','en_US']){const source=readFileSync(`${rp}/texts/${locale}.lang`,'utf8');for(const g of groups[0].groups)assert.ok(source.includes(`${g.group_identifier.name}=`));}
 });
 test('approved category counts and intentional cross-cuisine placements are exact',()=>{
-  assert.deepEqual(Object.fromEntries(Object.keys(categories).map(k=>[k,foods.filter(f=>f.category===k).length])),{chinese:42,western:23,japanese:13,dessert:13,drink:11});
+  assert.deepEqual(Object.fromEntries(Object.keys(categories).map(k=>[k,foods.filter(f=>f.category===k).length])),{chinese:46,western:23,japanese:13,dessert:13,drink:11});
   for(const key of['fruit_platter','snow_pear_tremella','jujube_lotus_soup'])assert.equal(foods.find(f=>f.key===key).category,'chinese');
   assert.equal(foods.find(f=>f.key==='dorayaki').category,'japanese');assert.equal(foods.find(f=>f.key==='mung_bean_soup').category,'dessert');
   for(const key of['chicken_nuggets','fries','hotdog','boeuf_bourguignon'])assert.equal(foods.find(f=>f.key===key).category,'western');

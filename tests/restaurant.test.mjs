@@ -15,7 +15,7 @@ for(const version of ['0.4.0','0.4.1'])test(`${version} saved IDs, UUIDs, crop s
 });
 test('0.4.1 contains exactly the ten requested foods, categorized without adding recipes',()=>{
   assert.deepEqual(newFoods.map(f=>f.zh),['清蒸石斑鱼','白灼九节虾','拍黄瓜','上汤鲜蔬','提拉米苏','大福','千层酥','龙虾浓汤','蓝带鸡肉卷','香煎龙利鱼']);
-  assert.deepEqual(Object.fromEntries(Object.keys(categories).map(k=>[k,foods.filter(f=>f.category===k).length])),{chinese:42,western:23,japanese:13,dessert:13,drink:11});
+  assert.deepEqual(Object.fromEntries(Object.keys(categories).map(k=>[k,foods.filter(f=>f.category===k).length])),{chinese:46,western:23,japanese:13,dessert:13,drink:11});
   assert.ok(newFoods.every(f=>f.edible&&!f.recipe));assert.equal(recipes.length,53);
 
 });

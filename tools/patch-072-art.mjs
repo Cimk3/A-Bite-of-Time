@@ -1,3 +1,4 @@
+import {patch096Cubes,patch096Texture} from './patch-096-art.mjs';
 import {readFileSync} from 'node:fs';
 const labels=JSON.parse(readFileSync(new URL('../assets/patch-072/labels.json',import.meta.url),'utf8').replace(/^\uFEFF/,''));
 const chinese=(im,label,x,y,color)=>labels[label].forEach((row,dy)=>{for(let dx=0;dx<row.length;dx++)if(row[dx]==='1')rect(im,x+dx,y+dy,1,1,color);});
@@ -10,6 +11,7 @@ export {flip as northFacingCubes};
 function maker(){const cubes=[];const put=(x,y,z,w,h,d,color=0)=>{const c={origin:[x,y,z],size:[w,h,d],material:'ware',color};cubes.push(c);return c;};return{cubes,put};}
 function finish(cubes){for(const c of cubes)for(const f of ['north','south','east','west','up','down']){c.uv??={};c.uv[f]??={uv:[98,60+(c.color??0)*8],uv_size:[28,6],material_instance:'ware'};}const out=pruneFaces(cubes);if(out.length>256)throw Error('0.7.2 cube budget');return flip(out);}
 export function patch072Cubes(key){
+ if(key==='transit_ticket_gate'||key==='ticket_vending_machine')return patch096Cubes(key);
  const{cubes:a,put}=maker(),screen=(x,y,z,w,h)=>{const c=put(x,y,z,w,h,.05,1);c.uv={south:{uv:[0,0],uv_size:[96,56],material_instance:'ware'}};};
  const feet=()=>{for(const x of [-5.6,5.1]){put(x,0,-4.5,.5,1,9,2);put(x,1,-.3,.5,28,.6,2);}};
  const keys=(x,y,z,w=9)=>{put(x,y,z,w,.35,3,1);for(let row=0;row<3;row++)for(let k=0;k<10;k++)put(x+.25+k*(w-.5)/10,y+.36,z+.25+row*.8,(w-.9)/10,.08,.55,4);};
@@ -51,6 +53,7 @@ export function clothingCubes(d,pose='mannequin',slot=0){
  return finish(a);
 }
 export function patch072Texture(key){
+ if(key==='transit_ticket_gate'||key==='ticket_vending_machine')return patch096Texture(key);
  const garment=clothingItems.find(d=>d.key===key),cloth=key.includes('black')?[31,34,40,255]:key.includes('navy')?[31,47,76,255]:key.includes('light_gray')?[167,174,181,255]:({tshirt:[60,119,128,255],shirt:[203,219,228,255],coat:[157,111,75,255],trousers:[53,67,92,255],dress:[141,65,85,255],hat:[186,153,99,255]}[garment?.style]);
  const colors=[cloth??[48,55,65,255],cloth?cloth.map((v,i)=>i<3?Math.max(0,v-19):v):[15,22,31,255],[153,166,175,255],[158,49,57,255],[83,96,110,255],[193,177,146,255],[154,191,200,255],[227,228,214,255]];
  const im=canvas(128,128,colors[0]),mer=canvas(128,128,[0,0,195,255]);

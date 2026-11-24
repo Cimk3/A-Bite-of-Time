@@ -1,6 +1,7 @@
 {
   "name": "fangcun-food-and-table",
-  "version": "0.9.3",
+  "version": "0.9.8",
+  "buildLabel": "0.9.7r1",
   "private": true,
   "type": "module",
   "description": "方寸食光 · Food & Table — Minecraft Bedrock Add-On",

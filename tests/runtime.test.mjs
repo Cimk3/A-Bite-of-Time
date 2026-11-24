@@ -14,6 +14,54 @@ const idle=()=>new Promise(resolve=>setImmediate(resolve));
 function setup(type='mcpe_food:stove'){
   reset();const dimension=new FakeDimension(),player=new FakePlayer(dimension),block=dimension.put(type);return{dimension,player,block};
 }
+test('placed Linux computer opens a player-local desktop and rejects stale form submissions',async()=>{
+ const {dimension,player,block}=setup('minecraft:stone');
+ const peer=new FakePlayer(dimension),definition=id('linux_desktop_computer');
+ player.container.setItem(0,new ItemStack(definition));
+ interact(player,block);flush();await idle();
+ const subject=[...dimension.getEntities()].find(e=>e.typeId===id('surface_display'));
+ assert.ok(subject);
+ const open=who=>{const event={player:who,target:subject,cancel:false};state.entityInteract(event);assert.equal(event.cancel,true);flush();};
+ let confirm;
+ state.responses=[{selection:1},{formValues:['mkdir Projects']},{formValues:['ls']},new Promise(resolve=>{confirm=resolve;})];
+ open(player);await idle();
+ assert.match(state.forms.at(-1).label,/Projects\//);
+ state.responses=[{selection:0},{canceled:true}];
+ open(peer);await idle();
+ assert.ok(!state.forms.at(-1).buttons.includes('Projects/'));
+ const count=state.forms.length;
+ player.location={x:25,y:1,z:0};
+ confirm({formValues:['mkdir after_walk']});await idle();
+ assert.equal(state.forms.length,count);
+ player.location={x:.5,y:1,z:.5};player.isSneaking=true;system.currentTick+=10;
+ state.responses=[{selection:0}];
+ open(player);await idle();
+ assert.equal(player.container.count(definition),1);
+});
+test('Linux file manager and terminal open a dedicated text reader and return to the originating app',async()=>{
+ const {dimension,player,block}=setup('minecraft:stone');
+ player.container.setItem(0,new ItemStack(id('linux_desktop_computer')));
+ interact(player,block);flush();await idle();
+ const target=[...dimension.getEntities()].find(entity=>entity.typeId===id('surface_display'));
+ assert.ok(target);
+ player.tags.add('food_english');
+ state.responses=[
+  {selection:0},{selection:3},{selection:0},{selection:0},
+  {selection:1},{formValues:['open Documents/notes.txt']},
+  {selection:0},{formValues:['exit']},{selection:2},
+ ];
+ state.entityInteract({player,target,cancel:false});flush();await idle();
+ const readers=state.forms.filter(form=>form.title.startsWith('Text Reader'));
+ assert.deepEqual(readers.map(form=>form.title),['Text Reader  /  README.txt','Text Reader  /  notes.txt']);
+ assert.match(readers[0].body,/\/home\/player\/README\.txt[\s\S]*Food & Table Linux/);
+ assert.match(readers[1].body,/This computer belongs/);
+ assert.ok(state.forms[0].icons.every(path=>path.startsWith('textures/items/mcpe_food/linux_ui_')));
+ assert.equal(state.forms.at(-1).title,'Food & Table Linux');
+ player.isSneaking=true;system.currentTick+=10;
+ state.responses=[{selection:0}];
+ state.entityInteract({player,target,cancel:false});flush();await idle();
+ assert.equal(player.container.count(id('linux_desktop_computer')),1);
+});
 test('vertical slice: prepare egg fried rice, serve, take, preserve orientation',async()=>{
   const {dimension,player,block}=setup();player.container.setItem(0,new ItemStack('mcpe_food:rice',2));player.container.setItem(1,new ItemStack('minecraft:egg'));
   state.responses=[{selection:0},{selection:0},{selection:0}];assert.equal(interact(player,block).cancel,true);flush();await idle();

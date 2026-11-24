@@ -15,7 +15,7 @@ test('all supported display objects fit the smallest cabinet compartment without
  const ads=read(root+'entity/mcpe_food/advert_display.entity.json')['minecraft:client_entity'].description.geometry;
  let count=0;
  for(const file of readdirSync('packs/FoodAndTable_BP/items')){
-  const key=id(file.slice(0,-5)),spec=patch090ById.get(key);if(spec?.slots||spec?.kind==='wall'||spec?.key==='asml_lithography')continue;
+  const key=id(file.slice(0,-5)),spec=patch090ById.get(key);if(spec?.slots||spec?.kind==='wall'||['asml_lithography','medical_mri_scanner'].includes(spec?.key))continue;
   let index=surfaceIndex.get(key)??surfaceIndex.get(id('slot_icon_'+key.slice(10))),g;
   if(index===undefined){const food=foodById.get(key);if(food)index=surfaceIndex.get(id(servingKey(food,food.vessel)));}
   if(index!==undefined)g=geometries.get(Object.values(surface)[index]);
@@ -27,7 +27,7 @@ test('all supported display objects fit the smallest cabinet compartment without
   assert.ok(extent[0]<=.75+.001&&extent[1]<=.8125+.001&&extent[2]<=.875+.001,key+' does not fit: '+extent);
   count++;
  }
- assert.equal(count,406,'supported objects must not regress');assert.ok(Object.keys(ads).length);
+ assert.equal(count,422,'supported objects must not regress');assert.ok(Object.keys(ads).length);
  for(const key of ['home_display_cabinet','home_display_shelf','cafe_pastry_case']){
   const spec=patch090ById.get(id(key)),columns=spec.slots===12?4:3,rows=spec.slots/columns;
   for(let row=0;row<rows;row++){
