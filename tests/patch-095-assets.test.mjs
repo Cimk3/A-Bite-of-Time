@@ -1,4 +1,5 @@
-import {gymAd,patch097Items} from '../.build/patch-097-catalog.js';
+import {postOfficeProps} from '../.build/patch-099-catalog.js';
+import {gymAd} from '../.build/patch-097-catalog.js';
 import {refresh096Block,refresh096Visual,append097Asset} from './patch-096-scope.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -44,7 +45,7 @@ test('three creative groups and four give commands contain exactly the approved 
     assert.deepEqual(groups.find(g=>g.group_identifier.name==='mcpe_food:group_'+group).items,list.map(d=>'mcpe_food:'+d.key));
     assert.equal(readFileSync(bp+'functions/mcpe_food/'+group+'.mcfunction','utf8'),list.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
   }
-  assert.equal(readFileSync(bp+'functions/mcpe_food/tasting_new.mcfunction','utf8'),patch097Items.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
+  assert.equal(readFileSync(bp+'functions/mcpe_food/tasting_new.mcfunction','utf8'),postOfficeProps.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
 });
 
 for(const item of patch095Items)test(item.key+' final meshes, dimensions, materials and empty helpers',()=>{

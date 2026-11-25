@@ -1,3 +1,4 @@
+import {postOfficeGroup} from '../.build/patch-099-catalog.js';
 import {patch095Groups} from '../.build/patch-095-catalog.js';
 import {placedSceneProps,placedSceneWalls} from '../.build/patch-090-catalog.js';
 import {patch082Props} from "../.build/patch-082-catalog.js";
@@ -134,7 +135,7 @@ for(const [key,{data}]of blocks){
 const special=new Set(materials.filter(m=>m.creativeOnly).map(m=>id(m.key)));
 const creative=parse(path.join(bp,'item_catalog/crafting_item_catalog.json'))['minecraft:crafting_items_catalog'].categories;
 check(creative.length===1&&creative[0].category_name==='items','creative groups must extend items only');
-check(JSON.stringify(creative[0].groups.map(g=>g.group_identifier.name))===JSON.stringify([...Object.keys(categories).map(k=>`mcpe_food:group_${k}`),'mcpe_food:group_tableware','mcpe_food:group_advertisements','mcpe_food:group_electronics','mcpe_food:group_restaurant_accessories','mcpe_food:group_office_stationery','mcpe_food:group_home_decor',...[...scenarioGroups,...patch074Groups,...patch072Groups].map(g=>`mcpe_food:group_${g.key}`),'mcpe_food:group_government_equipment','mcpe_food:group_laboratory_equipment','mcpe_food:group_park','mcpe_food:group_cafe','mcpe_food:group_finance','mcpe_food:group_police_station',...patch095Groups.map(([name])=>'mcpe_food:group_'+name)]),'creative groups missing or reordered');
+check(JSON.stringify(creative[0].groups.map(g=>g.group_identifier.name))===JSON.stringify([...Object.keys(categories).map(k=>`mcpe_food:group_${k}`),'mcpe_food:group_tableware','mcpe_food:group_advertisements','mcpe_food:group_electronics','mcpe_food:group_restaurant_accessories','mcpe_food:group_office_stationery','mcpe_food:group_home_decor',...[...scenarioGroups,...patch074Groups,...patch072Groups].map(g=>`mcpe_food:group_${g.key}`),'mcpe_food:group_government_equipment','mcpe_food:group_laboratory_equipment','mcpe_food:group_park','mcpe_food:group_cafe','mcpe_food:group_finance','mcpe_food:group_police_station',...patch095Groups.map(([name])=>'mcpe_food:group_'+name),'mcpe_food:group_'+postOfficeGroup]),'creative groups missing or reordered');
 const grouped=new Set();
 for(const group of creative[0].groups){
   check(items.has(group.group_identifier.icon),'unknown creative group icon');

@@ -1,3 +1,4 @@
+import {postOfficeProps} from '../.build/patch-099-catalog.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync} from 'node:fs';
@@ -6,7 +7,7 @@ import {LinuxSession} from '../.build/linux-session.js';
 import {recipes,servingKey} from '../.build/catalog.js';
 import {surfaceVisuals,trayFoods} from '../.build/decor-catalog.js';
 import {wallScreens} from '../.build/scenario-catalog.js';
-import {gymAd,mriKey,patch097Foods,patch097Items} from '../.build/patch-097-catalog.js';
+import {gymAd,mriKey,patch097Foods} from '../.build/patch-097-catalog.js';
 import {modelBounds} from '../tools/detail-art.mjs';
 import {decodeRGBA} from '../tools/png-inspect.mjs';
 
@@ -38,22 +39,22 @@ test('0.9.7 is append-only for saved visuals and preserves 0.9.6 IDs, recipes, c
   if(['build_info.mcfunction','tasting_new.mcfunction'].includes(file))continue;
   assert.ok(bytes(bp+'functions/mcpe_food/'+file).toString().startsWith(body),file);
  }
- assert.equal(bytes(bp+'functions/mcpe_food/tasting_new.mcfunction').toString(),patch097Items.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
+ assert.equal(bytes(bp+'functions/mcpe_food/tasting_new.mcfunction').toString(),postOfficeProps.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
 });
 
-test('0.9.7r1 preserves the entire 0.9.7 catalog and advances the numeric pack version',()=>{
+test('0.9.9 appends the post office to the 0.9.7 catalog and advances the numeric pack version',()=>{
  const old=read('tests/fixtures/v0.9.7.json');
  for(const [kind,singular] of [['items','item'],['blocks','block']]){
   const current=readdirSync(bp+kind).map(file=>read(bp+kind+'/'+file)['minecraft:'+singular].description.identifier);
-  assert.deepEqual(current.sort(),old[kind].sort(),kind);
+  for(const saved of old[kind])assert.ok(current.includes(saved),saved);
  }
  for(const [folder,files] of [['recipes',old.crafting],['loot_tables/blocks',old.loot]])
   for(const [file,digest] of Object.entries(files))assert.equal(checksum(bp+folder+'/'+file),digest,file);
  for(const [file,body] of Object.entries(old.functions))
-  if(file!=='build_info.mcfunction')assert.equal(bytes(bp+'functions/mcpe_food/'+file).toString(),body,file);
+  if(!['build_info.mcfunction','tasting_new.mcfunction'].includes(file))assert.equal(bytes(bp+'functions/mcpe_food/'+file).toString(),body,file);
  for(const base of [bp,rp]){
-  assert.deepEqual(read(base+'manifest.json').header.version,[0,9,8]);
-  assert.equal(read(base+'mcpe_food_build.json').build,'0.9.7r1');
+  assert.deepEqual(read(base+'manifest.json').header.version,[0,9,9]);
+  assert.equal(read(base+'mcpe_food_build.json').build,'0.9.9-release.1');
  }
 });
 

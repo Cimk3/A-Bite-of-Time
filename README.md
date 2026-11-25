@@ -14,6 +14,8 @@
 
 0.9.5 候选新增电影院、音乐工作室和健身房。使用 `/function mcpe_food/tasting_new` 取得共 12 件新品，或用 `cinema`、`music_studio`、`gym` 分类命令。[0.9.5 逐件复验](docs/TRIAL_0.9.5.md)。
 
+**0.9.9** 新增社区邮局。运行 `/function mcpe_food/post_office` 或 `/function mcpe_food/tasting_new` 获取九件邮局物品。
+
 **0.9.7r1** 将两台开盖笔记本修正为 90°，修复便民和政务终端遮屏，并加入 Linux 文件管理器和独立文本阅读器。
 
 0.9.7 候选新增贯通式医用磁共振设备、模拟 Linux 电脑、四道中餐和健身房广告屏，并更新两款开盖笔记本和两台服务终端。使用 `/function mcpe_food/tasting_new` 获取本轮七件新品。细节见 [0.9.7 复验表](docs/TRIAL_0.9.7.md)。

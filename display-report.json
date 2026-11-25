@@ -1,7 +1,7 @@
 {
   "advertisements": 23,
   "advertisementSizes": 69,
-  "surfaceDefinitions": 728,
+  "surfaceDefinitions": 737,
   "trayFoods": 73,
   "trayCubes": 65,
   "maxMiniCubes": 43,
@@ -3648,6 +3648,51 @@
       "resolution": 128
     },
     {
+      "key": "surface_postal_counter",
+      "cubes": 28,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_sorting_cubbies",
+      "cubes": 58,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_lockers",
+      "cubes": 78,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_square_mailbox",
+      "cubes": 16,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_cylinder_mailbox",
+      "cubes": 121,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_scale",
+      "cubes": 13,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_small",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_medium",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_large",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
       "key": "mini_kung_pao_chicken",
       "cubes": 31,
       "resolution": 128
@@ -4574,5 +4619,5 @@
     }
   ],
   "entityTypes": 5,
-  "entityTextureSets": 566
+  "entityTextureSets": 575
 }

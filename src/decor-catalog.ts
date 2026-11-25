@@ -1,6 +1,7 @@
 import {clothingItems} from './patch-072-catalog.js';
 import {patch095Props} from './patch-095-catalog.js';
 import {patch097FoodKeys,patch097Props} from './patch-097-catalog.js';
+import {postOfficeProps} from './patch-099-catalog.js';
 import {patch090Props,placedSceneProps} from './patch-090-catalog.js';
 import {patch082Props} from './patch-082-catalog.js';
 import {patch085Props} from './patch-085-catalog.js';
@@ -55,5 +56,5 @@ export const surfaceVisuals = [
 ];
 export const slotIconEntries=[...new Map(requestedSlotIconEntries.map(d=>[d.key,d])).values()].filter(d=>!surfaceVisuals.some(v=>v.key===d.key)).map(d=>({...d,baseKey:d.key,key:'slot_icon_'+d.key}));
 surfaceVisuals.push(...slotIconEntries,...patch095Props,...patch097Props,
-  ...servings.filter(s=>patch097FoodKeys.has(s.food.key)).map(s=>({key:s.key,zh:s.food.zh,en:s.food.en})));
+  ...servings.filter(s=>patch097FoodKeys.has(s.food.key)).map(s=>({key:s.key,zh:s.food.zh,en:s.food.en})),...postOfficeProps);
 export const surfaceIndex = new Map(surfaceVisuals.map((t,i)=>[id(t.key),i]));

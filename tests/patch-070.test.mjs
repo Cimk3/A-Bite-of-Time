@@ -1,4 +1,4 @@
-import {patch097Items} from '../.build/patch-097-catalog.js';
+import {postOfficeProps} from '../.build/patch-099-catalog.js';
 import {addedDefinitions,addedBlocks,addedSurfaceCount,patch090Items,patch090Props,patch090Walls,slotIconEntries} from './patch-090-expectations.mjs';
 import {patch082Items} from '../.build/patch-082-catalog.js';
 import {patch085Props} from '../.build/patch-085-catalog.js';
@@ -35,7 +35,7 @@ test('0.7.0 adds exactly 43 public items and preserves all old IDs, recipes, dro
  assert.equal(expected.length,43);assert.equal(scenarioProps.length,31);assert.deepEqual(surfaceVisuals.slice(0,496).map(x=>x.key),read('tests/fixtures/v0.6.0-surfaces.json'));assert.equal(surfaceVisuals.length,609+patch085Props.length+addedSurfaceCount);assert.equal(advertisements.length,23);
  for(const[folder,entries]of [['recipes',old.crafting],['loot_tables/blocks',old.loot]])for(const[f,sha]of Object.entries(entries))assert.equal(createHash('sha256').update(readFileSync(`${bp}/${folder}/${f}`)).digest('hex'),sha);
  for(const[pack,uuids]of Object.entries(old.uuids)){const m=read(`packs/${pack}/manifest.json`);assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],uuids);}
- const groups=read(`${bp}/item_catalog/crafting_item_catalog.json`)['minecraft:crafting_items_catalog'].categories[0].groups;assert.deepEqual(groups.filter(g=>scenarioGroups.some(s=>g.group_identifier.name==='mcpe_food:group_'+s.key)).map(g=>g.items.length),[21+patch085Props.length,5,3,7,16,3]);assert.equal(groups.find(g=>g.group_identifier.name==='mcpe_food:group_electronics').items.length,45);assert.equal(readFileSync(`${bp}/functions/mcpe_food/tasting_new.mcfunction`,'utf8').trim().split('\n').length,patch097Items.length);assert.equal(readFileSync(`${bp}/functions/mcpe_food/electronics.mcfunction`,'utf8').split('\n').slice(0,41).join('\n')+'\n',old.functions['electronics.mcfunction']);
+ const groups=read(`${bp}/item_catalog/crafting_item_catalog.json`)['minecraft:crafting_items_catalog'].categories[0].groups;assert.deepEqual(groups.filter(g=>scenarioGroups.some(s=>g.group_identifier.name==='mcpe_food:group_'+s.key)).map(g=>g.items.length),[21+patch085Props.length,5,3,7,16,3]);assert.equal(groups.find(g=>g.group_identifier.name==='mcpe_food:group_electronics').items.length,45);assert.equal(readFileSync(`${bp}/functions/mcpe_food/tasting_new.mcfunction`,'utf8').trim().split('\n').length,postOfficeProps.length);assert.equal(readFileSync(`${bp}/functions/mcpe_food/electronics.mcfunction`,'utf8').split('\n').slice(0,41).join('\n')+'\n',old.functions['electronics.mcfunction']);
  for(const g of scenarioGroups)assert.ok(readFileSync(`${bp}/functions/mcpe_food/${g.key}.mcfunction`,'utf8').includes(g.items[0].key));
 });
 test('all authored scenario models fit physical heights, 128px UV, cube budgets and precise emission whitelist',()=>{

@@ -1,5 +1,5 @@
 {
-  "version": "0.9.8",
+  "version": "0.9.9",
   "models": [
     {
       "key": "egg_fried_rice_serving",
@@ -5642,6 +5642,230 @@
       }
     },
     {
+      "key": "postal_counter",
+      "resolution": 128,
+      "cubes": 28,
+      "slots": {
+        "ware": "patch099_postal_counter"
+      }
+    },
+    {
+      "key": "postal_counter_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_counter"
+      }
+    },
+    {
+      "key": "postal_counter_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_counter"
+      }
+    },
+    {
+      "key": "postal_counter_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_counter"
+      }
+    },
+    {
+      "key": "postal_sorting_cubbies",
+      "resolution": 128,
+      "cubes": 58,
+      "slots": {
+        "ware": "patch099_postal_sorting_cubbies"
+      }
+    },
+    {
+      "key": "postal_sorting_cubbies_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_sorting_cubbies"
+      }
+    },
+    {
+      "key": "postal_sorting_cubbies_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_sorting_cubbies"
+      }
+    },
+    {
+      "key": "postal_sorting_cubbies_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_sorting_cubbies"
+      }
+    },
+    {
+      "key": "postal_sorting_cubbies_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_sorting_cubbies"
+      }
+    },
+    {
+      "key": "postal_parcel_lockers",
+      "resolution": 128,
+      "cubes": 78,
+      "slots": {
+        "ware": "patch099_postal_parcel_lockers"
+      }
+    },
+    {
+      "key": "postal_parcel_lockers_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_parcel_lockers"
+      }
+    },
+    {
+      "key": "postal_parcel_lockers_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_parcel_lockers"
+      }
+    },
+    {
+      "key": "postal_parcel_lockers_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_parcel_lockers"
+      }
+    },
+    {
+      "key": "postal_parcel_lockers_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_parcel_lockers"
+      }
+    },
+    {
+      "key": "postal_parcel_lockers_part_4",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_parcel_lockers"
+      }
+    },
+    {
+      "key": "postal_parcel_lockers_part_5",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_parcel_lockers"
+      }
+    },
+    {
+      "key": "postal_square_mailbox",
+      "resolution": 128,
+      "cubes": 16,
+      "slots": {
+        "ware": "patch099_postal_square_mailbox"
+      }
+    },
+    {
+      "key": "postal_square_mailbox_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_square_mailbox"
+      }
+    },
+    {
+      "key": "postal_cylinder_mailbox",
+      "resolution": 128,
+      "cubes": 121,
+      "slots": {
+        "ware": "patch099_postal_cylinder_mailbox"
+      }
+    },
+    {
+      "key": "postal_cylinder_mailbox_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch099_postal_cylinder_mailbox"
+      }
+    },
+    {
+      "key": "postal_parcel_scale",
+      "resolution": 128,
+      "cubes": 13,
+      "slots": {
+        "ware": "patch099_postal_parcel_scale"
+      }
+    },
+    {
+      "key": "postal_parcel_scale",
+      "resolution": 128,
+      "cubes": 13,
+      "slots": {
+        "ware": "patch099_postal_parcel_scale"
+      }
+    },
+    {
+      "key": "postal_parcel_small",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch099_postal_parcel_small"
+      }
+    },
+    {
+      "key": "postal_parcel_small",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch099_postal_parcel_small"
+      }
+    },
+    {
+      "key": "postal_parcel_medium",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch099_postal_parcel_medium"
+      }
+    },
+    {
+      "key": "postal_parcel_medium",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch099_postal_parcel_medium"
+      }
+    },
+    {
+      "key": "postal_parcel_large",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch099_postal_parcel_large"
+      }
+    },
+    {
+      "key": "postal_parcel_large",
+      "resolution": 128,
+      "cubes": 9,
+      "slots": {
+        "ware": "patch099_postal_parcel_large"
+      }
+    },
+    {
       "key": "gongfu_tea_tray",
       "resolution": 128,
       "cubes": 230,
@@ -11124,6 +11348,51 @@
       "resolution": 128
     },
     {
+      "key": "surface_postal_counter",
+      "cubes": 28,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_sorting_cubbies",
+      "cubes": 58,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_lockers",
+      "cubes": 78,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_square_mailbox",
+      "cubes": 16,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_cylinder_mailbox",
+      "cubes": 121,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_scale",
+      "cubes": 13,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_small",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_medium",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_postal_parcel_large",
+      "cubes": 9,
+      "resolution": 128
+    },
+    {
       "key": "mini_kung_pao_chicken",
       "cubes": 31,
       "resolution": 128
@@ -12232,6 +12501,15 @@
     "mcpe_food_gym_punching_bag": 128,
     "mcpe_food_medical_mri_scanner": 128,
     "mcpe_food_linux_desktop_computer": 128,
+    "mcpe_food_postal_counter": 128,
+    "mcpe_food_postal_sorting_cubbies": 128,
+    "mcpe_food_postal_parcel_lockers": 128,
+    "mcpe_food_postal_square_mailbox": 128,
+    "mcpe_food_postal_cylinder_mailbox": 128,
+    "mcpe_food_postal_parcel_scale": 128,
+    "mcpe_food_postal_parcel_small": 128,
+    "mcpe_food_postal_parcel_medium": 128,
+    "mcpe_food_postal_parcel_large": 128,
     "mcpe_food_gongfu_tea_tray": 128,
     "mcpe_food_fridge_single_rose_gold": 128,
     "mcpe_food_fridge_single_white": 128,

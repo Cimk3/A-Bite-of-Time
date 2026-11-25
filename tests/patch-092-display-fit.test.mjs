@@ -27,7 +27,7 @@ test('all supported display objects fit the smallest cabinet compartment without
   assert.ok(extent[0]<=.75+.001&&extent[1]<=.8125+.001&&extent[2]<=.875+.001,key+' does not fit: '+extent);
   count++;
  }
- assert.equal(count,422,'supported objects must not regress');assert.ok(Object.keys(ads).length);
+ assert.equal(count,431,'supported objects must not regress');assert.ok(Object.keys(ads).length);
  for(const key of ['home_display_cabinet','home_display_shelf','cafe_pastry_case']){
   const spec=patch090ById.get(id(key)),columns=spec.slots===12?4:3,rows=spec.slots/columns;
   for(let row=0;row<rows;row++){

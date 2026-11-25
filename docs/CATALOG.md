@@ -1,4 +1,4 @@
-# 0.9.8 菜品与器皿索引
+# 0.9.9 菜品与器皿索引
 
 106 种可食成品，8 种不可食展示配菜，2 款静态铜锅，15 种餐具，3 款酒瓶摆件。新增内容通过创造物品栏或分组试用命令获取。
 
@@ -608,3 +608,15 @@
 - 潮州蚝烙 / mcpe_food:chaozhou_oyster_omelette
 - 福果甜芋泥 / mcpe_food:ginkgo_taro_paste
 - 方寸健身广告屏 / mcpe_food:gym_ad_screen_4x2
+
+## 0.9.9 社区邮局
+
+- 邮政柜台 / mcpe_food:postal_counter / 3×1×1
+- 分拣格柜 / mcpe_food:postal_sorting_cubbies / 2×1×2
+- 包裹自提柜 / mcpe_food:postal_parcel_lockers / 3×1×2
+- 方形邮筒 / mcpe_food:postal_square_mailbox / 1×1×1
+- 圆柱邮筒 / mcpe_food:postal_cylinder_mailbox / 1×1×1
+- 包裹称重台 / mcpe_food:postal_parcel_scale / 1×1×0.5
+- 小号邮寄纸箱 / mcpe_food:postal_parcel_small / 1×1×0.5
+- 中号邮寄纸箱 / mcpe_food:postal_parcel_medium / 1×1×0.75
+- 大号邮寄纸箱 / mcpe_food:postal_parcel_large / 1×1×0.75

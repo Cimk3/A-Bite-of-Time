@@ -1,5 +1,5 @@
 {
-  "version": "0.9.8",
+  "version": "0.9.9",
   "units": "bytes",
   "baseline": {
     "version": "0.5.4",
@@ -19,13 +19,13 @@
     "merAliases": 196
   },
   "current": {
-    "beforeBytes": 308313279,
-    "bpBytes": 20760518,
-    "rpBytes": 102149442,
-    "addonBytes": 37410727,
-    "pngChecked": 2553,
-    "pngSavedBytes": 5434291,
-    "jsonSavedBytes": 178637286,
+    "beforeBytes": 310267899,
+    "bpBytes": 21182333,
+    "rpBytes": 102545566,
+    "addonBytes": 37524437,
+    "pngChecked": 2598,
+    "pngSavedBytes": 5459615,
+    "jsonSavedBytes": 179748373,
     "numberGeometryRemoved": 196,
     "merAliases": 196
   },
