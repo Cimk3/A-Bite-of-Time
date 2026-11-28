@@ -1,3 +1,5 @@
+import {districtKeys,districtGlassKeys} from '../.build/patch-100-catalog.js';
+import {districtCubes} from './patch-100-art.mjs';
 import {placedSceneProps} from '../.build/patch-090-catalog.js';
 import {wholeSceneKeys} from '../.build/patch-093-render.js';
 import {legacy096EntityBoxes} from './patch-096-art.mjs';
@@ -94,7 +96,7 @@ export function buildDisplays({root,BP,RP,json,write,icon,item,localize,modelRec
     list.forEach((d,i)=>{geometries[`g${i}`]=d.geometry;textures[`f${i}`]=d.food;textures[`w${i}`]=d.ware??d.food;arrays.geometries['Array.geometry'].push(`Geometry.g${i}`);arrays.textures['Array.food'].push(`Texture.f${i}`);arrays.textures['Array.ware'].push(`Texture.w${i}`);});
     const renderNames=[];
     const prefix='geometry.mcpe_food.surface.';
-    const transKeys=new Set(['cinema_popcorn_machine',...glass096Keys]);
+    const transKeys=new Set(['cinema_popcorn_machine',...glass096Keys,...districtGlassKeys]);
     const translucent=type==='surface_display'?list.flatMap((d,i)=>transKeys.has(d.geometry.slice(prefix.length))?[i]:[]):[];
     const drawFood=translucent.map(i=>`q.property('mcpe_food:index') != ${i}`).join(' && ');
     for(const slot of ware?['food','ware']:['food']){
@@ -113,7 +115,7 @@ export function buildDisplays({root,BP,RP,json,write,icon,item,localize,modelRec
     }
     json(RP,`entity/mcpe_food/${type}.entity.json`,{format_version:'1.10.0','minecraft:client_entity':{description:{identifier,materials:{default:'entity_alphatest',...(translucent.length?{glass:'entity_alphablend'}:{})},textures,geometry:geometries,render_controllers:renderNames,...(poster?{animations:{size:'animation.mcpe_food.poster_size'},scripts:{animate:['size']}}:explicit?{animations:{display_facing:'animation.mcpe_food.display_facing'},scripts:{animate:[{display_facing:"q.property('mcpe_food:display_facing') > 0"}]}}:{})}}});
     const shapes={},events={};
-    const specs=[['flat',.95,.12],['medium',.65,.6],['tall',.65,.9],...(interactive?[...electronics,...restaurantAccessories,...lifestyleItems,...scenarioProps,...patch071Props,...patch072Props,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props,...placedSceneProps].map(d=>{const b=modelBounds(placedSceneProps.includes(d)?(postOfficeKeys.has(d.key)?postalCubes(d.key):patch097PropKeys.has(d.key)?patch097Cubes(d.key):patch095Keys.has(d.key)?patch095Cubes(d.key):patch090Cubes(d.key)):'model' in d?electronicCubes(d):patch085Props.includes(d)?patch085Cubes(d.key):patch082Props.includes(d)?patch082Cubes(d.key):patch080Props.includes(d)?patch080Cubes(d.key):patch074Props.includes(d)?patch074Cubes(d.key):patch073Props.includes(d)?patch073Cubes(d.key):patch072Props.includes(d)?patch072Cubes(d.key):patch071Props.includes(d)?patch071Cubes(d.key):scenarioProps.includes(d)?scenarioCubes(d.key):lifestyleItems.includes(d)?lifestyleCubes(d.key):serviceCubes(d.key));const width=Math.max(...[b.low[0],b.low[2],b.high[0],b.high[2]].map(Math.abs))/8+.015;return[d.key,d.key==='icu_bed'?1:width,b.high[1]/16+.01];}):[])];
+    const specs=[['flat',.95,.12],['medium',.65,.6],['tall',.65,.9],...(interactive?[...electronics,...restaurantAccessories,...lifestyleItems,...scenarioProps,...patch071Props,...patch072Props,...patch073Props,...patch074Props,...patch080Props,...patch082Props,...patch085Props,...placedSceneProps].map(d=>{const b=modelBounds(placedSceneProps.includes(d)?(districtKeys.has(d.key)?districtCubes(d.key):postOfficeKeys.has(d.key)?postalCubes(d.key):patch097PropKeys.has(d.key)?patch097Cubes(d.key):patch095Keys.has(d.key)?patch095Cubes(d.key):patch090Cubes(d.key)):'model' in d?electronicCubes(d):patch085Props.includes(d)?patch085Cubes(d.key):patch082Props.includes(d)?patch082Cubes(d.key):patch080Props.includes(d)?patch080Cubes(d.key):patch074Props.includes(d)?patch074Cubes(d.key):patch073Props.includes(d)?patch073Cubes(d.key):patch072Props.includes(d)?patch072Cubes(d.key):patch071Props.includes(d)?patch071Cubes(d.key):scenarioProps.includes(d)?scenarioCubes(d.key):lifestyleItems.includes(d)?lifestyleCubes(d.key):serviceCubes(d.key));const width=Math.max(...[b.low[0],b.low[2],b.high[0],b.high[2]].map(Math.abs))/8+.015;return[d.key,d.key==='icu_bed'?1:width,b.high[1]/16+.01];}):[])];
     for(const[name,width,height]of specs){shapes[`mcpe_food:${name}`]={'minecraft:collision_box':legacy096EntityBoxes[name]??{width,height}};events[`mcpe_food:shape_${name}`]={remove:{component_groups:specs.map(([n])=>`mcpe_food:${n}`)},add:{component_groups:[`mcpe_food:${name}`]}};}
     if(type==='surface_display'||type==='advert_display'){
        shapes['mcpe_food:slot_scaled']={'minecraft:scale':{value:displaySlotScale}};

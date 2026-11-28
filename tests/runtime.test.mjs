@@ -53,10 +53,10 @@ test('Linux file manager and terminal open a dedicated text reader and return to
  state.entityInteract({player,target,cancel:false});flush();await idle();
  const readers=state.forms.filter(form=>form.title.startsWith('Text Reader'));
  assert.deepEqual(readers.map(form=>form.title),['Text Reader  /  README.txt','Text Reader  /  notes.txt']);
- assert.match(readers[0].body,/\/home\/player\/README\.txt[\s\S]*Food & Table Linux/);
+ assert.match(readers[0].body,/\/home\/player\/README\.txt[\s\S]*Fangcun District Linux/);
  assert.match(readers[1].body,/This computer belongs/);
  assert.ok(state.forms[0].icons.every(path=>path.startsWith('textures/items/mcpe_food/linux_ui_')));
- assert.equal(state.forms.at(-1).title,'Food & Table Linux');
+ assert.equal(state.forms.at(-1).title,'Fangcun District Linux');
  player.isSneaking=true;system.currentTick+=10;
  state.responses=[{selection:0}];
  state.entityInteract({player,target,cancel:false});flush();await idle();

@@ -24,7 +24,7 @@ export async function showLinuxDesktop(player:Player,current:()=>boolean):Promis
    continue;
   }
   if(app==='desktop'){
-   const response=await new ActionFormData().title(t('方寸 Linux 桌面','Food & Table Linux'))
+   const response=await new ActionFormData().title(t('方寸 Linux 桌面','Fangcun District Linux'))
     .body(t('应用程序','Applications')+'\n§8'+session.cwd+'§r')
     .button(t('文件管理器','Files'),icon('folder'))
     .button(t('终端','Terminal'),icon('terminal'))

@@ -1,7 +1,7 @@
 {
   "advertisements": 23,
   "advertisementSizes": 69,
-  "surfaceDefinitions": 737,
+  "surfaceDefinitions": 756,
   "trayFoods": 73,
   "trayCubes": 65,
   "maxMiniCubes": 43,
@@ -1704,7 +1704,7 @@
     },
     {
       "key": "surface_desktop_computer",
-      "cubes": 27,
+      "cubes": 31,
       "resolution": 128
     },
     {
@@ -1779,17 +1779,17 @@
     },
     {
       "key": "surface_dell_laptop_open",
-      "cubes": 152,
+      "cubes": 154,
       "resolution": 128
     },
     {
       "key": "surface_dell_laptop_closed",
-      "cubes": 10,
+      "cubes": 11,
       "resolution": 128
     },
     {
       "key": "surface_macbook_pro_gpt_open",
-      "cubes": 151,
+      "cubes": 153,
       "resolution": 128
     },
     {
@@ -1814,12 +1814,12 @@
     },
     {
       "key": "surface_macbook_air_silver_open",
-      "cubes": 145,
+      "cubes": 147,
       "resolution": 128
     },
     {
       "key": "surface_macbook_air_gray_open",
-      "cubes": 145,
+      "cubes": 147,
       "resolution": 128
     },
     {
@@ -2514,7 +2514,7 @@
     },
     {
       "key": "surface_medical_trolley",
-      "cubes": 24,
+      "cubes": 22,
       "resolution": 128
     },
     {
@@ -2584,7 +2584,7 @@
     },
     {
       "key": "surface_microwave_oven",
-      "cubes": 42,
+      "cubes": 89,
       "resolution": 128
     },
     {
@@ -2949,7 +2949,7 @@
     },
     {
       "key": "surface_digital_oscilloscope",
-      "cubes": 11,
+      "cubes": 20,
       "resolution": 128
     },
     {
@@ -3164,7 +3164,7 @@
     },
     {
       "key": "surface_asml_lithography",
-      "cubes": 57,
+      "cubes": 70,
       "resolution": 128
     },
     {
@@ -3690,6 +3690,101 @@
     {
       "key": "surface_postal_parcel_large",
       "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_hotel_luggage_cart",
+      "cubes": 33,
+      "resolution": 128
+    },
+    {
+      "key": "surface_hotel_housekeeping_cart",
+      "cubes": 23,
+      "resolution": 128
+    },
+    {
+      "key": "surface_hotel_wall_hairdryer",
+      "cubes": 7,
+      "resolution": 128
+    },
+    {
+      "key": "surface_induction_hob",
+      "cubes": 5,
+      "resolution": 128
+    },
+    {
+      "key": "surface_bookshop_bookcase",
+      "cubes": 49,
+      "resolution": 128
+    },
+    {
+      "key": "surface_bookshop_display_table",
+      "cubes": 37,
+      "resolution": 128
+    },
+    {
+      "key": "surface_bookshop_magazine_rack",
+      "cubes": 14,
+      "resolution": 128
+    },
+    {
+      "key": "surface_bookshop_desk_lamp",
+      "cubes": 14,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_wall_shelving",
+      "cubes": 81,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_island_shelving",
+      "cubes": 116,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_drink_cooler",
+      "cubes": 69,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_hot_display",
+      "cubes": 24,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_basket_stand",
+      "cubes": 25,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_restock_cart",
+      "cubes": 17,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_oden_station",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_bun_steamer",
+      "cubes": 56,
+      "resolution": 128
+    },
+    {
+      "key": "surface_street_takeaway_bag",
+      "cubes": 8,
+      "resolution": 128
+    },
+    {
+      "key": "surface_street_umbrella_stand",
+      "cubes": 34,
+      "resolution": 128
+    },
+    {
+      "key": "surface_street_waste_station",
+      "cubes": 25,
       "resolution": 128
     },
     {
@@ -4619,5 +4714,5 @@
     }
   ],
   "entityTypes": 5,
-  "entityTextureSets": 575
+  "entityTextureSets": 594
 }

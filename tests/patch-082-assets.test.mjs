@@ -1,4 +1,4 @@
-import {postOfficeProps} from '../.build/patch-099-catalog.js';
+import {districtProps} from '../.build/patch-100-catalog.js';
 import {refresh096Block,refresh096Visual} from './patch-096-scope.mjs';
 import {patch097Props,patch097Foods,gymAd} from '../.build/patch-097-catalog.js';
 import {patch095Props,patch095Walls} from '../.build/patch-095-catalog.js';
@@ -68,7 +68,7 @@ test('creative groups and give commands append the approved content to their old
     const newItems=additions[key];
     assert.equal(body(key),newItems?prior+newItems.map(d=>give(d.key)).join('\n')+'\n':prior,key);
   }
-  assert.equal(body('tasting_new.mcfunction'),postOfficeProps.map(d=>give(d.key)).join('\n')+'\n');
+  assert.equal(body('tasting_new.mcfunction'),districtProps.map(d=>give(d.key)).join('\n')+'\n');
   for(const prop of patch082Items) {
     const found=groups.filter(g=>g.items.includes(id(prop.key)));
     assert.equal(found.length,1);

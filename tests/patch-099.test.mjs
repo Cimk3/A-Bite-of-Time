@@ -1,3 +1,4 @@
+import {districtProps} from '../.build/patch-100-catalog.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync} from 'node:fs';
@@ -16,12 +17,12 @@ test('0.9.9 adds exactly the nine post office items and appends saved display in
  const ids=postOfficeProps.map(d=>id(d.key));
  assert.equal(ids.length,9);
  const files=readdirSync(bp+'items').map(f=>id(f.slice(0,-5)));
- assert.deepEqual(files.filter(key=>!old.items.includes(key)).sort(),[...ids].sort());
- assert.deepEqual(surfaceVisuals.map(d=>d.key),[...indices,...postOfficeProps.map(d=>d.key)]);
+ assert.deepEqual(files.filter(key=>!old.items.includes(key)).sort(),[...ids,...districtProps.map(d=>id(d.key))].sort());
+ assert.deepEqual(surfaceVisuals.map(d=>d.key),[...indices,...postOfficeProps.map(d=>d.key),...districtProps.map(d=>d.key)]);
  const categories=read(bp+'item_catalog/crafting_item_catalog.json')['minecraft:crafting_items_catalog'].categories;
  const group=categories[0].groups.find(g=>g.group_identifier.name===id('group_'+postOfficeGroup));
  assert.deepEqual(group.items,ids);
- for(const key of [postOfficeGroup,'tasting_new'])
+ for(const key of [postOfficeGroup])
   assert.equal(readFileSync(bp+'functions/mcpe_food/'+key+'.mcfunction','utf8'),ids.map(id=>'give @s '+id+' 4\n').join(''));
 });
 

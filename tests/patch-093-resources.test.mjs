@@ -1,4 +1,4 @@
-import {refresh096Block,refresh096Visual,append097Asset} from './patch-096-scope.mjs';
+import {refresh096Block,refresh096Visual,expectedSharedOutputChange} from './patch-096-scope.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -8,7 +8,7 @@ const read=p=>JSON.parse(readFileSync(p,'utf8'));
 test('0.9.3 changes only the three reported appearances and required runtime/version data',()=>{
  const old=read('tests/fixtures/v0.9.2-resources.json');
  for(const [pack,files] of Object.entries(old.packs))for(const [file,hash] of Object.entries(files)){
-  if(append097Asset(file))continue;
+  if(expectedSharedOutputChange(file))continue;
    if(refresh096Visual(file)||(pack==='BP'&&refresh096Block(file)))continue;
   const path='packs/FoodAndTable_'+pack+'/'+file;
   if(['manifest.json','mcpe_food_build.json','functions/mcpe_food/build_info.mcfunction','scripts/decor-runtime.js'].includes(file))continue;

@@ -1,4 +1,5 @@
-import {postOfficeProps} from '../.build/patch-099-catalog.js';
+import {refresh096Visual} from './patch-096-scope.mjs';
+import {districtProps} from '../.build/patch-100-catalog.js';
 import {addedDefinitions,addedBlocks,addedSurfaceCount,patch090Items,patch090Props,patch090Walls,slotIconEntries} from './patch-090-expectations.mjs';
 import {patch082Items} from '../.build/patch-082-catalog.js';
 import {patch085Props} from '../.build/patch-085-catalog.js';
@@ -29,12 +30,12 @@ test('0.7.1 appends only four public items/blocks and keeps every prior ID, UUID
  for(const[pack,uuids]of Object.entries(old.uuids)){const m=read(`packs/${pack}/manifest.json`);assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],uuids);}
  for(const[folder,entries]of [['recipes',old.crafting],['loot_tables/blocks',old.loot]])for(const[f,h]of Object.entries(entries))assert.equal(sha(readFileSync(`${bp}/${folder}/${f}`)),h);
  for(const[f,states]of Object.entries(old.cropStates))assert.deepEqual(read(`${bp}/blocks/${f}`)['minecraft:block'].description.states,states);
- const lines=name=>readFileSync(`${bp}/functions/mcpe_food/${name}.mcfunction`,'utf8').trim().split('\n');assert.equal(lines('tasting_new').length,postOfficeProps.length);assert.deepEqual(lines('electronics').slice(0,41),old.functions['electronics.mcfunction'].trim().split('\n'));assert.equal(lines('electronics').length,53);assert.equal(lines('ai_work_devices').length,7);
+ const lines=name=>readFileSync(`${bp}/functions/mcpe_food/${name}.mcfunction`,'utf8').trim().split('\n');assert.equal(lines('tasting_new').length,districtProps.length);assert.deepEqual(lines('electronics').slice(0,41),old.functions['electronics.mcfunction'].trim().split('\n'));assert.equal(lines('electronics').length,53);assert.equal(lines('ai_work_devices').length,7);
  const groups=read(`${bp}/item_catalog/crafting_item_catalog.json`)['minecraft:crafting_items_catalog'].categories[0].groups;assert.equal(groups.find(g=>g.group_identifier.name==='mcpe_food:group_electronics').items.length,45);assert.equal(groups.find(g=>g.group_identifier.name==='mcpe_food:group_ai_work_devices').items.length,7);
 });
 test('unrelated final geometry remains identical to the 0.7.0 release',()=>{
  const changed=new Set(['pen_display_set','infusion_pump_stand','wall_air_conditioner',...wallVariants.map(d=>d.key),...digitalScreens.map(d=>d.key)]);
- for(const[p,h]of Object.entries(read('tests/fixtures/v0.7.0-appearance.json'))){const key=p.split('/').at(-1).replace(/\.geo\.json$/,'').replace(/^surface_/,'');if(changed.has(key))continue;assert.equal(sha(JSON.stringify(read(p))),h,p);}
+ for(const[p,h]of Object.entries(read('tests/fixtures/v0.7.0-appearance.json'))){const key=p.split('/').at(-1).replace(/\.geo\.json$/,'').replace(/^surface_/,'');if(changed.has(key)||refresh096Visual(p))continue;assert.equal(sha(JSON.stringify(read(p))),h,p);}
 });
 test('infusion stand is exactly two blocks while pump body stays unchanged; AC scales uniformly to one-block width',()=>{
  const old=read('tests/fixtures/v0.7.0-patch-models.json');

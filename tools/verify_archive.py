@@ -14,7 +14,8 @@ DIST = ROOT / "dist"
 METADATA = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
 VERSION = METADATA["version"]
 ARTIFACT_VERSION = METADATA.get("buildLabel", VERSION)
-ADDON = DIST / f"FoodAndTable-{ARTIFACT_VERSION}.mcaddon"
+BRAND = "FangcunDistrict" if int(VERSION.split(".")[0]) >= 1 else "FoodAndTable"
+ADDON = DIST / f"{BRAND}-{ARTIFACT_VERSION}.mcaddon"
 
 
 def verify():
@@ -28,7 +29,7 @@ def verify():
         assert set(outer.namelist()) == {"FoodAndTable_BP.mcpack", "FoodAndTable_RP.mcpack"}
         for name in outer.namelist():
             data = outer.read(name)
-            standalone = DIST / name.replace(".mcpack", f"-{ARTIFACT_VERSION}.mcpack")
+            standalone = DIST / name.replace("FoodAndTable", BRAND).replace(".mcpack", f"-{ARTIFACT_VERSION}.mcpack")
             assert data == standalone.read_bytes(), "Nested pack differs from standalone pack"
             with ZipFile(BytesIO(data)) as archive:
                 assert archive.testzip() is None, f"CRC failed: {name}"
@@ -36,7 +37,7 @@ def verify():
                     path = PurePosixPath(filename)
                     assert not path.is_absolute() and ".." not in path.parts and "\\" not in filename
                 manifest = json.loads(archive.read("manifest.json"))
-                assert "Food & Table" in manifest["header"]["name"]
+                assert ("Fangcun District" if BRAND == "FangcunDistrict" else "Food & Table") in manifest["header"]["name"]
                 assert manifest["header"]["version"] == [int(x) for x in VERSION.split(".")]
                 assert manifest["header"]["min_engine_version"] == [1, 26, 20]
                 if "mcpe_food_build.json" in archive.namelist():
@@ -88,11 +89,11 @@ def verify():
         assert len(build_markers) == 2 and build_markers[0] == build_markers[1], "Pack build markers differ"
     build = json.loads((ROOT / "build-report.json").read_text(encoding="utf-8"))
     assert pbr_sets == build["pbrTextureSets"]
-    assert quiet_blocks == build["servingVariants"] + build["tableware"] + build.get("paperCups", 0) + build["hotpots"] + build.get("bottleProps", 0) + build["stations"] + build["crops"] + build.get("legacyElectronics", build.get("electronics", 0)) - build.get("refrigerators", 0) + build.get("refrigeratorParts", 0) + build.get("restaurantAccessories", 0) + build.get("legacyOfficeStationery", build.get("officeStationery", 0)) + build.get("homeDecor", 0) + build.get("scenarioProps", 0) + build.get("patch071Props", 0) + build.get("patch072Props", 0) + build.get("patch073Props", 0) + build.get("patch074Props", 0) + build.get("patch080Props", 0) + build.get("patch082Props", 0) + build.get("patch085Props", 0) + build.get("patch090Blocks", 0) + build.get("patch095Blocks", 0) + build.get("patch097Blocks", 0) + build.get("postOfficeBlocks", 0)
+    assert quiet_blocks == build["servingVariants"] + build["tableware"] + build.get("paperCups", 0) + build["hotpots"] + build.get("bottleProps", 0) + build["stations"] + build["crops"] + build.get("legacyElectronics", build.get("electronics", 0)) - build.get("refrigerators", 0) + build.get("refrigeratorParts", 0) + build.get("restaurantAccessories", 0) + build.get("legacyOfficeStationery", build.get("officeStationery", 0)) + build.get("homeDecor", 0) + build.get("scenarioProps", 0) + build.get("patch071Props", 0) + build.get("patch072Props", 0) + build.get("patch073Props", 0) + build.get("patch074Props", 0) + build.get("patch080Props", 0) + build.get("patch082Props", 0) + build.get("patch085Props", 0) + build.get("patch090Blocks", 0) + build.get("patch095Blocks", 0) + build.get("patch097Blocks", 0) + build.get("postOfficeBlocks", 0) + build.get("districtBlocks", 0)
     for line in (DIST / "SHA256SUMS.txt").read_text(encoding="utf-8").splitlines():
         checksum, name = line.split("  ", 1)
         assert hashlib.sha256((DIST / name).read_bytes()).hexdigest() == checksum
-    with ZipFile(DIST / f"FoodAndTable-source-{ARTIFACT_VERSION}.zip") as source:
+    with ZipFile(DIST / f"{BRAND}-source-{ARTIFACT_VERSION}.zip") as source:
         assert source.testzip() is None, "Source ZIP failed CRC"
         for filename in source.namelist():
             relative = PurePosixPath(filename)

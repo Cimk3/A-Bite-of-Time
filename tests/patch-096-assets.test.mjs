@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {refresh096Block,refresh096Visual,append097Asset} from './patch-096-scope.mjs';
+import {refresh096Block,refresh096Visual,expectedSharedOutputChange} from './patch-096-scope.mjs';
 import {refreshed096Keys,whole096Keys,glass096Keys} from '../.build/patch-096-catalog.js';
 import {pastryBounds} from '../.build/generated-pastry-bounds.js';
 import {fitPastry,pastryScales,pastryClearance,pastryShelfTop} from '../.build/pastry-display-layout.js';
@@ -24,7 +24,7 @@ test('0.9.6 confines changed assets and preserves old behavior, IDs and display 
   const dir=pack==='BP'?bp:rp,m=json(dir+'manifest.json');
   assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],data.uuids);
   for(const [f,expected] of Object.entries(data.files)){
-   if(append097Asset(f))continue;
+   if(expectedSharedOutputChange(f))continue;
    if(['manifest.json','mcpe_food_build.json','functions/mcpe_food/build_info.mcfunction','entities/surface_display.json','entity/mcpe_food/surface_display.entity.json'].includes(f)||f.startsWith('scripts/'))continue;
    if(pack==='RP'&&refresh096Visual(f))continue;
    if(pack==='BP'&&refresh096Block(f)){

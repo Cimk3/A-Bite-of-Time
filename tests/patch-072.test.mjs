@@ -1,4 +1,4 @@
-import {postOfficeProps} from '../.build/patch-099-catalog.js';
+import {districtProps} from '../.build/patch-100-catalog.js';
 import {addedDefinitions,addedBlocks,addedSurfaceCount,patch090Items,patch090Props,patch090Walls,slotIconEntries} from './patch-090-expectations.mjs';
 import {patch082Items} from '../.build/patch-082-catalog.js';
 import {patch085Props} from '../.build/patch-085-catalog.js';
@@ -33,7 +33,7 @@ test('0.7.2 adds exactly 21 items, preserves 538 indices, nine ads, IDs, UUIDs, 
  for(const[pack,uuids]of Object.entries(old.uuids)){const m=read(`packs/${pack}/manifest.json`);assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],uuids);}
  for(const[folder,entries]of [['recipes',old.crafting],['loot_tables/blocks',old.loot]])for(const[f,h]of Object.entries(entries))assert.equal(createHash('sha256').update(readFileSync(`${bp}/${folder}/${f}`)).digest('hex'),h,f);
  for(const[f,states]of Object.entries(old.cropStates))assert.deepEqual(read(`${bp}/blocks/${f}`)['minecraft:block'].description.states,states);
- const lines=n=>readFileSync(`${bp}/functions/mcpe_food/${n}.mcfunction`,'utf8').trim().split('\n');assert.equal(lines('tasting_new').length,postOfficeProps.length);assert.equal(lines('clothing_store').length,13);assert.equal(lines('clothing_fixtures').length,4);assert.equal(lines('clothing_items').length,9);assert.equal(lines('transit_equipment').length,3);assert.equal(lines('electronics').length,53);assert.equal(lines('office_stationery').length,9);assert.deepEqual(lines('electronics').slice(0,42),old.functions['electronics.mcfunction'].trim().split('\n'));
+ const lines=n=>readFileSync(`${bp}/functions/mcpe_food/${n}.mcfunction`,'utf8').trim().split('\n');assert.equal(lines('tasting_new').length,districtProps.length);assert.equal(lines('clothing_store').length,13);assert.equal(lines('clothing_fixtures').length,4);assert.equal(lines('clothing_items').length,9);assert.equal(lines('transit_equipment').length,3);assert.equal(lines('electronics').length,53);assert.equal(lines('office_stationery').length,9);assert.deepEqual(lines('electronics').slice(0,42),old.functions['electronics.mcfunction'].trim().split('\n'));
  const groups=read(`${bp}/item_catalog/crafting_item_catalog.json`)['minecraft:crafting_items_catalog'].categories[0].groups,names=groups.map(g=>g.group_identifier.name);assert.equal(names.indexOf('mcpe_food:group_clothing_items'),names.indexOf('mcpe_food:group_clothing_fixtures')+1);
  for(const d of clothingItems){const c=read(`${bp}/items/${d.key}.json`)['minecraft:item'].components;assert.equal(c['minecraft:wearable'],undefined);assert.equal(c['minecraft:block_placer'],undefined);assert.equal(c['minecraft:food'],undefined);}
 });

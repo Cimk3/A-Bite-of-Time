@@ -1,9 +1,9 @@
 const home = '/home/player';
 const directories = ['/', '/home', home, home + '/Documents', '/etc'];
 const files = [
-    [home + '/README.txt', 'Food & Table Linux demo\nType help for commands. Folders created with mkdir last until the desktop closes.'],
-    [home + '/Documents/notes.txt', 'This computer belongs to the world of Food & Table.'],
-    ['/etc/os-release', 'NAME="Food & Table Linux"\nVERSION="0.9.7"'],
+    [home + '/README.txt', 'Fangcun District Linux demo\nType help for commands. Folders created with mkdir last until the desktop closes.'],
+    [home + '/Documents/notes.txt', 'This computer belongs to the world of Fangcun District.'],
+    ['/etc/os-release', 'NAME="Fangcun District Linux"\nVERSION="0.9.7"'],
 ];
 const initialNodes = [
     ...directories.map((path) => [path, { kind: 'directory' }]),

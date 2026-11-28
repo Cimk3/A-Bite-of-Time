@@ -1,4 +1,4 @@
-import {postOfficeProps} from '../.build/patch-099-catalog.js';
+import {districtProps} from '../.build/patch-100-catalog.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,readdirSync} from 'node:fs';
@@ -39,7 +39,7 @@ test('0.9.7 is append-only for saved visuals and preserves 0.9.6 IDs, recipes, c
   if(['build_info.mcfunction','tasting_new.mcfunction'].includes(file))continue;
   assert.ok(bytes(bp+'functions/mcpe_food/'+file).toString().startsWith(body),file);
  }
- assert.equal(bytes(bp+'functions/mcpe_food/tasting_new.mcfunction').toString(),postOfficeProps.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
+ assert.equal(bytes(bp+'functions/mcpe_food/tasting_new.mcfunction').toString(),districtProps.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
 });
 
 test('0.9.9 appends the post office to the 0.9.7 catalog and advances the numeric pack version',()=>{
@@ -53,8 +53,8 @@ test('0.9.9 appends the post office to the 0.9.7 catalog and advances the numeri
  for(const [file,body] of Object.entries(old.functions))
   if(!['build_info.mcfunction','tasting_new.mcfunction'].includes(file))assert.equal(bytes(bp+'functions/mcpe_food/'+file).toString(),body,file);
  for(const base of [bp,rp]){
-  assert.deepEqual(read(base+'manifest.json').header.version,[0,9,9]);
-  assert.equal(read(base+'mcpe_food_build.json').build,'0.9.9-release.1');
+  assert.deepEqual(read(base+'manifest.json').header.version,[1,0,0]);
+  assert.equal(read(base+'mcpe_food_build.json').build,'1.0.0-release.1');
  }
 });
 
@@ -124,8 +124,8 @@ test('Linux virtual filesystem supports mkdir, navigation, reads and independent
  assert.equal(run('cd work'),'');
  assert.equal(run('mkdir build'),'');
  assert.equal(run('ls'),'build/');
- assert.match(run('cat ../README.txt'),/Food & Table/);
- assert.match(a.openText('../README.txt').text,/Food & Table/);
+ assert.match(run('cat ../README.txt'),/Fangcun District/);
+ assert.match(a.openText('../README.txt').text,/Fangcun District/);
  assert.equal(a.openText('/etc/os-release'),undefined);
  assert.equal(a.openText('missing.txt'),undefined);
  assert.equal(a.execute('open ../README.txt').document.path,'/home/player/README.txt');

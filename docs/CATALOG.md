@@ -1,4 +1,4 @@
-# 0.9.9 菜品与器皿索引
+# 1.0.0 菜品与器皿索引
 
 106 种可食成品，8 种不可食展示配菜，2 款静态铜锅，15 种餐具，3 款酒瓶摆件。新增内容通过创造物品栏或分组试用命令获取。
 
@@ -620,3 +620,25 @@
 - 小号邮寄纸箱 / mcpe_food:postal_parcel_small / 1×1×0.5
 - 中号邮寄纸箱 / mcpe_food:postal_parcel_medium / 1×1×0.75
 - 大号邮寄纸箱 / mcpe_food:postal_parcel_large / 1×1×0.75
+
+## 1.0.0 方寸街区
+
+- 行李推车 / mcpe_food:hotel_luggage_cart / 1×1×2
+- 客房清洁车 / mcpe_food:hotel_housekeeping_cart / 2×1×2
+- 壁挂吹风机 / mcpe_food:hotel_wall_hairdryer / 1×1×1
+- 电磁炉 / mcpe_food:induction_hob / 1×1×1
+- 落地书架 / mcpe_food:bookshop_bookcase / 1×1×2
+- 图书陈列台 / mcpe_food:bookshop_display_table / 2×1×1
+- 杂志架 / mcpe_food:bookshop_magazine_rack / 1×1×2
+- 台灯 / mcpe_food:bookshop_desk_lamp / 1×1×1
+- 靠墙货架 / mcpe_food:store_wall_shelving / 2×1×2
+- 中岛货架 / mcpe_food:store_island_shelving / 2×1×1
+- 饮料冷柜 / mcpe_food:store_drink_cooler / 1×1×2
+- 热食保温柜 / mcpe_food:store_hot_display / 1×1×1
+- 购物篮架 / mcpe_food:store_basket_stand / 1×1×1
+- 补货推车 / mcpe_food:store_restock_cart / 2×1×1
+- 关东煮台 / mcpe_food:store_oden_station / 1×1×1
+- 包子蒸柜 / mcpe_food:store_bun_steamer / 1×1×1
+- 外卖打包袋 / mcpe_food:street_takeaway_bag / 1×1×1
+- 雨伞架 / mcpe_food:street_umbrella_stand / 1×1×1
+- 四分类垃圾桶 / mcpe_food:street_waste_station / 2×1×1

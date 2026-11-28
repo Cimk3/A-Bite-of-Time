@@ -74,7 +74,7 @@ async function openKitchen(p, block, station) {
         const groups = Object.keys(menuCategories).filter(g => relevant.some(r => recipeCategory(r) === g));
         const stationInfo = stations.find(s => s.key === station);
         const menu = new ActionFormData().title(english ? stationInfo.en : stationInfo.zh)
-            .body(tr(p, "方寸食光 · 选一道今天想做的料理。\n创造限定原料须从创造物品栏取得。", "Food & Table · What shall we make today?\nCreative-only ingredients must be supplied from Creative inventory."));
+            .body(tr(p, "方寸街区 · 选一道今天想做的料理。\n创造限定原料须从创造物品栏取得。", "Fangcun District · What shall we make today?\nCreative-only ingredients must be supplied from Creative inventory."));
         groups.forEach(g => menu.button(menuCategories[g][english ? 1 : 0]));
         const category = await menu.show(p);
         if (category.canceled || category.selection === undefined)
@@ -110,7 +110,7 @@ async function openKitchen(p, block, station) {
     catch (error) {
         if (p.isValid)
             notify(p, "菜单暂不可用，请关闭聊天或其他界面后重试。", "Close chat or other screens and try again.");
-        console.warn(`[Food & Table] kitchen: ${String(error)}`);
+        console.warn(`[Fangcun District] kitchen: ${String(error)}`);
     }
     finally {
         sessions.finish(p.id, token);
@@ -192,7 +192,7 @@ function tableInteract(p, block) {
         notify(p, `已盛装：${food.zh}`, `Served: ${food.en}`);
     }
     catch (error) {
-        console.warn(`[Food & Table] table: ${String(error)}`);
+        console.warn(`[Fangcun District] table: ${String(error)}`);
     }
     finally {
         busyBlocks.delete(key);
@@ -298,7 +298,7 @@ world.beforeEvents.playerInteractWithBlock.subscribe(event => {
                 cropInteract(p, b);
         }
         catch (error) {
-            console.warn(`[Food & Table] interaction: ${String(error)}`);
+            console.warn(`[Fangcun District] interaction: ${String(error)}`);
         }
     });
 });

@@ -1,3 +1,4 @@
+import {districtKeys,deskLampKey} from '../.build/patch-100-catalog.js';
 import {refreshed096Keys} from '../.build/patch-096-catalog.js';
 import {screen096Keys} from './patch-096-art.mjs';
 import {patch095Keys} from '../.build/patch-095-catalog.js';
@@ -15,6 +16,14 @@ import {scenarioScreens} from '../.build/scenario-catalog.js';
 import {electronics} from '../.build/electronics-catalog.js';
 const devices=new Map(electronics.map(d=>[`device_${d.key}`,d]));
 export function emissionIsValid(image,colorKey){
+  if(colorKey.startsWith('patch100_')){
+    const key=colorKey.slice(9);
+    return districtKeys.has(key)&&image.width===128&&image.height===128&&image.pixels.every((value,index)=>{
+      if(index%4!==1||value===0)return true;
+      const pixel=(index-1)/4,x=pixel%128,y=Math.floor(pixel/128);
+      return key===deskLampKey&&value<=25&&x>=64&&x<80&&y>=100&&y<116;
+    });
+  }
   if(colorKey.startsWith('patch099_')){
     const key=colorKey.slice(9),screen=['postal_parcel_scale','postal_parcel_lockers'].includes(key);
     return postOfficeKeys.has(key)&&image.width===128&&image.height===128&&image.pixels.every((v,i)=>{

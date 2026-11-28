@@ -1,3 +1,4 @@
+import { districtKeys } from './patch-100-catalog.js';
 import { patch082ById } from './patch-082-catalog.js';
 import { patch085ById, patch085MultiGrid as oldMultiGrid } from './patch-085-catalog.js';
 import { patch090ById, patch090PartId, placedSceneProps } from './patch-090-catalog.js';
@@ -234,6 +235,26 @@ function surfaceValid(r) {
     return !overlaps(r);
 }
 export function ceilingSupports(r) { const right = rights[r.direction]; return right ? [r.support, add(r.support, right)] : []; }
+const placementMessages = {
+    unloaded: ['区块尚未加载，请稍后重试。', 'A required chunk is not loaded. Try again shortly.'],
+    support: ['缺少支撑，请检查摆件所需的地面、台面或墙面。', 'Missing support. Check the required floor, surface, or wall.'],
+    above: ['上方空间不足。', 'Not enough space above the fixture.'],
+    occupied: ['前方被占用，请留出完整摆放空间。', 'Placement space is occupied. Clear the area in front.'],
+};
+function placementAllowed(p, r, supports, validSupport) {
+    const positions = occupiedCells(r);
+    const bases = supports.map(pos => safeBlock(r, pos));
+    const cells = positions.map(pos => safeBlock(r, pos));
+    const reason = bases.some(b => !b) || cells.some(b => !b) ? 'unloaded'
+        : bases.some(b => !validSupport(b)) ? 'support'
+            : !isPanel(r) && cells.some((b, i) => !empty(b) && (r.mount === 'ceiling' || positions[i].y > r.support.y + 1)) ? 'above'
+                : cells.some(b => !empty(b)) || overlaps(r) ? 'occupied' : undefined;
+    if (!reason)
+        return true;
+    const [zh, en] = placementMessages[reason];
+    io.notify(p, zh, en);
+    return false;
+}
 function ceilingFits(r) {
     if (r.definition !== id(ceilingDisplayKey) || r.kind !== 'surface' || r.native)
         return false;
@@ -261,15 +282,16 @@ function createCeiling(p, block) {
     if (!c || c.getItem(selected)?.typeId !== definition)
         return;
     const angle = screenYaw(definition, { x: block.location.x + .5, z: block.location.z + .5 }, p.location, p.getRotation().y);
-    const r = { version: 1, uid: unique(), revision: 0, dimension: block.dimension.id, support: { ...block.location }, kind: 'surface', mount: 'ceiling', definition, direction: 'south', native: false, slots: [], yaw: angle };
+    const r = { version: 1, uid: '', revision: 0, dimension: block.dimension.id, support: { ...block.location }, kind: 'surface', mount: 'ceiling', definition, direction: 'south', native: false, slots: [], yaw: angle };
     // facingFromYaw is the same client contract used by the final display.
     r.direction = { 1: 'north', 2: 'east', 3: 'south', 4: 'west' }[facingFromYaw(angle)];
-    if (!near(p, r) || ceilingFits(r) !== true)
+    if (!near(p, r) || !placementAllowed(p, r, ceilingSupports(r), isWallSupport))
         return;
     const before = io.snapshot(c), plan = isCreative(p) ? { ok: true, slots: before.slots } : planServe(before.slots, selected, definition);
     if (!plan.ok)
         return;
     try {
+        r.uid = unique();
         save(r);
         io.commit(c, before, plan.slots);
         synchronize(r);
@@ -770,13 +792,14 @@ function createWall(p, block, definition, face) {
     const c = io.inventory(p), selected = p.selectedSlotIndex;
     if (!c || c.getItem(selected)?.typeId !== definition)
         return;
-    const r = { version: 1, uid: unique(), revision: 0, dimension: block.dimension.id, support: { ...block.location }, kind: digitalById.has(definition) ? 'digital_ad' : 'surface', definition, direction: face, native: false, slots: [], ...(digitalById.has(definition) ? {} : { wallFace: face }) };
-    if (!near(p, r) || adFits(r) !== true)
+    const r = { version: 1, uid: '', revision: 0, dimension: block.dimension.id, support: { ...block.location }, kind: digitalById.has(definition) ? 'digital_ad' : 'surface', definition, direction: face, native: false, slots: [], ...(digitalById.has(definition) ? {} : { wallFace: face }) };
+    if (!near(p, r) || !placementAllowed(p, r, posterCells(r), isWallSupport))
         return;
     const before = io.snapshot(c), plan = isCreative(p) ? { ok: true, slots: before.slots } : planServe(before.slots, selected, definition);
     if (!plan.ok)
         return;
     try {
+        r.uid = unique();
         save(r);
         io.commit(c, before, plan.slots);
         synchronize(r);
@@ -879,10 +902,8 @@ async function posterMenu(p, r, placing = false) {
         const next = copy(r);
         next.size = choice;
         next.revision++;
-        if (adFits(next) !== true) {
-            io.notify(p, '背墙、前方空间不足，或与其他广告画重叠。', 'Missing backing, blocked space, or overlapping poster.');
+        if (!placementAllowed(p, next, posterCells(next), isWallSupport))
             return;
-        }
         if (placing) {
             if (p.selectedSlotIndex !== selected || c.getItem(selected)?.typeId !== id(ad.key))
                 return;
@@ -890,6 +911,7 @@ async function posterMenu(p, r, placing = false) {
             if (!plan.ok)
                 return;
             try {
+                next.uid = unique();
                 io.commit(c, before, plan.slots);
                 save(next);
                 synchronize(next);
@@ -911,15 +933,16 @@ async function posterMenu(p, r, placing = false) {
 function direction(p) { const angle = ((p.getRotation().y % 360) + 360) % 360; return angle < 45 || angle >= 315 ? 'south' : angle < 135 ? 'west' : angle < 225 ? 'north' : 'east'; }
 function createSurface(p, support, definition) {
     const height = surfaceHeight(support), c = io.inventory(p);
-    if (definition === id(ceilingDisplayKey) || scenarioById.get(definition)?.wallOnly || !height || !c || recordAtSurfaceSupport(support.dimension.id, support.location))
+    if (definition === id(ceilingDisplayKey) || scenarioById.get(definition)?.wallOnly || !c)
         return;
-    const r = { version: 1, uid: unique(), revision: 0, dimension: support.dimension.id, support: { ...support.location }, kind: rackById.has(definition) ? 'clothing_rack' : definition === id(tray.key) ? 'tray' : 'surface', definition, direction: direction(p), native: definition === id(tray.key) && height === 1, slots: Array.from({ length: rackById.get(definition)?.capacity ?? 3 }, () => null) };
+    const r = { version: 1, uid: '', revision: 0, dimension: support.dimension.id, support: { ...support.location }, kind: rackById.has(definition) ? 'clothing_rack' : definition === id(tray.key) ? 'tray' : 'surface', definition, direction: direction(p), native: definition === id(tray.key) && height === 1, slots: Array.from({ length: rackById.get(definition)?.capacity ?? 3 }, () => null) };
     r.yaw = screenYaw(definition, { x: support.location.x + .5, z: support.location.z + .5 }, p.location, p.getRotation().y);
     if (patch090ById.get(definition)?.placementFront === 180)
         r.modelRevision = 1;
     if ((patch085ById.has(definition) || patch090ById.has(definition)) && r.yaw !== undefined)
         r.direction = directionByFacing[facingFromYaw(r.yaw)] ?? r.direction;
-    if (!near(p, r) || surfaceValid({ ...r, native: false }) !== true)
+    const bases = patch085MultiGrid.has(definition) ? multiSupports(r) : [r.support];
+    if (!near(p, r) || !placementAllowed(p, r, bases, b => height > 0 && surfaceHeight(b) === height))
         return;
     const before = io.snapshot(c), plan = isCreative(p) ? { ok: true, slots: before.slots } : planServe(before.slots, p.selectedSlotIndex, definition);
     if (!plan.ok)
@@ -927,6 +950,7 @@ function createSurface(p, support, definition) {
     // Publish the owner first: an engine onPlace callback must reuse this same
     // instance rather than creating a second persistent tray at the same anchor.
     try {
+        r.uid = unique();
         save(r);
         if (r.native)
             support.dimension.getBlock(add(support.location, { x: 0, y: 1, z: 0 })).setPermutation(BlockPermutation.resolve(definition, { 'minecraft:cardinal_direction': r.direction }));
@@ -1007,7 +1031,7 @@ function repairNative(r) {
         }
         catch { } });
         r.nativePending = true;
-        console.warn(`[Food & Table] native repair deferred: ${String(error)}`);
+        console.warn(`[Fangcun District] native repair deferred: ${String(error)}`);
         return false;
     }
 }
@@ -1149,22 +1173,18 @@ async function solid090Interact(p, r) {
 }
 function createSolid090(p, support, definition) {
     const spec = patch090ById.get(definition), container = io.inventory(p);
-    if (!spec || spec.kind !== 'solid' || !container || !isCreative(p) || surfaceHeight(support) !== 1)
+    if (!spec || spec.kind !== 'solid' || !container || !isCreative(p))
         return;
     const selected = p.selectedSlotIndex;
     if (container.getItem(selected)?.typeId !== definition)
         return;
-    const r = { version: 1, uid: unique(), revision: 0, dimension: support.dimension.id,
+    const r = { version: 1, uid: '', revision: 0, dimension: support.dimension.id,
         support: { ...support.location }, kind: 'solid090', definition, direction: facingPlayer(p.location, support.location, p.getRotation().y), native: false, nativeFacing: 'normal', nativeGrid: 1, slots: Array(spec.slots ?? 0).fill(null) };
-    if (!near(p, r) || overlaps(r))
+    const positions = occupiedCells(r);
+    const supports = positions.filter(pos => pos.y === r.support.y + 1).map(pos => add(pos, { x: 0, y: -1, z: 0 }));
+    if (!near(p, r) || !placementAllowed(p, r, supports, b => surfaceHeight(b) === 1))
         return;
-    const positions = occupiedCells(r), blocks = positions.map(pos => safeBlock(r, pos));
-    if (blocks.some(block => !empty(block)))
-        return;
-    for (const pos of positions.filter(pos => pos.y === r.support.y + 1)) {
-        if (surfaceHeight(safeBlock(r, add(pos, { x: 0, y: -1, z: 0 }))) !== 1)
-            return;
-    }
+    const blocks = positions.map(pos => safeBlock(r, pos));
     const original = blocks.map(block => block.permutation);
     // Resolve every component before publishing ownership or changing the world.
     // Unknown part IDs/states must never leave a half-written structure behind.
@@ -1178,6 +1198,7 @@ function createSolid090(p, support, definition) {
         }
     });
     try {
+        r.uid = unique();
         save(r);
         blocks.forEach((block, i) => block.setPermutation(permutations[i]));
         if (wholeSceneKeys.has(spec.key))
@@ -1194,21 +1215,18 @@ function createSolid090(p, support, definition) {
 }
 function createAppliance(p, support, definition) {
     const info = refrigeratorById.get(definition), c = io.inventory(p);
-    if (!info || !c || surfaceHeight(support) !== 1 || recordForSupport(support.dimension.id, support.location))
+    if (!info || !c)
         return;
-    const r = { version: 1, uid: unique(), revision: 0, dimension: support.dimension.id, support: { ...support.location }, kind: 'appliance', definition, direction: direction(p), native: false, slots: [] };
-    if (!near(p, r))
+    const r = { version: 1, uid: '', revision: 0, dimension: support.dimension.id, support: { ...support.location }, kind: 'appliance', definition, direction: direction(p), native: false, slots: [] };
+    if (!near(p, r) || !placementAllowed(p, r, [r.support], b => surfaceHeight(b) === 1))
         return;
     const blocks = applianceCells(r).map(pos => safeBlock(r, pos));
-    if (blocks.some(b => !empty(b)))
-        return;
-    if (overlaps(r))
-        return;
     const before = io.snapshot(c), plan = isCreative(p) ? { ok: true, slots: before.slots } : planServe(before.slots, p.selectedSlotIndex, definition);
     if (!plan.ok)
         return;
     const original = blocks.map(b => b.permutation);
     try {
+        r.uid = unique();
         save(r);
         blocks.forEach((b, i) => b.setPermutation(BlockPermutation.resolve(i === 0 ? definition : definition + '_upper', { 'minecraft:cardinal_direction': r.direction })));
         io.commit(c, before, plan.slots);
@@ -1283,7 +1301,7 @@ export function migrateLowSurface(block) {
     }
 }
 function posterAt(block, face) { return [...records.values()].find(r => isPanel(r) && r.dimension === block.dimension.id && r.direction === face && posterCells(r).some(p => same(p, block.location))); }
-function run(p, work) { system.run(() => { Promise.resolve().then(work).catch(error => { const detail = String(error); console.warn(`[Food & Table] decor: ${error instanceof Error ? error.stack ?? detail : detail}`); if (p.isValid)
+function run(p, work) { system.run(() => { Promise.resolve().then(work).catch(error => { const detail = String(error); console.warn(`[Fangcun District] decor: ${error instanceof Error ? error.stack ?? detail : detail}`); if (p.isValid)
     io.notify(p, `操作未完成：${detail.slice(0, 180)}`, `Operation failed: ${detail.slice(0, 180)}`); }); }); }
 export function handleDecorBlock(event) {
     // Do not publish new records or run vanilla interactions against a partial index.
@@ -1292,7 +1310,7 @@ export function handleDecorBlock(event) {
         return true;
     }
     const p = event.player, block = event.block, face = String(event.blockFace).toLowerCase(), c = io.inventory(p), hand = c?.getItem(p.selectedSlotIndex), ad = hand && adById.get(hand.typeId);
-    if (hand && hand.typeId.startsWith('mcpe_food:') && patch095Keys.has(hand.typeId.slice('mcpe_food:'.length)) && !isCreative(p)) {
+    if (hand && hand.typeId.startsWith('mcpe_food:') && (patch095Keys.has(hand.typeId.slice('mcpe_food:'.length)) || districtKeys.has(hand.typeId.slice('mcpe_food:'.length))) && !isCreative(p)) {
         event.cancel = true;
         return true;
     }
@@ -1314,10 +1332,16 @@ export function handleDecorBlock(event) {
     }
     if (hand?.typeId === id(ceilingDisplayKey)) {
         event.cancel = true;
-        if (face === 'down' && event.isFirstEvent) {
+        if (event.isFirstEvent) {
             const selected = p.selectedSlotIndex;
-            run(p, () => { if (p.selectedSlotIndex === selected && io.inventory(p)?.getItem(selected)?.typeId === id(ceilingDisplayKey))
-                createCeiling(p, block); });
+            run(p, () => {
+                if (!p.isValid || p.selectedSlotIndex !== selected || io.inventory(p)?.getItem(selected)?.typeId !== id(ceilingDisplayKey))
+                    return;
+                if (face === 'down')
+                    createCeiling(p, block);
+                else
+                    io.notify(p, ...placementMessages.support);
+            });
         }
         return true;
     }
@@ -1353,6 +1377,9 @@ export function handleDecorBlock(event) {
     }
     if (hand && scenarioById.get(hand.typeId)?.wallOnly) {
         event.cancel = true;
+        if (event.isFirstEvent && !normals[face])
+            run(p, () => { if (p.isValid)
+                io.notify(p, ...placementMessages.support); });
         return true;
     }
     if (hand && refrigeratorById.has(hand.typeId) && face === 'up') {
@@ -1368,7 +1395,7 @@ export function handleDecorBlock(event) {
         event.cancel = true;
         if (event.isFirstEvent) {
             const r = { version: 1, uid: '', revision: 0, dimension: block.dimension.id, support: { ...block.location }, kind: 'ad', definition: id(ad.key), direction: face, native: false, slots: [], art: ad.key, size: 0 };
-            run(p, () => { r.uid = unique(); return posterMenu(p, r, true); });
+            run(p, () => posterMenu(p, r, true));
         }
         return true;
     }
@@ -1384,13 +1411,9 @@ export function handleDecorBlock(event) {
             run(p, () => trayMenu(p, copy(nativeTray(block))));
         return true;
     }
-    if (hand && tableItemById.has(hand.typeId) && face === 'up' && recordAtSurfaceSupport(block.dimension.id, block.location)) {
-        event.cancel = true;
-        return true;
-    }
     if (p.isSneaking && hand && tableItemById.has(hand.typeId) && !electronicsById.has(hand.typeId) && hand.typeId !== id(tray.key) && ['prep_counter', 'stove', 'oven', 'drink_counter'].some(k => block.typeId === id(k)))
         return false;
-    if (hand && tableItemById.has(hand.typeId) && face === 'up' && surfaceHeight(block) > 0) {
+    if (hand && tableItemById.has(hand.typeId) && face === 'up' && (surfaceHeight(block) > 0 || scenarioById.has(hand.typeId) || patch090ById.has(hand.typeId))) {
         event.cancel = true;
         if (event.isFirstEvent) {
             const definition = hand.typeId;
@@ -1439,7 +1462,7 @@ export function reconcileDecor() {
             synchronizeValidated(r);
         }
         catch (error) {
-            console.warn(`[Food & Table] display reconciliation: ${String(error)}`);
+            console.warn(`[Fangcun District] display reconciliation: ${String(error)}`);
         }
     }
 }
@@ -1489,7 +1512,7 @@ export function loadDecorRecords() {
                 }
             }
             catch {
-                console.warn(`[Food & Table] invalid decor record ${key}`);
+                console.warn(`[Fangcun District] invalid decor record ${key}`);
             }
             if (Date.now() - start >= 4)
                 break;

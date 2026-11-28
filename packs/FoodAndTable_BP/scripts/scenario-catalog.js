@@ -1,3 +1,4 @@
+import { districtProps } from './patch-100-catalog.js';
 import { placedSceneProps, placedSceneWalls } from './patch-090-catalog.js';
 import { gymAd } from './patch-097-catalog.js';
 import { patch080Props } from './patch-080-catalog.js';
@@ -34,6 +35,9 @@ export const scenarioById = new Map([...scenarioProps, ...patch071Props, ...patc
 export const wallKeys = [...scenarioProps.filter(d => d.wallOnly).map(d => d.key), 'flat_screen_tv', 'landscape_frame', 'table_clock'];
 export const wallVariants = wallKeys.map(key => ({ key: key + '_wall', base: key, zh: '壁挂 ' + key, en: 'Wall ' + key }));
 export const wallById = new Map([...wallKeys, ...patch074WallVariants.map(d => d.base)].map(key => ['mcpe_food:' + key, key + '_wall']));
+for (const prop of districtProps)
+    if (prop.wallOnly)
+        wallById.set('mcpe_food:' + prop.key, prop.key);
 export const brandAdvertisements = [
     { key: 'ad_template_ai', series: 'brand', zh: 'Template AI', en: 'Template AI', aspect: 'wide' },
     { key: 'ad_luna_studio', series: 'brand', zh: 'Luna Studio（月-工作室）', en: 'Luna Studio', aspect: 'portrait' },

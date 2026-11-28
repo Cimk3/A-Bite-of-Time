@@ -374,3 +374,31 @@ test('six filled pastry slots upgrade an old scale in place and survive reload a
  assert.equal(records().length,0);
  for(const key of keys)assert.equal(dimension.drops.filter(d=>d.item.typeId===key).length,1);
 });
+test('new multi-block fixture gives actionable placement errors without reserving a record or consuming inventory',async()=>{
+ for(const [issue,message] of [['unloaded','chunk is not loaded'],['support','Missing support'],['above','Not enough space above'],['occupied','Placement space is occupied']]){
+  const {dimension,player}=setup();
+  player.tags.add('food_english');
+  const support=dimension.put(issue==='support'?'minecraft:oak_fence':'minecraft:stone',{x:0,y:0,z:0});
+  if(issue==='unloaded')dimension.unloaded=true;
+  if(issue==='above'||issue==='occupied')dimension.put('minecraft:stone',{x:0,y:issue==='above'?2:1,z:0});
+  await place(player,support,'bookshop_bookcase');
+  assert.equal(records().length,0);
+  assert.equal(state.properties.has('mcpe_food:decor_serial'),false);
+  assert.equal(player.container.count('mcpe_food:bookshop_bookcase'),1);
+  assert.ok(player.actions.some(action=>action.includes(message)),[issue,player.actions].join(': '));
+ }
+});
+
+test('new wall hairdryer mounts on full wall support and recovers its saved facing',async()=>{
+ const {dimension,player}=setup();
+ const block=dimension.put('minecraft:stone',{x:0,y:0,z:0});
+ player.container.setItem(0,new ItemStack('mcpe_food:hotel_wall_hairdryer'));
+ interact(player,block,true,'South');await tick();
+ const [r]=records();
+ assert.equal(r.wallFace,'south');
+ assert.equal(dimension.getEntities().length,1);
+ loadDecorRecords();flush();reconcileDecor();
+ assert.equal(dimension.getEntities().length,1);
+ removeDecor(r,false);
+ assert.equal(dimension.getEntities().length,0);
+});

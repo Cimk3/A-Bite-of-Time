@@ -20,7 +20,15 @@ export function scenarioCubes(key,wall=false){
  case 'ultrasound_cart':wheels();put(-5,1.8,-4,10,2,8,0);for(const x of[-4,3])put(x,3.8,-2,1,9,1,2);put(-5,12,-4,10,.7,8,0);monitor(-4,15,-1,8,6);for(let j=0;j<3;j++)buttons(-3.6,12.75,-1+j,10);put(4.8,9,0,.6,4,1,1);break;
  case 'infusion_pump_stand':for(const z of[-4,3])put(-4,0,z,8,.5,.7,2);put(-.25,.5,-.25,.5,31.5,.5,2);put(-4,30.5,-.25,8,.35,.5,2);put(-3.5,25.5,-.8,2,4,1.3,3);put(-3,24.7,-.4,1,.8,.5,2);put(-2,9,-1,4,5,2,0);monitor(-1.6,11,1,3.2,2);for(let i=0;i<24;i++)put(-2.9,5+i*.8,-.4,.12,.6,.12,3);break;
  case 'ecg_machine':put(-5,0,-3.5,10,3,7,0);put(3.6,3.05,-2,.4,.5,4,2);put(-3,3.05,2,5,.03,2.4,3);panel(-4,1,3.51,5,1.5);for(let i=0;i<4;i++)put(1.5+i*.6,1,3.53,.35,.35,.1,2);put(-4,3,-2,8,.08,4,3);for(let i=0;i<9;i++)put(-3+i*.7,3.1,-1, .2,.03,1+i%3*.4,1);break;
- case 'medical_trolley':wheels();for(const y of[2,6,10]){put(-5,y,-3.5,10,.35,7,2);for(const x of[-5,4.7])put(x,y+.35,-3.5,.3,.7,7,0);}for(const x of[-5,4.7])for(const z of[-3.5,3.2])put(x,2,z,.3,9,.3,2);for(let i=0;i<3;i++)put(-3.5+i*2.4,10.4,-1.8,1.5,.6,3,3);break;
+ case 'medical_trolley':
+  wheels();
+  for(const y of [2,9.4]){
+   put(-5,y,-3.5,10,.44,7,2);
+   for(const x of [-5,4.62])put(x,y+.44,-3.5,.38,1.08,7,0);
+   for(const z of [-3.5,3.11])put(-4.62,y+.44,z,9.24,1.08,.39,0);
+  }
+  for(const x of [-4.7,4.02])for(const z of [-3.25,2.65])put(x,1.77,z,.68,7.63,.66,2);
+  break;
  case 'laboratory_microscope':put(-3.5,0,-3,7,.6,6,0);put(1,.6,-2,1.3,7,1.4,2);put(-2.5,4,-2,5,.4,4,1);put(-.5,6,-.7,1,2,1,2);put(-1.2,8,-1,3,1.4,2,0);put(-2,9,-.6,1.3,2,1,1);put(-2.2,11,-.8,1.7,.4,1.4,1);for(const x of[.8,2.3])put(x,3.2,-1, .6,1.3,1.3,1);break;
  case 'arcade_cabinet':cabinet(23,12,10);put(-6,23,-5,12,3,10,4);monitor(-4.8,12,5.17,9.6,9);put(-6,9,3,12,1,4.5,1);put(-3,10,5,.4,1.5,.4,2);round(-2.8,11.5,5.2,.65,.7,4);buttons(.5,10,6,5);put(-2,3,5.18,4,.35,.15,1);break;
  case 'game_console_set':put(-5,0,-4,5,2,7,0);put(-4.6,.5,3.05,4,.18,.06,1);for(const x of[1,4]){put(x,0,0,2.5,.6,3,1);buttons(x+.2,.65,1.2,3);}vent(-4,.3,-4.05,3,3);break;
@@ -33,7 +41,15 @@ export function scenarioCubes(key,wall=false){
  case 'ai_compute_rack':cabinet(27,12,10);for(let i=0;i<7;i++){put(-5.3,1+i*3.6,5.2,10.6,3.2,.2,1);vent(-4.7,1.4+i*3.6,5.42,7,5);put(4,2+i*3.6,5.43,.5,.3,.04,4);}panel(-3,26,5.43,6,.7);break;
  case 'pen_display_set':put(-5,0,-3,10,.4,6,1);const p=put(-4.5,.41,-2.5,9,.03,5,1);p.uv={up:{uv:[96,56],uv_size:[-96,-56],material_instance:'ware'}};put(5.5,0,-2,.3,.35,5,2);for(let i=0;i<4;i++)put(-4+i*.8,.45,2.6,.45,.05,.2,2);put(-.5,0,-3.8,1,.3,.8,1);break;
  case 'wall_air_conditioner':put(-7,1,0,14,5,3,0);put(-6.7,1.2,3.02,13.4,.6,.05,1);for(let i=0;i<6;i++)put(-6.2,2+i*.4,3.02,10,.1,.04,3);put(5,2.5,3.04,.5,.25,.04,2);break;
- case 'microwave_oven':cabinet(7,13,9);put(-5.8,.6,4.67,9.2,5.8,.12,1);for(let i=0;i<9;i++)for(let j=0;j<4;j++)put(-5.2+i*.9,1.2+j*1.1,4.8,.25,.25,.02,2);put(3.7,1,4.7,.4,5,.35,2);buttons(4.6,2,4.7,2);break;
+ case 'microwave_oven':
+  put(-6.5,0,-4.5,13,7,9,0);put(-6.12,.42,4.5,9.92,6.17,.27,2);
+  put(-5.7,.92,4.77,8.26,5.11,.15,1);
+  for(let i=0;i<12;i++)for(let j=0;j<6;j++)put(-5.42+i*.57,1.28+j*.68,4.92,.16,.16,.025,2);
+  put(3.04,1.08,4.77,.55,4.88,.38,2);
+  put(4.1,.42,4.5,2.02,6.17,.25,2);put(4.33,5.12,4.75,1.56,.83,.07,1);
+  for(let i=0;i<3;i++)buttons(4.37,2.6+i*.63,4.75,2);
+  for(let i=0;i<5;i++)put(-6.55,1.05+i*.65,-3.5,.05,.2,3.3,1);
+  break;
  case 'front_load_washer':cabinet(12,12,10);put(-5.5,10.1,5.2,11,1.4,.1,2);verticalDisk(0,5.8,5.2,3.4,.08,1);verticalRing(0,5.8,5.3,3.9,.6,.3,2);put(3,5.1,5.65,.45,1.3,.25,1);put(3.5,10.4,5.4,1,1,.2,1);break;
  case 'floor_air_conditioner':cabinet(25,8,8);for(let i=0;i<13;i++)put(-3.2,10+i*.8,4.2,6.4,.3,.1,1);put(-2,5,4.2,4,2,.1,2);break;
  case 'standing_fan':round(0,0,0,4,.5,1);put(-.3,.5,-.3,.6,13,.6,2);verticalDisk(0,17.5,-.5,4.2,.3,1);verticalRing(0,17.5,0,4.3,.35,.4,2);for(let i=-6;i<=6;i++){const x=i*.6,h=Math.sqrt(16-x*x);put(x-.05,17.5-h,.42,.1,h*2,.08,2);}for(const side of[-1,1]){put(side<0?-3.1:.4,17.1,.05,2.7,.9,.25,4);put(-.45,side<0?14.4:17.9,.06,.9,2.7,.25,4);}put(-.6,16.9,.55,1.2,1.2,.3,1);break;

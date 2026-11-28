@@ -36,7 +36,24 @@ export function patch090Texture(key){
 }
 export function patch090Cubes(key){
  if(refreshed096Keys.has(key))return patch096Cubes(key);
- return legacy090Cubes(key);
+ const original=legacy090Cubes(key);
+ if(key!=='asml_lithography')return original;
+ const structure=original.slice(0,5);
+ const add=(x,y,z,w,h,d,color)=>structure.push({origin:[x,y,z],size:[w,h,d],color,material:'ware',
+   uv:Object.fromEntries(faces.map(face=>[face,{uv:[102,color*10+1],uv_size:[16,6],material_instance:'ware'}]))});
+ add(-28,16,-29,58,34,11,0);
+ for(let i=0;i<6;i++){
+   const x=-45+i*15;
+   add(x,3,-30.8,13,54,.8,0);
+   add(x+.12,27,-31.08,12.76,1.5,.28,7);
+   add(x+10,30,-31.08,.76,4.2,.28,2);
+   add(x,7,31,13,44,.33,2);
+   add(x+.34,7.5,31.33,12.3,43,.25,0);
+   for(let vent=0;vent<5;vent++)add(x+2,11+vent*1.15,31.58,9,.22,.15,1);
+ }
+ add(-15,32,-31.4,9,7,.6,2);add(-14.4,32.6,-31.433,7.8,5.8,.035,7);
+ add(-43,61,12,2,2.6,2,1);add(-42.9,63.6,12.1,1.8,.38,1.8,5);
+ return structure;
 }
 export function legacy090Cubes(key){
  const def=patch090Items.find(x=>x.key===key),[w,d,h]=def.size.map(v=>v*16),a=[];

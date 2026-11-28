@@ -31,6 +31,8 @@ def main():
     if sys.argv[1:] and not accepted:
         raise RuntimeError("Unsupported release option")
     tag = "v" + version
+    renamed = int(version.split(".")[0]) >= 1
+    brand = "FangcunDistrict" if renamed else "FoodAndTable"
     commit = git("rev-parse", "HEAD")
     if git("remote", "get-url", "origin") != f"https://github.com/{REPO}.git":
         raise RuntimeError("Unexpected release remote")
@@ -94,11 +96,11 @@ def main():
         raise RuntimeError("Existing release is not a resumable draft for this exact commit")
     if release is None:
         release = api("POST", base + "/releases", {"tag_name": tag, "target_commitish": commit,
-                      "name": "方寸食光 / Food & Table " + version,
+                      "name": ("方寸街区 / Fangcun District " if renamed else "方寸食光 / Food & Table ") + version,
                       "body": (ROOT / "docs" / f"RELEASE_v{version}.md").read_text(encoding="utf-8"),
                       "draft": True, "prerelease": False})
-    names = [f"FoodAndTable-{version}.mcaddon", f"FoodAndTable_BP-{version}.mcpack",
-             f"FoodAndTable_RP-{version}.mcpack", f"FoodAndTable-source-{version}.zip", "SHA256SUMS.txt"]
+    names = [f"{brand}-{version}.mcaddon", f"{brand}_BP-{version}.mcpack",
+             f"{brand}_RP-{version}.mcpack", f"{brand}-source-{version}.zip", "SHA256SUMS.txt"]
     expected = {}
     for name in names:
         data = (ROOT / "dist" / name).read_bytes()

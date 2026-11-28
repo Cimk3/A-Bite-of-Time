@@ -1,6 +1,6 @@
-import {postOfficeProps} from '../.build/patch-099-catalog.js';
+import {districtProps} from '../.build/patch-100-catalog.js';
 import {gymAd} from '../.build/patch-097-catalog.js';
-import {refresh096Block,refresh096Visual,append097Asset} from './patch-096-scope.mjs';
+import {refresh096Block,refresh096Visual,expectedSharedOutputChange} from './patch-096-scope.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -23,7 +23,7 @@ test('0.9.5 keeps the real 0.9.3 resource hashes, UUIDs and surface indices',()=
     const dir=pack==='BP'?bp:rp,m=read(dir+'manifest.json');
     assert.deepEqual([m.header.uuid,...m.modules.map(x=>x.uuid)],data.uuids);
     for(const [file,expected] of Object.entries(data.files)){
-      if(append097Asset(file))continue;
+      if(expectedSharedOutputChange(file))continue;
    if(refresh096Visual(file)||(pack==='BP'&&refresh096Block(file)))continue;
       if(['textures/item_texture.json','textures/terrain_texture.json'].includes(file))continue;
       if(/^render_controllers\/mcpe_food\/(surface_display|digital_ad_display)_(ware|food)\.json$/.test(file))continue;
@@ -45,7 +45,7 @@ test('three creative groups and four give commands contain exactly the approved 
     assert.deepEqual(groups.find(g=>g.group_identifier.name==='mcpe_food:group_'+group).items,list.map(d=>'mcpe_food:'+d.key));
     assert.equal(readFileSync(bp+'functions/mcpe_food/'+group+'.mcfunction','utf8'),list.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
   }
-  assert.equal(readFileSync(bp+'functions/mcpe_food/tasting_new.mcfunction','utf8'),postOfficeProps.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
+  assert.equal(readFileSync(bp+'functions/mcpe_food/tasting_new.mcfunction','utf8'),districtProps.map(d=>'give @s mcpe_food:'+d.key+' 4\n').join(''));
 });
 
 for(const item of patch095Items)test(item.key+' final meshes, dimensions, materials and empty helpers',()=>{

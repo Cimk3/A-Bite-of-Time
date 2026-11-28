@@ -1,0 +1,1 @@
+{"format_version":"1.8.0","render_controllers":{"controller.render.mcpe_food.store_hot_display_glass":{"geometry":"Geometry.g748","materials":[{"*":"Material.glass"}],"textures":["Texture.f748"],"part_visibility":[{"food":true},{"ware":false}]}}}

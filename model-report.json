@@ -1,5 +1,5 @@
 {
-  "version": "0.9.9",
+  "version": "1.0.0",
   "models": [
     {
       "key": "egg_fried_rice_serving",
@@ -3154,7 +3154,7 @@
     {
       "key": "asml_lithography",
       "resolution": 128,
-      "cubes": 57,
+      "cubes": 70,
       "slots": {
         "ware": "patch090_asml_lithography"
       }
@@ -5866,6 +5866,427 @@
       }
     },
     {
+      "key": "hotel_luggage_cart",
+      "resolution": 128,
+      "cubes": 33,
+      "slots": {
+        "ware": "patch100_hotel_luggage_cart"
+      }
+    },
+    {
+      "key": "hotel_luggage_cart_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_hotel_luggage_cart"
+      }
+    },
+    {
+      "key": "hotel_luggage_cart_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_hotel_luggage_cart"
+      }
+    },
+    {
+      "key": "hotel_housekeeping_cart",
+      "resolution": 128,
+      "cubes": 23,
+      "slots": {
+        "ware": "patch100_hotel_housekeeping_cart"
+      }
+    },
+    {
+      "key": "hotel_housekeeping_cart_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_hotel_housekeeping_cart"
+      }
+    },
+    {
+      "key": "hotel_housekeeping_cart_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_hotel_housekeeping_cart"
+      }
+    },
+    {
+      "key": "hotel_housekeeping_cart_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_hotel_housekeeping_cart"
+      }
+    },
+    {
+      "key": "hotel_housekeeping_cart_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_hotel_housekeeping_cart"
+      }
+    },
+    {
+      "key": "hotel_wall_hairdryer",
+      "resolution": 128,
+      "cubes": 7,
+      "slots": {
+        "ware": "patch100_hotel_wall_hairdryer"
+      }
+    },
+    {
+      "key": "hotel_wall_hairdryer",
+      "resolution": 128,
+      "cubes": 7,
+      "slots": {
+        "ware": "patch100_hotel_wall_hairdryer"
+      }
+    },
+    {
+      "key": "induction_hob",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch100_induction_hob"
+      }
+    },
+    {
+      "key": "induction_hob",
+      "resolution": 128,
+      "cubes": 5,
+      "slots": {
+        "ware": "patch100_induction_hob"
+      }
+    },
+    {
+      "key": "bookshop_bookcase",
+      "resolution": 128,
+      "cubes": 49,
+      "slots": {
+        "ware": "patch100_bookshop_bookcase"
+      }
+    },
+    {
+      "key": "bookshop_bookcase_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_bookshop_bookcase"
+      }
+    },
+    {
+      "key": "bookshop_bookcase_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_bookshop_bookcase"
+      }
+    },
+    {
+      "key": "bookshop_display_table",
+      "resolution": 128,
+      "cubes": 37,
+      "slots": {
+        "ware": "patch100_bookshop_display_table"
+      }
+    },
+    {
+      "key": "bookshop_display_table_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_bookshop_display_table"
+      }
+    },
+    {
+      "key": "bookshop_display_table_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_bookshop_display_table"
+      }
+    },
+    {
+      "key": "bookshop_magazine_rack",
+      "resolution": 128,
+      "cubes": 14,
+      "slots": {
+        "ware": "patch100_bookshop_magazine_rack"
+      }
+    },
+    {
+      "key": "bookshop_magazine_rack_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_bookshop_magazine_rack"
+      }
+    },
+    {
+      "key": "bookshop_magazine_rack_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_bookshop_magazine_rack"
+      }
+    },
+    {
+      "key": "bookshop_desk_lamp",
+      "resolution": 128,
+      "cubes": 14,
+      "slots": {
+        "ware": "patch100_bookshop_desk_lamp"
+      }
+    },
+    {
+      "key": "bookshop_desk_lamp_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_bookshop_desk_lamp"
+      }
+    },
+    {
+      "key": "store_wall_shelving",
+      "resolution": 128,
+      "cubes": 81,
+      "slots": {
+        "ware": "patch100_store_wall_shelving"
+      }
+    },
+    {
+      "key": "store_wall_shelving_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_wall_shelving"
+      }
+    },
+    {
+      "key": "store_wall_shelving_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_wall_shelving"
+      }
+    },
+    {
+      "key": "store_wall_shelving_part_2",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_wall_shelving"
+      }
+    },
+    {
+      "key": "store_wall_shelving_part_3",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_wall_shelving"
+      }
+    },
+    {
+      "key": "store_island_shelving",
+      "resolution": 128,
+      "cubes": 116,
+      "slots": {
+        "ware": "patch100_store_island_shelving"
+      }
+    },
+    {
+      "key": "store_island_shelving_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_island_shelving"
+      }
+    },
+    {
+      "key": "store_island_shelving_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_island_shelving"
+      }
+    },
+    {
+      "key": "store_drink_cooler",
+      "resolution": 128,
+      "cubes": 69,
+      "slots": {
+        "ware": "patch100_store_drink_cooler",
+        "food": "patch100_store_drink_cooler"
+      }
+    },
+    {
+      "key": "store_drink_cooler_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_drink_cooler",
+        "food": "patch100_store_drink_cooler"
+      }
+    },
+    {
+      "key": "store_drink_cooler_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_drink_cooler",
+        "food": "patch100_store_drink_cooler"
+      }
+    },
+    {
+      "key": "store_hot_display",
+      "resolution": 128,
+      "cubes": 24,
+      "slots": {
+        "ware": "patch100_store_hot_display",
+        "food": "patch100_store_hot_display"
+      }
+    },
+    {
+      "key": "store_hot_display",
+      "resolution": 128,
+      "cubes": 24,
+      "slots": {
+        "ware": "patch100_store_hot_display",
+        "food": "patch100_store_hot_display"
+      }
+    },
+    {
+      "key": "store_basket_stand",
+      "resolution": 128,
+      "cubes": 25,
+      "slots": {
+        "ware": "patch100_store_basket_stand"
+      }
+    },
+    {
+      "key": "store_basket_stand_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_basket_stand"
+      }
+    },
+    {
+      "key": "store_restock_cart",
+      "resolution": 128,
+      "cubes": 17,
+      "slots": {
+        "ware": "patch100_store_restock_cart"
+      }
+    },
+    {
+      "key": "store_restock_cart_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_restock_cart"
+      }
+    },
+    {
+      "key": "store_restock_cart_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_store_restock_cart"
+      }
+    },
+    {
+      "key": "store_oden_station",
+      "resolution": 128,
+      "cubes": 21,
+      "slots": {
+        "ware": "patch100_store_oden_station"
+      }
+    },
+    {
+      "key": "store_oden_station",
+      "resolution": 128,
+      "cubes": 21,
+      "slots": {
+        "ware": "patch100_store_oden_station"
+      }
+    },
+    {
+      "key": "store_bun_steamer",
+      "resolution": 128,
+      "cubes": 56,
+      "slots": {
+        "ware": "patch100_store_bun_steamer"
+      }
+    },
+    {
+      "key": "store_bun_steamer",
+      "resolution": 128,
+      "cubes": 56,
+      "slots": {
+        "ware": "patch100_store_bun_steamer"
+      }
+    },
+    {
+      "key": "street_takeaway_bag",
+      "resolution": 128,
+      "cubes": 8,
+      "slots": {
+        "ware": "patch100_street_takeaway_bag"
+      }
+    },
+    {
+      "key": "street_takeaway_bag",
+      "resolution": 128,
+      "cubes": 8,
+      "slots": {
+        "ware": "patch100_street_takeaway_bag"
+      }
+    },
+    {
+      "key": "street_umbrella_stand",
+      "resolution": 128,
+      "cubes": 34,
+      "slots": {
+        "ware": "patch100_street_umbrella_stand"
+      }
+    },
+    {
+      "key": "street_umbrella_stand_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_street_umbrella_stand"
+      }
+    },
+    {
+      "key": "street_waste_station",
+      "resolution": 128,
+      "cubes": 25,
+      "slots": {
+        "ware": "patch100_street_waste_station"
+      }
+    },
+    {
+      "key": "street_waste_station_part_0",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_street_waste_station"
+      }
+    },
+    {
+      "key": "street_waste_station_part_1",
+      "resolution": 128,
+      "cubes": 1,
+      "slots": {
+        "ware": "patch100_street_waste_station"
+      }
+    },
+    {
       "key": "gongfu_tea_tray",
       "resolution": 128,
       "cubes": 230,
@@ -5948,7 +6369,7 @@
     {
       "key": "desktop_computer",
       "resolution": 128,
-      "cubes": 27,
+      "cubes": 31,
       "slots": {
         "ware": "device_desktop_computer"
       }
@@ -6068,7 +6489,7 @@
     {
       "key": "dell_laptop_open",
       "resolution": 128,
-      "cubes": 152,
+      "cubes": 154,
       "slots": {
         "ware": "device_dell_laptop_open"
       }
@@ -6076,7 +6497,7 @@
     {
       "key": "dell_laptop_closed",
       "resolution": 128,
-      "cubes": 10,
+      "cubes": 11,
       "slots": {
         "ware": "device_dell_laptop_closed"
       }
@@ -6084,7 +6505,7 @@
     {
       "key": "macbook_pro_gpt_open",
       "resolution": 128,
-      "cubes": 151,
+      "cubes": 153,
       "slots": {
         "ware": "device_macbook_pro_gpt_open"
       }
@@ -6100,7 +6521,7 @@
     {
       "key": "macbook_air_silver_open",
       "resolution": 128,
-      "cubes": 145,
+      "cubes": 147,
       "slots": {
         "ware": "device_macbook_air_silver_open"
       }
@@ -6108,7 +6529,7 @@
     {
       "key": "macbook_air_gray_open",
       "resolution": 128,
-      "cubes": 145,
+      "cubes": 147,
       "slots": {
         "ware": "device_macbook_air_gray_open"
       }
@@ -6436,7 +6857,7 @@
     {
       "key": "medical_trolley",
       "resolution": 128,
-      "cubes": 24,
+      "cubes": 22,
       "slots": {
         "ware": "scenario_medical_trolley"
       }
@@ -6548,7 +6969,7 @@
     {
       "key": "microwave_oven",
       "resolution": 128,
-      "cubes": 42,
+      "cubes": 89,
       "slots": {
         "ware": "scenario_microwave_oven"
       }
@@ -7078,7 +7499,7 @@
     {
       "key": "digital_oscilloscope",
       "resolution": 128,
-      "cubes": 11,
+      "cubes": 20,
       "slots": {
         "ware": "patch080_digital_oscilloscope"
       }
@@ -9894,7 +10315,7 @@
     },
     {
       "key": "surface_desktop_computer",
-      "cubes": 27,
+      "cubes": 31,
       "resolution": 128
     },
     {
@@ -9969,17 +10390,17 @@
     },
     {
       "key": "surface_dell_laptop_open",
-      "cubes": 152,
+      "cubes": 154,
       "resolution": 128
     },
     {
       "key": "surface_dell_laptop_closed",
-      "cubes": 10,
+      "cubes": 11,
       "resolution": 128
     },
     {
       "key": "surface_macbook_pro_gpt_open",
-      "cubes": 151,
+      "cubes": 153,
       "resolution": 128
     },
     {
@@ -10004,12 +10425,12 @@
     },
     {
       "key": "surface_macbook_air_silver_open",
-      "cubes": 145,
+      "cubes": 147,
       "resolution": 128
     },
     {
       "key": "surface_macbook_air_gray_open",
-      "cubes": 145,
+      "cubes": 147,
       "resolution": 128
     },
     {
@@ -10214,7 +10635,7 @@
     },
     {
       "key": "surface_medical_trolley",
-      "cubes": 24,
+      "cubes": 22,
       "resolution": 128
     },
     {
@@ -10284,7 +10705,7 @@
     },
     {
       "key": "surface_microwave_oven",
-      "cubes": 42,
+      "cubes": 89,
       "resolution": 128
     },
     {
@@ -10649,7 +11070,7 @@
     },
     {
       "key": "surface_digital_oscilloscope",
-      "cubes": 11,
+      "cubes": 20,
       "resolution": 128
     },
     {
@@ -10864,7 +11285,7 @@
     },
     {
       "key": "surface_asml_lithography",
-      "cubes": 57,
+      "cubes": 70,
       "resolution": 128
     },
     {
@@ -11390,6 +11811,101 @@
     {
       "key": "surface_postal_parcel_large",
       "cubes": 9,
+      "resolution": 128
+    },
+    {
+      "key": "surface_hotel_luggage_cart",
+      "cubes": 33,
+      "resolution": 128
+    },
+    {
+      "key": "surface_hotel_housekeeping_cart",
+      "cubes": 23,
+      "resolution": 128
+    },
+    {
+      "key": "surface_hotel_wall_hairdryer",
+      "cubes": 7,
+      "resolution": 128
+    },
+    {
+      "key": "surface_induction_hob",
+      "cubes": 5,
+      "resolution": 128
+    },
+    {
+      "key": "surface_bookshop_bookcase",
+      "cubes": 49,
+      "resolution": 128
+    },
+    {
+      "key": "surface_bookshop_display_table",
+      "cubes": 37,
+      "resolution": 128
+    },
+    {
+      "key": "surface_bookshop_magazine_rack",
+      "cubes": 14,
+      "resolution": 128
+    },
+    {
+      "key": "surface_bookshop_desk_lamp",
+      "cubes": 14,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_wall_shelving",
+      "cubes": 81,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_island_shelving",
+      "cubes": 116,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_drink_cooler",
+      "cubes": 69,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_hot_display",
+      "cubes": 24,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_basket_stand",
+      "cubes": 25,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_restock_cart",
+      "cubes": 17,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_oden_station",
+      "cubes": 21,
+      "resolution": 128
+    },
+    {
+      "key": "surface_store_bun_steamer",
+      "cubes": 56,
+      "resolution": 128
+    },
+    {
+      "key": "surface_street_takeaway_bag",
+      "cubes": 8,
+      "resolution": 128
+    },
+    {
+      "key": "surface_street_umbrella_stand",
+      "cubes": 34,
+      "resolution": 128
+    },
+    {
+      "key": "surface_street_waste_station",
+      "cubes": 25,
       "resolution": 128
     },
     {
@@ -12510,6 +13026,25 @@
     "mcpe_food_postal_parcel_small": 128,
     "mcpe_food_postal_parcel_medium": 128,
     "mcpe_food_postal_parcel_large": 128,
+    "mcpe_food_hotel_luggage_cart": 128,
+    "mcpe_food_hotel_housekeeping_cart": 128,
+    "mcpe_food_hotel_wall_hairdryer": 128,
+    "mcpe_food_induction_hob": 128,
+    "mcpe_food_bookshop_bookcase": 128,
+    "mcpe_food_bookshop_display_table": 128,
+    "mcpe_food_bookshop_magazine_rack": 128,
+    "mcpe_food_bookshop_desk_lamp": 128,
+    "mcpe_food_store_wall_shelving": 128,
+    "mcpe_food_store_island_shelving": 128,
+    "mcpe_food_store_drink_cooler": 128,
+    "mcpe_food_store_hot_display": 128,
+    "mcpe_food_store_basket_stand": 128,
+    "mcpe_food_store_restock_cart": 128,
+    "mcpe_food_store_oden_station": 128,
+    "mcpe_food_store_bun_steamer": 128,
+    "mcpe_food_street_takeaway_bag": 128,
+    "mcpe_food_street_umbrella_stand": 128,
+    "mcpe_food_street_waste_station": 128,
     "mcpe_food_gongfu_tea_tray": 128,
     "mcpe_food_fridge_single_rose_gold": 128,
     "mcpe_food_fridge_single_white": 128,

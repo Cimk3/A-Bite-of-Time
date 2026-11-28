@@ -16,6 +16,7 @@ function part(x,y,z,w,h,d,role=0,overrides={},rotation,pivot){
     uv:Object.fromEntries(faceNames.map(face=>[face,uv(overrides[face]??swatch(role))])),
     ...(rotation?{rotation,pivot}:{}),...(overrides.only?{faces:overrides.only}:{})};
 }
+const districtLaptopStyles=new Set(['dell','macbook_pro','air_silver','air_gray']);
 export function electronicCubes(device){
   if(device.model==='network')return lifestyleCubes(device.key);
   if(['register','scanner','receipt'].includes(device.model))return serviceCubes(device.key);
@@ -31,7 +32,9 @@ export function electronicCubes(device){
     const start=a.length;
     put(x,y,z,w,h,.5,body,{},rot,pivot).tag='lid_shell';
     // A 0.10-unit normal gap also clears the 1/8-unit staircase at oblique views.
-    put(x+.32,y+.35,z+.60,w-.64,h-.72,.025,3,{south:electronicUV.screen,only:['south']},rot,pivot).tag='screen';
+    const revised=districtLaptopStyles.has(device.style)&&device.key!=='macbook_pro_gpt_closed';
+    const margin=revised?.21:.32;
+    put(x+margin,y+(revised?.26:.35),z+.60,w-2*margin,h-(revised?.54:.72),.025,3,{south:electronicUV.screen,only:['south']},rot,pivot).tag='screen';
     if(!['macbook_pro','air_silver','air_gray'].includes(device.style))put(x+w*.48,y+h-.16,z+.66,.12,.08,.025,5,{},rot,pivot);
     put(x+w*.48,y+.08,z+.66,.11,.065,.025,13,{},rot,pivot);
     put(x+w*.34,y+h*.38,z-.10,w*.32,h*.3,.025,body,{north:electronicUV.logo,only:['north']},rot,pivot);
@@ -46,7 +49,12 @@ export function electronicCubes(device){
       feet(4,-4.8,3.1,7.1);put(4,.18,-4.8,3.1,9.5,7.1,0);
       put(4.15,.4,2.31,2.8,8.9,.12,1);put(4.5,1.3,2.44,2.1,5.9,.04,1,{south:electronicUV.vents,only:['south']});
       put(4.45,8.45,2.44,2.2,.35,.06,1,{south:electronicUV.ports,only:['south']});put(5.35,7.65,2.48,.45,.2,.05,13);
-      put(7.11,1,-4.1,.025,6.5,5.6,1,{east:electronicUV.vents,only:['east']});break;
+      put(7.11,1,-4.1,.025,6.5,5.6,1,{east:electronicUV.vents,only:['east']});
+      put(4.2,1,-4.86,2.7,7.7,.06,1);
+      put(4.55,1.5,-4.89,2,2.2,.03,2,{north:electronicUV.ports,only:['north']});
+      put(4.55,4,-4.89,2,3.9,.03,2,{north:electronicUV.vents,only:['north']});
+      put(-5.9,3.85,-4.05,1.1,.42,.38,7);
+      break;
     }
     case 'all_in_one':
       feet(-3,-4.8,6,3.6);put(-3,.17,-4.8,6,.23,3.6,7);put(-.55,.4,-4.2,1.1,3.1,.6,7);
@@ -61,6 +69,7 @@ export function electronicCubes(device){
       put(x+w+.005,.28,z+1,.025,Math.max(.13,thick-.16),5,1,{east:electronicUV.ports,only:['east']});
       if(device.pose==='closed'){
         put(x,.18+thick+.035,z,w,gaming?.5:.25,d,body);
+        if(dell)put(x+.45,.22,z+d+.013,w-.9,.12,.02,7);
         put(-1.55,.18+thick+.035+(gaming?.505:.255),-.9,3.1,.02,2.7,body,{up:electronicUV.logo,only:['up']});
       }else{
         const y=.18+thick;
@@ -74,7 +83,7 @@ export function electronicCubes(device){
         const pivot=[0,y,-4],rotation=[-20,0,0];
         const screenHeight=thinkbook?8:pro||dell?7.8:gaming?7.6:air?7.4:7.1;
         monitor(x,y,-4.18,w,screenHeight,body,rotation,pivot);
-        if(pro||air)put(-.65,y+screenHeight-.33,-3.50,1.3,.3,.035,1,{},rotation,pivot);
+        if(pro||air)put(-.65,y+screenHeight-.37,-3.50,1.3,.22,.035,1,{},rotation,pivot);
         if(thinkbook){put(x+.3,y+.02,.85,.5,.025,2.5,7,{up:electronicUV.vents,only:['up']});put(x+w-2.1,y+.02,3.4,1.6,.025,.55,7,{up:electronicUV.logo,only:['up']});}
         if(dell){put(x+.2,y+.015,.95,.5,.025,2.3,7,{up:electronicUV.vents,only:['up']});put(x+w-1.7,y+.02,2.9,1.2,.025,.55,7,{up:electronicUV.logo,only:['up']});}
         if(gaming)for(const side of[-1,1])put(side*4.2-.7,y+.015,.85,1.4,.025,2.2,1,{up:electronicUV.vents,only:['up']});
