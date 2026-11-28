@@ -53,8 +53,8 @@ test('0.9.9 appends the post office to the 0.9.7 catalog and advances the numeri
  for(const [file,body] of Object.entries(old.functions))
   if(!['build_info.mcfunction','tasting_new.mcfunction'].includes(file))assert.equal(bytes(bp+'functions/mcpe_food/'+file).toString(),body,file);
  for(const base of [bp,rp]){
-  assert.deepEqual(read(base+'manifest.json').header.version,[1,0,0]);
-  assert.equal(read(base+'mcpe_food_build.json').build,'1.0.0-release.1');
+  assert.deepEqual(read(base+'manifest.json').header.version,[1,0,1]);
+  assert.equal(read(base+'mcpe_food_build.json').build,'1.0.1-release.1');
  }
 });
 

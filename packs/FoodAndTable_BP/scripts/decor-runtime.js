@@ -1,3 +1,4 @@
+import { fixedLaptopKeys, laptopSpawnEvent } from './electronics-catalog.js';
 import { districtKeys } from './patch-100-catalog.js';
 import { patch082ById } from './patch-082-catalog.js';
 import { patch085ById, patch085MultiGrid as oldMultiGrid } from './patch-085-catalog.js';
@@ -369,7 +370,12 @@ export function adFits(r) {
 function visuals(r) { return dim(r).getEntities({ families: ['mcpe_food_display'], location: r.support, maxDistance: 8 }).filter(e => e.getDynamicProperty('mcpe_food:owner') === r.uid); }
 function visual(r, type, part, index, position, entities) {
     const existing = entities.filter(e => e.isValid && e.getDynamicProperty('mcpe_food:part') === part && e.typeId === type);
-    const found = existing.shift(), entity = found ?? dim(r).spawnEntity(type, position);
+    const fixedLaptop = type === 'mcpe_food:surface_display' && part === 'base' && r.kind === 'surface' && fixedLaptopKeys.has(r.definition.slice('mcpe_food:'.length));
+    const laptopFacing = facingFromYaw(r.yaw ?? yaw[r.direction] ?? 0);
+    const found = existing.shift();
+    const entity = found ?? (fixedLaptop
+        ? dim(r).spawnEntity(type, position, { spawnEvent: laptopSpawnEvent(index, laptopFacing) })
+        : dim(r).spawnEntity(type, position));
     if (!found)
         entities.push(entity);
     for (const duplicate of existing)
@@ -395,7 +401,7 @@ function visual(r, type, part, index, position, entities) {
     // Explicit facing is display-only: saved direction, yaw and revision stay intact.
     const explicit = !!r.wallFace || r.kind === 'digital_ad' || r.definition === id('supermarket_checkout') || patch072ById.has(r.definition) || patch073ById.has(r.definition) || patch074ById.has(r.definition) || patch080ById.has(r.definition) || patch082ById.has(r.definition) || patch085ById.has(r.definition) || patch090ById.has(r.definition) || r.kind === 'clothing_rack';
     if (type !== 'mcpe_food:advert_display' && type !== 'mcpe_food:tray_food_display') {
-        const code = explicit ? (isPanel(r) ? displayFacing(r.wallFace ?? r.direction) : facingFromYaw(r.yaw ?? yaw[r.direction] ?? 0)) : 0;
+        const code = fixedLaptop ? laptopFacing : explicit ? (isPanel(r) ? displayFacing(r.wallFace ?? r.direction) : facingFromYaw(r.yaw ?? yaw[r.direction] ?? 0)) : 0;
         if (entity.getProperty('mcpe_food:display_facing') !== code)
             entity.setProperty('mcpe_food:display_facing', code);
     }
@@ -403,6 +409,11 @@ function visual(r, type, part, index, position, entities) {
     // clockwise; east/west therefore invert the legacy block-facing table.
     // Preserve the saved direction/yaw: this is only the display transform.
     const facing = r.wallFace || r.kind === 'digital_ad' ? -(yaw[r.wallFace ?? r.direction] ?? 0) : r.yaw ?? yaw[r.direction] ?? 0;
+    if (fixedLaptop) {
+        if (!same(entity.location, position))
+            entity.teleport(position);
+        return entity;
+    }
     if (!found || !same(entity.location, position) || entity.getDynamicProperty('mcpe_food:yaw') !== facing) {
         entity.teleport(position, { rotation: { x: 0, y: facing } });
         entity.setDynamicProperty('mcpe_food:yaw', facing);

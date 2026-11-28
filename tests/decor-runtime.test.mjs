@@ -1,3 +1,5 @@
+import {fixedLaptopKeys} from '../.build/electronics-catalog.js';
+import {facingFromYaw} from '../.build/device-facing.js';
 import test,{afterEach} from 'node:test';
 import assert from 'node:assert/strict';
 import {registerHooks} from 'node:module';
@@ -174,9 +176,15 @@ test('cardinal device-front facing follows player position and remains frozen th
   for(const d of electronics.filter(d=>d.placementFront!==undefined)){
     const{dimension,player,base}=setup('minecraft:oak_slab');player.location={x:3.1,y:1,z:-1.3};player.getRotation=()=>({x:0,y:143});
     const r=await place(player,base,d.key),e=entityFor(dimension,r),normal=screenNormal(r.yaw,d.placementFront),dx=player.location.x-.5,dz=player.location.z-.5;
-    assert.equal(Math.abs(r.yaw%90),0);assert.ok((normal.x*dx+normal.z*dz)/Math.hypot(dx,dz)>=Math.SQRT1_2-1e-8);assert.equal(e.rotation.y,r.yaw);
-    player.location={x:-3,y:1,z:2};base.setPermutation({typeId:'minecraft:oak_double_slab',getAllStates:()=>({})});reconcileDecor();assert.equal(e.rotation.y,r.yaw);assert.equal(e.location.y,1);
-    e.remove();loadDecorRecords();reconcileDecor();assert.equal(entityFor(dimension,r).rotation.y,r.yaw);removeDecor(r,false);
+    const assertFacing=entity=>{
+      if(fixedLaptopKeys.has(d.key)){
+        assert.equal(entity.getProperty('mcpe_food:display_facing'),facingFromYaw(r.yaw));
+        assert.equal(entity.getRotation().y,0);
+      }else assert.equal(entity.rotation.y,r.yaw);
+    };
+    assert.equal(Math.abs(r.yaw%90),0);assert.ok((normal.x*dx+normal.z*dz)/Math.hypot(dx,dz)>=Math.SQRT1_2-1e-8);assertFacing(e);
+    player.location={x:-3,y:1,z:2};base.setPermutation({typeId:'minecraft:oak_double_slab',getAllStates:()=>({})});reconcileDecor();assertFacing(e);assert.equal(e.location.y,1);
+    e.remove();loadDecorRecords();reconcileDecor();assertFacing(entityFor(dimension,r));removeDecor(r,false);
   }
 });
 

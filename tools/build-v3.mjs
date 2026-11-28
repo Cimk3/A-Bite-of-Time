@@ -152,7 +152,7 @@ for(const d of placedSceneProps){
   block(d.key,d.zh,d.en,{hidden:true,visual:fullVisual,select:selection(cubes)});loot(d.key,[[id(d.key),1]]);
  }
  if(d.kind==='solid'){
-  const parts=split090(whole096Keys.has(d.key)||d.key==='asml_lithography'?legacy090Cubes(d.key):cubes,d.size);
+  const parts=split090(whole096Keys.has(d.key)||d.key==='asml_lithography'?legacy090Cubes(d.key):d.key==='store_drink_cooler'?districtCubes(d.key,{legacyCooler:true}):cubes,d.size);
   for(const [index,cs] of parts.entries()){
    const key=d.key+'_part_'+index;
    // A valid closed cube hidden by bone visibility avoids the empty-mesh fallback.
@@ -409,12 +409,12 @@ sheet(patch090Props.map(d=>d.key),4,'0.9.0 REAR','patch_090_rear.png',260,{});
 await import('./patch-091-previews.mjs');
 if(version==='0.9.2')await import('./patch-092-review.mjs');
 if(version==='0.9.3')await import('./patch-093-review.mjs');
-if(['0.9.5','0.9.6','0.9.7','0.9.8','0.9.9','1.0.0'].includes(version)){
+if(['0.9.5','0.9.6','0.9.7','0.9.8','0.9.9','1.0.0','1.0.1'].includes(version)){
  write(root,'docs/CATALOG.md',readFileSync(path.join(root,'docs/CATALOG.md'),'utf8')+'\n## 0.9.5 新品\n\n'+patch095Groups.map(([key,zh])=>'### '+zh+'\n\n'+patch095Items.filter(d=>d.group===key).map(d=>'- '+d.zh+' / '+id(d.key)+' / '+d.size.join('×')).join('\n')).join('\n\n')+'\n');
  if(version==='0.9.5')await import('./patch-095-review.mjs');
  if(version==='0.9.6')await import('./patch-096-review.mjs');
 }
-if(['0.9.7','0.9.8','0.9.9','1.0.0'].includes(version)){
+if(['0.9.7','0.9.8','0.9.9','1.0.0','1.0.1'].includes(version)){
  write(root,'docs/CATALOG.md',readFileSync(path.join(root,'docs/CATALOG.md'),'utf8')+'\n## 0.9.7 新品\n\n'+patch097Items.map(d=>'- '+d.zh+' / '+id(d.key)).join('\n')+'\n');
  if(['0.9.7','0.9.8'].includes(version))await import('./patch-097-review.mjs');
 }

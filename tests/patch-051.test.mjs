@@ -64,11 +64,11 @@ test('screen normals choose the nearest cardinal facing independent of look dire
   assert.ok(Number.isFinite(screenYaw('mcpe_food:macbook_open',{x:0,z:0},{x:0,z:0},37)));
 });
 
-test('all nine open laptops and both tablets have a geometric interior angle of 110 degrees',()=>{
+test('open laptops and tablets match the declared interior angle',()=>{
   const devices=electronics.filter(d=>d.openAngle);assert.equal(devices.length,11);
   for(const d of devices){
-    const cubes=electronicCubes(d);assert.ok(Math.abs(emittedLidAngle(cubes)-110)<1e-8,d.key);
-    assert.ok(cubes.filter(c=>c.tag==='screen').every(c=>!c.rotation));assert.equal(d.openAngle,110);
+    const cubes=electronicCubes(d);assert.ok(Math.abs(emittedLidAngle(cubes)-d.openAngle)<1e-8,d.key);
+    assert.ok(cubes.filter(c=>c.tag==='screen').every(c=>!c.rotation));
   }
 });
 

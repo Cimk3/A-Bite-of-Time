@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "models": [
     {
       "key": "egg_fried_rice_serving",
@@ -3154,7 +3154,7 @@
     {
       "key": "asml_lithography",
       "resolution": 128,
-      "cubes": 70,
+      "cubes": 89,
       "slots": {
         "ware": "patch090_asml_lithography"
       }
@@ -5932,7 +5932,7 @@
     {
       "key": "hotel_wall_hairdryer",
       "resolution": 128,
-      "cubes": 7,
+      "cubes": 14,
       "slots": {
         "ware": "patch100_hotel_wall_hairdryer"
       }
@@ -5940,7 +5940,7 @@
     {
       "key": "hotel_wall_hairdryer",
       "resolution": 128,
-      "cubes": 7,
+      "cubes": 14,
       "slots": {
         "ware": "patch100_hotel_wall_hairdryer"
       }
@@ -6116,7 +6116,7 @@
     {
       "key": "store_drink_cooler",
       "resolution": 128,
-      "cubes": 69,
+      "cubes": 90,
       "slots": {
         "ware": "patch100_store_drink_cooler",
         "food": "patch100_store_drink_cooler"
@@ -6489,7 +6489,7 @@
     {
       "key": "dell_laptop_open",
       "resolution": 128,
-      "cubes": 154,
+      "cubes": 20,
       "slots": {
         "ware": "device_dell_laptop_open"
       }
@@ -6505,7 +6505,7 @@
     {
       "key": "macbook_pro_gpt_open",
       "resolution": 128,
-      "cubes": 153,
+      "cubes": 17,
       "slots": {
         "ware": "device_macbook_pro_gpt_open"
       }
@@ -6521,7 +6521,7 @@
     {
       "key": "macbook_air_silver_open",
       "resolution": 128,
-      "cubes": 147,
+      "cubes": 17,
       "slots": {
         "ware": "device_macbook_air_silver_open"
       }
@@ -6529,7 +6529,7 @@
     {
       "key": "macbook_air_gray_open",
       "resolution": 128,
-      "cubes": 147,
+      "cubes": 17,
       "slots": {
         "ware": "device_macbook_air_gray_open"
       }
@@ -10390,7 +10390,7 @@
     },
     {
       "key": "surface_dell_laptop_open",
-      "cubes": 154,
+      "cubes": 20,
       "resolution": 128
     },
     {
@@ -10400,7 +10400,7 @@
     },
     {
       "key": "surface_macbook_pro_gpt_open",
-      "cubes": 153,
+      "cubes": 17,
       "resolution": 128
     },
     {
@@ -10425,12 +10425,12 @@
     },
     {
       "key": "surface_macbook_air_silver_open",
-      "cubes": 147,
+      "cubes": 17,
       "resolution": 128
     },
     {
       "key": "surface_macbook_air_gray_open",
-      "cubes": 147,
+      "cubes": 17,
       "resolution": 128
     },
     {
@@ -11285,7 +11285,7 @@
     },
     {
       "key": "surface_asml_lithography",
-      "cubes": 70,
+      "cubes": 89,
       "resolution": 128
     },
     {
@@ -11825,7 +11825,7 @@
     },
     {
       "key": "surface_hotel_wall_hairdryer",
-      "cubes": 7,
+      "cubes": 14,
       "resolution": 128
     },
     {
@@ -11865,7 +11865,7 @@
     },
     {
       "key": "surface_store_drink_cooler",
-      "cubes": 69,
+      "cubes": 90,
       "resolution": 128
     },
     {

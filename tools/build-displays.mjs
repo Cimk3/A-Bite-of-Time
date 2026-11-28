@@ -1,3 +1,4 @@
+import {fixedLaptopKeys,laptopSpawnEvent} from '../.build/electronics-catalog.js';
 import {districtKeys,districtGlassKeys} from '../.build/patch-100-catalog.js';
 import {districtCubes} from './patch-100-art.mjs';
 import {placedSceneProps} from '../.build/patch-090-catalog.js';
@@ -122,6 +123,11 @@ export function buildDisplays({root,BP,RP,json,write,icon,item,localize,modelRec
      events['mcpe_food:slot_scale']={add:{component_groups:['mcpe_food:slot_scaled']}};
     }
     if(type==='surface_display'){
+      for(const [index,entry] of surfaceVisuals.entries())if(fixedLaptopKeys.has(entry.key)){
+        for(const facing of [1,2,3,4]){
+          events[laptopSpawnEvent(index,facing)]={set_property:{'mcpe_food:index':index,'mcpe_food:display_facing':facing}};
+        }
+      }
       const groups=pastryScales.map((_,i)=>'mcpe_food:pastry_scale_'+i);
       for(const [i,group] of groups.entries()){
         shapes[group]={'minecraft:scale':{value:pastryScales[i]}};

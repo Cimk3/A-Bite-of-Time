@@ -26,7 +26,14 @@ export class FakeDimension{
     const b=new FakeBlock(typeId,location,this,states);this.blocks.set(pos(location),b);return b;
   }
   spawnItem(item,loc){const e=new FakeEntity('minecraft:item',loc,this);this.drops.push({item:item.clone(),loc,entity:e});return e;}
-  spawnEntity(type,loc){if(this.failSpawn)throw new Error('simulated display spawn failure');const e=new FakeEntity(type,loc,this);this.entities.push(e);return e;}
+  spawnEntity(type,loc,{spawnEvent}={}){
+    if(this.failSpawn)throw new Error('simulated display spawn failure');
+    const e=new FakeEntity(type,loc,this);
+    e.spawnEvent=spawnEvent;
+    const laptop=spawnEvent?.match(/^mcpe_food:laptop_(\d+)_(\d+)$/);
+    if(laptop){e.setProperty('mcpe_food:index',Number(laptop[1]));e.setProperty('mcpe_food:display_facing',Number(laptop[2]));}
+    this.entities.push(e);return e;
+  }
   getEntities(query={}){
     return this.entities.filter(e=>e.isValid&&(!query.families||query.families.some(()=>
       e.typeId.startsWith('mcpe_food:')&&e.typeId.endsWith('_display')))

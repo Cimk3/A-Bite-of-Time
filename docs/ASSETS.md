@@ -1,3 +1,7 @@
+# 1.0.1 外观修复
+
+ASML 外观参考 [TWINSCAN NXE:3800E 官方产品图](https://www.asml.com/en/products/euv-lithography-systems/twinscan-nxe-3800e)，使用独立像素 UV 和方块体表现轮廓。饮料冷柜新增背面格栅、检修面板、电源盒和铭牌。吹风机的背板贴墙，喷嘴、手柄、底座和线组保持在墙外。四款旧笔记本的屏面采用一块垂直几何。
+
 # 1.0.0 方寸街区
 
 [概念草图](../assets/concepts/100/README.md)对应四组新品及旧件精修。新品模型和纹理源在 tools/patch-100-art.mjs，分类与尺寸在 src/patch-100-catalog.ts。草图用于核对轮廓与部件。色图、图标和 MER 由项目生成器制作，未使用原版材质替换。

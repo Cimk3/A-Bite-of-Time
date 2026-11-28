@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "foods": 106,
   "displayDishes": 8,
   "hotpots": 2,
@@ -59,7 +59,7 @@
   "electronicsGroupItems": 45,
   "officeStationeryCommandItems": 9,
   "infoScreens": 2,
-  "trialBuild": "1.0.0-release.1",
+  "trialBuild": "1.0.1-release.1",
   "electronicsCommandItems": 52,
   "aiWorkDevices": 7,
   "digitalScreens": 26,
@@ -70,5 +70,5 @@
   "staticStatus": "passed",
   "gameStatus": "NOT TESTED — Windows / Android / multiplayer / Vibrant Visuals",
   "optimization": "lossless; see storage-report.json",
-  "staticChecks": 2037457
+  "staticChecks": 2028182
 }

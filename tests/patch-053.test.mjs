@@ -35,10 +35,10 @@ test('0.5.3 adds exactly seven office props and preserves every 0.5.2 display in
 test('every emitted tilted screen stays ahead of the chassis and retains continuous top-to-bottom UV rows',()=>{
   for(const d of electronics.filter(d=>d.openAngle))for(const [folder,key]of [['blocks',d.key],['entity','surface_'+d.key]]){
     const cubes=read(`${rp}/models/${folder}/mcpe_food/${key}.geo.json`)['minecraft:geometry'][0].bones.flatMap(b=>b.cubes??[]),screen=cubes.filter(screenCube).sort((a,b)=>a.origin[1]-b.origin[1]);
-    assert.ok(screen.length>30);let next=56;
+    assert.ok(d.openAngle===90?screen.length===1:screen.length>30);let next=56;
     for(const c of screen){const uv=c.uv.south;assert.ok(Math.abs(uv.uv[1]+uv.uv_size[1]-next)<1e-6,`${key}: UV seam`);next=uv.uv[1];
       if(c.uv.up){assert.equal(c.uv.up.uv_size[0],96);assert.ok(c.uv.up.uv_size[1]>0);assert.ok(Math.abs(c.uv.up.uv[1]-uv.uv[1])<1e-6,`${key}: tread samples the same screen row`);}
-      else {
+      else if(d.openAngle!==90){
         const corners=[0,1].flatMap(x=>[0,1].map(z=>[c.origin[0]+c.size[0]*x,c.origin[1]+c.size[1]+.002,c.origin[2]+c.size[2]*z]));
         assert.ok(cubes.some(other=>other!==c&&corners.every(p=>p.every((v,axis)=>v>=other.origin[axis]-.0001&&v<=other.origin[axis]+other.size[axis]+.0001))),`${key}: an omitted tread must be fully hidden, never an open hole`);
       }

@@ -30,29 +30,57 @@ export function patch090Texture(key){
   rect(im,0,0,96,3,[25,31,50,255]);
   for(let i=0;i<9;i++)rect(im,22+i*6,42,4,4,[66+i*15,176-i*7,195,255]);
  }
+ if(key==='asml_lithography'){
+  rect(im,0,0,96,48,[227,230,226,255]);
+  rect(im,1,1,21,3,[82,94,106,255]);rect(im,3,7,7,6,[70,139,105,255]);
+  for(let row=0;row<4;row++)rect(im,12,7+row*3,9,1,[117,129,139,255]);
+  text(im,'ASML',27,2,1,[24,55,102,255]);
+  rect(im,60,1,4,3,[166,69,52,255]);rect(im,60,6,4,3,[61,138,88,255]);rect(im,60,11,4,3,[63,98,154,255]);
+ }
  const lit=/monitor|computer|terminal|register|laptop|m5|console|espresso/.test(key);
  if(lit)rect(mer,0,0,96,48,[0,12,70,255]);
  return {width:128,height:128,pixels:im.data,png:png(128,128,im.data),mer:png(128,128,mer.data)};
 }
 export function patch090Cubes(key){
  if(refreshed096Keys.has(key))return patch096Cubes(key);
- const original=legacy090Cubes(key);
- if(key!=='asml_lithography')return original;
- const structure=original.slice(0,5);
- const add=(x,y,z,w,h,d,color)=>structure.push({origin:[x,y,z],size:[w,h,d],color,material:'ware',
-   uv:Object.fromEntries(faces.map(face=>[face,{uv:[102,color*10+1],uv_size:[16,6],material_instance:'ware'}]))});
- add(-28,16,-29,58,34,11,0);
- for(let i=0;i<6;i++){
-   const x=-45+i*15;
-   add(x,3,-30.8,13,54,.8,0);
-   add(x+.12,27,-31.08,12.76,1.5,.28,7);
-   add(x+10,30,-31.08,.76,4.2,.28,2);
-   add(x,7,31,13,44,.33,2);
-   add(x+.34,7.5,31.33,12.3,43,.25,0);
-   for(let vent=0;vent<5;vent++)add(x+2,11+vent*1.15,31.58,9,.22,.15,1);
+ if(key!=='asml_lithography')return legacy090Cubes(key);
+ // Reference: ASML's closed TWINSCAN NXE:3800E product photo.
+ // The front has two cabinet heights for the horizontal seam, a recessed
+ // loading bay, unequal console positions and a dark plinth.
+ const structure=[];
+ const add=(x,y,z,w,h,d,color,front)=>{
+  const uv=Object.fromEntries(faces.map(face=>[face,{uv:[102,color*10+1],uv_size:[16,6],material_instance:'ware'}]));
+  if(front)uv.north={uv:front.slice(0,2),uv_size:front.slice(2),material_instance:'ware'};
+  structure.push({origin:[x,y,z],size:[w,h,d],color,material:'ware',uv});
+ };
+ add(-47.5,0,-31,95,2.3,62.2,1);
+ add(-46.8,2.3,-23.7,93.6,44.2,53.1,1);
+ add(-46.9,46.5,-26.5,93.8,.77,56.6,0);
+ const divisions=[-46.9,-41,-34,-27,-20.1,-13.2,-6.3,.6,7.5,14.4,21.3,28.2,39.5,46.9];
+ for(const [i,x] of divisions.slice(0,-1).entries()){
+  const w=divisions[i+1]-x-.22,seam=i<5?31.6:23.8;
+  add(x+.11,2.3,-29.7,w,seam-2.43,6.1,0);
+  if(i===11){
+   // Loader surround and two dark openings, set back from the main front.
+   add(x+.11,seam+.2,-26.7,w,13.9,3.1,0);
+   add(x+.11,seam+.2,-30,w,1.05,3.3,2);
+   add(x+.11,39.4,-29.4,w,7.6,5.8,0);
+   for(const xx of [x+1.3,x+6.1])add(xx,seam+1.32,-27,3.6,3.3,.35,1);
+  }else add(x+.11,seam+.13,-29.7,w,46.85-seam,6.1,0);
+  if(i%2===1&&i!==11)add(x+w-.74,19,-29.89,.3,1.65,.19,2);
+  add(x+.11,3.1,29.4,w,42.9,1.7,0);
+  if(i%3===0)for(let j=0;j<4;j++)add(x+.58,5+j*1.12,31.1,w-.86,.31,.32,1);
  }
- add(-15,32,-31.4,9,7,.6,2);add(-14.4,32.6,-31.433,7.8,5.8,.035,7);
- add(-43,61,12,2,2.6,2,1);add(-42.9,63.6,12.1,1.8,.38,1.8,5);
+ for(const [x,w,y,h] of [[-28.5,4.8,15,8.2],[11.9,6.9,15.5,10.2]]){
+   add(x,y,-30.2,w,h,.53,1);
+   add(x+.5,y+h*.36,-30.31,w-1,h*.57,.11,2,[0,0,23,23]);
+ }
+ add(11.6,41.25,-29.82,7.2,2.2,.12,0,[25,0,30,12]);
+ add(12.4,37.3,-29.87,1.1,2.2,.17,2,[58,0,8,15]);
+ for(const x of [-46.9,45.99]){
+   add(x,2.3,-23.5,.91,44.1,53.6,0);
+   for(let i=0;i<5;i++)add(x<0?x-.18:x+.91,8+i*1.9,-16,.18,.59,9,1);
+ }
  return structure;
 }
 export function legacy090Cubes(key){

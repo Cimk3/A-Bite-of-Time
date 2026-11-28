@@ -402,3 +402,23 @@ test('new wall hairdryer mounts on full wall support and recovers its saved faci
  removeDecor(r,false);
  assert.equal(dimension.getEntities().length,0);
 });
+
+test('refined laptops are spawned with their final appearance and never receive a placement body rotation',async()=>{
+ const viewers=[{x:.5,y:1,z:-2.5},{x:3.5,y:1,z:.5},{x:.5,y:1,z:3.5},{x:-2.5,y:1,z:.5}];
+ for(const key of ['dell_laptop_open','macbook_pro_gpt_open','macbook_air_silver_open','macbook_air_gray_open']){
+  const facings=new Set();
+  for(const position of viewers){
+   const {dimension,player}=setup();player.location=position;
+   await place(player,dimension.put('minecraft:stone',{x:0,y:0,z:0}),key);
+   const [entity]=dimension.getEntities();
+   const facing=entity.getProperty('mcpe_food:display_facing');
+   assert.equal(entity.spawnEvent,`mcpe_food:laptop_${entity.getProperty('mcpe_food:index')}_${facing}`);
+   assert.equal(entity.getRotation().y,0);
+   facings.add(facing);
+   loadDecorRecords();flush();reconcileDecor();
+   assert.equal(entity.getProperty('mcpe_food:display_facing'),facing);
+   assert.equal(entity.getRotation().y,0);
+  }
+  assert.equal(facings.size,4,key);
+ }
+});

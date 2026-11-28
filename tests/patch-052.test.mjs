@@ -7,14 +7,16 @@ import {emittedLidAngle} from '../tools/device-geometry.mjs';
 import {cardinalYaw,screenYaw,screenNormal} from '../.build/device-facing.js';
 const bp='packs/FoodAndTable_BP',rp='packs/FoodAndTable_RP',read=p=>JSON.parse(readFileSync(p,'utf8'));
 
-test('shipped block and entity lids have backward coordinates and no native cube rotation',()=>{
+test('shipped lids use one upright panel or the original backward mesh without native cube rotation',()=>{
   for(const d of electronics.filter(d=>d.openAngle))for(const [folder,key]of [['blocks',d.key],['entity','surface_'+d.key]]){
     const geo=read(`${rp}/models/${folder}/mcpe_food/${key}.geo.json`)['minecraft:geometry'][0],cubes=geo.bones.flatMap(b=>b.cubes??[]);
     const screen=cubes.filter(c=>c.uv.south?.uv_size[0]===96&&c.uv.south.uv[0]===0&&c.uv.south.uv[1]<56).sort((a,b)=>a.origin[1]-b.origin[1]);
-    assert.ok(screen.length>30,d.key);assert.ok(screen.every(c=>!c.rotation),`${key}: avoid engine Euler rotation interpretation`);
-    const low=screen[Math.floor(screen.length*.15)],high=screen[Math.floor(screen.length*.85)];
-    assert.ok(high.origin[2]+high.size[2]/2<low.origin[2]+low.size[2]/2,`${key}: upper edge must lean AWAY from keyboard front (+Z)`);
-    assert.ok(Math.abs(emittedLidAngle(cubes)-110)<1e-7,`${key}: emitted coordinates measure 110 degrees`);
+    assert.ok(d.openAngle===90?screen.length===1:screen.length>30,d.key);assert.ok(screen.every(c=>!c.rotation),`${key}: avoid engine Euler rotation interpretation`);
+    if(d.openAngle===110){
+      const low=screen[Math.floor(screen.length*.15)],high=screen[Math.floor(screen.length*.85)];
+      assert.ok(high.origin[2]+high.size[2]/2<low.origin[2]+low.size[2]/2,key);
+    }
+    assert.ok(Math.abs(emittedLidAngle(cubes)-d.openAngle)<1e-7,`${key}: emitted coordinates match the declared angle`);
     assert.ok(cubes.length<=256);for(const c of cubes)assert.ok(c.size.every(x=>x>0&&Number.isFinite(x)));
   }
 });

@@ -1779,7 +1779,7 @@
     },
     {
       "key": "surface_dell_laptop_open",
-      "cubes": 154,
+      "cubes": 20,
       "resolution": 128
     },
     {
@@ -1789,7 +1789,7 @@
     },
     {
       "key": "surface_macbook_pro_gpt_open",
-      "cubes": 153,
+      "cubes": 17,
       "resolution": 128
     },
     {
@@ -1814,12 +1814,12 @@
     },
     {
       "key": "surface_macbook_air_silver_open",
-      "cubes": 147,
+      "cubes": 17,
       "resolution": 128
     },
     {
       "key": "surface_macbook_air_gray_open",
-      "cubes": 147,
+      "cubes": 17,
       "resolution": 128
     },
     {
@@ -3164,7 +3164,7 @@
     },
     {
       "key": "surface_asml_lithography",
-      "cubes": 70,
+      "cubes": 89,
       "resolution": 128
     },
     {
@@ -3704,7 +3704,7 @@
     },
     {
       "key": "surface_hotel_wall_hairdryer",
-      "cubes": 7,
+      "cubes": 14,
       "resolution": 128
     },
     {
@@ -3744,7 +3744,7 @@
     },
     {
       "key": "surface_store_drink_cooler",
-      "cubes": 69,
+      "cubes": 90,
       "resolution": 128
     },
     {

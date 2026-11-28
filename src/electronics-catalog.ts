@@ -33,9 +33,11 @@ export const officeElectronics = [
   {key:'mac_studio_set',zh:'Mac Studio 桌面套装',en:'Mac Studio Desktop Set',model:'studio',style:'studio',pose:'fixed'},
   {key:'surface_pro_keyboard',zh:'Surface Pro 键盘套装',en:'Surface Pro with Keyboard',model:'surface',style:'surface',pose:'fixed'}
 ] as const;
+export const fixedLaptopKeys=new Set(['dell_laptop_open','macbook_pro_gpt_open','macbook_air_silver_open','macbook_air_gray_open']);
+export const laptopSpawnEvent=(index:number,facing:number)=>`mcpe_food:laptop_${index}_${facing}`;
 export const electronics = [...originalElectronics,...newElectronics,...officeElectronics,...serviceElectronics,...networkElectronics].map(d=>({...d,
   placementFront:['keyboard'].includes(d.model)||(d.model==='laptop'&&d.pose==='closed')?undefined:180,
   screenFront:((d.model==='laptop'&&d.pose==='open')||(d.model==='network'&&['phone','ups'].includes(d.style))||['desktop','all_in_one','tablet','crt','studio','surface'].includes(d.model))?180:0,
-  openAngle:(d.model==='laptop'&&d.pose==='open')||['tablet','surface'].includes(d.model)?110:undefined
+  openAngle:(d.model==='laptop'&&d.pose==='open')||['tablet','surface'].includes(d.model)?(fixedLaptopKeys.has(d.key)?90:110):undefined
 }));
 export const electronicsById = new Map<string,typeof electronics[number]>(electronics.map(d=>[`mcpe_food:${d.key}`,d]));

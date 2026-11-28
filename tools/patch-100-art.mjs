@@ -1,3 +1,4 @@
+import {wallFacingCubes} from './wall-geometry.mjs';
 import {canvas,png,rect} from './art.mjs';
 
 const palette=[
@@ -38,7 +39,7 @@ export function districtTexture(key){
  return {width:128,height:128,pixels:color.data,png:png(128,128,color.data),mer:png(128,128,mer.data)};
 }
 
-export function districtCubes(key){
+export function districtCubes(key,{legacyCooler=false}={}){
  const cubes=[];
  const put=(x,y,z,w,h,d,c,face,graphic)=>{
   const material=c===13?'food':'ware';
@@ -87,10 +88,18 @@ export function districtCubes(key){
   break;
  }
  case 'hotel_wall_hairdryer':
-  put(-5,2,4.7,10,9,1,3);put(-1.1,5.6,1.7,2.2,5.4,3.2,14);
-  put(-4.7,9,1,9.5,3.9,4.7,14);put(-3.9,9.75,.45,3.4,2.4,.55,0);
-  for(const x of [-1.44,2.75])put(x,2.15,2, .52,3.45,.52,0);
-  put(-1.44,1.63,2,4.71,.52,.52,0);break;
+  // Authored with +Z outward, then converted to the shared wall basis.
+  put(-4.65,2.1,4.7,9.3,9.7,1,3);
+  put(-1.1,4.8,1.85,2.15,5.4,2.85,14);
+  put(-4.5,9,1.25,8.8,3.45,4.45,14);
+  put(-5.06,9.36,1.71,.56,2.65,3.46,1);
+  for(let i=0;i<4;i++)put(-5.22,9.65+i*.53,2.04,.16,.21,2.79,0);
+  put(2.45,6.2,2.1,1.85,2.8,2.6,2);
+  put(-.86,2.28,2.73,.56,2.52,.54,0);
+  put(3.07,2.34,2.75,.53,3.86,.53,0);
+  put(-.86,1.74,2.72,4.46,.57,.56,0);
+  for(const [x,y] of [[-.86,2.14],[3.08,2.12]])put(x,y,2.53,.54,.31,.29,1);
+  break;
  case 'induction_hob':
   put(-6.6,.22,-6.55,13.2,.98,13.1,0,'up',uv(0,0,48,48));
   for(const x of [-6.1,5.1])for(const z of [-5.9,4.9])put(x,0,z,1,.22,1,1);
@@ -148,7 +157,20 @@ export function districtCubes(key){
   }
   glass(-6,4.4,-6.65,12,25.6);
   for(const x of [-6.5,5.8])put(x,4.35,-6.95,.7,25.9,.55,0);
-  put(4.78,12,-7.2,.56,5.4,.6,2);break;
+  put(4.78,12,-7.2,.56,5.4,.6,2);
+  if(!legacyCooler){
+   put(-5.95,1.35,6.5,11.9,7.6,.38,1);
+   put(-5.45,2,6.88,10.9,4.21,.27,0);
+   for(let i=0;i<7;i++)put(-5.06,2.25+i*.49,7.15,10.12,.21,.18,2);
+   put(-5.3,9.8,6.5,10.6,17.5,.22,2);
+   for(const y of [10.3,26.42])for(const x of [-4.92,4.52])put(x,y,6.72,.4,.36,.13,1);
+   put(-4.21,23.2,6.72,4.8,2.65,.09,14);
+   for(let i=0;i<3;i++)put(-3.9,23.63+i*.52,6.81,3.85-i*.41,.13,.05,1);
+   put(3.35,6.65,6.88,1.99,1.27,.39,0);
+   put(4,6.01,7.22,.38,.64,.41,1);
+   put(4,4.67,7.35,.38,1.34,.28,0);
+  }
+  break;
  case 'store_hot_display':
   put(-7.6,0,-6.7,15.2,2.6,13.4,1);
   put(-7.2,1,-6.9,14.4,.65,.2,7);
@@ -215,5 +237,5 @@ export function districtCubes(key){
   });break;
  default: throw new Error('Unknown district model '+key);
  }
- return cubes;
+ return key==='hotel_wall_hairdryer'?wallFacingCubes(cubes):cubes;
 }

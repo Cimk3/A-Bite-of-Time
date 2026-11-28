@@ -1,3 +1,4 @@
+import {fixedLaptopKeys} from '../.build/electronics-catalog.js';
 /** Original 128px UV atlases and modeled electronics; units are sixteenths of a block. */
 import {lifestyleCubes,lifestyleTexture} from './lifestyle-art.mjs';
 import {serviceCubes,serviceTexture} from './service-art.mjs';
@@ -16,7 +17,6 @@ function part(x,y,z,w,h,d,role=0,overrides={},rotation,pivot){
     uv:Object.fromEntries(faceNames.map(face=>[face,uv(overrides[face]??swatch(role))])),
     ...(rotation?{rotation,pivot}:{}),...(overrides.only?{faces:overrides.only}:{})};
 }
-const districtLaptopStyles=new Set(['dell','macbook_pro','air_silver','air_gray']);
 export function electronicCubes(device){
   if(device.model==='network')return lifestyleCubes(device.key);
   if(['register','scanner','receipt'].includes(device.model))return serviceCubes(device.key);
@@ -32,7 +32,7 @@ export function electronicCubes(device){
     const start=a.length;
     put(x,y,z,w,h,.5,body,{},rot,pivot).tag='lid_shell';
     // A 0.10-unit normal gap also clears the 1/8-unit staircase at oblique views.
-    const revised=districtLaptopStyles.has(device.style)&&device.key!=='macbook_pro_gpt_closed';
+    const revised=fixedLaptopKeys.has(device.key);
     const margin=revised?.21:.32;
     put(x+margin,y+(revised?.26:.35),z+.60,w-2*margin,h-(revised?.54:.72),.025,3,{south:electronicUV.screen,only:['south']},rot,pivot).tag='screen';
     if(!['macbook_pro','air_silver','air_gray'].includes(device.style))put(x+w*.48,y+h-.16,z+.66,.12,.08,.025,5,{},rot,pivot);
@@ -80,10 +80,12 @@ export function electronicCubes(device){
           for(let i=0;i<3;i++)put(-1.65+i*1.12,y+.05,.67,1.02,.06,.28,i===0?6:2);
         }
         for(const side of[-1,1])put(side*3.8-.5,y-.03,-4.1,1,air?.30:.33,.5,body);
-        const pivot=[0,y,-4],rotation=[-20,0,0];
-        const screenHeight=thinkbook?8:pro||dell?7.8:gaming?7.6:air?7.4:7.1;
+        const pivot=[0,y,-4],rotation=device.openAngle===90?undefined:[-20,0,0];
+        // Preserve legacy block selection bounds when the top edge stands upright.
+        const screenHeight=device.openAngle===90?(dell?7.49:pro?7.53:7.16)
+          :thinkbook?8:pro||dell?7.8:gaming?7.6:air?7.4:7.1;
         monitor(x,y,-4.18,w,screenHeight,body,rotation,pivot);
-        if(pro||air)put(-.65,y+screenHeight-.37,-3.50,1.3,.22,.035,1,{},rotation,pivot);
+        if((pro||air)&&device.openAngle!==90)put(-.65,y+screenHeight-.37,-3.50,1.3,.22,.035,1,{},rotation,pivot);
         if(thinkbook){put(x+.3,y+.02,.85,.5,.025,2.5,7,{up:electronicUV.vents,only:['up']});put(x+w-2.1,y+.02,3.4,1.6,.025,.55,7,{up:electronicUV.logo,only:['up']});}
         if(dell){put(x+.2,y+.015,.95,.5,.025,2.3,7,{up:electronicUV.vents,only:['up']});put(x+w-1.7,y+.02,2.9,1.2,.025,.55,7,{up:electronicUV.logo,only:['up']});}
         if(gaming)for(const side of[-1,1])put(side*4.2-.7,y+.015,.85,1.4,.025,2.2,1,{up:electronicUV.vents,only:['up']});
@@ -311,6 +313,25 @@ export function electronicTexture(device){
     rect(color,10,6,79,41,[233,233,242,255]);rect(color,10,6,79,6,[106,78,160,255]);text(color,'NOTES',33,6,1,[244,244,250,255]);
     rect(color,11,13,17,33,[204,196,225,255]);for(let i=0;i<5;i++)rect(color,13,17+i*5,12,2,[139,125,164,255]);
     text(color,'IDEAS',33,16,1,[75,67,96,255]);for(let i=0;i<6;i++)rect(color,33,24+i*3,43-(i%3)*7,1,[113,124,143,255]);
+  }
+  if(fixedLaptopKeys.has(device.key)){
+    // One continuous image on the upright screen. Leave the case and keyboard UVs alone.
+    rect(color,0,0,96,56,[25,39,60,255]);
+    if(device.style==='macbook_pro'){
+      rect(color,13,8,70,40,[44,52,67,255]);
+      rect(color,13,8,70,4,[60,72,93,255]);
+      rect(color,21,18,32,6,[72,90,114,255]);
+      rect(color,42,29,32,6,[70,110,107,255]);
+      rect(color,23,41,50,2,[113,128,147,255]);
+    }else{
+      for(let y=0;y<50;y++){
+        const edge=Math.round(29+12*Math.sin(y/12));
+        rect(color,0,y,edge,1,[38,62,89,255]);
+        rect(color,edge,y,96-edge,1,[45,78,108,255]);
+      }
+      rect(color,0,51,96,5,[20,32,49,255]);
+      for(const x of [39,46,53])rect(color,x,52,3,2,[153,181,204,255]);
+    }
   }
   return {width:128,height:128,pixels:color.data,png:png(128,128,color.data),mer:png(128,128,mer.data),merPixels:mer.data};
 }
